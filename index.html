@@ -110,7 +110,9 @@ input.t:focus{border-color:var(--gold);outline:none}
 .clock.mine{border-color:transparent;background:linear-gradient(135deg,var(--sun-soft),var(--gold-soft));box-shadow:0 0 0 3px var(--gold)}
 .clock.mine .who{color:var(--ink)}
 .clock .who{font-family:var(--display);font-size:24px}
-.snake{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.snake{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+@media (hover:none){.snake::-webkit-scrollbar{display:none}}
+@media (hover:hover){.snake{scrollbar-width:thin}}
 .snake .s{flex:none;font-size:12px;padding:5px 9px;border-radius:99px;border:1.5px solid var(--line);white-space:nowrap;display:flex;gap:6px;align-items:center}
 .snake .s.now{background:var(--ink);color:var(--sky);border-color:var(--ink)}
 .snake .s.turn{border-style:dashed}
@@ -194,12 +196,14 @@ textarea.share{width:100%;min-height:150px;font-family:var(--mono);font-size:13p
 .crewchip b{font-size:15px}.crewchip .mono{font-size:10px;letter-spacing:.1em;opacity:.6}
 .links{display:flex;flex-direction:column;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
 .lrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 16px;background:transparent;border:0;border-top:1px solid var(--line);text-align:left;cursor:pointer;font-size:15px;min-height:48px}
-.lrow:first-child{border-top:0}.lrow .muted{font-size:13px}
+.lrow:first-child{border-top:0}
+.tap{cursor:pointer}
+.rk{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--muted)}
+.rcard .head{padding-bottom:10px}.lrow .muted{font-size:13px}
 .rxrow{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px;font-weight:600}
 .rx{display:inline-flex;align-items:center;gap:3px;min-height:28px;padding:2px 8px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);font-size:13px;cursor:pointer;line-height:1}
 .rx span{font-family:var(--mono);font-size:11px;color:var(--muted)}
 .rx.on{border-color:var(--gold);background:var(--gold-soft)}
-.rx.add{color:var(--muted);font-weight:800;min-width:30px;justify-content:center}
 .rx[disabled]{cursor:default}
 .rxbar{display:inline-flex;flex-wrap:wrap;max-width:100%;gap:2px;padding:2px;border-radius:16px;background:var(--ink)}
 .rxbar button{border:0;background:transparent;font-size:18px;width:32px;height:32px;border-radius:99px;cursor:pointer;padding:0}
@@ -210,9 +214,8 @@ textarea.share{width:100%;min-height:150px;font-family:var(--mono);font-size:13p
 .arch ol{margin:0;padding-left:26px;columns:2;column-gap:28px}
 @media (max-width:480px){.arch ol{columns:1}}
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-@media (max-width:420px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:0}
-.stat b{display:block;font-family:var(--display);font-weight:400;font-size:28px;line-height:1.1}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0}
+.stat b{display:block;font-family:var(--display);font-weight:400;font-size:24px;line-height:1.1}
 .stat span{font-size:12px;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -1076,7 +1079,7 @@ function setName(n){ store.set("mr.name"+(SEAT?"."+SEAT:""),n); pushProfile("nam
    by time, so every phone reads the same order and folds it into the same game state.
    crewRounds/<crew>/<day>/<n> lists the rounds opened that day. Nothing expires. */
 const roundKey = (g,day,n) => `${g}-${day}-${n}`;
-const S = {group:null, day:0, round:0, code:null, events:[], ids:[], conn:"idle", synced:false, busy:false, err:"", draft:"", sugIdx:0, myOrder:null, lastPickCount:0, auto:{}, next:null, probing:false, unsubRound:null, unsubDay:null};
+const S = {open:{}, group:null, day:0, round:0, code:null, events:[], ids:[], conn:"idle", synced:false, busy:false, err:"", draft:"", sugIdx:0, myOrder:null, lastPickCount:0, auto:{}, next:null, probing:false, unsubRound:null, unsubDay:null};
 function stopSync(){ if(S.unsubRound){ S.unsubRound(); S.unsubRound=null; } if(S.unsubDay){ S.unsubDay(); S.unsubDay=null; } }
 async function connect(n){
   const gen = S.gen = (S.gen||0)+1;
@@ -1226,9 +1229,8 @@ function reactRow(s, p, me){
     const mine = p.re[r].includes(me), names = p.re[r].map(s.name).join(", ");
     return `<button class="rx${mine?" on":""}" data-act="react" data-n="${gi}" data-e="${r}" title="${esc(names)}" ${member && p.pid!==me?"":"disabled"}>${r}<span>${p.re[r].length}</span></button>`;
   }).join("");
-  const add = member && p.pid!==me ? `<button class="rx add" data-act="rxopen" data-n="${gi}" aria-label="React to ${esc(p.label)}" aria-expanded="${S.rxOpen===gi}">+</button>` : "";
   const bar = S.rxOpen===gi ? `<span class="rxbar">${REACTS.map(r=>`<button data-act="react" data-n="${gi}" data-e="${r}" aria-label="React ${r}">${r}</button>`).join("")}</span>` : "";
-  return chips||add ? `<span class="rxrow">${chips}${add}${bar}</span>` : "";
+  return chips||bar ? `<span class="rxrow">${chips}${bar}</span>` : "";
 }
 function onClock(s,n){ const P=s.seats.length, r=Math.floor(n/P), pos=n%P; return s.seats[r%2===0?pos:P-1-pos]; }
 function picksOf(s,pid){ return s.picks.filter(p=>p.pid===pid); }
@@ -1279,7 +1281,7 @@ async function shareOrCopy(text, title, url){
   if(navigator.share){ try{ await navigator.share(url?{title,text,url}:{title,text}); return; }catch(e){ if(e && e.name==="AbortError") return; } }
   const full = url ? text+"\n"+url : text;
   try{ await navigator.clipboard.writeText(full); toast("Copied to clipboard"); }
-  catch{ const ta=$("#sharebox"); if(ta){ ta.hidden=false; ta.value=full; ta.select(); toast("Select all and copy"); } }
+  catch{ const ta=$("#sharebox"); if(ta){ ta.hidden=false; ta.value=full; ta.select(); toast("Select all and copy"); } else { S.pic={text:full}; render(); } }
 }
 function initials(label){ const w=label.replace(/^the\s+/i,"").split(/[\s-]+/).filter(x=>/[A-Za-z0-9]/.test(x)); return ((w[0]||"?")[0]+(w.length>1?w[w.length-1][0]:(w[0]||"")[1]||"")).toUpperCase(); }
 const roundLabel = n => n<=1 ? "Daily topic" : "Bonus round "+(n-1);
@@ -1316,7 +1318,6 @@ function homeView(){
   const crews = store.get("mr.crews",[]);
   const st=store.get(soloKey(n),null), soloDone=st&&st.locked;
   const soloScore=soloDone?scoreFaces(st.order.map(i=>st.picks[i])).total:0;
-  const link=(act,label,sub)=>`<button class="lrow" data-act="${act}"><span><b>${label}</b>${sub?`<span class="muted"> · ${sub}</span>`:""}</span><span aria-hidden="true">&rsaquo;</span></button>`;
   return `
   <div class="top">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap"><span class="conn">#${n}</span>${helpBtn()}</div></div>
   <div class="stack">
@@ -1343,23 +1344,13 @@ function homeView(){
       <div class="crewrow">${crews.map(c=>`<button class="crewchip" data-act="opencrew" data-g="${esc(c.g)}"><b>${esc(crewName(c.g)||c.g)}</b>${crewName(c.g)?`<span class="mono">${esc(c.g)}</span>`:""}</button>`).join("")}</div></section>`:""}
 
     <nav class="links" aria-label="More">
-      ${!isStandalone() && !store.get("mr.installHide",false) ? link("igopen","Get the app","add to your Home Screen") : ""}
-      ${typeof firebase!=="undefined" ? (ACCT.user ? link("signout","Signed in", esc(ACCT.user.email||"Google")+" · sign out") : link("signin","Sync your devices","sign in with Google")) : ""}
-      ${alertsSupported()||isIOS() ? (alertsOn() ? link("alertsoff","Turn alerts on/off","on · tap to turn off") : link("alertson","Turn on turn alerts","get pinged when it's your pick")) : ""}
-      ${link("stats","Your stats", streak()?streak()+"-day streak":"")}
-      ${link("archive","Past topics","full lists and how you did")}
-      ${link("suggest","Suggest a topic","")}
-      ${link("help","How to play","")}
-      ${link("scoring","How scoring works","")}
+      ${lrow("me","You", streak()?streak()+"-day streak · stats, past topics, settings":"stats, past topics, settings")}
     </nav>
-    ${S.showSuggest?`<section class="card stack" style="gap:10px"><div><div class="eyebrow">Suggestion box</div><div class="muted" style="font-size:13px">What should people argue about next? Best ones get added.</div></div>
-      <div class="row" style="gap:8px;flex-wrap:nowrap"><input class="t" id="suggest" maxlength="80" placeholder="e.g. Breakfast cereals" autocomplete="off"><button class="btn gold" data-act="suggestsend">Send</button></div></section>`:""}
-    ${S.showScoring?`<section class="card stack" style="font-size:14px;gap:8px">
-        <div>Each face scores <b>100</b> if it's consensus #1, dropping 3 per spot to <b>31</b> at #24. Anything off the board is a write-in worth <b>${WRITE_IN}</b>.</div>
-        <div><b>+15 exact match</b> when your spot number equals the pick's consensus rank (consensus #2 in your #2 Jefferson spot). <b>+10 right order</b> when a pick sits in the right place compared with your other three. A perfect mountain scores 482.</div>
-        <div class="muted">The consensus board is an editor's ranking built from popular all-time lists. Argue with it in the group chat.</div></section>`:""}
   </div>`;
 }
+const lrow=(act,label,sub)=>`<button class="lrow" data-act="${act}"><span><b>${label}</b>${sub?`<span class="muted"> · ${sub}</span>`:""}</span><span aria-hidden="true">&rsaquo;</span></button>`;
+/* A collapsible section that stays open across redraws (other players' moves redraw the page). */
+function fold2(id, summary, body){ return `<details class="cons" ${S.open[id]?"open":""}><summary data-act="tog" data-id="${id}">${summary}</summary>${S.open[id]?body:""}</details>`; }
 function roomView(){
   const head = `<div class="top compact">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap;min-width:0">${connBadge()}${helpBtn()}${homeBtn()}</div></div>`;
   if(S.probing || !S.code) return head+`<div class="card"><h2 class="display" style="font-size:24px">Finding today's game…</h2></div>`;
@@ -1384,23 +1375,20 @@ function nameBox(h, sub){
     <button class="btn gold block" data-act="join" ${S.busy?"disabled":""}>Join</button><div class="err">${esc(S.err)}</div></div>`;
 }
 function inviteCard(){
-  const url = crewURL(S.group);
-  return `<section class="card stack">
-      ${crewNameRow()}
-      ${crewSettingsRow()}
-      <span class="eyebrow">Crew invite · same link every day</span>
-      <div class="invite"><span class="code">${esc(S.group)}</span><span class="linkbox" title="${esc(url)}">${esc(url)}</span></div>
-      <div class="row"><button class="btn ghost small" data-act="invite">Share invite</button><button class="btn ghost small" data-act="copylink">Copy link</button></div>
+  return `<section class="card row" style="justify-content:space-between;gap:10px">
+      <div><div class="eyebrow">Invite · same link every day</div><span class="code" style="display:inline-block;margin-top:6px">${esc(S.group)}</span></div>
+      <button class="btn gold" data-act="invite">Share invite</button>
       <textarea class="share" id="sharebox" hidden aria-label="Copy this text"></textarea>
     </section>`;
 }
-function recordCard(){
-  const rec = crewRecord(S.group); if(!rec.length) return "";
-  return `<section class="card stack" style="gap:8px"><span class="eyebrow">Crew record · ${crewHistory(S.group).length} game${crewHistory(S.group).length===1?"":"s"}</span>
-    <table class="faces" style="margin:0 -16px;width:calc(100% + 32px)"><tbody>
-    <tr><td class="sub">Player</td><td class="sub pts">Wins</td><td class="sub pts">Avg</td></tr>
+function crewPanel(){
+  const rec = crewRecord(S.group), games=crewHistory(S.group).length;
+  const table = rec.length ? `<table class="faces" style="margin:4px -16px 0;width:calc(100% + 32px)"><tbody>
+    <tr><td class="sub">Record · ${games} game${games===1?"":"s"}</td><td class="sub pts">Wins</td><td class="sub pts">Avg</td></tr>
     ${rec.map(r=>`<tr><td class="fn">${esc(r.name)}${r.pid===myPid()?" (you)":""}</td><td class="pts">${r.wins}</td><td class="pts">${r.avg}</td></tr>`).join("")}
-    </tbody></table></section>`;
+    </tbody></table>` : "";
+  return fold2("crew", `Crew · ${esc(crewName(S.group)||S.group)}`, `<div class="stack" style="gap:12px;margin-top:12px">${crewNameRow()}${crewSettingsRow()}
+    <div class="row" style="justify-content:space-between;gap:8px"><span class="mono muted" style="font-size:13px">Code ${esc(S.group)}</span><button class="btn ghost small" data-act="invite">Share invite</button></div>${table}</div>`);
 }
 
 function lobbyView(s,me,member){
@@ -1427,8 +1415,7 @@ function lobbyView(s,me,member){
     ${alone?inviteCard():""}
     <section class="stack" style="gap:8px"><span class="eyebrow">Players · ${s.players.length} of 4</span><div class="plist">${slots}</div></section>
     ${ctl}
-    ${alone?"":inviteCard()}
-    ${recordCard()}
+    ${crewPanel()}
   </div>`;
 }
 
@@ -1450,7 +1437,8 @@ function draftView(s,me,member){
     const slots=[0,1,2,3].map(i=>{
       const p=ps[i]; if(!p) return `<div class="slot empty"><span class="i">${i+1}</span>—</div>`;
       const gi = s.picks.indexOf(p);
-      return `<div class="slot ${gi===fresh?"fresh":""}"><span class="i">${i+1}</span><span class="l">${esc(p.label)}${p.auto?` <span class="tag">auto</span>`:""}${reactRow(s,p,me)}</span></div>`;
+      const tap = member && p.pid!==me;
+      return `<div class="slot ${gi===fresh?"fresh":""}${tap?" tap":""}"${tap?` data-act="rxopen" data-n="${gi}" tabindex="0" role="button" aria-label="React to ${esc(p.label)}"`:""}><span class="i">${i+1}</span><span class="l">${esc(p.label)}${p.auto?` <span class="tag">auto</span>`:""}${reactRow(s,p,me)}</span></div>`;
     }).join("");
     return `<div class="col ${pid===who?"onclock":""}" style="--pc:${pcol(si)}"><h3><span class="chip" style="background:${pcol(si)}"></span><span>${esc(s.name(pid))}${pid===me?" (you)":""}</span></h3>${slots}</div>`;
   }).join("");
@@ -1474,6 +1462,7 @@ function draftView(s,me,member){
         ${!over && !mine && member ? `<button class="btn ghost small" data-act="nudge" style="align-self:flex-start">Nudge ${esc(s.name(who))}</button>` : ""}
     <div class="snake" aria-label="Upcoming picks">${upcoming.join("")}</div>
     <div class="board" style="--cols:${s.P}">${cols}</div>
+    ${member && s.picks.some(p=>p.pid!==me) ? `<p class="muted" style="margin:0;font-size:12px">Tap a friend's pick to react.</p>` : ""}
   </div>`;
 }
 
@@ -1495,44 +1484,43 @@ function orderView(s,me){
   </div>`;
 }
 
+/* One compact scorecard: the four faces on one line each, bonus under the points. */
+function scoreTable(s, rows, me){
+  return `<table class="faces"><tbody>${rows.map(x=>{ const bonus=x.exact+x.right, gi=s?s.picks.indexOf(x.f):-1;
+    const tap = s && gi>=0 && s.players.some(p=>p.pid===me) && x.f.pid!==me;
+    return `<tr${tap?` class="tap" data-act="rxopen" data-n="${gi}" tabindex="0" role="button" aria-label="React to ${esc(x.f.label)}"`:""}>
+      <td><div class="fn"><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)} <span class="rk">${x.f.rank?"#"+x.f.rank:"write-in"}</span></div>${s?reactRow(s,x.f,me):""}</td>
+      <td class="pts">${x.pts}${bonus?`<div class="bonus" style="margin:0">+${bonus} bonus</div>`:""}</td></tr>`; }).join("")}</tbody></table>`;
+}
 function resultsView(s,me){
   const rows = standings(s);
   saveResult(s,rows);
   if(s.seats.includes(me)) markPlayed(s.day);
   const top = rows.filter(r=>r.place===1);
   const medal = p => ["","1st","2nd","3rd","4th"][p];
-  const nextT = topicForRound(S.group,S.day,S.round+1);
   const cards = rows.map(r=>`
     <article class="rcard">
       <div class="head"><h3><span class="chip" style="background:${pcol(r.seat)}"></span><span>${esc(r.name)}${r.pid===me?" (you)":""}</span></h3>
-        <div style="text-align:right"><div class="place">${medal(r.place)}</div><div class="total">${r.total}<small> /482</small></div></div></div>
-      ${mountain(r.faces.map(f=>initials(f.label)), pcol(r.seat))}
-      <table class="faces"><tbody>${r.rows.map(x=>`<tr>
-        <td><div class="fn"><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)}</div>
-          <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"} · your #${x.slot+1} spot${x.exact?`<span class="bonus">+15 exact match (#${x.f.rank} = #${x.slot+1})</span>`:""}${x.right?`<span class="bonus">+10 right order</span>`:""}</div>${reactRow(s,x.f,me)}</td>
-        <td class="pts">${x.pts}</td></tr>`).join("")}</tbody></table>
-      ${r.pid===me?`<div style="padding:10px 16px 14px;border-top:1px solid var(--line)"><button class="btn ghost small" data-act="crewimg">Share my mountain as a picture</button></div>`:""}
+        <div class="total"><small>${medal(r.place)} </small>${r.total}</div></div>
+      ${scoreTable(s, r.rows, me)}
     </article>`).join("");
   const newDay = dayNumber()!==S.day ? `<section class="card clock mine"><div><div class="eyebrow">A new day has started</div><div class="who">${esc(topicForDay(dayNumber()).name)}</div></div><button class="btn gold" data-act="today">Play today's topic</button></section>` : "";
   const nextBanner = S.next
     ? `<section class="card clock mine"><div><div class="eyebrow">${esc(S.next.by)} opened ${roundLabel(S.next.n).toLowerCase()}</div><div class="who">${esc(S.next.topic)}</div></div><button class="btn gold" data-act="bonus">Join</button></section>`
-    : `<section class="card row" style="justify-content:space-between"><div><div class="eyebrow">Keep going</div><div style="font-weight:700">Bonus round: a new random topic</div></div><button class="btn gold" data-act="bonus">Deal a bonus round</button></section>`;
+    : `<button class="btn ghost block" data-act="bonus">Deal a bonus round: new random topic</button>`;
   return `<div class="stack">
-    <section class="winner card"><div class="eyebrow">${top.length>1?"It's a tie":"Tallest mountain"}</div>
+    <section class="winner card" style="padding-bottom:0;overflow:hidden"><div class="eyebrow">${top.length>1?"It's a tie":"Tallest mountain"}</div>
       <div class="display">${top.map(r=>esc(r.name)).join(" &amp; ")}</div>
-      <div class="muted mono" style="margin-top:4px">${top[0].total} points</div>${streak()>=2?`<div style="margin-top:8px">${streakBadge()}</div>`:""}
-      <div class="row" style="justify-content:center;margin-top:14px"><button class="btn gold" data-act="shareres">Share results</button></div>
-      <textarea class="share" id="sharebox" hidden aria-label="Copy these results" style="margin-top:12px"></textarea>
+      <div class="muted mono" style="margin-top:4px">${top[0].total} points${streak()>=2?` · ${streak()}-day streak`:""}</div>
+      <div class="row" style="justify-content:center;margin-top:12px"><button class="btn gold" data-act="shareres">Share</button></div>
+      <div style="margin:10px -16px 0">${mountain(top[0].faces.map(f=>initials(f.label)), pcol(top[0].seat))}</div>
     </section>
     ${newDay}
     ${nextBanner}
-    ${appNudgeCard()}
-    <div class="legend">${[1,2,3,4].map(t=>`<span><span class="tier" style="background:var(--t${t})"></span>${TIER_TXT[t]}</span>`).join("")}</div>
-    <details class="cons"><summary>How bonuses work</summary><div class="stack" style="margin-top:8px;font-size:14px;gap:6px"><div><b>+15 exact match:</b> the spot you gave a pick equals its consensus rank. Cheesecake is consensus #2, so putting it in your #2 spot earns it.</div><div><b>+10 right order:</b> the pick sits in the right place compared with your other three. Example: your highest-ranked consensus pick is in your #1 spot.</div><div class="muted">Base points: 100 for consensus #1, down 3 per rank to 31 at #24. Write-ins get 15.</div></div></details>
     <div class="res">${cards}</div>
-    <details class="cons"><summary>Reveal the full consensus top ${s.topic.size}</summary><ol>${s.topic.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></details>
-    ${recordCard()}
-    ${inviteCard()}
+    ${fold2("cons"+S.code, `Reveal the full top ${s.topic.size}`, `<ol>${s.topic.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol>`)}
+    ${appNudgeCard()}
+    ${crewPanel()}
   </div>`;
 }
 function shareText(s){
@@ -1580,16 +1568,14 @@ function soloView(){
     markPlayed(S.solo.day);
     const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces);
     return head+`<div class="stack">
-      <section class="winner card"><div class="eyebrow">Your mountain</div>${streak()>=2?`<div style="margin:4px 0">${streakBadge()}</div>`:""}<div class="display">${sc.total}<span class="mono muted" style="font-size:16px"> /482</span></div>
-        <div class="row" style="justify-content:center;margin-top:14px"><button class="btn gold" data-act="sshare">Share score</button><button class="btn ghost" data-act="simg">Share picture</button></div>
-        <textarea class="share" id="sharebox" hidden aria-label="Copy your score" style="margin-top:12px"></textarea></section>
+      <section class="rcard"><div class="head"><div><div class="eyebrow">Your mountain</div><div class="muted" style="font-size:13px">New topic in ${untilTomorrow()}</div></div>
+        <div class="total">${sc.total}<small> /482</small></div></div>
+        ${mountain(faces.map(f=>initials(f.label)), "var(--teal)")}
+        ${scoreTable(null, sc.rows)}
+        <div style="padding:12px 16px 16px"><button class="btn gold block" data-act="sshare">Share</button></div></section>
       ${(watchBoard(S.solo.day), boardCard())}
+      ${fold2("scons"+S.solo.day, `Reveal the full top ${t.size} <span class="muted" style="font-weight:400">(spoiler)</span>`, `<ol>${t.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol>`)}
       ${appNudgeCard()}
-      <article class="rcard">${mountain(faces.map(f=>initials(f.label)))}
-        <table class="faces"><tbody>${sc.rows.map(x=>`<tr><td><div class="fn"><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)}</div>
-          <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"} · your #${x.slot+1} spot${x.exact?`<span class="bonus">+15 exact match (#${x.f.rank} = #${x.slot+1})</span>`:""}${x.right?`<span class="bonus">+10 right order</span>`:""}</div></td><td class="pts">${x.pts}</td></tr>`).join("")}</tbody></table></article>
-      <details class="cons"><summary>Reveal the full consensus top ${t.size} <span class="muted" style="font-weight:400">(spoils today's crew game)</span></summary><ol>${t.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></details>
-      <p class="muted" style="margin:0;text-align:center">New topic in ${untilTomorrow()}. Want more? Start a crew and play bonus rounds with friends.</p>
     </div>`;
   }
   if(n<4){
@@ -1685,15 +1671,6 @@ async function signOutGoogle(){
   try{ const auth=firebase.auth(); await auth.signOut(); await auth.signInAnonymously(); }catch{}
   ACCT.user=null; ACCT.synced=false; render();
   toast("Signed out. This device keeps its copy.");
-}
-function accountCard(){
-  if(typeof firebase==="undefined") return "";
-  if(ACCT.user) return `<section class="card row tint-plum" style="justify-content:space-between"><div style="min-width:0"><div class="eyebrow">Synced across your devices</div>
-    <div style="font-weight:700;overflow-wrap:anywhere">${esc(ACCT.user.email||ACCT.user.displayName||"Google account")}</div></div>
-    <button class="btn ghost small" data-act="signout">Sign out</button></section>`;
-  return `<section class="card row tint-plum" style="justify-content:space-between"><div style="flex:1 1 220px"><div class="eyebrow">Phone and computer</div>
-    <div style="font-weight:700">Keep your crews in sync</div><div class="muted" style="font-size:13px">Sign in on each device to share crews, your seat in each crew, and today's solo game.</div></div>
-    <button class="btn ghost" data-act="signin" ${ACCT.busy?"disabled":""}>Sign in with Google</button></section>`;
 }
 
 /* ---------------- global solo leaderboard (Firebase Realtime Database) ---------------- */
@@ -1877,12 +1854,6 @@ const isIOS = () => /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.p
 window.addEventListener("beforeinstallprompt", e=>{ e.preventDefault(); INSTALL.evt=e; render(); });
 window.addEventListener("appinstalled", ()=>{ INSTALL.evt=null; store.set("mr.installHide",true); render(); });
 if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>r.update()).catch(()=>{});
-function installCard(){
-  if(isStandalone() || store.get("mr.installHide",false)) return "";
-  return `<section class="card row" style="justify-content:space-between"><div style="flex:1 1 200px"><div class="eyebrow">Get the app</div>
-    <div style="font-weight:700">Play it like an app</div><div class="muted" style="font-size:13px">Add it to your Home Screen in 30 seconds.</div></div>
-    <div class="row" style="gap:6px"><button class="btn gold small" data-act="igopen">Show me how</button><button class="btn ghost small" data-act="installhide">Not now</button></div></section>`;
-}
 
 
 /* ---------------- add-to-home-screen guide (per device) ---------------- */
@@ -1924,9 +1895,7 @@ function installGuideView(){
 }
 function appNudgeCard(){
   if(isStandalone()) return "";
-  return `<section class="card row tint-plum" style="justify-content:space-between"><div style="flex:1 1 200px"><div class="eyebrow">Never miss your turn</div>
-    <div style="font-weight:700">Add Rushmore to your Home Screen</div><div class="muted" style="font-size:13px">30 seconds. It opens like an app and can alert you when you're up.</div></div>
-    <button class="btn gold small" data-act="igopen">Show me how</button></section>`;
+  return `<nav class="links">${lrow("igopen","Get the app","so you hear when it's your turn")}</nav>`;
 }
 
 
@@ -2037,26 +2006,28 @@ async function mountainPicture({day, topic, sub, name, total, place, rows, color
   x.textAlign="center"; x.fillStyle=IMG.muted; x.font=`600 28px ${body}`; x.fillText(location.host+location.pathname.replace(/index\.html$/,""), W/2, H-30);
   return c;
 }
-async function sharePicture(opts){
+async function sharePicture(opts, text){
   try{
     const c=await mountainPicture(opts);
     const blob=await new Promise(r=>c.toBlob(r,"image/png"));
-    const file=new File([blob], `mount-rushmore-${opts.day}.png`, {type:"image/png"});
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      try{ await navigator.share({files:[file]}); return; }
-      catch(e){ if(e && e.name==="AbortError") return; }   // iPhones can refuse a share that starts after drawing: show it instead
-    }
-    showPicture(file);
-  }catch{ toast("Couldn't make the picture. Try Share score instead."); }
+    if(S.pic && S.pic.url) URL.revokeObjectURL(S.pic.url);
+    S.pic={file:new File([blob], `mount-rushmore-${opts.day}.png`, {type:"image/png"}), url:URL.createObjectURL(blob), text}; render();
+  }catch{ shareOrCopy(text, "Mount Rushmore"); }
 }
-/* The picture on screen, with a Share button (a fresh tap always works) and press-and-hold to save. */
-function showPicture(file){ if(S.pic) URL.revokeObjectURL(S.pic.url); S.pic={file, url:URL.createObjectURL(file)}; render(); }
+function closePicture(){ if(S.pic && S.pic.url) URL.revokeObjectURL(S.pic.url); S.pic=null; render(); }
+/* Preview, then share from a fresh tap (iPhones refuse a share that starts after the drawing work). */
 function pictureView(){
+  if(!S.pic.file) return `<div class="guide-back" data-act="picclose-bg"><div class="guide" role="dialog" aria-modal="true" aria-label="Copy this text" style="padding:14px">
+    <div class="eyebrow" style="margin-bottom:8px">Copy this and paste it anywhere</div>
+    <textarea class="share" id="sharebox" aria-label="Copy this text" readonly>${esc(S.pic.text)}</textarea>
+    <button class="btn ghost block" data-act="picclose" style="margin-top:8px">Close</button></div></div>`;
   const canShare = navigator.canShare && navigator.canShare({files:[S.pic.file]});
   return `<div class="guide-back" data-act="picclose-bg"><div class="guide" role="dialog" aria-modal="true" aria-label="Your mountain picture" style="padding:14px">
     <img src="${S.pic.url}" alt="Your mountain" style="width:100%;border-radius:12px;display:block">
-    <p class="muted" style="margin:10px 0;font-size:13px;text-align:center">${canShare?"Tap Share, or press and hold the picture to save it.":"Press and hold (or right-click) the picture to save it."}</p>
-    <div class="row" style="gap:8px">${canShare?`<button class="btn gold" style="flex:1" data-act="picshare">Share</button>`:`<a class="btn gold" style="flex:1;text-decoration:none" href="${S.pic.url}" download="${esc(S.pic.file.name)}">Download</a>`}<button class="btn ghost" style="flex:1" data-act="picclose">Close</button></div>
+    <div class="row" style="gap:8px;margin-top:12px;flex-wrap:nowrap">${canShare?`<button class="btn gold" style="flex:1" data-act="picshare">Share picture</button>`:`<a class="btn gold" style="flex:1;text-decoration:none" href="${S.pic.url}" download="${esc(S.pic.file.name)}">Save picture</a>`}
+      <button class="btn ghost" style="flex:1" data-act="pictext">Share as text</button></div>
+    <button class="btn ghost small block" data-act="picclose" style="margin-top:8px;border:0">Close</button>
+    <textarea class="share" id="sharebox" hidden aria-label="Copy this text" style="margin-top:8px"></textarea>
   </div></div>`;
 }
 
@@ -2094,13 +2065,26 @@ async function loadDayBoard(d){
   catch{ ARCH.boards[d]={err:true}; }
   render();
 }
+function meView(){
+  const acct = typeof firebase==="undefined" ? "" : ACCT.user ? lrow("signout","Synced", esc(ACCT.user.email||"Google")+" · sign out") : lrow("signin","Sync your devices","sign in with Google");
+  const alerts = alertsSupported()||isIOS() ? (alertsOn() ? lrow("alertsoff","Turn alerts: on","tap to turn off") : lrow("alertson","Turn alerts: off","get pinged when it's your pick")) : "";
+  return pageHead("You")+`<div class="stack">
+    ${statsBlock()}
+    <nav class="links" aria-label="Settings">
+      ${!isStandalone() ? lrow("igopen","Get the app","add to your Home Screen") : ""}${acct}${alerts}
+      ${lrow("help","How to play","")}${lrow("suggest","Suggest a topic","")}
+    </nav>
+    ${S.showSuggest?`<div class="row" style="gap:8px;flex-wrap:nowrap"><input class="t" id="suggest" maxlength="80" placeholder="What should people argue about next?" autocomplete="off"><button class="btn gold" data-act="suggestsend">Send</button></div>`:""}
+    <section class="stack" style="gap:8px"><span class="eyebrow">Past topics</span>${pastList()}</section>
+  </div>`;
+}
 function pageHead(label){ return `<div class="top compact">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap;min-width:0">${helpBtn()}${homeBtn()}</div></div>
   <div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">Mount Rushmore</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${label}</h1></div>`; }
-function archiveView(){
+function pastList(){
   const today=dayNumber(), crew=myCrewGames(), days=[];
   for(let d=today-1; d>=1 && days.length<60; d--) days.push(d);
-  if(!days.length) return pageHead("Past topics")+`<div class="card"><p style="margin:0">Nothing here yet. Tomorrow, today's topic <b>${esc(topicForDay(today).name)}</b> moves here with its full top ${topicForDay(today).size} and how everyone did.</p></div>`;
-  return pageHead("Past topics")+`<div class="stack" style="gap:10px">${days.map(d=>{
+  if(!days.length) return `<p class="muted" style="margin:0">Tomorrow, today's topic moves here with its full list and how everyone did.</p>`;
+  return `<div class="stack" style="gap:10px">${days.map(d=>{
     const t=topicForDay(d), solo=soloResult(d), games=crew.filter(x=>x.day===d), open=ARCH.open===d, bd=ARCH.boards[d];
     if(open) loadDayBoard(d);
     const tags=[solo?`solo ${solo.total}`:"", games.length?`${games.filter(x=>x.me.place===1).length} of ${games.length} crew wins`:""].filter(Boolean).join(" · ");
@@ -2116,7 +2100,7 @@ function archiveView(){
       </div>`:""}</section>`; }).join("")}</div>`;
 }
 function longestStreak(){ const d=playedDays(); let best=0, run=0, prev=null; for(const x of d){ run = prev!==null && x===prev+1 ? run+1 : 1; best=Math.max(best,run); prev=x; } return best; }
-function statsView(){
+function statsBlock(){
   const today=dayNumber(), solos=[];
   for(let d=1; d<=today; d++){ const r=soloResult(d); if(r) solos.push({d, ...r}); }
   const crew=myCrewGames(), wins=crew.filter(x=>x.me.place===1).length;
@@ -2124,14 +2108,8 @@ function statsView(){
   const faces=solos.flatMap(x=>x.faces), top4=faces.filter(f=>f.rank && f.rank<=4).length;
   const stat=(v,l)=>`<div class="stat"><b>${v}</b><span>${l}</span></div>`;
   const avg=a=>a.length?Math.round(a.reduce((s,x)=>s+x,0)/a.length):"–";
-  if(!solos.length && !crew.length) return pageHead("Your stats")+`<div class="card"><p style="margin:0">Finish a solo game or a crew round and your numbers show up here.</p></div>`;
-  return pageHead("Your stats")+`<div class="stack">
-    <section class="stack" style="gap:8px"><span class="eyebrow">Streak</span><div class="stats">${stat(streak(),"day streak now")}${stat(longestStreak(),"longest streak")}${stat(playedDays().length,"days played")}</div></section>
-    <section class="stack" style="gap:8px"><span class="eyebrow">Solo</span><div class="stats">${stat(solos.length,"games")}${stat(avg(solos.map(x=>x.total)),"average score")}${stat(best?best.total:"–","best score")}${stat(faces.length?Math.round(top4/faces.length*100)+"%":"–","faces in the top 4")}</div>
-      ${best?`<div class="muted" style="font-size:13px">Best: ${esc(topicForDay(best.d).name)} on ${esc(dayLabel(best.d))}</div>`:""}</section>
-    <section class="stack" style="gap:8px"><span class="eyebrow">Crews</span><div class="stats">${stat(crew.length,"games")}${stat(wins,"wins")}${stat(crew.length?Math.round(wins/crew.length*100)+"%":"–","win rate")}${stat(avg(crew.map(x=>x.me.total)),"average score")}</div></section>
-    <p class="muted" style="margin:0;font-size:13px">${ACCT.user?"Solo games and streaks follow your Google account. Crew games count the rounds this device has seen.":"Kept on this device. Sign in with Google to carry your solo games and streak to your other devices."}</p>
-  </div>`;
+  if(!solos.length && !crew.length) return `<p class="muted" style="margin:0">Finish a solo game or a crew round and your numbers show up here.</p>`;
+  return `<div class="stats">${stat(streak(),"day streak")}${stat(longestStreak(),"longest streak")}${stat(avg(solos.map(x=>x.total)),"solo average")}${stat(best?best.total:"–","solo best")}${stat(crew.length?wins+"/"+crew.length:"–","crew wins")}${stat(faces.length?Math.round(top4/faces.length*100)+"%":"–","picks in the top 4")}</div>`;
 }
 
 /* ---------------- how to play ---------------- */
@@ -2153,7 +2131,7 @@ function guideView(){
       </div></div></div>
     <div class="step"><div class="num">3</div><div><b>Carve your order</b><p>Rank your four. Your #1 gets the Washington spot.</p>
       <div class="spotrow" aria-hidden="true"><span>#1<br>Washington</span><span>#2<br>Jefferson</span><span>#3<br>Roosevelt</span><span>#4<br>Lincoln</span></div></div></div>
-    <div class="step"><div class="num">4</div><div><b>Face the judges</b><p>Every pick is scored against a consensus top 24: 100 points for #1, down to 31 for #24. A write-in off the board earns a pity 15. Bonus points for putting faces in the right order. A perfect mountain scores 482.</p>
+    <div class="step"><div class="num">4</div><div><b>Face the judges</b><p>Every pick is scored against a consensus top 24: 100 points for #1, down to 31 for #24. A write-in off the board earns a pity 15. Bonuses: +15 when a pick's spot matches its consensus rank, +10 when it's in the right order among your four. A perfect mountain scores 482.</p>
       <div class="legend" style="margin-top:8px">${[1,2,3,4].map(x=>`<span><span class="tier" style="background:var(--t${x})"></span>${TIER_TXT[x]}</span>`).join("")}</div></div></div>
     <div class="step"><div class="num">&#9733;</div><div><b>No crew? Go solo</b><p>Guess the consensus top 4 on your own, once a day, and see where you rank against everyone playing.</p></div></div>
     <button class="btn gold block" data-act="helpclose" style="margin-top:14px">Let's carve</button>
@@ -2197,7 +2175,7 @@ async function openCrew(g){
   if(S.group!==g) return;
   S.probing=false; connect(Math.max(1,n)); render();
 }
-function goHome(){ S.rxOpen=null; S.solo=null; S.page=null; ARCH.open=null; CN.editing=false; if(CN.off){ CN.off(); CN.off=null; } CN.watching=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } stopSync(); S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
+function goHome(){ if(S.pic) closePicture(); S.rxOpen=null; S.solo=null; S.page=null; ARCH.open=null; CN.editing=false; if(CN.off){ CN.off(); CN.off=null; } CN.watching=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } stopSync(); S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
 
 /* Automatic steps once the round's history has loaded: create the round if nobody has yet,
    and take a seat if you're part of the crew and haven't chosen to sit out. */
@@ -2243,7 +2221,9 @@ document.addEventListener("click", e=>{
   if(a==="helpclose" || (a==="helpclose-bg" && e.target===b)){ S.help=false; store.set("mr.seenHelp",true); render(); return; }
   if(a==="helpclose-bg") return;
   if(a==="picshare"){ navigator.share({files:[S.pic.file]}).catch(()=>{}); return; }
-  if(a==="picclose" || (a==="picclose-bg" && e.target===b)){ URL.revokeObjectURL(S.pic.url); S.pic=null; render(); return; }
+  if(a==="pictext"){ const t=S.pic.text; closePicture(); return shareOrCopy(t, "Mount Rushmore"); }
+  if(a==="tog"){ e.preventDefault(); S.open[b.dataset.id]=!S.open[b.dataset.id]; render(); return; }
+  if(a==="picclose" || (a==="picclose-bg" && e.target===b)) return closePicture();
   if(a==="picclose-bg") return;
   if(a==="igopen"){ S.ig=true; render(); return; }
   if(a==="igclose" || (a==="igclose-bg" && e.target===b)){ S.ig=false; render(); return; }
@@ -2253,12 +2233,10 @@ document.addEventListener("click", e=>{
   if(a==="opencrew"){ setURL(b.dataset.g); return openCrew(b.dataset.g); }
   if(a==="joincode"){ const c=($("#joincode").value||"").toUpperCase().replace(/[^A-Z0-9]/g,""); if(c.length!==6){ S.err="Crew codes are 6 characters."; render(); return;} setURL(c); return openCrew(c); }
   if(a==="install"){ const ev=INSTALL.evt; if(ev){ ev.prompt(); ev.userChoice.finally(()=>{ INSTALL.evt=null; render(); }); } return; }
-  if(a==="installhide"){ store.set("mr.installHide",true); render(); return; }
   if(a==="newcrew"){ S.newCrew=!S.newCrew; render(); if(S.newCrew) document.getElementById("name")?.focus(); return; }
-  if(a==="scoring"){ S.showScoring=!S.showScoring; render(); return; }
   if(a==="suggest"){ S.showSuggest=!S.showSuggest; render(); if(S.showSuggest) document.getElementById("suggest")?.focus(); return; }
   if(a==="suggestsend") return sendSuggestion(($("#suggest")||{}).value);
-  if(a==="archive"||a==="stats"){ S.page=a; history.pushState(null,"","?"+(a==="archive"?"past":"stats")+(SEAT?"&seat="+SEAT:"")); render(); window.scrollTo(0,0); return; }
+  if(a==="me"){ S.page="me"; history.pushState(null,"","?me"+(SEAT?"&seat="+SEAT:"")); render(); window.scrollTo(0,0); return; }
   if(a==="archday"){ const d=+b.dataset.d; ARCH.open = ARCH.open===d ? null : d; render(); return; }
   if(a==="alertson") return enableAlerts();
   if(a==="alertsoff") return disableAlerts();
@@ -2274,10 +2252,9 @@ document.addEventListener("click", e=>{
     if((a==="sup"||a==="sdown") && !st.locked){ const i=+b.dataset.i, j=a==="sup"?i-1:i+1; [st.order[i],st.order[j]]=[st.order[j],st.order[i]]; soloSave(st); render(); return; }
     if(a==="slock" && st.picks.length===4){ st.locked=true; soloSave(st); render(); window.scrollTo(0,0); return; }
     if(a==="spost") return postSolo(($("#bname")||{}).value);
-    if(a==="sshare") return shareOrCopy(soloShareText(st),"Mount Rushmore", location.origin+location.pathname+"?solo");
-    if(a==="simg" && st.locked){ const me=myBoardRow();
+    if(a==="sshare" && st.locked){ const me=myBoardRow(), sc=scoreFaces(st.order.map(i=>st.picks[i]));
       return sharePicture({day:S.solo.day, topic:soloTopic().name, sub:"Solo", name:myName(), place:me?`#${me.place} of ${Math.max(B.count,B.rows.length,me.place)} worldwide`:"",
-        total:scoreFaces(st.order.map(i=>st.picks[i])).total, rows:scoreFaces(st.order.map(i=>st.picks[i])).rows}); }
+        total:sc.total, rows:sc.rows}, soloShareText(st)+"\n"+location.origin+location.pathname+"?solo"); }
     return;
   }
   if(!S.code) return;
@@ -2290,7 +2267,6 @@ document.addEventListener("click", e=>{
     if(missing.length && S.confirmStart!==S.code){ S.confirmStart=S.code; render(); return; }
     const ids=s.players.map(p=>p.pid); for(let i=ids.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]]} return act(()=>send({type:"start",order:ids})); }
   if(a==="invite") return shareOrCopy(`Join ${crewName(S.group)?"\""+crewName(S.group)+"\" on ":"my "}Mount Rushmore crew. Same link every day, new topic daily. Crew code ${S.group}`, "Mount Rushmore", crewURL(S.group));
-  if(a==="copylink"){ navigator.clipboard.writeText(crewURL(S.group)).then(()=>toast("Link copied"),()=>{const ta=$("#sharebox"); ta.hidden=false; ta.value=crewURL(S.group); ta.select();}); return; }
   if(a==="sug") return doPick(b.dataset.label);
   if(a==="undo") return act(()=>send({type:"undo",n:s.picks.length-1}));
   if(a==="autopick"){ const tk=taken(s); const best=s.topic.entries.find(x=>!tk.has("E"+x.rank)); if(best) return act(()=>send({type:"autopick",n:s.picks.length,text:best.label})); return; }
@@ -2311,10 +2287,9 @@ document.addEventListener("click", e=>{
     return shareOrCopy(msg, "Mount Rushmore", crewURL(S.group));
   }
   if(a==="bonus"){ S.watchingNext=null; connect(S.round+1); render(); return; }
-  if(a==="shareres") return shareOrCopy(shareText(s),"Mount Rushmore", crewURL(S.group));
-  if(a==="crewimg"){ const r=standings(s).find(x=>x.pid===me); if(!r) return;
+  if(a==="shareres"){ const r=standings(s).find(x=>x.pid===me)||standings(s)[0];
     return sharePicture({day:S.day, topic:s.topic.name, sub:crewName(S.group)||(S.round>1?"Bonus "+(S.round-1):"Crew"), name:r.name,
-      place:["","1st","2nd","3rd","4th"][r.place]+" of "+s.P, total:r.total, rows:r.rows, color:IMG.player[r.seat]}); }
+      place:["","1st","2nd","3rd","4th"][r.place]+" of "+s.P, total:r.total, rows:r.rows, color:IMG.player[r.seat]}, shareText(s)+"\n"+crewURL(S.group)); }
   if(a==="rxopen"){ const n=+b.dataset.n; S.rxOpen = S.rxOpen===n ? null : n; render(); return; }
   if(a==="react"){ const n=+b.dataset.n, emo=b.dataset.e, k=S.code+":"+n+emo; S.rxOpen=null; render();
     // A second tap while the first is still sending would cancel it out: ignore it.
@@ -2331,7 +2306,8 @@ document.addEventListener("submit", e=>{
 });
 document.addEventListener("input", e=>{ if(e.target.id==="pick"){ S.sugIdx=0; S.sugNav=false; S.err=""; updateSuggest(); } if(e.target.id==="name"||e.target.id==="joincode") S.err=""; });
 document.addEventListener("keydown", e=>{
-  if(e.key==="Escape" && S.pic){ URL.revokeObjectURL(S.pic.url); S.pic=null; render(); return; }
+  if((e.key==="Enter"||e.key===" ") && e.target.classList && e.target.classList.contains("tap")){ e.preventDefault(); e.target.click(); return; }
+  if(e.key==="Escape" && S.pic) return closePicture();
   if(e.key==="Escape" && S.ig){ S.ig=false; render(); return; }
   if(e.key==="Escape" && S.help){ S.help=false; store.set("mr.seenHelp",true); render(); return; }
   if(e.target.id==="pick" && (e.key==="ArrowDown"||e.key==="ArrowUp")){
@@ -2358,16 +2334,18 @@ function render(){
   if(S.solo && S.solo.day!==dayNumber()){ S.solo.day=dayNumber(); S.draft=""; S.err=""; }
   document.documentElement.style.overflow = (S.help||S.ig||S.pic) ? "hidden" : "";
   if(S.group) watchCrewName(S.group); else fetchCrewNames(store.get("mr.crews",[]).map(c=>c.g));
-  app.innerHTML = (S.solo ? soloView() : S.group ? roomView() : S.page==="archive" ? archiveView() : S.page==="stats" ? statsView() : homeView()) + (S.help ? guideView() : "") + (S.ig ? installGuideView() : "") + (S.pic ? pictureView() : "");
+  app.innerHTML = (S.solo ? soloView() : S.group ? roomView() : S.page==="me" ? meView() : homeView()) + (S.help ? guideView() : "") + (S.ig ? installGuideView() : "") + (S.pic ? pictureView() : "");
   for(const [id,v] of Object.entries(keep)){ const el=document.getElementById(id); if(el) el.value=v; }
   const ni=$("#pick"); if(ni){ ni.value=S.draft; updateSuggest(); }
+  const now=document.querySelector(".snake .now"); if(now) now.parentElement.scrollLeft = now.offsetLeft - now.parentElement.offsetLeft - 8;
   const f=focusId && document.getElementById(focusId);
   if(f){ f.focus(); try{ f.setSelectionRange(a,b); }catch{} }
   autoSteps();
 }
 function boot(){
+  if(S.pic){ if(S.pic.url) URL.revokeObjectURL(S.pic.url); S.pic=null; }
   const q=new URLSearchParams(location.search);
-  S.page = q.has("past") ? "archive" : q.has("stats") ? "stats" : null;
+  S.page = q.has("me")||q.has("past")||q.has("stats") ? "me" : null;
   if(q.has("solo")){ S.page=null; stopSync(); S.group=null; S.code=null; S.solo={day:dayNumber()}; render(); return; }
   S.solo=null;
   const g=(new URLSearchParams(location.search).get("g")||"").toUpperCase().replace(/[^A-Z0-9]/g,"");

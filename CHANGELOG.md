@@ -2,6 +2,15 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-09-27 (night): simplification pass
+
+### Changed
+- Home is the topic, your crews and one "You" row. Stats, past topics, sync, alerts, the app, how to play and topic suggestions live on the You page.
+- Crew screens: one Share invite card; crew name, alerts, leave and the win record sit in a collapsed Crew section.
+- Results and solo: compact scorecards (one line per face, bonus under the points), the winner's mountain up top, one Share button that previews the picture with Share picture / Share as text.
+- Reactions: tap a friend's pick (or focus it and press Enter) instead of a "+" button.
+- The color key and bonus explainer moved into How to play.
+
 ## 2026-09-27 (evening)
 
 ### Added
