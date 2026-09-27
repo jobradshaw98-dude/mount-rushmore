@@ -25,7 +25,10 @@
           "$other": {
             ".validate": false
           }
-        }
+        },
+        ".indexOn": [
+          "score"
+        ]
       }
     },
     "rounds": {
@@ -129,6 +132,13 @@
         "$other": {
           ".validate": false
         }
+      }
+    },
+    "soloCount": {
+      "$day": {
+        ".read": "$day.matches(/^[0-9]{1,5}$/)",
+        ".write": "auth != null && $day.matches(/^[0-9]{1,5}$/)",
+        ".validate": "newData.isNumber() && newData.val() === (data.exists() ? data.val() : 0) + 1"
       }
     }
   }

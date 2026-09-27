@@ -178,9 +178,9 @@ textarea.share{width:100%;min-height:150px;font-family:var(--mono);font-size:13p
 <body>
 <div class="wrap" id="app"></div>
 <div class="toast" id="toast" hidden></div>
-<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-database-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-database-compat.js"></script>
 <script>
 "use strict";
 /* ------------------------------------------------------------------
@@ -910,14 +910,34 @@ Cavatelli
 Ditalini`}
 ];
 
+/* Topic revisions take effect from REVISE_FROM so games already played keep the list they were scored on. */
+const REVISE_FROM = 2;
+const CATEGORY = {breakfast:"food",pizza:"food",fastfood:"food",candy:"food",sandwiches:"food",condiments:"food",cocktails:"food",desserts:"food",fruit:"food",chips:"food",pasta:"food",cereal:"food",
+  nba:"sports",golf:"sports",events:"sports",qbs:"sports",soccer:"sports",
+  pixar:"screen",sitcoms:"screen",villains:"screen",movies:"screen",disney:"screen",dramas:"screen",superheroes:"screen",videogames:"screen",
+  music:"music",rappers:"music", boardgames:"play",holidays:"life",dogs:"life"};
+function revise(base, id, drop, insert){
+  const lines=base.items.trim().split("\n").filter(l=>!drop.includes(l.split("|")[0].trim()));
+  for(const [pos,line] of insert) lines.splice(pos-1, 0, line);
+  return {...base, id, base:base.id, items:lines.join("\n")};
+}
+const REVISED = [
+  revise(TOPICS.find(t=>t.id==="villains"), "villains2", ["Loki","Bane"],
+    [[10,"The Wicked Witch of the West|wicked witch|wicked witch of the west"],[15,"Cruella de Vil|cruella|cruella deville"]]),
+  revise(TOPICS.find(t=>t.id==="boardgames"), "boardgames2", ["Wingspan","Mouse Trap"],
+    [[5,"Uno"],[12,"Jenga"]]),
+];
+const REV = Object.fromEntries(REVISED.map(t=>[t.base,t]));
+const ALL_TOPICS = TOPICS.concat(REVISED);
+
 /* ---------------- matching ---------------- */
 function key(s){
   let t = String(s).normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase()
     .replace(/&/g," and ").replace(/['’.]/g,"").replace(/[^a-z0-9]+/g," ").trim();
   t = t.replace(/^the /,"");
-  return t.split(" ").filter(Boolean).map(w => (w.length>3 && w.endsWith("s") && !w.endsWith("ss")) ? w.slice(0,-1) : w).join(" ");
+  return t.split(" ").filter(Boolean).map(w => (w.length>=2 && w.endsWith("s") && !w.endsWith("ss")) ? w.slice(0,-1) : w).join(" ");
 }
-for (const t of TOPICS){
+for (const t of ALL_TOPICS){
   t.entries = t.items.trim().split("\n").map((line,i)=>{
     const [label,...al] = line.split("|").map(x=>x.trim());
     const k = key(label);
@@ -925,7 +945,7 @@ for (const t of TOPICS){
   });
   t.size = t.entries.length;
 }
-const TOPIC = Object.fromEntries(TOPICS.map(t=>[t.id,t]));
+const TOPIC = Object.fromEntries(ALL_TOPICS.map(t=>[t.id,t]));
 function matchEntry(t, text){
   const k = key(text); if(!k) return null;
   const exact = t.entries.find(e=>e.keys.includes(k)); if(exact) return exact;
@@ -948,13 +968,26 @@ function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a
 function shuffled(list, seed){ const r=mulberry(seed), p=list.slice(); for(let i=p.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[p[i],p[j]]=[p[j],p[i]]} return p; }
 function hash(str){ let h=2166136261; for(const c of str){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); } return h>>>0; }
 const PERM = shuffled(TOPICS.map((_,i)=>i), 1776);
-function topicForDay(n){ const L=TOPICS.length; return TOPICS[PERM[((n-1)%L+L)%L]]; }
+const onDay = (t, day) => (day>=REVISE_FROM && REV[t.id]) || t;
+function topicForDay(n){ const L=TOPICS.length; return onDay(TOPICS[PERM[((n-1)%L+L)%L]], n); }
+/* Reorder a shuffled list so two topics from the same category never sit back to back. */
+function spreadOut(list, prevCat){
+  const out=[], pool=list.slice();
+  while(pool.length){
+    const last = out.length ? CATEGORY[out[out.length-1].base||out[out.length-1].id] : prevCat;
+    let i = pool.findIndex(t=>CATEGORY[t.base||t.id]!==last); if(i<0) i=0;
+    out.push(pool.splice(i,1)[0]);
+  }
+  return out;
+}
 /* Round 1 is the shared daily topic. Bonus rounds deal from a crew-and-day shuffle of the rest,
    so every phone derives the same topic for "round 3 today" with no coordination and no repeats in a day. */
 function topicForRound(g, day, n){
   const daily = topicForDay(day);
   if(n<=1) return daily;
-  const rest = shuffled(TOPICS.filter(t=>t!==daily), hash(g+":"+day));
+  const dailyBase = daily.base || daily.id;
+  let rest = shuffled(TOPICS.filter(t=>t.id!==dailyBase), hash(g+":"+day)).map(t=>onDay(t, day));
+  if(day>=REVISE_FROM) rest = spreadOut(rest, CATEGORY[dailyBase]);
   return rest[(n-2)%rest.length];
 }
 
@@ -1429,7 +1462,7 @@ function resultsView(s,me){
     ${nextBanner}
     <div class="legend">${[1,2,3,4].map(t=>`<span><span class="tier" style="background:var(--t${t})"></span>${TIER_TXT[t]}</span>`).join("")}</div>
     <div class="res">${cards}</div>
-    <details class="cons"><summary>Reveal the consensus top 10</summary><ol>${s.topic.entries.slice(0,10).map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></details>
+    <details class="cons"><summary>Reveal the full consensus top ${s.topic.size}</summary><ol>${s.topic.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></details>
     ${recordCard()}
     ${inviteCard()}
   </div>`;
@@ -1484,7 +1517,7 @@ function soloView(){
       <article class="rcard">${mountain(faces.map(f=>initials(f.label)))}
         <table class="faces"><tbody>${sc.rows.map(x=>`<tr><td><div class="fn"><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)}</div>
           <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"}${x.right?`<span class="bonus">+10 right slot</span>`:""}${x.exact?`<span class="bonus">+15 exact spot</span>`:""}</div></td><td class="pts">${x.pts}</td></tr>`).join("")}</tbody></table></article>
-      <details class="cons"><summary>Reveal the consensus top 10 <span class="muted" style="font-weight:400">(spoils today's crew game)</span></summary><ol>${t.entries.slice(0,10).map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></details>
+      <details class="cons"><summary>Reveal the full consensus top ${t.size} <span class="muted" style="font-weight:400">(spoils today's crew game)</span></summary><ol>${t.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></details>
       <p class="muted" style="margin:0;text-align:center">New topic in ${untilTomorrow()}. Want more? Start a crew and play bonus rounds with friends.</p>
     </div>`;
   }
@@ -1600,7 +1633,9 @@ const FB_CONFIG = {
 let fbPromise = null;
 function fb(){
   if(!fbPromise) fbPromise = (async()=>{
-    if(typeof firebase==="undefined") throw new Error("Leaderboard couldn't load. Check your connection.");
+    // The SDK loads in the background (deferred); wait for it before the first use.
+    if(typeof firebase==="undefined" && document.readyState==="loading") await new Promise(r=>document.addEventListener("DOMContentLoaded", r, {once:true}));
+    if(typeof firebase==="undefined") throw new Error("Couldn't connect. Check your connection.");
     const app = firebase.apps.length ? firebase.app() : firebase.initializeApp(FB_CONFIG);
     const auth = app.auth();
     await new Promise(res=>{ const off=auth.onAuthStateChanged(()=>{ off(); res(); }); });   // wait for the saved session
@@ -1642,16 +1677,41 @@ function boardRows(day, raw){
 async function watchBoard(day){
   if(B.day===day) return;   // already watching (or loading) this day
   if(B.unsub){ B.unsub(); B.unsub=null; }
-  Object.assign(B,{day, rows:[], loaded:false, err:""});
+  Object.assign(B,{day, rows:[], me:null, meChecked:false, count:0, loaded:false, err:""});
   try{
-    const {db, uid} = await fb(); B.uid=uid;
-    const ref = db.ref("solo/"+day);
-    const cb = snap=>{ B.rows=boardRows(day, snap.val()); B.loaded=true; B.err=""; if(S.solo) render(); maybeAutoPost(); };
-    ref.on("value", cb, e=>{ B.err="Leaderboard is unavailable right now."; render(); });
-    B.unsub = ()=>ref.off("value", cb);
+    const {db} = await fb();
+    if(B.day!==day) return;
+    // Only the top 50 scores stream live; the day's player count is a single number.
+    const top = db.ref("solo/"+day).orderByChild("score").limitToLast(50);
+    const cnt = db.ref("soloCount/"+day);
+    const cb = snap=>{ B.rows=boardRows(day, snap.val()); B.loaded=true; B.err=""; refreshMe(); if(S.solo) render(); };
+    const cc = snap=>{ B.count=+snap.val()||0; if(S.solo) render(); };
+    top.on("value", cb, ()=>{ B.err="Leaderboard is unavailable right now."; render(); });
+    cnt.on("value", cc, ()=>{});
+    B.unsub = ()=>{ top.off("value", cb); cnt.off("value", cc); };
   }catch(e){ B.err=e.message||"Leaderboard is unavailable right now."; if(S.solo) render(); }
 }
-function myBoardRow(){ const pu = S.solo ? soloState().postedUid : null; return B.rows.find(r=>r.uid===B.uid || (pu && r.uid===pu)); }
+/* Your own row: from the top 50 if you're in it, otherwise fetched directly with its rank. */
+async function refreshMe(){
+  const day=B.day; if(!day) return;
+  try{
+    const {db, uid} = await fb(); B.uid=uid;
+    const pu = S.solo ? soloState().postedUid : null;
+    const ids = [...new Set([uid, pu].filter(Boolean))];
+    let me = B.rows.find(r=>ids.includes(r.uid)) || null;
+    if(!me){
+      for(const id of ids){
+        const v=(await db.ref("solo/"+day+"/"+id).get()).val(); if(!v) continue;
+        const r=boardRows(day, {[id]:v})[0]; if(!r) continue;
+        const above=(await db.ref("solo/"+day).orderByChild("score").startAt(r.score+1).get()).val();
+        r.place = boardRows(day, above).length + 1; me=r; break;
+      }
+    }
+    if(B.day!==day) return;
+    B.me=me; B.meChecked=true; if(S.solo) render(); maybeAutoPost();
+  }catch{}
+}
+function myBoardRow(){ return B.me; }
 async function postSolo(name){
   const st=soloState(); if(!st.locked || B.posting || myBoardRow()) return;
   name=(name||"").trim().slice(0,18); if(!name){ B.err="Add a name for the leaderboard."; render(); return; }
@@ -1662,18 +1722,20 @@ async function postSolo(name){
     const {db, uid} = await fb();
     await db.ref("solo/"+S.solo.day+"/"+uid).set({name, score:scoreFaces(faces).total,
       picks:{0:faces[0].label,1:faces[1].label,2:faces[2].label,3:faces[3].label}, ts:firebase.database.ServerValue.TIMESTAMP});
+    db.ref("soloCount/"+S.solo.day).transaction(c=>(+c||0)+1).catch(()=>{});
+    setTimeout(refreshMe, 400);
     const st2=soloState(); st2.postedUid=uid; soloSave(st2);
   }catch(e){ B.err = /permission/i.test(String(e&&e.message)) ? "This device already posted today." : "Couldn't post your score. Try again."; }
   B.posting=false; render();
 }
 function maybeAutoPost(){
   const st=soloState();
-  if(S.solo && st.locked && B.loaded && !myBoardRow() && myName() && !B.autoTried){ B.autoTried=true; postSolo(myName()); }
+  if(S.solo && st.locked && B.loaded && B.meChecked && !myBoardRow() && myName() && !B.autoTried){ B.autoTried=true; postSolo(myName()); }
 }
 function boardCard(){
   if(B.err && !B.loaded) return `<section class="card"><div class="eyebrow">Global leaderboard</div><p class="muted" style="margin:6px 0 0">${esc(B.err)}</p></section>`;
   if(!B.loaded) return `<section class="card"><div class="eyebrow">Global leaderboard</div><p class="muted" style="margin:6px 0 0">Loading today's rankings…</p></section>`;
-  const me=myBoardRow(), n=B.rows.length;
+  const me=myBoardRow(), n=Math.max(B.count, B.rows.length, me?me.place:0);
   const head = me
     ? `<div class="row" style="justify-content:space-between;align-items:baseline"><div><div class="eyebrow">Global leaderboard · #${S.solo.day}</div>
          <div class="display" style="font-size:28px">#${me.place} <span class="muted mono" style="font-size:14px">of ${n}</span></div></div>
@@ -1961,6 +2023,7 @@ function boot(){
 if(!store.get("mr.seenHelp",false)) S.help=true;
 boot();
 fb().catch(()=>{});
+document.addEventListener("DOMContentLoaded", ()=>render());
 setInterval(()=>{ if(S.solo && S.solo.day!==dayNumber()) return render(); if(!S.group && !(document.activeElement && document.activeElement.tagName==="INPUT")) render(); }, 60000);
 </script>
 </body>
