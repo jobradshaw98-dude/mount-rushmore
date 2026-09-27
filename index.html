@@ -78,7 +78,7 @@ input.t:focus{border-color:var(--gold);outline:none}
 .steps li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:14px}
 .steps b{display:block;font-family:var(--display);font-weight:400;font-size:15px;margin-bottom:2px}
 @media (max-width:560px){.steps{grid-template-columns:1fr}}
-@media (max-width:420px){.top .brand .bt{display:none}}
+@media (max-width:420px){.top.compact .brand .bt{display:none}}
 /* lobby */
 .invite{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap}
 .code{font-family:var(--mono);font-size:30px;letter-spacing:.18em;background:var(--gold-soft);border-radius:12px;padding:8px 14px}
@@ -152,9 +152,8 @@ details.cons ol{margin:10px 0 0;padding-left:26px;columns:2;column-gap:28px;font
 .recent{display:flex;flex-direction:column;gap:6px;font-size:14px}
 .recent a{color:var(--ink)}
 textarea.share{width:100%;min-height:150px;font-family:var(--mono);font-size:13px;border-radius:12px;border:1.5px solid var(--line);background:var(--sky);padding:10px}
-.guide-back{position:fixed;inset:0;background:rgba(16,22,29,.55);z-index:20;display:flex;align-items:flex-end;justify-content:center;padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
-@media (min-width:600px){.guide-back{align-items:center}}
-.guide{background:var(--card);color:var(--ink);border-radius:20px;max-width:540px;width:100%;max-height:calc(100vh - 32px);overflow:auto;padding:22px 20px;box-shadow:0 20px 60px rgba(0,0,0,.35);animation:rise .35s cubic-bezier(.2,.8,.2,1)}
+.guide-back{position:fixed;inset:0;background:rgba(16,22,29,.55);z-index:20;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;justify-content:center;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px))}
+.guide{background:var(--card);color:var(--ink);border-radius:20px;max-width:540px;width:100%;margin:auto 0;padding:22px 20px;box-shadow:0 20px 60px rgba(0,0,0,.35);animation:rise .35s cubic-bezier(.2,.8,.2,1)}
 @keyframes rise{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
 .guide h2{font-family:var(--display);font-weight:400;font-size:30px;line-height:1.05}
 .guide .step{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;padding:12px 0;border-top:1px solid var(--line)}
@@ -1255,7 +1254,7 @@ function homeView(){
 }
 
 function roomView(){
-  const head = `<div class="top">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap;min-width:0">${connBadge()}${helpBtn()}${homeBtn()}</div></div>`;
+  const head = `<div class="top compact">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap;min-width:0">${connBadge()}${helpBtn()}${homeBtn()}</div></div>`;
   if(S.probing || !S.code) return head+`<div class="card"><h2 class="display" style="font-size:24px">Finding today's game…</h2></div>`;
   const s = fold(S.events), me = myPid();
   document.title = "Mount Rushmore Daily";
@@ -1313,11 +1312,13 @@ function lobbyView(s,me,member){
          <button class="btn gold block" data-act="start" ${s.players.length<2||S.busy?"disabled":""}>${esc(startTxt)}</button>
          <div class="row" style="justify-content:space-between"><span class="muted" style="font-size:13px">Anyone seated can start once everyone's in.</span><button class="btn ghost small" data-act="leave">Sit out</button></div>
          <div class="err">${esc(S.err)}</div>` : "";
+  const alone = s.players.length<2;
   return `<div class="stack">
     ${joinBox}
+    ${alone?inviteCard():""}
     <section class="stack" style="gap:8px"><span class="eyebrow">Players · ${s.players.length} of 4</span><div class="plist">${slots}</div></section>
     ${ctl}
-    ${inviteCard()}
+    ${alone?"":inviteCard()}
     ${recordCard()}
   </div>`;
 }
@@ -1350,7 +1351,7 @@ function draftView(s,me,member){
     <div class="clock ${mine?"mine":""}">
       <div><div class="eyebrow">${over?"Draft complete":`Round ${round} of 4 · Pick ${n+1} of ${s.total}`}</div>
       <div class="who">${over?"Players are carving their order…":mine?"You're on the clock":esc(s.name(who))+" is picking…"}</div></div>
-      ${canUndo?`<button class="btn ghost small" data-act="undo">Undo last pick</button>`:""}
+      ${canUndo?`<button class="btn ghost small" data-act="undo">${last.pid===me?"Undo my pick":"Undo "+esc(s.name(last.pid))+"'s pick"}</button>`:""}
     </div>
     ${mine?`<form class="pickbox stack" id="pickform" style="gap:6px" autocomplete="off">
       <div class="row" style="gap:8px;flex-wrap:nowrap">
@@ -1379,7 +1380,7 @@ function orderView(s,me){
         <span class="arrows"><button data-act="up" data-i="${slot}" ${slot===0?"disabled":""} aria-label="Move up">&uarr;</button><button data-act="down" data-i="${slot}" ${slot===3?"disabled":""} aria-label="Move down">&darr;</button></span></li>`).join("")}</ol>
       <button class="btn gold block" data-act="lock" ${S.busy?"disabled":""}>Lock in my mountain</button><div class="err">${esc(S.err)}</div></section>`;
   return `<div class="stack">${body}
-    <section class="stack" style="gap:8px"><span class="eyebrow">Draft complete</span><div class="plist">${status}</div></section>
+    <section class="stack" style="gap:8px"><span class="eyebrow">Draft complete</span><div class="plist" style="grid-template-columns:1fr">${status}</div></section>
     ${locked?`<button class="btn ghost small" data-act="finish" style="align-self:flex-start">Score it now (anyone still ordering keeps draft order)</button>`:""}
   </div>`;
 }
@@ -1458,7 +1459,7 @@ function soloShareText(st){
 function soloView(){
   const st=soloState(), t=soloTopic(), n=st.picks.length;
   document.title="Mount Rushmore Daily";
-  const head=`<div class="top">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap;min-width:0"><span class="conn">Solo · #${S.solo.day}</span>${helpBtn()}${homeBtn()}</div></div>
+  const head=`<div class="top compact">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap;min-width:0"><span class="conn">Solo · #${S.solo.day}</span>${helpBtn()}${homeBtn()}</div></div>
     <div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">Mount Rushmore #${S.solo.day} · Solo</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc(t.name)}</h1></div>`;
   if(st.locked){
     const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces);
@@ -1476,7 +1477,7 @@ function soloView(){
   }
   if(n<4){
     return head+`<div class="stack">
-      <div class="clock mine"><div><div class="eyebrow">Pick ${n+1} of 4</div><div class="who">Guess the consensus top 4</div></div></div>
+      <div class="clock mine"><div><div class="eyebrow">Pick ${n+1} of 4</div><div class="who">Name the top 4</div></div></div>
       <form class="pickbox stack" id="pickform" style="gap:6px" autocomplete="off">
         <div class="row" style="gap:8px;flex-wrap:nowrap">
           <input class="t" id="pick" placeholder="Name a ${esc(t.name.replace(/s$/,"").toLowerCase())}…" aria-label="Your pick" aria-autocomplete="list" aria-controls="sug" enterkeyhint="done">
@@ -1554,7 +1555,7 @@ async function signInGoogle(){
       try{ await auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credentialFromError(e)); await applyAccount(auth.currentUser); toast("Signed in. Synced with your other devices."); }
       catch(e2){ toast("Couldn't sign in. Try again."); }
     } else if(e && e.code==="auth/popup-blocked") toast("Your browser blocked the sign-in window. Allow popups for this site and try again.");
-    else if(!(e && /popup-closed|cancelled-popup/.test(e.code||""))) toast("Couldn't sign in. Try again.");
+    else if(!(e && /popup-closed|cancelled-popup/.test(e.code||""))) toast("Couldn't sign in ("+String((e&&e.code)||"unknown").replace("auth/","")+"). Try again.");
   }
   ACCT.busy=false; render();
 }
@@ -1666,7 +1667,7 @@ function boardCard(){
          <div class="mono muted">Top ${Math.max(1,Math.ceil(me.place/n*100))}%</div></div>`
     : `<div class="stack" style="gap:8px"><div class="eyebrow">Global leaderboard · ${n} player${n===1?"":"s"} so far</div>
          <div class="row" style="gap:8px;flex-wrap:nowrap"><input class="t" id="bname" maxlength="18" placeholder="Name for the board" value="${esc(myName())}">
-         <button class="btn gold" data-act="spost" ${B.posting?"disabled":""}>${B.posting?"Posting…":"Post score"}</button></div></div>`;
+         <button class="btn gold" data-act="spost" style="white-space:nowrap" ${B.posting?"disabled":""}>${B.posting?"Posting…":"Post"}</button></div></div>`;
   const top = B.rows.slice(0,10);
   if(me && !top.includes(me)) top.push(me);
   return `<section class="card stack" style="gap:10px">${head}${B.err?`<div class="err">${esc(B.err)}</div>`:""}
@@ -1692,7 +1693,8 @@ function guideView(){
       <div class="snakedemo" aria-hidden="true">
         <div>R1 ${chip(0,"A")}${chip(1,"B")}${chip(2,"C")} &rarr;</div>
         <div>R2 ${chip(2,"C")}${chip(1,"B")}${chip(0,"A")} &larr;</div>
-        <div>R3 ${chip(0,"A")}${chip(1,"B")}${chip(2,"C")} &rarr; and so on, 4 rounds</div>
+        <div>R3 ${chip(0,"A")}${chip(1,"B")}${chip(2,"C")} &rarr;</div>
+        <div class="muted">and so on for 4 rounds</div>
       </div></div></div>
     <div class="step"><div class="num">3</div><div><b>Carve your order</b><p>Rank your four. Your #1 gets the Washington spot.</p>
       <div class="spotrow" aria-hidden="true"><span>#1<br>Washington</span><span>#2<br>Jefferson</span><span>#3<br>Roosevelt</span><span>#4<br>Lincoln</span></div></div></div>
@@ -1855,6 +1857,7 @@ function render(){
   if(ae && ae.tagName==="INPUT" && ae.id){ focusId=ae.id; try{ a=ae.selectionStart; b=ae.selectionEnd; }catch{} }
   if("pick" in keep) S.draft=keep.pick;
   if(S.solo && S.solo.day!==dayNumber()){ S.solo.day=dayNumber(); S.draft=""; S.err=""; }
+  document.documentElement.style.overflow = S.help ? "hidden" : "";
   app.innerHTML = (S.solo ? soloView() : S.group ? roomView() : homeView()) + (S.help ? guideView() : "");
   for(const [id,v] of Object.entries(keep)){ const el=document.getElementById(id); if(el) el.value=v; }
   const ni=$("#pick"); if(ni){ ni.value=S.draft; updateSuggest(); }
