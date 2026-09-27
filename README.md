@@ -6,4 +6,4 @@ A daily snake-draft party game for 2-4 friends, each on their own phone, anywher
 - Round 1 each day is the shared daily topic (turns over at midnight Pacific). Deal bonus rounds with new random topics any time.
 - Draft four picks each, order them, and get scored against a consensus top 24. The crew record tracks wins and averages.
 
-Single static page (`index.html`). Live sync uses the free public relay at ntfy.sh, which keeps each round for about 12 hours. No accounts, no server.
+Single static page (`index.html`). Live sync and the global solo leaderboard use Firebase Realtime Database (free plan, anonymous sign-in). Rules in `database.rules.json`. No accounts, no server of our own.

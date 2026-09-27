@@ -973,94 +973,73 @@ function setPid(p){ store.set(pidKey(S.group),p); }
 function myName(){ return store.get("mr.name"+(SEAT?"."+SEAT:""),""); }
 function setName(n){ store.set("mr.name"+(SEAT?"."+SEAT:""),n); }
 
-/* ---------------- relay (ntfy.sh pub/sub; each round's history lives ~12h) ---------------- */
-const RELAY = "https://ntfy.sh/";
+/* ---------------- sync (Firebase Realtime Database) ----------------
+   Each round is an append-only event log at rounds/<crew>-<day>-<n>/events. Firebase push keys sort
+   by time, so every phone reads the same order and folds it into the same game state.
+   crewRounds/<crew>/<day>/<n> lists the rounds opened that day. Nothing expires. */
 const roundKey = (g,day,n) => `${g}-${day}-${n}`;
-const topicPath = k => "mtrushmore-v2-"+k;
-const S = {group:null, day:0, round:0, code:null, events:[], ids:[], conn:"idle", openedAt:0, es:null, busy:false, err:"", draft:"", sugIdx:0, myOrder:null, lastPickCount:0, auto:{}, next:null, probing:false};
-function parseMsg(m){
-  if(!m || m.event!=="message") return null;
-  let e; try{ e=JSON.parse(m.message); }catch{ return null; }
-  return e && typeof e==="object" && typeof e.type==="string" ? e : null;
-}
-async function pollRound(k){
-  const r = await fetch(RELAY+topicPath(k)+"/json?poll=1&since=all");
-  if(!r.ok) throw new Error("relay "+r.status);
-  const ids=[], evs=[];
-  for(const line of (await r.text()).split(/\r?\n/)){
-    if(!line.trim()) continue;
-    let m; try{ m=JSON.parse(line); }catch{ continue; }
-    const e=parseMsg(m); if(e){ ids.push(m.id); evs.push(e); }
-  }
-  return {ids, evs};
-}
-function connect(n){
-  S.round=n; if(S.group){ const k="mr.maxround."+S.group+"."+S.day; if(n>store.get(k,0)) store.set(k,n); } S.code=roundKey(S.group,S.day,n);
-  S.events=[]; S.ids=[]; S.conn="connecting"; S.myOrder=null; S.lastPickCount=0; S.next=null; S.err="";
-  S.ready = new Promise(res=>{ S.readyRes=res; });
-  openStream(S.code);
-}
-function openStream(k){
-  if(S.es) S.es.close();
-  const es = new EventSource(RELAY+topicPath(k)+"/sse?since=all");
-  S.es = es;
-  es.addEventListener("open", ()=>{ S.conn="live"; S.openedAt=Date.now(); S.readyRes && S.readyRes(); resync(); setTimeout(render,1400); render(); });
-  es.onmessage = ev => {
-    let m; try{ m=JSON.parse(ev.data); }catch{ return; }
-    const e=parseMsg(m); if(!e || S.ids.includes(m.id)) return;
-    S.ids.push(m.id); S.events.push(e); queueRender();
+const S = {group:null, day:0, round:0, code:null, events:[], ids:[], conn:"idle", synced:false, busy:false, err:"", draft:"", sugIdx:0, myOrder:null, lastPickCount:0, auto:{}, next:null, probing:false, unsubRound:null, unsubDay:null};
+function stopSync(){ if(S.unsubRound){ S.unsubRound(); S.unsubRound=null; } if(S.unsubDay){ S.unsubDay(); S.unsubDay=null; } }
+async function connect(n){
+  const gen = S.gen = (S.gen||0)+1;
+  if(S.unsubRound){ S.unsubRound(); S.unsubRound=null; }
+  if(S.unsubDay){ S.unsubDay(); S.unsubDay=null; }
+  S.round=n; S.code=roundKey(S.group,S.day,n);
+  if(S.group){ const mk="mr.maxround."+S.group+"."+S.day; if(n>store.get(mk,0)) store.set(mk,n); }
+  S.events=[]; S.ids=[]; S.conn="connecting"; S.synced=false; S.myOrder=null; S.lastPickCount=0; S.next=null; S.err="";
+  const k=S.code;
+  let db; try{ ({db}=await fb()); }catch(e){ if(S.gen===gen){ S.conn="down"; S.err=e.message; render(); } return; }
+  if(S.gen!==gen) return;
+  const ref=db.ref("rounds/"+k+"/events").orderByKey();
+  const cb=snap=>{
+    if(S.gen!==gen) return;
+    const ids=[], evs=[];
+    snap.forEach(c=>{ const e=c.val(); if(e && typeof e.type==="string"){ ids.push(c.key); evs.push(e); } });
+    S.ids=ids; S.events=evs; S.synced=true; S.conn = S.online===false ? "reconnecting" : "live"; queueRender(); watchNext();
   };
-  es.onerror = ()=>{
-    if(es.readyState===2){ S.conn="down"; setTimeout(()=>{ if(S.es===es && S.code===k) openStream(k); }, 4000); }
-    else S.conn="reconnecting";
-    render();
-  };
+  ref.on("value", cb, ()=>{ S.conn="down"; render(); });
+  S.unsubRound=()=>ref.off("value",cb);
 }
 async function send(e){
-  e.pid = e.pid || myPid(); e.at = Date.now();
-  await Promise.race([S.ready, new Promise(r=>setTimeout(r,4000))]);
-  const r = await fetch(RELAY+topicPath(S.code), {method:"POST", body:JSON.stringify(e)});
-  if(r.status===429) throw new Error("The game relay is busy. Wait a few seconds and try again.");
-  if(!r.ok) throw new Error("Couldn't reach the game relay ("+r.status+"). Check your connection.");
-  setTimeout(resync,1500);
+  const {db, uid} = await fb();
+  const ev = {...e, pid: e.pid || myPid(), uid, at: Date.now()};
+  for(const x in ev) if(ev[x]===undefined) delete ev[x];
+  if(S.online===false) throw new Error("You're offline. Reconnect, then try again.");
+  const ok = await Promise.race([
+    db.ref("rounds/"+S.code+"/events").push(ev).then(()=>true, ()=>false),
+    new Promise(r=>setTimeout(()=>r(null), 10000))
+  ]);
+  if(ok===null) throw new Error("Still sending… check your connection. It will appear once it goes through.");
+  if(!ok) throw new Error("Couldn't send that. Check your connection and try again.");
+  if(e.type==="create") await db.ref(`crewRounds/${S.group}/${S.day}/${S.round}`).set(true).catch(()=>{});
 }
-/* The live stream can miss a message (sent while a phone was asleep or reconnecting) or deliver
-   two near-simultaneous ones in a different order than the relay stored them. The relay's stored
-   history is the single source of order: adopt it, then keep any live events it doesn't have yet. */
-async function resync(){
-  const k=S.code; if(!k) return;
-  try{
-    const {ids, evs} = await pollRound(k);
-    if(k!==S.code) return;
-    const have=new Set(ids);
-    S.ids.forEach((id,i)=>{ if(!have.has(id)){ ids.push(id); evs.push(S.events[i]); } });
-    if(ids.join()!==S.ids.join()){ S.ids=ids; S.events=evs; queueRender(); }
-  }catch{}
-}
-/* While a finished round is on screen, watch for a crewmate opening the next one. */
+/* While a finished round is on screen, show a banner when a crewmate opens the next one. */
 async function watchNext(){
-  if(!S.code || S.next) return;
+  if(!S.code || S.next || S.watchingNext===S.code) return;
   const s=fold(S.events); if(!s.done) return;
+  S.watchingNext=S.code;
+  const k=S.code, nextN=S.round+1;
   try{
-    const {evs} = await pollRound(roundKey(S.group,S.day,S.round+1));
-    const s2=fold(evs); if(s2.created && !S.next){ S.next={n:S.round+1, topic:s2.topic.name, by:s2.name(s2.host)}; render(); }
+    const {db}=await fb();
+    const ref=db.ref(`crewRounds/${S.group}/${S.day}/${nextN}`);
+    const cb=async snap=>{
+      if(!snap.val() || S.code!==k || S.next) return;
+      const ev=(await db.ref("rounds/"+roundKey(S.group,S.day,nextN)+"/events").orderByKey().limitToFirst(8).get()).val()||{};
+      const s2=fold(Object.keys(ev).sort().map(x=>ev[x]));
+      if(S.code===k && s2.created){ S.next={n:nextN, topic:s2.topic.name, by:s2.name(s2.host)}; render(); }
+    };
+    ref.on("value", cb);
+    if(S.unsubDay) S.unsubDay();
+    S.unsubDay=()=>ref.off("value",cb);
   }catch{}
 }
-// Light polling keeps phones in step without draining the free relay's per-network rate limit.
-setInterval(()=>{
-  if(!S.code || document.visibilityState!=="visible") return;
-  const s=fold(S.events);
-  if(s.done){ watchNext(); return; }
-  if(S.conn!=="live" || Math.random()<0.5) resync();
-}, 12000);
 document.addEventListener("visibilitychange", ()=>{
   if(document.visibilityState!=="visible" || !S.group) return;
   if(dayNumber()!==S.day){
     const s=fold(S.events);
     if(!s.started || s.done || !s.seats.includes(myPid())) return openCrew(S.group);   // new day: go to today's game
-    render(); return;                                                                    // mid-game: finish first, banner offers the jump
+    render();                                                                            // mid-game: finish first, banner offers the jump
   }
-  if(S.code){ resync(); watchNext(); if(S.conn==="down") openStream(S.code); }
 });
 let rq=0; function queueRender(){ if(rq) return; rq=setTimeout(()=>{rq=0;render();},0); }
 
@@ -1511,7 +1490,12 @@ function fb(){
     const app = firebase.apps.length ? firebase.app() : firebase.initializeApp(FB_CONFIG);
     const auth = app.auth();
     const cred = auth.currentUser ? {user:auth.currentUser} : await auth.signInAnonymously();
-    return {db: app.database(), uid: cred.user.uid};
+    const db = app.database();
+    db.ref(".info/connected").on("value", snap=>{
+      S.online = !!snap.val();
+      if(S.code){ S.conn = !S.online ? "reconnecting" : S.synced ? "live" : "connecting"; render(); }
+    });
+    return {db, uid: cred.user.uid};
   })();
   fbPromise.catch(()=>{ fbPromise=null; });
   return fbPromise;
@@ -1606,23 +1590,27 @@ function updateSuggest(){
 function setURL(g){ history.pushState(null,"",g?"?g="+g+(SEAT?"&seat="+SEAT:""):location.pathname+(SEAT?"?seat="+SEAT:"")); }
 /* Open a crew on today's most recent round (round 1 = the daily topic). */
 async function openCrew(g){
-  if(S.es) S.es.close(); S.es=null;
-  S.group=g; S.day=dayNumber(); S.code=null; S.probing=true; S.err=""; rememberCrew(g); render();
-  // The relay forgets a round ~12h after its last message, so early rounds can read as empty
-  // while later ones are live. Scan past short gaps, and never drop below what this phone saw.
-  const seenKey="mr.maxround."+g+"."+S.day;
-  let n=0, gap=0;
-  try{ for(let i=1;i<=40 && gap<3;i++){ const {ids}=await pollRound(roundKey(g,S.day,i)); if(ids.length){ n=i; gap=0; } else gap++; } }catch{}
+  stopSync();
+  S.group=g; S.day=dayNumber(); S.code=null; S.probing=true; S.err=""; S.watchingNext=null; rememberCrew(g); render();
+  let n=0;
+  try{
+    const {db}=await fb();
+    const v=(await db.ref(`crewRounds/${g}/${S.day}`).get()).val()||{};
+    const cands=Object.keys(v).map(Number).filter(x=>x>0).sort((a,b)=>b-a);
+    for(const c of cands.slice(0,6)){
+      const first=(await db.ref("rounds/"+roundKey(g,S.day,c)+"/events").orderByKey().limitToFirst(1).get()).val();
+      if(first && Object.values(first)[0].type==="create"){ n=c; break; }
+    }
+  }catch(e){ S.err=e.message; }
   if(S.group!==g) return;
-  const seen=store.get(seenKey,0);
-  S.probing=false; connect(Math.max(1,n,seen)); render();
+  S.probing=false; connect(Math.max(1,n)); render();
 }
-function goHome(){ S.solo=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } if(S.es) S.es.close(); S.es=null; S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
+function goHome(){ S.solo=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } stopSync(); S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
 
 /* Automatic steps once the round's history has loaded: create the round if nobody has yet,
    and take a seat if you're part of the crew and haven't chosen to sit out. */
 function autoSteps(){
-  if(!S.code || S.busy || S.conn!=="live" || Date.now()-S.openedAt<1200) return;
+  if(!S.code || S.busy || !S.synced) return;
   const s=fold(S.events), me=myPid(), name=myName(), k=S.code;
   if(!name) return;
   if(!s.created && !S.auto[k+"c"]){
@@ -1692,8 +1680,8 @@ document.addEventListener("click", e=>{
   if(a==="lock") return act(()=>send({type:"order",order:S.myOrder.slice()}));
   if(a==="finish") return act(()=>send({type:"finish"}));
   if(a==="claim"){ setPid(b.dataset.pid); render(); toast("Rejoined as "+s.name(b.dataset.pid)); return; }
-  if(a==="today") return openCrew(S.group);
-  if(a==="bonus"){ connect(S.round+1); render(); return; }
+  if(a==="today"){ S.watchingNext=null; return openCrew(S.group); }
+  if(a==="bonus"){ S.watchingNext=null; connect(S.round+1); render(); return; }
   if(a==="shareres") return shareOrCopy(shareText(s),"Mount Rushmore", crewURL(S.group));
 });
 document.addEventListener("submit", e=>{
@@ -1734,11 +1722,11 @@ function render(){
   autoSteps();
 }
 function boot(){
-  if(new URLSearchParams(location.search).has("solo")){ if(S.es) S.es.close(); S.es=null; S.group=null; S.code=null; S.solo={day:dayNumber()}; render(); return; }
+  if(new URLSearchParams(location.search).has("solo")){ stopSync(); S.group=null; S.code=null; S.solo={day:dayNumber()}; render(); return; }
   S.solo=null;
   const g=(new URLSearchParams(location.search).get("g")||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
   if(g.length===6){ if(g!==S.group) openCrew(g); else render(); }
-  else { if(S.es) S.es.close(); S.es=null; S.group=null; S.code=null; render(); }
+  else { stopSync(); S.group=null; S.code=null; render(); }
 }
 boot();
 setInterval(()=>{ if(S.solo && S.solo.day!==dayNumber()) return render(); if(!S.group && !(document.activeElement && document.activeElement.tagName==="INPUT")) render(); }, 60000);
