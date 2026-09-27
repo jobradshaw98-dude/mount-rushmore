@@ -1060,6 +1060,10 @@ document.addEventListener("visibilitychange", ()=>{
 let rq=0; function queueRender(){ if(rq) return; rq=setTimeout(()=>{rq=0;render();},0); }
 
 /* ---------------- game state = fold over the event log ---------------- */
+// Rounds created from this moment on use fair-play rules: no auto-picking for someone else, and only
+// the player who made a pick can undo it. Older rounds keep the rules they were played under, so
+// a game in progress replays identically on every phone.
+const FAIR_PLAY_FROM = 1790531797011;
 function fold(events){
   const s={created:false,host:null,topic:null,day:null,round:1,players:[],started:false,seats:[],picks:[],orders:{},finished:false};
   for(const e of events){
@@ -1068,7 +1072,7 @@ function fold(events){
     const seated = s.seats.includes(e.pid);
     switch(e.type){
       case "create":
-        if(!s.created && TOPIC[e.topic]){ s.created=true; s.createdAt=e.at||0; s.host=e.pid; s.topic=TOPIC[e.topic]; s.day=e.day|0; s.round=e.round|0||1; }
+        if(!s.created && TOPIC[e.topic]){ s.created=true; s.createdAt=e.at||0; s.fair=(e.at||0)>=FAIR_PLAY_FROM; s.host=e.pid; s.topic=TOPIC[e.topic]; s.day=e.day|0; s.round=e.round|0||1; }
         break;
       case "join": {
         if(!s.created || typeof e.name!=="string") break;
@@ -1091,7 +1095,7 @@ function fold(events){
         if(!s.started || e.n!==s.picks.length || s.picks.length>=total) break;
         const who = onClock(s, s.picks.length);
         if(e.type==="pick" && e.pid!==who) break;
-        if(e.type==="autopick" && !seated) break;
+        if(e.type==="autopick" && (s.fair || !seated)) break;
         if(typeof e.text!=="string" || !key(e.text)) break;
         const ent = matchEntry(s.topic, e.text);
         const pk = ent ? "E"+ent.rank : "W"+key(e.text);
@@ -1101,7 +1105,7 @@ function fold(events){
       case "undo": {
         if(!s.started || !s.picks.length || e.n!==s.picks.length-1 || Object.keys(s.orders).length) break;
         const last = s.picks[s.picks.length-1];
-        if(e.pid===last.pid || e.pid===s.host) s.picks.pop();
+        if(e.pid===last.pid || (!s.fair && e.pid===s.host)) s.picks.pop();
         break; }
       case "order": {
         if(!s.started || s.finished || s.picks.length<total || s.orders[e.pid] || !seated) break;
@@ -1214,7 +1218,7 @@ function homeView(){
     </section>
 
     ${crews.length?`<section class="card stack" style="gap:10px"><span class="eyebrow">Your crews</span>
-      <div class="row">${crews.map(c=>`<button class="btn ghost" data-act="opencrew" data-g="${esc(c.g)}" style="font-family:var(--mono);letter-spacing:.1em">${esc(c.g)}</button>`).join("")}</div></section>`:""}
+      <div class="row">${crews.map(c=>`<button class="btn ghost" data-act="opencrew" data-g="${esc(c.g)}" style="flex-direction:column;gap:0;line-height:1.2">${crewName(c.g)?`<span>${esc(crewName(c.g))}</span>`:""}<span class="mono" style="letter-spacing:.1em;font-size:${crewName(c.g)?"11px":"15px"};${crewName(c.g)?"opacity:.65":""}">${esc(c.g)}</span></button>`).join("")}</div></section>`:""}
 
     ${(()=>{ const st=store.get(soloKey(n),null); const done=st&&st.locked;
       const score=done?scoreFaces(st.order.map(i=>st.picks[i])).total:0;
@@ -1259,7 +1263,7 @@ function roomView(){
   const s = fold(S.events), me = myPid();
   document.title = "Mount Rushmore Daily";
   const t = topicForRound(S.group,S.day,S.round);
-  const title = `<div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">Mount Rushmore #${S.day} · ${roundLabel(S.round)}</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc((s.topic||t).name)}</h1></div>`;
+  const title = `<div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">${crewName(S.group)?esc(crewName(S.group))+" · ":""}Mount Rushmore #${S.day} · ${roundLabel(S.round)}</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc((s.topic||t).name)}</h1></div>`;
   if(!s.created){
     if(myName()) return head+title+`<div class="card"><p class="muted" style="margin:0">Setting up the round…</p><div class="err">${esc(S.err)}</div></div>`;
     return head+title+nameBox("Join this crew", "You'll be dealt into today's game.");
@@ -1279,6 +1283,7 @@ function nameBox(h, sub){
 function inviteCard(){
   const url = crewURL(S.group);
   return `<section class="card stack">
+      ${crewNameRow()}
       <span class="eyebrow">Crew invite · same link every day</span>
       <div class="invite"><span class="code">${esc(S.group)}</span><span class="linkbox" title="${esc(url)}">${esc(url)}</span></div>
       <div class="row"><button class="btn ghost small" data-act="invite">Share invite</button><button class="btn ghost small" data-act="copylink">Copy link</button></div>
@@ -1346,7 +1351,7 @@ function draftView(s,me,member){
     return `<div class="col ${pid===who?"onclock":""}"><h3><span class="chip" style="background:${pcol(si)}"></span><span>${esc(s.name(pid))}${pid===me?" (you)":""}</span></h3>${slots}</div>`;
   }).join("");
   const last = s.picks[n-1];
-  const canUndo = member && last && (last.pid===me || me===s.host);
+  const canUndo = member && last && last.pid===me;
   return `<div class="stack">
     <div class="clock ${mine?"mine":""}">
       <div><div class="eyebrow">${over?"Draft complete":`Round ${round} of 4 · Pick ${n+1} of ${s.total}`}</div>
@@ -1362,8 +1367,7 @@ function draftView(s,me,member){
       <ul class="sug" id="sug" role="listbox"></ul>
       <div class="err">${esc(S.err)}</div>
     </form>`:""}
-    ${!over && !mine && member?`<div class="row"><span class="muted" style="font-size:13px">${esc(s.name(who))} stepped away?</span><button class="btn ghost small" data-act="autopick">Auto-pick for them</button></div>`:""}
-    <div class="snake" aria-label="Upcoming picks">${upcoming.join("")}</div>
+        <div class="snake" aria-label="Upcoming picks">${upcoming.join("")}</div>
     <div class="board" style="--cols:${s.P}">${cols}</div>
   </div>`;
 }
@@ -1679,6 +1683,45 @@ function boardCard(){
 }
 
 
+
+/* ---------------- crew names ---------------- */
+const CN = {names:{}, watching:null, off:null, editing:false, fetched:{}};
+function crewName(g){ return CN.names[g] || ""; }
+async function watchCrewName(g){
+  if(CN.watching===g) return;
+  if(CN.off){ CN.off(); CN.off=null; }
+  CN.watching=g;
+  try{
+    const {db}=await fb(); if(CN.watching!==g) return;
+    const ref=db.ref("crews/"+g+"/name");
+    const cb=snap=>{ const v=snap.val(); if(typeof v==="string") CN.names[g]=v; else delete CN.names[g]; render(); };
+    ref.on("value", cb); CN.off=()=>ref.off("value", cb);
+  }catch{}
+}
+async function fetchCrewNames(list){
+  const need=list.filter(g=>!CN.fetched[g]); if(!need.length) return;
+  need.forEach(g=>CN.fetched[g]=true);
+  try{
+    const {db}=await fb();
+    await Promise.all(need.map(async g=>{ const v=(await db.ref("crews/"+g+"/name").get()).val(); if(typeof v==="string") CN.names[g]=v; }));
+    render();
+  }catch{}
+}
+async function saveCrewName(g, name){
+  name=(name||"").trim().replace(/\s+/g," ").slice(0,24);
+  if(!name){ toast("Give the crew a name first."); return; }
+  try{ const {db}=await fb(); await db.ref("crews/"+g+"/name").set(name); CN.names[g]=name; CN.editing=false; render(); toast("Crew renamed"); }
+  catch{ toast("Couldn't rename the crew. Try again."); }
+}
+function crewNameRow(){
+  const g=S.group, n=crewName(g);
+  if(CN.editing) return `<div class="row" style="gap:8px;flex-wrap:nowrap"><input class="t" id="crewname" maxlength="24" placeholder="e.g. The Carvers" value="${esc(n)}">
+    <button class="btn gold small" data-act="crewsave">Save</button><button class="btn ghost small" data-act="crewcancel">Cancel</button></div>`;
+  return `<div class="row" style="justify-content:space-between"><div style="min-width:0"><div class="muted" style="font-size:12px">Crew name</div>
+    <div style="font-weight:700;overflow-wrap:anywhere">${n?esc(n):'<span class="muted" style="font-weight:400">No name yet</span>'}</div></div>
+    <button class="btn ghost small" data-act="crewrename">${n?"Rename":"Name this crew"}</button></div>`;
+}
+
 /* ---------------- how to play ---------------- */
 function helpBtn(){ return `<button class="helpbtn" data-act="help" aria-label="How to play">?</button>`; }
 function guideView(){
@@ -1742,7 +1785,7 @@ async function openCrew(g){
   if(S.group!==g) return;
   S.probing=false; connect(Math.max(1,n)); render();
 }
-function goHome(){ S.solo=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } stopSync(); S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
+function goHome(){ S.solo=null; CN.editing=false; if(CN.off){ CN.off(); CN.off=null; } CN.watching=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } stopSync(); S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
 
 /* Automatic steps once the round's history has loaded: create the round if nobody has yet,
    and take a seat if you're part of the crew and haven't chosen to sit out. */
@@ -1813,7 +1856,7 @@ document.addEventListener("click", e=>{
     const missing = crewRecord(S.group).filter(r=>!s.players.some(p=>p.pid===r.pid));
     if(missing.length && S.confirmStart!==S.code){ S.confirmStart=S.code; render(); return; }
     const ids=s.players.map(p=>p.pid); for(let i=ids.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]]} return act(()=>send({type:"start",order:ids})); }
-  if(a==="invite") return shareOrCopy(`Join my Mount Rushmore crew. Same link every day, new topic daily. Crew code ${S.group}`, "Mount Rushmore", crewURL(S.group));
+  if(a==="invite") return shareOrCopy(`Join ${crewName(S.group)?"\""+crewName(S.group)+"\" on ":"my "}Mount Rushmore crew. Same link every day, new topic daily. Crew code ${S.group}`, "Mount Rushmore", crewURL(S.group));
   if(a==="copylink"){ navigator.clipboard.writeText(crewURL(S.group)).then(()=>toast("Link copied"),()=>{const ta=$("#sharebox"); ta.hidden=false; ta.value=crewURL(S.group); ta.select();}); return; }
   if(a==="sug") return doPick(b.dataset.label);
   if(a==="undo") return act(()=>send({type:"undo",n:s.picks.length-1}));
@@ -1823,6 +1866,9 @@ document.addEventListener("click", e=>{
   if(a==="finish") return act(()=>send({type:"finish"}));
   if(a==="claim"){ setPid(b.dataset.pid); render(); toast("Rejoined as "+s.name(b.dataset.pid)); return; }
   if(a==="today"){ S.watchingNext=null; return openCrew(S.group); }
+  if(a==="crewrename"){ CN.editing=true; render(); document.getElementById("crewname")?.focus(); return; }
+  if(a==="crewcancel"){ CN.editing=false; render(); return; }
+  if(a==="crewsave") return saveCrewName(S.group, ($("#crewname")||{}).value);
   if(a==="bonus"){ S.watchingNext=null; connect(S.round+1); render(); return; }
   if(a==="shareres") return shareOrCopy(shareText(s),"Mount Rushmore", crewURL(S.group));
 });
@@ -1843,6 +1889,7 @@ document.addEventListener("keydown", e=>{
   }
   if(e.target.id==="joincode" && e.key==="Enter"){ e.preventDefault(); $('[data-act="joincode"]').click(); }
   if(e.target.id==="name" && e.key==="Enter"){ e.preventDefault(); doCreate(); }
+  if(e.target.id==="crewname" && e.key==="Enter"){ e.preventDefault(); saveCrewName(S.group, e.target.value); }
   if(e.target.id==="jname" && e.key==="Enter"){ e.preventDefault(); $('[data-act="join"]')?.click(); }
 });
 window.addEventListener("popstate", ()=>boot());
@@ -1858,6 +1905,7 @@ function render(){
   if("pick" in keep) S.draft=keep.pick;
   if(S.solo && S.solo.day!==dayNumber()){ S.solo.day=dayNumber(); S.draft=""; S.err=""; }
   document.documentElement.style.overflow = S.help ? "hidden" : "";
+  if(S.group) watchCrewName(S.group); else fetchCrewNames(store.get("mr.crews",[]).map(c=>c.g));
   app.innerHTML = (S.solo ? soloView() : S.group ? roomView() : homeView()) + (S.help ? guideView() : "");
   for(const [id,v] of Object.entries(keep)){ const el=document.getElementById(id); if(el) el.value=v; }
   const ni=$("#pick"); if(ni){ ni.value=S.draft; updateSuggest(); }

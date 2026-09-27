@@ -118,6 +118,18 @@
           ".validate": false
         }
       }
+    },
+    "crews": {
+      "$g": {
+        ".read": "$g.matches(/^[A-Z0-9]{6}$/)",
+        "name": {
+          ".write": "auth != null && $g.matches(/^[A-Z0-9]{6}$/)",
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 24"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
     }
   }
 }
