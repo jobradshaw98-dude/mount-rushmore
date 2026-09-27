@@ -1090,6 +1090,11 @@ async function send(e){
   if(ok===null) throw new Error("Still sending… check your connection. It will appear once it goes through.");
   if(!ok) throw new Error("Couldn't send that. Check your connection and try again.");
   if(e.type==="create") await db.ref(`crewRounds/${S.group}/${S.day}/${S.round}`).set(true).catch(()=>{});
+  if(e.type==="pick" || e.type==="start"){
+    const s=fold(S.events.includes(ev)?S.events:S.events.concat([ev])); if(s.started){
+      if(!s.draftDone) notifyPlayer("turn", onClock(s, s.picks.length));
+      else s.seats.forEach(p=>notifyPlayer("order", p)); }
+  }
 }
 /* While a finished round is on screen, show a banner when a crewmate opens the next one. */
 async function watchNext(){
@@ -1221,6 +1226,7 @@ function rememberCrew(g){
   list.unshift({g, at:Date.now()});
   store.set("mr.crews", list.slice(0,10));
   pushProfile("crews/"+g, {pid:pidFor(g), at:Date.now()});
+  if(crewAlertsOn(g)) saveSubFor(g);
 }
 
 /* ---------------- helpers ---------------- */
@@ -1299,6 +1305,7 @@ function homeView(){
     <nav class="links" aria-label="More">
       ${!isStandalone() && !store.get("mr.installHide",false) ? link("igopen","Get the app","add to your Home Screen") : ""}
       ${typeof firebase!=="undefined" ? (ACCT.user ? link("signout","Signed in", esc(ACCT.user.email||"Google")+" · sign out") : link("signin","Sync your devices","sign in with Google")) : ""}
+      ${alertsSupported()||isIOS() ? (alertsOn() ? link("alertsoff","Turn alerts on/off","on · tap to turn off") : link("alertson","Turn on turn alerts","get pinged when it's your pick")) : ""}
       ${link("help","How to play","")}
       ${link("scoring","How scoring works","")}
     </nav>
@@ -1335,6 +1342,7 @@ function inviteCard(){
   const url = crewURL(S.group);
   return `<section class="card stack">
       ${crewNameRow()}
+      ${crewSettingsRow()}
       <span class="eyebrow">Crew invite · same link every day</span>
       <div class="invite"><span class="code">${esc(S.group)}</span><span class="linkbox" title="${esc(url)}">${esc(url)}</span></div>
       <div class="row"><button class="btn ghost small" data-act="invite">Share invite</button><button class="btn ghost small" data-act="copylink">Copy link</button></div>
@@ -1887,6 +1895,65 @@ function streak(){
 }
 function streakBadge(){ const n=streak(); return n>=1 ? `<span class="streak" title="Days in a row you've finished a game">${n}-day streak</span>` : ""; }
 
+
+/* ---------------- "your turn" alerts (web push) + leaving a crew ---------------- */
+const VAPID_PUBLIC = "BHLLp75RQ05Qp2yJO7Sfve9xQatx2aE_FyQ7pYY_qwEEuGts7jPPK15ZtMDyTOMjN7jUjDvZoB4CIUScDM8tdvo";
+const alertsSupported = () => "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
+const alertsOn = () => store.get("mr.alerts", false) && alertsSupported() && Notification.permission === "granted";
+const crewAlertsOn = g => alertsOn() && !store.get("mr.alertsOff."+g, false);
+
+function vapidKey(){ const b=VAPID_PUBLIC.replace(/-/g,"+").replace(/_/g,"/"); const raw=atob(b+"=".repeat((4-b.length%4)%4)); return Uint8Array.from(raw, c=>c.charCodeAt(0)); }
+async function pushSubscription(create){
+  const reg = await navigator.serviceWorker.ready;
+  return (await reg.pushManager.getSubscription()) || (create ? reg.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:vapidKey()}) : null);
+}
+async function saveSubFor(g){
+  try{ const sub=await pushSubscription(false); if(!sub) return; const {db,uid}=await fb(); const pid=pidFor(g);
+    await db.ref(`pidOwner/${g}/${pid}`).set(uid);   // first device account to claim this seat owns its alerts
+    await db.ref(`pushSubs/${g}/${pid}/${uid}`).set(JSON.parse(JSON.stringify(sub))); }catch{}
+}
+async function dropSubFor(g){ try{ const {db,uid}=await fb(); await db.ref(`pushSubs/${g}/${pidFor(g)}/${uid}`).remove(); }catch{} }
+async function enableAlerts(){
+  if(!alertsSupported()){ if(isIOS() && !isStandalone()){ S.ig=true; render(); toast("Add Rushmore to your Home Screen first, then turn on alerts from the app."); } else toast("This browser can't show alerts."); return; }
+  const perm = await Notification.requestPermission();
+  if(perm!=="granted"){ toast("Alerts are blocked. Allow notifications for Rushmore in your phone's settings."); return; }
+  try{ await pushSubscription(true); }catch{ toast("Couldn't turn on alerts. Try again."); return; }
+  store.set("mr.alerts", true);
+  for(const c of store.get("mr.crews",[])) if(!store.get("mr.alertsOff."+c.g,false)) await saveSubFor(c.g);
+  toast("Alerts on. You'll hear when it's your turn."); render();
+}
+async function disableAlerts(){
+  for(const c of store.get("mr.crews",[])) await dropSubFor(c.g);
+  try{ const sub=await pushSubscription(false); if(sub) await sub.unsubscribe(); }catch{}
+  store.set("mr.alerts", false); toast("Alerts off."); render();
+}
+async function toggleCrewAlerts(g){
+  if(!alertsOn()) return enableAlerts();
+  const off=!store.get("mr.alertsOff."+g,false);
+  store.set("mr.alertsOff."+g, off);
+  if(off) await dropSubFor(g); else await saveSubFor(g);
+  toast(off?"Alerts off for this crew.":"Alerts on for this crew."); render();
+}
+/* Tell the server who should hear about a move; it sends the push. */
+async function notifyPlayer(kind, to){
+  if(!to || to===myPid() || !S.code) return;
+  try{ const {db}=await fb(); await db.ref("notify/"+S.code).push({kind, to}); }catch{}
+}
+async function leaveCrew(g){
+  await dropSubFor(g);
+  const s=fold(S.events);
+  if(S.group===g && s.created && !s.started && s.players.some(p=>p.pid===myPid())) { try{ await send({type:"leave"}); }catch{} }
+  store.set("mr.crews", store.get("mr.crews",[]).filter(c=>c.g!==g));
+  if(ACCT.user && ACCT.synced){ try{ const {db}=await fb(); await db.ref("users/"+ACCT.user.uid+"/crews/"+g).remove(); }catch{} }
+  S.confirmLeave=null; goHome(); toast("You left the crew. The invite link still works if you want back in.");
+}
+function crewSettingsRow(){
+  const g=S.group, on=crewAlertsOn(g), confirming=S.confirmLeave===g;
+  return `<div class="row" style="justify-content:space-between;gap:8px">
+    <button class="btn ghost small" data-act="crewalerts">${on?"Alerts: on":"Alerts: off"}</button>
+    <button class="btn ghost small" data-act="leavecrew" style="${confirming?"border-color:var(--flag);color:var(--flag)":""}">${confirming?"Tap again to leave":"Leave crew"}</button></div>`;
+}
+
 /* ---------------- how to play ---------------- */
 function helpBtn(){ return `<button class="helpbtn" data-act="help" aria-label="How to play">?</button>`; }
 function guideView(){
@@ -2006,6 +2073,10 @@ document.addEventListener("click", e=>{
   if(a==="installhide"){ store.set("mr.installHide",true); render(); return; }
   if(a==="newcrew"){ S.newCrew=!S.newCrew; render(); if(S.newCrew) document.getElementById("name")?.focus(); return; }
   if(a==="scoring"){ S.showScoring=!S.showScoring; render(); return; }
+  if(a==="alertson") return enableAlerts();
+  if(a==="alertsoff") return disableAlerts();
+  if(a==="crewalerts") return toggleCrewAlerts(S.group);
+  if(a==="leavecrew"){ if(S.confirmLeave===S.group) return leaveCrew(S.group); S.confirmLeave=S.group; render(); return; }
   if(a==="signin") return signInGoogle();
   if(a==="signout") return signOutGoogle();
   if(a==="solo"){ S.solo={day:dayNumber()}; S.err=""; history.pushState(null,"","?solo"+(SEAT?"&seat="+SEAT:"")); render(); window.scrollTo(0,0); return; }
@@ -2046,6 +2117,7 @@ document.addEventListener("click", e=>{
     const msg = !s.draftDone
       ? `${s.name(onClock(s,n))}, you're on the clock! Pick ${n+1} of ${s.total} in Mount Rushmore${crew?" ("+crew+")":""}: ${topic}`
       : `Lock in your mountain! Everyone's waiting to see the scores for ${topic}${crew?" in "+crew:""}.`;
+    if(!s.draftDone) notifyPlayer("turn", onClock(s,n)); else s.seats.filter(p=>!s.orders[p]).forEach(p=>notifyPlayer("order", p));
     return shareOrCopy(msg, "Mount Rushmore", crewURL(S.group));
   }
   if(a==="bonus"){ S.watchingNext=null; connect(S.round+1); render(); return; }

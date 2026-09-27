@@ -1,5 +1,5 @@
 // Network first, so players always get the latest game; the cached copy only opens the app offline.
-const CACHE = "rushmore-shell-v2";
+const CACHE = "rushmore-shell-v3";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icons/icon-192.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => {
@@ -13,4 +13,21 @@ self.addEventListener("fetch", e => {
     if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); }
     return res;
   }).catch(() => caches.match(req).then(r => r || caches.match("./index.html"))));
+});
+
+// "Your turn" alerts.
+self.addEventListener("push", e => {
+  let d = {}; try { d = e.data ? e.data.json() : {}; } catch {}
+  e.waitUntil(self.registration.showNotification(d.title || "Mount Rushmore", {
+    body: d.body || "Something happened in your crew.", tag: d.tag, renotify: true,
+    icon: "icons/icon-192.png", badge: "icons/icon-192.png", data: { url: d.url || "./" }
+  }));
+});
+self.addEventListener("notificationclick", e => {
+  e.notification.close();
+  const url = (e.notification.data && e.notification.data.url) || "./";
+  e.waitUntil(clients.matchAll({ type: "window", includeUncontrolled: true }).then(list => {
+    for (const c of list) if ("focus" in c) { c.navigate(url).catch(()=>{}); return c.focus(); }
+    return clients.openWindow(url);
+  }));
 });

@@ -143,6 +143,41 @@
         ".write": "auth != null && $day.matches(/^[0-9]{1,5}$/)",
         ".validate": "newData.isNumber() && newData.val() === (data.exists() ? data.val() : 0) + 1"
       }
+    },
+    "notify": {
+      "$round": {
+        "$id": {
+          ".write": "auth != null && !data.exists() && $round.matches(/^[A-Z0-9]{6}-[0-9]{1,5}-[0-9]{1,2}$/)",
+          ".validate": "newData.hasChildren([\"kind\",\"to\"])",
+          "kind": {
+            ".validate": "newData.isString() && (newData.val() === \"turn\" || newData.val() === \"order\" || newData.val() === \"bonus\")"
+          },
+          "to": {
+            ".validate": "newData.isString() && newData.val().length <= 24"
+          },
+          "$other": {
+            ".validate": false
+          }
+        }
+      }
+    },
+    "pushSubs": {
+      "$g": {
+        "$pid": {
+          "$sid": {
+            ".write": "auth != null && $sid === auth.uid && root.child(\"pidOwner\").child($g).child($pid).val() === auth.uid",
+            ".validate": "newData.hasChildren([\"endpoint\",\"keys\"]) && newData.child(\"endpoint\").isString() && newData.child(\"endpoint\").val().beginsWith(\"https://\") && newData.child(\"endpoint\").val().length <= 1000"
+          }
+        }
+      }
+    },
+    "pidOwner": {
+      "$g": {
+        "$pid": {
+          ".write": "auth != null && $g.matches(/^[A-Z0-9]{6}$/) && $pid.matches(/^[a-z0-9]{3,24}$/) && (!data.exists() || data.val() === auth.uid)",
+          ".validate": "newData.val() === auth.uid"
+        }
+      }
     }
   }
 }
