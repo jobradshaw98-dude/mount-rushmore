@@ -8,6 +8,12 @@
 <meta property="og:title" content="Mount Rushmore Daily">
 <meta property="og:description" content="Draft your Mount Rushmore of today's topic with 2-4 friends.">
 <meta name="theme-color" content="#E7EEF2">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rushmore">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M0 30 L7 14 L12 18 L17 7 L23 15 L27 11 L32 20 L32 32 L0 32Z' fill='%23596470'/%3E%3Ccircle cx='24' cy='7' r='3' fill='%23D9962B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1225,6 +1231,7 @@ function homeView(){
       return `<section class="card row" style="justify-content:space-between"><div><div class="eyebrow">Solo daily</div><div style="font-weight:700">${done?"You scored "+score+" today":"Guess the consensus top 4, ranked globally"}</div></div>
         <button class="btn ${done?"ghost":"gold"}" data-act="solo">${done?"See my mountain":"Play solo"}</button></section>`; })()}
 
+    ${installCard()}
     ${accountCard()}
 
     <section class="card stack" aria-labelledby="hs">
@@ -1367,7 +1374,8 @@ function draftView(s,me,member){
       <ul class="sug" id="sug" role="listbox"></ul>
       <div class="err">${esc(S.err)}</div>
     </form>`:""}
-        <div class="snake" aria-label="Upcoming picks">${upcoming.join("")}</div>
+        ${!over && !mine && member ? `<button class="btn ghost small" data-act="nudge" style="align-self:flex-start">Nudge ${esc(s.name(who))}</button>` : ""}
+    <div class="snake" aria-label="Upcoming picks">${upcoming.join("")}</div>
     <div class="board" style="--cols:${s.P}">${cols}</div>
   </div>`;
 }
@@ -1385,6 +1393,7 @@ function orderView(s,me){
       <button class="btn gold block" data-act="lock" ${S.busy?"disabled":""}>Lock in my mountain</button><div class="err">${esc(S.err)}</div></section>`;
   return `<div class="stack">${body}
     <section class="stack" style="gap:8px"><span class="eyebrow">Draft complete</span><div class="plist" style="grid-template-columns:1fr">${status}</div></section>
+    ${locked && s.seats.some(p=>!s.orders[p]) ? `<button class="btn ghost small" data-act="nudge" style="align-self:flex-start">Nudge the crew</button>` : ""}
     ${locked?`<button class="btn ghost small" data-act="finish" style="align-self:flex-start">Score it now (anyone still ordering keeps draft order)</button>`:""}
   </div>`;
 }
@@ -1722,6 +1731,26 @@ function crewNameRow(){
     <button class="btn ghost small" data-act="crewrename">${n?"Rename":"Name this crew"}</button></div>`;
 }
 
+
+/* ---------------- install as an app ---------------- */
+const INSTALL = {evt:null};
+const isStandalone = () => (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+const isIOS = () => /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
+window.addEventListener("beforeinstallprompt", e=>{ e.preventDefault(); INSTALL.evt=e; render(); });
+window.addEventListener("appinstalled", ()=>{ INSTALL.evt=null; store.set("mr.installHide",true); render(); });
+if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js").catch(()=>{});
+function installCard(){
+  if(isStandalone() || store.get("mr.installHide",false)) return "";
+  if(INSTALL.evt) return `<section class="card row" style="justify-content:space-between"><div style="flex:1 1 200px"><div class="eyebrow">Get the app</div>
+    <div style="font-weight:700">Install Mount Rushmore</div><div class="muted" style="font-size:13px">Opens full screen from your home screen.</div></div>
+    <div class="row" style="gap:6px"><button class="btn gold small" data-act="install">Install</button><button class="btn ghost small" data-act="installhide">Not now</button></div></section>`;
+  if(isIOS()) return `<section class="card stack" style="gap:6px"><div class="eyebrow">Get the app</div>
+    <div style="font-weight:700">Add Mount Rushmore to your Home Screen</div>
+    <div class="muted" style="font-size:14px">In Safari, tap <b style="color:var(--ink)">Share</b> <span aria-hidden="true">(the square with the arrow)</span>, then <b style="color:var(--ink)">Add to Home Screen</b>. It opens full screen like a real app.</div>
+    <button class="btn ghost small" data-act="installhide" style="align-self:flex-start">Got it</button></section>`;
+  return "";
+}
+
 /* ---------------- how to play ---------------- */
 function helpBtn(){ return `<button class="helpbtn" data-act="help" aria-label="How to play">?</button>`; }
 function guideView(){
@@ -1834,6 +1863,8 @@ document.addEventListener("click", e=>{
   if(a==="create") return doCreate();
   if(a==="opencrew"){ setURL(b.dataset.g); return openCrew(b.dataset.g); }
   if(a==="joincode"){ const c=($("#joincode").value||"").toUpperCase().replace(/[^A-Z0-9]/g,""); if(c.length!==6){ S.err="Crew codes are 6 characters."; render(); return;} setURL(c); return openCrew(c); }
+  if(a==="install"){ const ev=INSTALL.evt; if(ev){ ev.prompt(); ev.userChoice.finally(()=>{ INSTALL.evt=null; render(); }); } return; }
+  if(a==="installhide"){ store.set("mr.installHide",true); render(); return; }
   if(a==="signin") return signInGoogle();
   if(a==="signout") return signOutGoogle();
   if(a==="solo"){ S.solo={day:dayNumber()}; S.err=""; history.pushState(null,"","?solo"+(SEAT?"&seat="+SEAT:"")); render(); window.scrollTo(0,0); return; }
@@ -1869,6 +1900,13 @@ document.addEventListener("click", e=>{
   if(a==="crewrename"){ CN.editing=true; render(); document.getElementById("crewname")?.focus(); return; }
   if(a==="crewcancel"){ CN.editing=false; render(); return; }
   if(a==="crewsave") return saveCrewName(S.group, ($("#crewname")||{}).value);
+  if(a==="nudge"){
+    const n=s.picks.length, topic=s.topic.name, crew=crewName(S.group);
+    const msg = !s.draftDone
+      ? `${s.name(onClock(s,n))}, you're on the clock! Pick ${n+1} of ${s.total} in Mount Rushmore${crew?" ("+crew+")":""}: ${topic}`
+      : `Lock in your mountain! Everyone's waiting to see the scores for ${topic}${crew?" in "+crew:""}.`;
+    return shareOrCopy(msg, "Mount Rushmore", crewURL(S.group));
+  }
   if(a==="bonus"){ S.watchingNext=null; connect(S.round+1); render(); return; }
   if(a==="shareres") return shareOrCopy(shareText(s),"Mount Rushmore", crewURL(S.group));
 });
