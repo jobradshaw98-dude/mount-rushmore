@@ -8,13 +8,23 @@
         "$uid": {
           ".write": "auth != null && auth.uid === $uid && !data.exists()",
           ".validate": "newData.hasChildren(['name', 'score', 'picks', 'ts'])",
-          "name": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 18" },
-          "score": { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 482" },
-          "ts": { ".validate": "newData.val() === now" },
-          "picks": {
-            "$i": { ".validate": "$i.matches(/^[0-3]$/) && newData.isString() && newData.val().length > 0 && newData.val().length <= 60" }
+          "name": {
+            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 18"
           },
-          "$other": { ".validate": false }
+          "score": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 482"
+          },
+          "ts": {
+            ".validate": "newData.val() === now"
+          },
+          "picks": {
+            "$i": {
+              ".validate": "$i.matches(/^[0-3]$/) && newData.isString() && newData.val().length > 0 && newData.val().length <= 60"
+            }
+          },
+          "$other": {
+            ".validate": false
+          }
         }
       }
     },
@@ -25,20 +35,44 @@
           "$e": {
             ".write": "auth != null && !data.exists() && $k.matches(/^[A-Z0-9]{6}-[0-9]{1,5}-[0-9]{1,2}$/) && $e.matches(/^-[A-Za-z0-9_-]{19}$/)",
             ".validate": "newData.hasChildren(['type', 'pid', 'uid']) && newData.child('uid').val() === auth.uid",
-            "type": { ".validate": "newData.isString() && newData.val().length <= 12" },
-            "pid": { ".validate": "newData.isString() && newData.val().length <= 24" },
-            "uid": { ".validate": "newData.isString()" },
-            "at": { ".validate": "newData.isNumber()" },
-            "name": { ".validate": "newData.isString() && newData.val().length <= 18" },
-            "text": { ".validate": "newData.isString() && newData.val().length <= 60" },
-            "n": { ".validate": "newData.isNumber()" },
-            "day": { ".validate": "newData.isNumber()" },
-            "round": { ".validate": "newData.isNumber()" },
-            "topic": { ".validate": "newData.isString() && newData.val().length <= 20" },
-            "order": {
-              "$i": { ".validate": "$i.matches(/^[0-9]$/) && ((newData.isString() && newData.val().length <= 24) || newData.isNumber())" }
+            "type": {
+              ".validate": "newData.isString() && newData.val().length <= 12"
             },
-            "$other": { ".validate": false }
+            "pid": {
+              ".validate": "newData.isString() && newData.val().length <= 24"
+            },
+            "uid": {
+              ".validate": "newData.isString()"
+            },
+            "at": {
+              ".validate": "newData.isNumber()"
+            },
+            "name": {
+              ".validate": "newData.isString() && newData.val().length <= 18"
+            },
+            "text": {
+              ".validate": "newData.isString() && newData.val().length <= 60"
+            },
+            "n": {
+              ".validate": "newData.isNumber()"
+            },
+            "day": {
+              ".validate": "newData.isNumber()"
+            },
+            "round": {
+              ".validate": "newData.isNumber()"
+            },
+            "topic": {
+              ".validate": "newData.isString() && newData.val().length <= 20"
+            },
+            "order": {
+              "$i": {
+                ".validate": "$i.matches(/^[0-9]$/) && ((newData.isString() && newData.val().length <= 24) || newData.isNumber())"
+              }
+            },
+            "$other": {
+              ".validate": false
+            }
           }
         }
       }
@@ -51,6 +85,37 @@
             ".write": "auth != null && !data.exists() && $g.matches(/^[A-Z0-9]{6}$/) && $day.matches(/^[0-9]{1,5}$/)",
             ".validate": "newData.val() === true && $n.matches(/^[1-9][0-9]?$/)"
           }
+        }
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid",
+        "name": {
+          ".validate": "newData.isString() && newData.val().length <= 18"
+        },
+        "crews": {
+          "$g": {
+            ".validate": "$g.matches(/^[A-Z0-9]{6}$/) && newData.hasChildren(['pid'])",
+            "pid": {
+              ".validate": "newData.isString() && newData.val().length <= 24"
+            },
+            "at": {
+              ".validate": "newData.isNumber()"
+            },
+            "$o": {
+              ".validate": false
+            }
+          }
+        },
+        "solo": {
+          "$day": {
+            ".validate": "$day.matches(/^[0-9]{1,5}$/) && newData.isString() && newData.val().length <= 3000"
+          }
+        },
+        "$other": {
+          ".validate": false
         }
       }
     }

@@ -40,7 +40,7 @@ body{background:var(--sky);color:var(--ink);font-family:var(--body);font-size:16
 button,input{font:inherit;color:inherit}
 .wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:calc(14px + env(safe-area-inset-top,0px)) calc(48px + env(safe-area-inset-bottom,0px))}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-.brand{white-space:nowrap;flex:none;display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:18px;letter-spacing:.3px;text-decoration:none;color:var(--ink);background:none;border:0;padding:0;cursor:pointer}
+.brand{white-space:nowrap;flex:none;min-width:0;display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:18px;letter-spacing:.3px;text-decoration:none;color:var(--ink);background:none;border:0;padding:0;cursor:pointer}
 .brand svg{width:34px;height:22px}
 .conn{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;font-family:var(--mono)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--rock)}
@@ -78,6 +78,7 @@ input.t:focus{border-color:var(--gold);outline:none}
 .steps li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:14px}
 .steps b{display:block;font-family:var(--display);font-weight:400;font-size:15px;margin-bottom:2px}
 @media (max-width:560px){.steps{grid-template-columns:1fr}}
+@media (max-width:420px){.top .brand .bt{display:none}}
 /* lobby */
 .invite{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap}
 .code{font-family:var(--mono);font-size:30px;letter-spacing:.18em;background:var(--gold-soft);border-radius:12px;padding:8px 14px}
@@ -151,6 +152,21 @@ details.cons ol{margin:10px 0 0;padding-left:26px;columns:2;column-gap:28px;font
 .recent{display:flex;flex-direction:column;gap:6px;font-size:14px}
 .recent a{color:var(--ink)}
 textarea.share{width:100%;min-height:150px;font-family:var(--mono);font-size:13px;border-radius:12px;border:1.5px solid var(--line);background:var(--sky);padding:10px}
+.guide-back{position:fixed;inset:0;background:rgba(16,22,29,.55);z-index:20;display:flex;align-items:flex-end;justify-content:center;padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+@media (min-width:600px){.guide-back{align-items:center}}
+.guide{background:var(--card);color:var(--ink);border-radius:20px;max-width:540px;width:100%;max-height:calc(100vh - 32px);overflow:auto;padding:22px 20px;box-shadow:0 20px 60px rgba(0,0,0,.35);animation:rise .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.guide h2{font-family:var(--display);font-weight:400;font-size:30px;line-height:1.05}
+.guide .step{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;padding:12px 0;border-top:1px solid var(--line)}
+.guide .num{font-family:var(--display);font-size:22px;width:40px;height:40px;border-radius:12px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center}
+.guide .step b{display:block;font-size:16px;margin-bottom:2px}
+.guide .step p{margin:0;font-size:14px;color:var(--muted)}
+.snakedemo{display:flex;flex-direction:column;gap:4px;margin-top:8px;font-family:var(--mono);font-size:12px}
+.snakedemo div{display:flex;gap:4px;align-items:center}
+.snakedemo span.c{width:24px;height:24px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.spotrow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.spotrow span{font-size:11px;text-align:center;padding:6px 2px;border-radius:8px;background:var(--sky);font-weight:600;line-height:1.2}
+.helpbtn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);background:transparent;font-weight:800;cursor:pointer;flex:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -968,10 +984,11 @@ function rid(n=10){ const a="abcdefghijkmnpqrstuvwxyz23456789"; let s=""; const 
 function crewCode(){ const a="ABCDEFGHJKMNPQRSTUVWXYZ23456789"; let s=""; const r=crypto.getRandomValues(new Uint8Array(6)); for(const x of r) s+=a[x%a.length]; return s; }
 // One identity per crew per phone, so you are the same player every day and every round.
 const pidKey = g => "mr.pid."+g+(SEAT?"."+SEAT:"");
-function myPid(){ const k=pidKey(S.group); let p=store.get(k); if(!p){ p=rid(); store.set(k,p);} return p; }
-function setPid(p){ store.set(pidKey(S.group),p); }
+function pidFor(g){ const k=pidKey(g); let p=store.get(k); if(!p){ p=rid(); store.set(k,p);} return p; }
+function myPid(){ return pidFor(S.group); }
+function setPid(p){ store.set(pidKey(S.group),p); pushProfile("crews/"+S.group, {pid:p, at:Date.now()}); }
 function myName(){ return store.get("mr.name"+(SEAT?"."+SEAT:""),""); }
-function setName(n){ store.set("mr.name"+(SEAT?"."+SEAT:""),n); }
+function setName(n){ store.set("mr.name"+(SEAT?"."+SEAT:""),n); pushProfile("name", n); }
 
 /* ---------------- sync (Firebase Realtime Database) ----------------
    Each round is an append-only event log at rounds/<crew>-<day>-<n>/events. Firebase push keys sort
@@ -1138,6 +1155,7 @@ function rememberCrew(g){
   const list=store.get("mr.crews",[]).filter(x=>x.g!==g);
   list.unshift({g, at:Date.now()});
   store.set("mr.crews", list.slice(0,10));
+  pushProfile("crews/"+g, {pid:pidFor(g), at:Date.now()});
 }
 
 /* ---------------- helpers ---------------- */
@@ -1171,7 +1189,8 @@ function mountain(marks=["?","?","?","?"], color="var(--rock)", big=false){
     ${faces}
   </svg>`;
 }
-function brand(){ return `<button class="brand" data-act="home" aria-label="Home"><svg viewBox="0 0 34 22"><path d="M0 22 L8 8 L13 12 L19 2 L26 10 L30 7 L34 14 L34 22Z" fill="var(--rock)"/></svg>Mount Rushmore</button>`; }
+function homeBtn(){ return `<button class="btn ghost small" data-act="home" aria-label="Back to home">&larr; Home</button>`; }
+function brand(){ return `<button class="brand" data-act="home" aria-label="Home"><svg viewBox="0 0 34 22"><path d="M0 22 L8 8 L13 12 L19 2 L26 10 L30 7 L34 14 L34 22Z" fill="var(--rock)"/></svg><span class="bt">Mount Rushmore</span></button>`; }
 function connBadge(){
   if(!S.group) return "";
   const cls = S.conn==="live"?"live":(S.conn==="down"?"bad":"");
@@ -1184,7 +1203,7 @@ function homeView(){
   const n=dayNumber(), t=topicForDay(n);
   const crews = store.get("mr.crews",[]);
   return `
-  <div class="top">${brand()}<span class="conn">#${n}</span></div>
+  <div class="top">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap"><span class="conn">#${n}</span>${helpBtn()}</div></div>
   <div class="stack">
     <section class="hero">
       ${mountain(["?","?","?","?"],"var(--rock)",true)}
@@ -1203,6 +1222,8 @@ function homeView(){
       return `<section class="card row" style="justify-content:space-between"><div><div class="eyebrow">Solo daily</div><div style="font-weight:700">${done?"You scored "+score+" today":"Guess the consensus top 4, ranked globally"}</div></div>
         <button class="btn ${done?"ghost":"gold"}" data-act="solo">${done?"See my mountain":"Play solo"}</button></section>`; })()}
 
+    ${accountCard()}
+
     <section class="card stack" aria-labelledby="hs">
       <h2 id="hs" class="display" style="font-size:22px">${crews.length?"Start another crew":"Start a crew"}</h2>
       <p class="muted" style="margin:0;font-size:14px">A crew is your group of 2 to 4. It gets one link that works every day: open it for the daily topic, or deal bonus rounds any time.</p>
@@ -1214,6 +1235,8 @@ function homeView(){
       </div>
       <div class="err" id="homeerr">${esc(S.err)}</div>
     </section>
+
+    <button class="btn ghost block" data-act="help">New here? How to play</button>
 
     <ol class="steps">
       <li><b>Snake draft</b>Everyone on their own phone, anywhere. Four rounds, the order flips every round. No duplicates.</li>
@@ -1232,7 +1255,7 @@ function homeView(){
 }
 
 function roomView(){
-  const head = `<div class="top">${brand()}${connBadge()}</div>`;
+  const head = `<div class="top">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap;min-width:0">${connBadge()}${helpBtn()}${homeBtn()}</div></div>`;
   if(S.probing || !S.code) return head+`<div class="card"><h2 class="display" style="font-size:24px">Finding today's game…</h2></div>`;
   const s = fold(S.events), me = myPid();
   document.title = "Mount Rushmore Daily";
@@ -1416,7 +1439,7 @@ function soloState(){
   if(!S.soloMem || S.soloMem.k!==k) S.soloMem={k, st:store.get(k, {picks:[], order:[0,1,2,3], locked:false})};
   return JSON.parse(JSON.stringify(S.soloMem.st));
 }
-function soloSave(st){ S.soloMem={k:soloKey(S.solo.day), st:JSON.parse(JSON.stringify(st))}; store.set(S.soloMem.k, st); }
+function soloSave(st){ S.soloMem={k:soloKey(S.solo.day), st:JSON.parse(JSON.stringify(st))}; store.set(S.soloMem.k, st); pushProfile("solo/"+S.solo.day, JSON.stringify(st)); }
 function soloPick(text){
   const st=soloState(), t=soloTopic();
   text=(text||"").trim(); if(!key(text) || st.picks.length>=4 || st.locked) return;
@@ -1435,7 +1458,7 @@ function soloShareText(st){
 function soloView(){
   const st=soloState(), t=soloTopic(), n=st.picks.length;
   document.title="Mount Rushmore Daily";
-  const head=`<div class="top">${brand()}<span class="conn">Solo · #${S.solo.day}</span></div>
+  const head=`<div class="top">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap;min-width:0"><span class="conn">Solo · #${S.solo.day}</span>${helpBtn()}${homeBtn()}</div></div>
     <div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">Mount Rushmore #${S.solo.day} · Solo</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc(t.name)}</h1></div>`;
   if(st.locked){
     const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces);
@@ -1473,6 +1496,83 @@ function soloView(){
 }
 
 
+
+/* ---------------- accounts: sign in with Google to share crews, name and solo progress across devices ---------------- */
+const ACCT = {user:null, busy:false, synced:false};
+function pushProfile(path, val){
+  if(!ACCT.user || !ACCT.synced) return;
+  const uid=ACCT.user.uid;
+  fb().then(({db})=>db.ref("users/"+uid+"/"+path).set(val)).catch(()=>{});
+}
+/* Merge this device with the account: the account's crew seats win (so you are the same player
+   everywhere), and anything only this device has is added to the account. */
+async function syncProfile(){
+  const u=ACCT.user; if(!u) return;
+  try{
+    const {db}=await fb(); const ref=db.ref("users/"+u.uid);
+    const p=(await ref.get()).val()||{}, upd={};
+    if(p.name){ if(p.name!==myName()) store.set("mr.name"+(SEAT?"."+SEAT:""), p.name); } else if(myName()) upd.name=myName();
+    const local=store.get("mr.crews",[]), remote=p.crews||{};
+    const live = S.group ? fold(S.events) : null;
+    const playingNow = g => live && g===S.group && (live.players.some(p=>p.pid===pidFor(g)) || live.seats.includes(pidFor(g)));
+    for(const [g,v] of Object.entries(remote)){
+      if(v && v.pid && !playingNow(g)) store.set(pidKey(g), v.pid);   // account seat wins, except mid-round on this device
+      if(!local.some(c=>c.g===g)) local.push({g, at:(v&&v.at)||0});
+    }
+    for(const c of local) if(!remote[c.g]) upd["crews/"+c.g]={pid:pidFor(c.g), at:c.at||Date.now()};
+    local.sort((a,b)=>(b.at||0)-(a.at||0)); store.set("mr.crews", local.slice(0,10));
+    const d=dayNumber(), key=soloKey(d), ls=store.get(key,null);
+    let rs=null; try{ rs=p.solo&&p.solo[d]?JSON.parse(p.solo[d]):null; }catch{}
+    const score=st=>!st?-1:(st.locked?10:0)+st.picks.length;
+    if(rs && score(rs)>score(ls)){ store.set(key, rs); S.soloMem=null; }
+    else if(ls && score(ls)>score(rs)) upd["solo/"+d]=JSON.stringify(ls);
+    if(Object.keys(upd).length) await ref.update(upd);
+    ACCT.synced = true;
+  }catch(e){}
+  render();
+}
+async function applyAccount(u){
+  if(!u || u.isAnonymous) return;
+  const same = ACCT.user && ACCT.user.uid===u.uid && ACCT.synced;
+  ACCT.user=u; B.uid=u.uid;
+  if(!same){ ACCT.synced=false; await syncProfile(); }
+}
+async function signInGoogle(){
+  if(typeof firebase==="undefined" || ACCT.busy) return;
+  const app = firebase.apps.length ? firebase.app() : firebase.initializeApp(FB_CONFIG);
+  const auth = app.auth(), prov = new firebase.auth.GoogleAuthProvider();
+  ACCT.busy=true; render();
+  try{
+    // Open the popup straight from the tap (browsers block popups opened after a delay).
+    if(auth.currentUser && auth.currentUser.isAnonymous) await auth.currentUser.linkWithPopup(prov);
+    else await auth.signInWithPopup(prov);
+    await applyAccount(auth.currentUser);
+    toast("Signed in. Your crews now follow you across devices.");
+  }catch(e){
+    if(e && e.code==="auth/credential-already-in-use"){
+      // This Google account is already set up on another device: switch to it.
+      try{ await auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credentialFromError(e)); await applyAccount(auth.currentUser); toast("Signed in. Synced with your other devices."); }
+      catch(e2){ toast("Couldn't sign in. Try again."); }
+    } else if(e && e.code==="auth/popup-blocked") toast("Your browser blocked the sign-in window. Allow popups for this site and try again.");
+    else if(!(e && /popup-closed|cancelled-popup/.test(e.code||""))) toast("Couldn't sign in. Try again.");
+  }
+  ACCT.busy=false; render();
+}
+async function signOutGoogle(){
+  try{ const auth=firebase.auth(); await auth.signOut(); await auth.signInAnonymously(); }catch{}
+  ACCT.user=null; ACCT.synced=false; render();
+  toast("Signed out. This device keeps its copy.");
+}
+function accountCard(){
+  if(typeof firebase==="undefined") return "";
+  if(ACCT.user) return `<section class="card row" style="justify-content:space-between"><div style="min-width:0"><div class="eyebrow">Synced across your devices</div>
+    <div style="font-weight:700;overflow-wrap:anywhere">${esc(ACCT.user.email||ACCT.user.displayName||"Google account")}</div></div>
+    <button class="btn ghost small" data-act="signout">Sign out</button></section>`;
+  return `<section class="card row" style="justify-content:space-between"><div style="flex:1 1 220px"><div class="eyebrow">Phone and computer</div>
+    <div style="font-weight:700">Keep your crews in sync</div><div class="muted" style="font-size:13px">Sign in on each device to share crews, your seat in each crew, and today's solo game.</div></div>
+    <button class="btn ghost" data-act="signin" ${ACCT.busy?"disabled":""}>Sign in with Google</button></section>`;
+}
+
 /* ---------------- global solo leaderboard (Firebase Realtime Database) ---------------- */
 // These values identify the project; they are public by design. The database rules are the lock:
 // one post per anonymous player per day, nobody can edit or delete anyone else's.
@@ -1489,13 +1589,21 @@ function fb(){
     if(typeof firebase==="undefined") throw new Error("Leaderboard couldn't load. Check your connection.");
     const app = firebase.apps.length ? firebase.app() : firebase.initializeApp(FB_CONFIG);
     const auth = app.auth();
-    const cred = auth.currentUser ? {user:auth.currentUser} : await auth.signInAnonymously();
+    await new Promise(res=>{ const off=auth.onAuthStateChanged(()=>{ off(); res(); }); });   // wait for the saved session
+    if(!auth.currentUser) await auth.signInAnonymously();
     const db = app.database();
+    auth.onAuthStateChanged(u=>{
+      const was = ACCT.user && ACCT.user.uid;
+      ACCT.user = u && !u.isAnonymous ? u : null;
+      if(u) B.uid = u.uid;
+      if(ACCT.user && ACCT.user.uid!==was){ ACCT.synced=false; syncProfile(); }
+      render();
+    });
     db.ref(".info/connected").on("value", snap=>{
       S.online = !!snap.val();
       if(S.code){ S.conn = !S.online ? "reconnecting" : S.synced ? "live" : "connecting"; render(); }
     });
-    return {db, uid: cred.user.uid};
+    return {db, get uid(){ return auth.currentUser ? auth.currentUser.uid : null; }};
   })();
   fbPromise.catch(()=>{ fbPromise=null; });
   return fbPromise;
@@ -1529,7 +1637,7 @@ async function watchBoard(day){
     B.unsub = ()=>ref.off("value", cb);
   }catch(e){ B.err=e.message||"Leaderboard is unavailable right now."; if(S.solo) render(); }
 }
-function myBoardRow(){ return B.rows.find(r=>r.uid===B.uid); }
+function myBoardRow(){ const pu = S.solo ? soloState().postedUid : null; return B.rows.find(r=>r.uid===B.uid || (pu && r.uid===pu)); }
 async function postSolo(name){
   const st=soloState(); if(!st.locked || B.posting || myBoardRow()) return;
   name=(name||"").trim().slice(0,18); if(!name){ B.err="Add a name for the leaderboard."; render(); return; }
@@ -1540,6 +1648,7 @@ async function postSolo(name){
     const {db, uid} = await fb();
     await db.ref("solo/"+S.solo.day+"/"+uid).set({name, score:scoreFaces(faces).total,
       picks:{0:faces[0].label,1:faces[1].label,2:faces[2].label,3:faces[3].label}, ts:firebase.database.ServerValue.TIMESTAMP});
+    const st2=soloState(); st2.postedUid=uid; soloSave(st2);
   }catch(e){ B.err = /permission/i.test(String(e&&e.message)) ? "This device already posted today." : "Couldn't post your score. Try again."; }
   B.posting=false; render();
 }
@@ -1566,6 +1675,32 @@ function boardCard(){
       <td><div class="fn">${esc(r.name)}${r===me?" (you)":""}</div><div class="sub">${r.faces.map(f=>`<span class="tier" style="background:var(--t${tierOf(f.rank)})"></span>`).join("")}</div></td>
       <td class="pts">${r.score}</td></tr>`).join("")}</tbody></table>`:`<p class="muted" style="margin:0">Be the first on today's board.</p>`}
   </section>`;
+}
+
+
+/* ---------------- how to play ---------------- */
+function helpBtn(){ return `<button class="helpbtn" data-act="help" aria-label="How to play">?</button>`; }
+function guideView(){
+  const t=topicForDay(dayNumber());
+  const chip=(i,n)=>`<span class="c" style="background:var(--p${i})">${n}</span>`;
+  return `<div class="guide-back" data-act="helpclose-bg"><div class="guide" role="dialog" aria-modal="true" aria-labelledby="gtitle">
+    <div class="eyebrow">How to play</div>
+    <h2 id="gtitle" style="margin:4px 0 6px">Four faces. One mountain. Zero chill.</h2>
+    <p class="muted" style="margin:0 0 10px">Every day there's a new topic. Today it's <b style="color:var(--ink)">${esc(t.name)}</b>. Your job: carve the four greatest onto your mountain before your friends steal them.</p>
+    <div class="step"><div class="num">1</div><div><b>Round up your crew</b><p>Start a crew and text the link to 1 to 3 friends. Everyone plays on their own phone, anywhere. Same link every day.</p></div></div>
+    <div class="step"><div class="num">2</div><div><b>Snake draft</b><p>Take turns naming picks. The order flips every round, so whoever picks last gets two in a row. Once a pick is taken, it's gone.</p>
+      <div class="snakedemo" aria-hidden="true">
+        <div>R1 ${chip(0,"A")}${chip(1,"B")}${chip(2,"C")} &rarr;</div>
+        <div>R2 ${chip(2,"C")}${chip(1,"B")}${chip(0,"A")} &larr;</div>
+        <div>R3 ${chip(0,"A")}${chip(1,"B")}${chip(2,"C")} &rarr; and so on, 4 rounds</div>
+      </div></div></div>
+    <div class="step"><div class="num">3</div><div><b>Carve your order</b><p>Rank your four. Your #1 gets the Washington spot.</p>
+      <div class="spotrow" aria-hidden="true"><span>#1<br>Washington</span><span>#2<br>Jefferson</span><span>#3<br>Roosevelt</span><span>#4<br>Lincoln</span></div></div></div>
+    <div class="step"><div class="num">4</div><div><b>Face the judges</b><p>Every pick is scored against a consensus top 24: 100 points for #1, down to 31 for #24. A write-in off the board earns a pity 15. Bonus points for putting faces in the right order. A perfect mountain scores 482.</p>
+      <div class="legend" style="margin-top:8px">${[1,2,3,4].map(x=>`<span><span class="tier" style="background:var(--t${x})"></span>${TIER_TXT[x]}</span>`).join("")}</div></div></div>
+    <div class="step"><div class="num">&#9733;</div><div><b>No crew? Go solo</b><p>Guess the consensus top 4 on your own, once a day, and see where you rank against everyone playing.</p></div></div>
+    <button class="btn gold block" data-act="helpclose" style="margin-top:14px">Let's carve</button>
+  </div></div>`;
 }
 
 /* ---------------- suggestions ---------------- */
@@ -1647,10 +1782,15 @@ async function act(fn){ if(S.busy) return; S.busy=true; S.err=""; render(); try{
 document.addEventListener("click", e=>{
   const b=e.target.closest("[data-act]"); if(!b) return;
   const a=b.dataset.act;
+  if(a==="help"){ S.help=true; render(); document.querySelector(".guide")?.focus(); return; }
+  if(a==="helpclose" || (a==="helpclose-bg" && e.target===b)){ S.help=false; store.set("mr.seenHelp",true); render(); return; }
+  if(a==="helpclose-bg") return;
   if(a==="home") return goHome();
   if(a==="create") return doCreate();
   if(a==="opencrew"){ setURL(b.dataset.g); return openCrew(b.dataset.g); }
   if(a==="joincode"){ const c=($("#joincode").value||"").toUpperCase().replace(/[^A-Z0-9]/g,""); if(c.length!==6){ S.err="Crew codes are 6 characters."; render(); return;} setURL(c); return openCrew(c); }
+  if(a==="signin") return signInGoogle();
+  if(a==="signout") return signOutGoogle();
   if(a==="solo"){ S.solo={day:dayNumber()}; S.err=""; history.pushState(null,"","?solo"+(SEAT?"&seat="+SEAT:"")); render(); window.scrollTo(0,0); return; }
   if(a==="sug" && S.solo) return soloPick(b.dataset.label);
   if(S.solo){
@@ -1694,6 +1834,7 @@ document.addEventListener("submit", e=>{
 });
 document.addEventListener("input", e=>{ if(e.target.id==="pick"){ S.sugIdx=0; S.sugNav=false; S.err=""; updateSuggest(); } if(e.target.id==="name"||e.target.id==="joincode") S.err=""; });
 document.addEventListener("keydown", e=>{
+  if(e.key==="Escape" && S.help){ S.help=false; store.set("mr.seenHelp",true); render(); return; }
   if(e.target.id==="pick" && (e.key==="ArrowDown"||e.key==="ArrowUp")){
     const n=document.querySelectorAll("#sug [data-label]").length; if(!n) return; e.preventDefault(); S.sugNav=true;
     S.sugIdx=(S.sugIdx+(e.key==="ArrowDown"?1:-1)+n)%n; updateSuggest();
@@ -1714,7 +1855,7 @@ function render(){
   if(ae && ae.tagName==="INPUT" && ae.id){ focusId=ae.id; try{ a=ae.selectionStart; b=ae.selectionEnd; }catch{} }
   if("pick" in keep) S.draft=keep.pick;
   if(S.solo && S.solo.day!==dayNumber()){ S.solo.day=dayNumber(); S.draft=""; S.err=""; }
-  app.innerHTML = S.solo ? soloView() : S.group ? roomView() : homeView();
+  app.innerHTML = (S.solo ? soloView() : S.group ? roomView() : homeView()) + (S.help ? guideView() : "");
   for(const [id,v] of Object.entries(keep)){ const el=document.getElementById(id); if(el) el.value=v; }
   const ni=$("#pick"); if(ni){ ni.value=S.draft; updateSuggest(); }
   const f=focusId && document.getElementById(focusId);
@@ -1728,7 +1869,9 @@ function boot(){
   if(g.length===6){ if(g!==S.group) openCrew(g); else render(); }
   else { stopSync(); S.group=null; S.code=null; render(); }
 }
+if(!store.get("mr.seenHelp",false)) S.help=true;
 boot();
+fb().catch(()=>{});
 setInterval(()=>{ if(S.solo && S.solo.day!==dayNumber()) return render(); if(!S.group && !(document.activeElement && document.activeElement.tagName==="INPUT")) render(); }, 60000);
 </script>
 </body>
