@@ -1,5 +1,5 @@
 // Network first, so players always get the latest game; the cached copy only opens the app offline.
-const CACHE = "rushmore-shell-v1";
+const CACHE = "rushmore-shell-v2";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icons/icon-192.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => {
@@ -8,7 +8,8 @@ self.addEventListener("activate", e => {
 self.addEventListener("fetch", e => {
   const req = e.request, url = new URL(req.url);
   if (req.method !== "GET" || url.origin !== location.origin) return;   // Firebase, fonts, etc. go straight to the network
-  e.respondWith(fetch(req).then(res => {
+  // Always ask the server (skip the browser cache) so a new deploy shows up on the next open.
+  e.respondWith(fetch(req, {cache: "no-store"}).then(res => {
     if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); }
     return res;
   }).catch(() => caches.match(req).then(r => r || caches.match("./index.html"))));

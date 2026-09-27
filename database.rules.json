@@ -119,6 +119,9 @@
         },
         "$other": {
           ".validate": false
+        },
+        "days": {
+          ".validate": "newData.isString() && newData.val().length <= 4000"
         }
       }
     },
