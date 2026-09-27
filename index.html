@@ -1307,7 +1307,7 @@ function homeView(){
     <details class="cons"><summary>How scoring works</summary>
       <div class="stack" style="margin-top:10px;font-size:14px">
         <div>Each face scores <b>100</b> if it's consensus #1, dropping 3 per spot to <b>31</b> at #24. Anything off the board is a write-in worth <b>${WRITE_IN}</b>.</div>
-        <div><b>+10</b> when a face sits in the right slot relative to your other three. <b>+15</b> more when it matches its exact consensus spot (e.g. the consensus #2 in your Jefferson spot). A perfect mountain scores 482.</div>
+        <div><b>+15 exact match</b> when your spot number equals the pick's consensus rank (consensus #2 in your #2 Jefferson spot). <b>+10 right order</b> when a pick sits in the right place compared with your other three. A perfect mountain scores 482.</div>
         <div class="muted">The consensus board is an editor's ranking built from popular all-time lists. Argue with it in the group chat.</div>
       </div>
     </details>
@@ -1462,7 +1462,7 @@ function resultsView(s,me){
       ${mountain(r.faces.map(f=>initials(f.label)), pcol(r.seat))}
       <table class="faces"><tbody>${r.rows.map(x=>`<tr>
         <td><div class="fn"><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)}</div>
-          <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"}${x.right?`<span class="bonus">+10 right slot</span>`:""}${x.exact?`<span class="bonus">+15 exact spot</span>`:""}</div></td>
+          <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"} · your #${x.slot+1} spot${x.exact?`<span class="bonus">+15 exact match (#${x.f.rank} = #${x.slot+1})</span>`:""}${x.right?`<span class="bonus">+10 right order</span>`:""}</div></td>
         <td class="pts">${x.pts}</td></tr>`).join("")}</tbody></table>
     </article>`).join("");
   const newDay = dayNumber()!==S.day ? `<section class="card clock mine"><div><div class="eyebrow">A new day has started</div><div class="who">${esc(topicForDay(dayNumber()).name)}</div></div><button class="btn gold" data-act="today">Play today's topic</button></section>` : "";
@@ -1480,6 +1480,7 @@ function resultsView(s,me){
     ${nextBanner}
     ${appNudgeCard()}
     <div class="legend">${[1,2,3,4].map(t=>`<span><span class="tier" style="background:var(--t${t})"></span>${TIER_TXT[t]}</span>`).join("")}</div>
+    <details class="cons"><summary>How bonuses work</summary><div class="stack" style="margin-top:8px;font-size:14px;gap:6px"><div><b>+15 exact match:</b> the spot you gave a pick equals its consensus rank. Cheesecake is consensus #2, so putting it in your #2 spot earns it.</div><div><b>+10 right order:</b> the pick sits in the right place compared with your other three. Example: your highest-ranked consensus pick is in your #1 spot.</div><div class="muted">Base points: 100 for consensus #1, down 3 per rank to 31 at #24. Write-ins get 15.</div></div></details>
     <div class="res">${cards}</div>
     <details class="cons"><summary>Reveal the full consensus top ${s.topic.size}</summary><ol>${s.topic.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></details>
     ${recordCard()}
@@ -1538,7 +1539,7 @@ function soloView(){
       ${appNudgeCard()}
       <article class="rcard">${mountain(faces.map(f=>initials(f.label)))}
         <table class="faces"><tbody>${sc.rows.map(x=>`<tr><td><div class="fn"><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)}</div>
-          <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"}${x.right?`<span class="bonus">+10 right slot</span>`:""}${x.exact?`<span class="bonus">+15 exact spot</span>`:""}</div></td><td class="pts">${x.pts}</td></tr>`).join("")}</tbody></table></article>
+          <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"} · your #${x.slot+1} spot${x.exact?`<span class="bonus">+15 exact match (#${x.f.rank} = #${x.slot+1})</span>`:""}${x.right?`<span class="bonus">+10 right order</span>`:""}</div></td><td class="pts">${x.pts}</td></tr>`).join("")}</tbody></table></article>
       <details class="cons"><summary>Reveal the full consensus top ${t.size} <span class="muted" style="font-weight:400">(spoils today's crew game)</span></summary><ol>${t.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></details>
       <p class="muted" style="margin:0;text-align:center">New topic in ${untilTomorrow()}. Want more? Start a crew and play bonus rounds with friends.</p>
     </div>`;
