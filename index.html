@@ -195,6 +195,25 @@ textarea.share{width:100%;min-height:150px;font-family:var(--mono);font-size:13p
 .links{display:flex;flex-direction:column;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
 .lrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 16px;background:transparent;border:0;border-top:1px solid var(--line);text-align:left;cursor:pointer;font-size:15px;min-height:48px}
 .lrow:first-child{border-top:0}.lrow .muted{font-size:13px}
+.rxrow{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px;font-weight:600}
+.rx{display:inline-flex;align-items:center;gap:3px;min-height:28px;padding:2px 8px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);font-size:13px;cursor:pointer;line-height:1}
+.rx span{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.rx.on{border-color:var(--gold);background:var(--gold-soft)}
+.rx.add{color:var(--muted);font-weight:800;min-width:30px;justify-content:center}
+.rx[disabled]{cursor:default}
+.rxbar{display:inline-flex;flex-wrap:wrap;max-width:100%;gap:2px;padding:2px;border-radius:16px;background:var(--ink)}
+.rxbar button{border:0;background:transparent;font-size:18px;width:32px;height:32px;border-radius:99px;cursor:pointer;padding:0}
+.rxbar button:hover{background:rgba(255,255,255,.18)}
+.arch{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.arch>button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;background:transparent;border:0;cursor:pointer;text-align:left;min-height:56px}
+.arch .body{padding:0 16px 16px;display:flex;flex-direction:column;gap:12px;font-size:14px}
+.arch ol{margin:0;padding-left:26px;columns:2;column-gap:28px}
+@media (max-width:480px){.arch ol{columns:1}}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:420px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:0}
+.stat b{display:block;font-family:var(--display);font-weight:400;font-size:28px;line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -985,6 +1004,7 @@ function ptParts(d=new Date()){
   return {y:+p.year, m:+p.month, d:+p.day, h:+p.hour, min:+p.minute};
 }
 function dayNumber(d=new Date()){ const p=ptParts(d); return Math.round((Date.UTC(p.y,p.m-1,p.d)-Date.UTC(2026,8,27))/864e5)+1; } // #1 = Sep 27 2026
+function shortDay(n){ return new Date(Date.UTC(2026,8,27)+(n-1)*864e5).toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric",timeZone:"UTC"}); }
 function dayLabel(n){ const t=new Date(Date.UTC(2026,8,27)+(n-1)*864e5); return t.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric",timeZone:"UTC"}); }
 function untilTomorrow(){ const p=ptParts(); const m=Math.max(1,1440-(p.h*60+p.min)); return `${Math.floor(m/60)}h ${m%60}m`; }
 function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
@@ -1062,7 +1082,7 @@ async function connect(n){
   const gen = S.gen = (S.gen||0)+1;
   if(S.unsubRound){ S.unsubRound(); S.unsubRound=null; }
   if(S.unsubDay){ S.unsubDay(); S.unsubDay=null; }
-  S.round=n; S.code=roundKey(S.group,S.day,n);
+  S.round=n; S.code=roundKey(S.group,S.day,n); S.rxOpen=null;
   if(S.group){ const mk="mr.maxround."+S.group+"."+S.day; if(n>store.get(mk,0)) store.set(mk,n); }
   S.events=[]; S.ids=[]; S.conn="connecting"; S.synced=false; S.myOrder=null; S.lastPickCount=0; S.next=null; S.err="";
   const k=S.code;
@@ -1181,6 +1201,13 @@ function fold(events){
       case "finish":
         if(s.started && s.picks.length>=total && seated) s.finished=true;
         break;
+      case "react": {
+        // Tapping the same emoji again takes it back. Reactions ride on the pick, so an undone pick loses them.
+        const p = s.picks[e.n];
+        if(!p || !REACTS.includes(e.text) || !s.players.some(x=>x.pid===e.pid)) break;
+        const re = p.re || (p.re={}), who = re[e.text] || (re[e.text]=[]), i = who.indexOf(e.pid);
+        if(i<0) who.push(e.pid); else who.splice(i,1);
+        break; }
     }
   }
   s.P = s.seats.length; s.total = 4*s.P;
@@ -1189,6 +1216,19 @@ function fold(events){
   s.name = pid => (s.players.find(p=>p.pid===pid)||{}).name || "Player";
   s.seatIdx = pid => s.seats.indexOf(pid);
   return s;
+}
+const REACTS = ["\u{1F525}","\u{1F602}","\u{1F92F}","\u{1F410}","\u{1F44E}"];
+/* Reaction chips under a pick, plus a button that opens the emoji bar (not on your own picks). */
+function reactRow(s, p, me){
+  const gi = s.picks.indexOf(p); if(gi<0) return "";
+  const member = s.players.some(x=>x.pid===me);
+  const chips = REACTS.filter(r=>p.re && p.re[r] && p.re[r].length).map(r=>{
+    const mine = p.re[r].includes(me), names = p.re[r].map(s.name).join(", ");
+    return `<button class="rx${mine?" on":""}" data-act="react" data-n="${gi}" data-e="${r}" title="${esc(names)}" ${member && p.pid!==me?"":"disabled"}>${r}<span>${p.re[r].length}</span></button>`;
+  }).join("");
+  const add = member && p.pid!==me ? `<button class="rx add" data-act="rxopen" data-n="${gi}" aria-label="React to ${esc(p.label)}" aria-expanded="${S.rxOpen===gi}">+</button>` : "";
+  const bar = S.rxOpen===gi ? `<span class="rxbar">${REACTS.map(r=>`<button data-act="react" data-n="${gi}" data-e="${r}" aria-label="React ${r}">${r}</button>`).join("")}</span>` : "";
+  return chips||add ? `<span class="rxrow">${chips}${add}${bar}</span>` : "";
 }
 function onClock(s,n){ const P=s.seats.length, r=Math.floor(n/P), pos=n%P; return s.seats[r%2===0?pos:P-1-pos]; }
 function picksOf(s,pid){ return s.picks.filter(p=>p.pid===pid); }
@@ -1306,9 +1346,14 @@ function homeView(){
       ${!isStandalone() && !store.get("mr.installHide",false) ? link("igopen","Get the app","add to your Home Screen") : ""}
       ${typeof firebase!=="undefined" ? (ACCT.user ? link("signout","Signed in", esc(ACCT.user.email||"Google")+" · sign out") : link("signin","Sync your devices","sign in with Google")) : ""}
       ${alertsSupported()||isIOS() ? (alertsOn() ? link("alertsoff","Turn alerts on/off","on · tap to turn off") : link("alertson","Turn on turn alerts","get pinged when it's your pick")) : ""}
+      ${link("stats","Your stats", streak()?streak()+"-day streak":"")}
+      ${link("archive","Past topics","full lists and how you did")}
+      ${link("suggest","Suggest a topic","")}
       ${link("help","How to play","")}
       ${link("scoring","How scoring works","")}
     </nav>
+    ${S.showSuggest?`<section class="card stack" style="gap:10px"><div><div class="eyebrow">Suggestion box</div><div class="muted" style="font-size:13px">What should people argue about next? Best ones get added.</div></div>
+      <div class="row" style="gap:8px;flex-wrap:nowrap"><input class="t" id="suggest" maxlength="80" placeholder="e.g. Breakfast cereals" autocomplete="off"><button class="btn gold" data-act="suggestsend">Send</button></div></section>`:""}
     ${S.showScoring?`<section class="card stack" style="font-size:14px;gap:8px">
         <div>Each face scores <b>100</b> if it's consensus #1, dropping 3 per spot to <b>31</b> at #24. Anything off the board is a write-in worth <b>${WRITE_IN}</b>.</div>
         <div><b>+15 exact match</b> when your spot number equals the pick's consensus rank (consensus #2 in your #2 Jefferson spot). <b>+10 right order</b> when a pick sits in the right place compared with your other three. A perfect mountain scores 482.</div>
@@ -1405,7 +1450,7 @@ function draftView(s,me,member){
     const slots=[0,1,2,3].map(i=>{
       const p=ps[i]; if(!p) return `<div class="slot empty"><span class="i">${i+1}</span>—</div>`;
       const gi = s.picks.indexOf(p);
-      return `<div class="slot ${gi===fresh?"fresh":""}"><span class="i">${i+1}</span><span class="l">${esc(p.label)}${p.auto?` <span class="tag">auto</span>`:""}</span></div>`;
+      return `<div class="slot ${gi===fresh?"fresh":""}"><span class="i">${i+1}</span><span class="l">${esc(p.label)}${p.auto?` <span class="tag">auto</span>`:""}${reactRow(s,p,me)}</span></div>`;
     }).join("");
     return `<div class="col ${pid===who?"onclock":""}" style="--pc:${pcol(si)}"><h3><span class="chip" style="background:${pcol(si)}"></span><span>${esc(s.name(pid))}${pid===me?" (you)":""}</span></h3>${slots}</div>`;
   }).join("");
@@ -1464,8 +1509,9 @@ function resultsView(s,me){
       ${mountain(r.faces.map(f=>initials(f.label)), pcol(r.seat))}
       <table class="faces"><tbody>${r.rows.map(x=>`<tr>
         <td><div class="fn"><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)}</div>
-          <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"} · your #${x.slot+1} spot${x.exact?`<span class="bonus">+15 exact match (#${x.f.rank} = #${x.slot+1})</span>`:""}${x.right?`<span class="bonus">+10 right order</span>`:""}</div></td>
+          <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"} · your #${x.slot+1} spot${x.exact?`<span class="bonus">+15 exact match (#${x.f.rank} = #${x.slot+1})</span>`:""}${x.right?`<span class="bonus">+10 right order</span>`:""}</div>${reactRow(s,x.f,me)}</td>
         <td class="pts">${x.pts}</td></tr>`).join("")}</tbody></table>
+      ${r.pid===me?`<div style="padding:10px 16px 14px;border-top:1px solid var(--line)"><button class="btn ghost small" data-act="crewimg">Share my mountain as a picture</button></div>`:""}
     </article>`).join("");
   const newDay = dayNumber()!==S.day ? `<section class="card clock mine"><div><div class="eyebrow">A new day has started</div><div class="who">${esc(topicForDay(dayNumber()).name)}</div></div><button class="btn gold" data-act="today">Play today's topic</button></section>` : "";
   const nextBanner = S.next
@@ -1535,7 +1581,7 @@ function soloView(){
     const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces);
     return head+`<div class="stack">
       <section class="winner card"><div class="eyebrow">Your mountain</div>${streak()>=2?`<div style="margin:4px 0">${streakBadge()}</div>`:""}<div class="display">${sc.total}<span class="mono muted" style="font-size:16px"> /482</span></div>
-        <div class="row" style="justify-content:center;margin-top:14px"><button class="btn gold" data-act="sshare">Share score</button></div>
+        <div class="row" style="justify-content:center;margin-top:14px"><button class="btn gold" data-act="sshare">Share score</button><button class="btn ghost" data-act="simg">Share picture</button></div>
         <textarea class="share" id="sharebox" hidden aria-label="Copy your score" style="margin-top:12px"></textarea></section>
       ${(watchBoard(S.solo.day), boardCard())}
       ${appNudgeCard()}
@@ -1601,6 +1647,8 @@ async function syncProfile(){
     const score=st=>!st?-1:(st.locked?10:0)+st.picks.length;
     if(rs && score(rs)>score(ls)){ store.set(key, rs); S.soloMem=null; }
     else if(ls && score(ls)>score(rs)) upd["solo/"+d]=JSON.stringify(ls);
+    // Earlier days' finished solo games fill in past topics and stats on a new device.
+    for(const [pd,v] of Object.entries(p.solo||{})){ if(+pd===d || store.get(soloKey(+pd),null)) continue; try{ const o=JSON.parse(v); if(o && o.locked) store.set(soloKey(+pd), o); }catch{} }
     if(Object.keys(upd).length) await ref.update(upd);
     ACCT.synced = true;
   }catch(e){}
@@ -1954,6 +2002,138 @@ function crewSettingsRow(){
     <button class="btn ghost small" data-act="leavecrew" style="${confirming?"border-color:var(--flag);color:var(--flag)":""}">${confirming?"Tap again to leave":"Leave crew"}</button></div>`;
 }
 
+/* ---------------- share your mountain as a picture ---------------- */
+// Drawn on a canvas in fixed daytime colors so the picture looks the same whatever theme the phone uses.
+const IMG = {sky:["#CFE5F6","#F3E6DC","#FBE3D2"], rock:"#7D8894", hi:"#A9B3BD", lo:"#4E5864", face:"#D5DADF", ink:"#1F2630", muted:"#5F6B78", card:"#FFFFFF", line:"#D7E0E8",
+  tier:{1:"#2F7A56",2:"#B98A16",3:"#C0652E",4:"#8E98A2"}, player:["#1F9E6E","#E58B2A","#E35A45","#3F7FD6"]};
+const rrect=(x,a,b,w,h,r)=>x.roundRect ? x.roundRect(a,b,w,h,r) : x.rect(a,b,w,h);   // older iPhones lack roundRect
+async function mountainPicture({day, topic, sub, name, total, place, rows, color}){
+  try{ await Promise.all([document.fonts.load('60px "Alfa Slab One"'), document.fonts.load('700 30px "Bricolage Grotesque"')]); }catch{}
+  const W=1080, H=1350, c=document.createElement("canvas"); c.width=W; c.height=H;
+  const x=c.getContext("2d"), disp='"Alfa Slab One", Georgia, serif', body='"Bricolage Grotesque", system-ui, sans-serif';
+  const g=x.createLinearGradient(0,0,0,H); g.addColorStop(0,IMG.sky[0]); g.addColorStop(.55,IMG.sky[1]); g.addColorStop(1,IMG.sky[2]); x.fillStyle=g; x.fillRect(0,0,W,H);
+  const fit=(txt, font, size, max)=>{ let s=size; do{ x.font=font.replace("{s}",s); }while(x.measureText(txt).width>max && (s-=2)>18); return s; };
+  x.textAlign="center"; x.fillStyle=IMG.muted; x.font=`700 30px ${body}`; x.fillText(`MOUNT RUSHMORE #${day}${sub?" · "+sub.toUpperCase():""}`, W/2, 92);
+  x.fillStyle=IMG.ink; fit(topic, `{s}px ${disp}`, 84, W-120); x.fillText(topic, W/2, 190);
+  // The same mountain as the game, scaled 3x from its 360-wide drawing.
+  x.save(); x.translate(0,230); x.scale(3,3);
+  x.fillStyle="#FFF1D6"; x.beginPath(); x.arc(300,34,20,0,7); x.fill();
+  x.globalAlpha=.9; x.fillStyle=color||IMG.rock; x.fill(new Path2D("M0 170 L0 118 L34 96 L52 102 L70 56 L98 36 L128 44 L152 26 L182 38 L214 30 L246 48 L276 58 L300 86 L326 92 L360 120 L360 170 Z"));
+  x.globalAlpha=.55; x.fillStyle=IMG.hi; x.fill(new Path2D("M70 56 L98 36 L128 44 L152 26 L182 38 L214 30 L246 48 L276 58 L300 86 L286 104 L66 108 Z"));
+  x.globalAlpha=.85; x.fillStyle=IMG.lo; x.fill(new Path2D("M0 170 L0 136 L60 124 L140 132 L220 122 L300 130 L360 126 L360 170 Z")); x.globalAlpha=1;
+  [98,152,206,258].forEach((fx,i)=>{ x.save(); x.translate(fx,[88,80,86,96][i]); x.rotate([-6,2,-3,5][i]*Math.PI/180);
+    x.beginPath(); x.ellipse(0,0,22,28,0,0,7); x.fillStyle=IMG.face; x.fill(); x.lineWidth=1.5; x.strokeStyle=IMG.lo; x.stroke();
+    const m=initials(rows[i].f.label); x.fillStyle=IMG.lo; x.font=`${m.length>2?12:17}px ${disp}`; x.textAlign="center"; x.fillText(m,0,7); x.restore(); });
+  x.restore();
+  x.textAlign="center"; x.fillStyle=IMG.ink; x.font=`150px ${disp}`; const tw=x.measureText(String(total)).width;
+  x.fillText(String(total), W/2-40, 870); x.textAlign="left"; x.fillStyle=IMG.muted; x.font=`500 40px ${body}`; x.fillText("/482", W/2-40+tw/2+10, 870);
+  x.textAlign="center"; x.fillStyle=IMG.ink; x.font=`700 38px ${body}`; x.fillText([name, place].filter(Boolean).join(" · "), W/2, 930);
+  const top=975, rh=64; x.fillStyle=IMG.card; x.beginPath(); rrect(x,60,top,W-120,rh*4+24,28); x.fill();
+  rows.forEach((r,i)=>{ const y=top+12+i*rh+rh/2;
+    if(i){ x.fillStyle=IMG.line; x.fillRect(84,y-rh/2,W-168,2); }
+    x.fillStyle=IMG.tier[tierOf(r.f.rank)]; x.beginPath(); rrect(x,90,y-13,26,26,7); x.fill();
+    x.textAlign="left"; x.fillStyle=IMG.ink; fit(`${i+1}. ${r.f.label}`, `700 {s}px ${body}`, 36, 640); x.fillText(`${i+1}. ${r.f.label}`, 136, y+12);
+    x.textAlign="right"; x.fillStyle=IMG.muted; x.font=`500 28px ${body}`; x.fillText(r.f.rank?`#${r.f.rank} · ${r.pts}`:`write-in · ${r.pts}`, W-90, y+10); });
+  x.textAlign="center"; x.fillStyle=IMG.muted; x.font=`600 28px ${body}`; x.fillText(location.host+location.pathname.replace(/index\.html$/,""), W/2, H-30);
+  return c;
+}
+async function sharePicture(opts){
+  try{
+    const c=await mountainPicture(opts);
+    const blob=await new Promise(r=>c.toBlob(r,"image/png"));
+    const file=new File([blob], `mount-rushmore-${opts.day}.png`, {type:"image/png"});
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      try{ await navigator.share({files:[file]}); return; }
+      catch(e){ if(e && e.name==="AbortError") return; }   // iPhones can refuse a share that starts after drawing: show it instead
+    }
+    showPicture(file);
+  }catch{ toast("Couldn't make the picture. Try Share score instead."); }
+}
+/* The picture on screen, with a Share button (a fresh tap always works) and press-and-hold to save. */
+function showPicture(file){ if(S.pic) URL.revokeObjectURL(S.pic.url); S.pic={file, url:URL.createObjectURL(file)}; render(); }
+function pictureView(){
+  const canShare = navigator.canShare && navigator.canShare({files:[S.pic.file]});
+  return `<div class="guide-back" data-act="picclose-bg"><div class="guide" role="dialog" aria-modal="true" aria-label="Your mountain picture" style="padding:14px">
+    <img src="${S.pic.url}" alt="Your mountain" style="width:100%;border-radius:12px;display:block">
+    <p class="muted" style="margin:10px 0;font-size:13px;text-align:center">${canShare?"Tap Share, or press and hold the picture to save it.":"Press and hold (or right-click) the picture to save it."}</p>
+    <div class="row" style="gap:8px">${canShare?`<button class="btn gold" style="flex:1" data-act="picshare">Share</button>`:`<a class="btn gold" style="flex:1;text-decoration:none" href="${S.pic.url}" download="${esc(S.pic.file.name)}">Download</a>`}<button class="btn ghost" style="flex:1" data-act="picclose">Close</button></div>
+  </div></div>`;
+}
+
+/* ---------------- topic suggestion box (write-only: players can send, only the owner reads them) ---------------- */
+async function sendSuggestion(text){
+  text=(text||"").trim().replace(/\s+/g," ").slice(0,80);
+  if(text.length<3){ toast("Type a topic first."); return; }
+  if(store.get("mr.sugDay",0)===dayNumber() && store.get("mr.sugCount",0)>=5){ toast("That's plenty for today. Thanks!"); return; }
+  try{
+    const {db,uid}=await fb();
+    await db.ref("suggestions").push({text, name:myName()||"", uid, ts:firebase.database.ServerValue.TIMESTAMP});
+    store.set("mr.sugCount", store.get("mr.sugDay",0)===dayNumber() ? store.get("mr.sugCount",0)+1 : 1); store.set("mr.sugDay", dayNumber());
+    S.showSuggest=false; render(); toast("Thanks! Your topic is in the box.");
+  }catch{ toast("Couldn't send that. Try again."); }
+}
+
+/* ---------------- past topics + personal stats (read from this device, and the account when signed in) ---------------- */
+function soloResult(d){
+  const st=store.get(soloKey(d),null); if(!st || !st.locked || !Array.isArray(st.picks) || st.picks.length!==4) return null;
+  const faces=st.order.map(i=>st.picks[i]); return {faces, ...scoreFaces(faces)};
+}
+function myCrewGames(){
+  const out=[];
+  for(const c of store.get("mr.crews",[])){ const pid=pidFor(c.g);
+    for(const game of crewHistory(c.g)){ const me=game.rows.find(r=>r.pid===pid); if(me) out.push({g:c.g, day:game.day, round:game.round, topic:game.topic, rows:game.rows, me}); } }
+  return out;
+}
+const ARCH = {open:null, boards:{}};
+async function loadDayBoard(d){
+  if(ARCH.boards[d]) return;
+  ARCH.boards[d]={loading:true};
+  try{ const {db}=await fb(); const v=(await db.ref("solo/"+d).orderByChild("score").limitToLast(3).get()).val();
+    const n=(await db.ref("soloCount/"+d).get()).val();
+    ARCH.boards[d]={rows:boardRows(d,v).slice(0,3), count:+n||0}; }
+  catch{ ARCH.boards[d]={err:true}; }
+  render();
+}
+function pageHead(label){ return `<div class="top compact">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap;min-width:0">${helpBtn()}${homeBtn()}</div></div>
+  <div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">Mount Rushmore</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${label}</h1></div>`; }
+function archiveView(){
+  const today=dayNumber(), crew=myCrewGames(), days=[];
+  for(let d=today-1; d>=1 && days.length<60; d--) days.push(d);
+  if(!days.length) return pageHead("Past topics")+`<div class="card"><p style="margin:0">Nothing here yet. Tomorrow, today's topic <b>${esc(topicForDay(today).name)}</b> moves here with its full top ${topicForDay(today).size} and how everyone did.</p></div>`;
+  return pageHead("Past topics")+`<div class="stack" style="gap:10px">${days.map(d=>{
+    const t=topicForDay(d), solo=soloResult(d), games=crew.filter(x=>x.day===d), open=ARCH.open===d, bd=ARCH.boards[d];
+    if(open) loadDayBoard(d);
+    const tags=[solo?`solo ${solo.total}`:"", games.length?`${games.filter(x=>x.me.place===1).length} of ${games.length} crew wins`:""].filter(Boolean).join(" · ");
+    return `<section class="arch"><button data-act="archday" data-d="${d}" aria-expanded="${open}"><span style="min-width:0"><span class="eyebrow">#${d} · ${esc(shortDay(d))}</span><br><b style="font-size:18px">${esc(t.name)}</b></span>
+      <span class="mono muted" style="font-size:13px;text-align:right">${esc(tags||"not played")}<br>${open?"&#9650;":"&#9660;"}</span></button>
+      ${open?`<div class="body">
+        ${solo?`<div><div class="eyebrow">Your solo mountain</div>${solo.rows.map(x=>`<div><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)} <span class="muted mono">${x.pts}</span></div>`).join("")}</div>`:""}
+        ${games.length?`<div><div class="eyebrow">Your crew games</div>${games.map(x=>{ const w=x.rows.filter(r=>r.place===1).map(r=>r.name).join(" & ");
+          return `<div>${esc(crewName(x.g)||x.g)} · ${esc(roundLabel(x.round))}: ${x.me.place===1?"<b>you won</b>":"won by "+esc(w)} <span class="muted mono">(you ${x.me.total})</span></div>`; }).join("")}</div>`:""}
+        <div><div class="eyebrow">Global top 3</div>${!bd||bd.loading?`<span class="muted">Loading…</span>`:bd.err?`<span class="muted">Couldn't load the board.</span>`:!bd.rows.length?`<span class="muted">Nobody posted that day.</span>`
+          :bd.rows.map(r=>`<div>${r.place}. ${esc(r.name)} <span class="muted mono">${r.score}</span></div>`).join("")+`<div class="muted" style="font-size:12px">${bd.count} player${bd.count===1?"":"s"}</div>`}</div>
+        <div><div class="eyebrow">Consensus top ${t.size}</div><ol>${t.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></div>
+      </div>`:""}</section>`; }).join("")}</div>`;
+}
+function longestStreak(){ const d=playedDays(); let best=0, run=0, prev=null; for(const x of d){ run = prev!==null && x===prev+1 ? run+1 : 1; best=Math.max(best,run); prev=x; } return best; }
+function statsView(){
+  const today=dayNumber(), solos=[];
+  for(let d=1; d<=today; d++){ const r=soloResult(d); if(r) solos.push({d, ...r}); }
+  const crew=myCrewGames(), wins=crew.filter(x=>x.me.place===1).length;
+  const best=solos.slice().sort((a,b)=>b.total-a.total)[0];
+  const faces=solos.flatMap(x=>x.faces), top4=faces.filter(f=>f.rank && f.rank<=4).length;
+  const stat=(v,l)=>`<div class="stat"><b>${v}</b><span>${l}</span></div>`;
+  const avg=a=>a.length?Math.round(a.reduce((s,x)=>s+x,0)/a.length):"–";
+  if(!solos.length && !crew.length) return pageHead("Your stats")+`<div class="card"><p style="margin:0">Finish a solo game or a crew round and your numbers show up here.</p></div>`;
+  return pageHead("Your stats")+`<div class="stack">
+    <section class="stack" style="gap:8px"><span class="eyebrow">Streak</span><div class="stats">${stat(streak(),"day streak now")}${stat(longestStreak(),"longest streak")}${stat(playedDays().length,"days played")}</div></section>
+    <section class="stack" style="gap:8px"><span class="eyebrow">Solo</span><div class="stats">${stat(solos.length,"games")}${stat(avg(solos.map(x=>x.total)),"average score")}${stat(best?best.total:"–","best score")}${stat(faces.length?Math.round(top4/faces.length*100)+"%":"–","faces in the top 4")}</div>
+      ${best?`<div class="muted" style="font-size:13px">Best: ${esc(topicForDay(best.d).name)} on ${esc(dayLabel(best.d))}</div>`:""}</section>
+    <section class="stack" style="gap:8px"><span class="eyebrow">Crews</span><div class="stats">${stat(crew.length,"games")}${stat(wins,"wins")}${stat(crew.length?Math.round(wins/crew.length*100)+"%":"–","win rate")}${stat(avg(crew.map(x=>x.me.total)),"average score")}</div></section>
+    <p class="muted" style="margin:0;font-size:13px">${ACCT.user?"Solo games and streaks follow your Google account. Crew games count the rounds this device has seen.":"Kept on this device. Sign in with Google to carry your solo games and streak to your other devices."}</p>
+  </div>`;
+}
+
 /* ---------------- how to play ---------------- */
 function helpBtn(){ return `<button class="helpbtn" data-act="help" aria-label="How to play">?</button>`; }
 function guideView(){
@@ -2017,7 +2197,7 @@ async function openCrew(g){
   if(S.group!==g) return;
   S.probing=false; connect(Math.max(1,n)); render();
 }
-function goHome(){ S.solo=null; CN.editing=false; if(CN.off){ CN.off(); CN.off=null; } CN.watching=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } stopSync(); S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
+function goHome(){ S.rxOpen=null; S.solo=null; S.page=null; ARCH.open=null; CN.editing=false; if(CN.off){ CN.off(); CN.off=null; } CN.watching=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } stopSync(); S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
 
 /* Automatic steps once the round's history has loaded: create the round if nobody has yet,
    and take a seat if you're part of the crew and haven't chosen to sit out. */
@@ -2062,6 +2242,9 @@ document.addEventListener("click", e=>{
   if(a==="help"){ S.help=true; render(); document.querySelector(".guide")?.focus(); return; }
   if(a==="helpclose" || (a==="helpclose-bg" && e.target===b)){ S.help=false; store.set("mr.seenHelp",true); render(); return; }
   if(a==="helpclose-bg") return;
+  if(a==="picshare"){ navigator.share({files:[S.pic.file]}).catch(()=>{}); return; }
+  if(a==="picclose" || (a==="picclose-bg" && e.target===b)){ URL.revokeObjectURL(S.pic.url); S.pic=null; render(); return; }
+  if(a==="picclose-bg") return;
   if(a==="igopen"){ S.ig=true; render(); return; }
   if(a==="igclose" || (a==="igclose-bg" && e.target===b)){ S.ig=false; render(); return; }
   if(a==="igclose-bg") return;
@@ -2073,6 +2256,10 @@ document.addEventListener("click", e=>{
   if(a==="installhide"){ store.set("mr.installHide",true); render(); return; }
   if(a==="newcrew"){ S.newCrew=!S.newCrew; render(); if(S.newCrew) document.getElementById("name")?.focus(); return; }
   if(a==="scoring"){ S.showScoring=!S.showScoring; render(); return; }
+  if(a==="suggest"){ S.showSuggest=!S.showSuggest; render(); if(S.showSuggest) document.getElementById("suggest")?.focus(); return; }
+  if(a==="suggestsend") return sendSuggestion(($("#suggest")||{}).value);
+  if(a==="archive"||a==="stats"){ S.page=a; history.pushState(null,"","?"+(a==="archive"?"past":"stats")+(SEAT?"&seat="+SEAT:"")); render(); window.scrollTo(0,0); return; }
+  if(a==="archday"){ const d=+b.dataset.d; ARCH.open = ARCH.open===d ? null : d; render(); return; }
   if(a==="alertson") return enableAlerts();
   if(a==="alertsoff") return disableAlerts();
   if(a==="crewalerts") return toggleCrewAlerts(S.group);
@@ -2088,6 +2275,9 @@ document.addEventListener("click", e=>{
     if(a==="slock" && st.picks.length===4){ st.locked=true; soloSave(st); render(); window.scrollTo(0,0); return; }
     if(a==="spost") return postSolo(($("#bname")||{}).value);
     if(a==="sshare") return shareOrCopy(soloShareText(st),"Mount Rushmore", location.origin+location.pathname+"?solo");
+    if(a==="simg" && st.locked){ const me=myBoardRow();
+      return sharePicture({day:S.solo.day, topic:soloTopic().name, sub:"Solo", name:myName(), place:me?`#${me.place} of ${Math.max(B.count,B.rows.length,me.place)} worldwide`:"",
+        total:scoreFaces(st.order.map(i=>st.picks[i])).total, rows:scoreFaces(st.order.map(i=>st.picks[i])).rows}); }
     return;
   }
   if(!S.code) return;
@@ -2122,6 +2312,14 @@ document.addEventListener("click", e=>{
   }
   if(a==="bonus"){ S.watchingNext=null; connect(S.round+1); render(); return; }
   if(a==="shareres") return shareOrCopy(shareText(s),"Mount Rushmore", crewURL(S.group));
+  if(a==="crewimg"){ const r=standings(s).find(x=>x.pid===me); if(!r) return;
+    return sharePicture({day:S.day, topic:s.topic.name, sub:crewName(S.group)||(S.round>1?"Bonus "+(S.round-1):"Crew"), name:r.name,
+      place:["","1st","2nd","3rd","4th"][r.place]+" of "+s.P, total:r.total, rows:r.rows, color:IMG.player[r.seat]}); }
+  if(a==="rxopen"){ const n=+b.dataset.n; S.rxOpen = S.rxOpen===n ? null : n; render(); return; }
+  if(a==="react"){ const n=+b.dataset.n, emo=b.dataset.e, k=S.code+":"+n+emo; S.rxOpen=null; render();
+    // A second tap while the first is still sending would cancel it out: ignore it.
+    S.rxSending=S.rxSending||new Set(); if(S.rxSending.has(k)) return; S.rxSending.add(k);
+    send({type:"react", n, text:emo}).catch(err=>toast(err.message||"Couldn't react.")).finally(()=>S.rxSending.delete(k)); return; }
 });
 document.addEventListener("submit", e=>{
   if(e.target.id==="pickform"){ e.preventDefault(); const opts=[...document.querySelectorAll("#sug [data-label]")]; const inp=$("#pick");
@@ -2133,6 +2331,7 @@ document.addEventListener("submit", e=>{
 });
 document.addEventListener("input", e=>{ if(e.target.id==="pick"){ S.sugIdx=0; S.sugNav=false; S.err=""; updateSuggest(); } if(e.target.id==="name"||e.target.id==="joincode") S.err=""; });
 document.addEventListener("keydown", e=>{
+  if(e.key==="Escape" && S.pic){ URL.revokeObjectURL(S.pic.url); S.pic=null; render(); return; }
   if(e.key==="Escape" && S.ig){ S.ig=false; render(); return; }
   if(e.key==="Escape" && S.help){ S.help=false; store.set("mr.seenHelp",true); render(); return; }
   if(e.target.id==="pick" && (e.key==="ArrowDown"||e.key==="ArrowUp")){
@@ -2141,6 +2340,7 @@ document.addEventListener("keydown", e=>{
   }
   if(e.target.id==="joincode" && e.key==="Enter"){ e.preventDefault(); $('[data-act="joincode"]').click(); }
   if(e.target.id==="name" && e.key==="Enter"){ e.preventDefault(); doCreate(); }
+  if(e.target.id==="suggest" && e.key==="Enter"){ e.preventDefault(); sendSuggestion(e.target.value); }
   if(e.target.id==="crewname" && e.key==="Enter"){ e.preventDefault(); saveCrewName(S.group, e.target.value); }
   if(e.target.id==="jname" && e.key==="Enter"){ e.preventDefault(); $('[data-act="join"]')?.click(); }
 });
@@ -2156,9 +2356,9 @@ function render(){
   if(ae && ae.tagName==="INPUT" && ae.id){ focusId=ae.id; try{ a=ae.selectionStart; b=ae.selectionEnd; }catch{} }
   if("pick" in keep) S.draft=keep.pick;
   if(S.solo && S.solo.day!==dayNumber()){ S.solo.day=dayNumber(); S.draft=""; S.err=""; }
-  document.documentElement.style.overflow = (S.help||S.ig) ? "hidden" : "";
+  document.documentElement.style.overflow = (S.help||S.ig||S.pic) ? "hidden" : "";
   if(S.group) watchCrewName(S.group); else fetchCrewNames(store.get("mr.crews",[]).map(c=>c.g));
-  app.innerHTML = (S.solo ? soloView() : S.group ? roomView() : homeView()) + (S.help ? guideView() : "") + (S.ig ? installGuideView() : "");
+  app.innerHTML = (S.solo ? soloView() : S.group ? roomView() : S.page==="archive" ? archiveView() : S.page==="stats" ? statsView() : homeView()) + (S.help ? guideView() : "") + (S.ig ? installGuideView() : "") + (S.pic ? pictureView() : "");
   for(const [id,v] of Object.entries(keep)){ const el=document.getElementById(id); if(el) el.value=v; }
   const ni=$("#pick"); if(ni){ ni.value=S.draft; updateSuggest(); }
   const f=focusId && document.getElementById(focusId);
@@ -2166,7 +2366,9 @@ function render(){
   autoSteps();
 }
 function boot(){
-  if(new URLSearchParams(location.search).has("solo")){ stopSync(); S.group=null; S.code=null; S.solo={day:dayNumber()}; render(); return; }
+  const q=new URLSearchParams(location.search);
+  S.page = q.has("past") ? "archive" : q.has("stats") ? "stats" : null;
+  if(q.has("solo")){ S.page=null; stopSync(); S.group=null; S.code=null; S.solo={day:dayNumber()}; render(); return; }
   S.solo=null;
   const g=(new URLSearchParams(location.search).get("g")||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
   if(g.length===6){ if(g!==S.group) openCrew(g); else render(); }

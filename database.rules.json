@@ -178,6 +178,27 @@
           ".validate": "newData.val() === auth.uid"
         }
       }
+    },
+    "suggestions": {
+      "$id": {
+        ".write": "auth != null && !data.exists() && $id.matches(/^-[A-Za-z0-9_-]{19}$/)",
+        ".validate": "newData.hasChildren(['text','uid','ts'])",
+        "text": {
+          ".validate": "newData.isString() && newData.val().length >= 3 && newData.val().length <= 80"
+        },
+        "name": {
+          ".validate": "newData.isString() && newData.val().length <= 18"
+        },
+        "uid": {
+          ".validate": "newData.val() === auth.uid"
+        },
+        "ts": {
+          ".validate": "newData.val() === now"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
     }
   }
 }
