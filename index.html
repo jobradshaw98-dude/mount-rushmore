@@ -157,6 +157,9 @@ textarea.share{width:100%;min-height:150px;font-family:var(--mono);font-size:13p
 <body>
 <div class="wrap" id="app"></div>
 <div class="toast" id="toast" hidden></div>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-database-compat.js"></script>
 <script>
 "use strict";
 /* ------------------------------------------------------------------
@@ -1218,7 +1221,7 @@ function homeView(){
 
     ${(()=>{ const st=store.get(soloKey(n),null); const done=st&&st.locked;
       const score=done?scoreFaces(st.order.map(i=>st.picks[i])).total:0;
-      return `<section class="card row" style="justify-content:space-between"><div><div class="eyebrow">Solo daily</div><div style="font-weight:700">${done?"You scored "+score+" today":"Guess the consensus top 4"}</div></div>
+      return `<section class="card row" style="justify-content:space-between"><div><div class="eyebrow">Solo daily</div><div style="font-weight:700">${done?"You scored "+score+" today":"Guess the consensus top 4, ranked globally"}</div></div>
         <button class="btn ${done?"ghost":"gold"}" data-act="solo">${done?"See my mountain":"Play solo"}</button></section>`; })()}
 
     <section class="card stack" aria-labelledby="hs">
@@ -1448,7 +1451,7 @@ function soloPick(text){
 function soloShareText(st){
   const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces);
   return [`\u{1F5FB} Mount Rushmore #${S.solo.day} (solo) \u00B7 ${soloTopic().name}`, "",
-    `${faces.map(f=>TIER_EMO[tierOf(f.rank)]).join("")} ${sc.total}/482`, faces.map((f,i)=>(i+1)+". "+f.label).join("  ")].join("\n");
+    `${faces.map(f=>TIER_EMO[tierOf(f.rank)]).join("")} ${sc.total}/482${myBoardRow()?` \u00B7 #${myBoardRow().place} of ${B.rows.length} worldwide`:""}`, faces.map((f,i)=>(i+1)+". "+f.label).join("  ")].join("\n");
 }
 function soloView(){
   const st=soloState(), t=soloTopic(), n=st.picks.length;
@@ -1461,6 +1464,7 @@ function soloView(){
       <section class="winner card"><div class="eyebrow">Your mountain</div><div class="display">${sc.total}<span class="mono muted" style="font-size:16px"> /482</span></div>
         <div class="row" style="justify-content:center;margin-top:14px"><button class="btn gold" data-act="sshare">Share score</button></div>
         <textarea class="share" id="sharebox" hidden aria-label="Copy your score" style="margin-top:12px"></textarea></section>
+      ${(watchBoard(S.solo.day), boardCard())}
       <article class="rcard">${mountain(faces.map(f=>initials(f.label)))}
         <table class="faces"><tbody>${sc.rows.map(x=>`<tr><td><div class="fn"><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)}</div>
           <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"}${x.right?`<span class="bonus">+10 right slot</span>`:""}${x.exact?`<span class="bonus">+15 exact spot</span>`:""}</div></td><td class="pts">${x.pts}</td></tr>`).join("")}</tbody></table></article>
@@ -1487,6 +1491,97 @@ function soloView(){
       <span class="arrows"><button data-act="sup" data-i="${slot}" ${slot===0?"disabled":""} aria-label="Move up">&uarr;</button><button data-act="sdown" data-i="${slot}" ${slot===3?"disabled":""} aria-label="Move down">&darr;</button></span></li>`).join("")}</ol>
     <button class="btn gold block" data-act="slock">Lock in my mountain</button>
     <button class="btn ghost small" data-act="sremove" data-i="3" style="align-self:flex-start">Change my last pick</button></section>`;
+}
+
+
+/* ---------------- global solo leaderboard (Firebase Realtime Database) ---------------- */
+// These values identify the project; they are public by design. The database rules are the lock:
+// one post per anonymous player per day, nobody can edit or delete anyone else's.
+const FB_CONFIG = {
+  apiKey: "AIzaSyAWeTpKoCq6PnmffLMy44LLCDBfRyZQlC8",
+  authDomain: "mount-rushmore-daily-f6451.firebaseapp.com",
+  databaseURL: "https://mount-rushmore-daily-f6451-default-rtdb.firebaseio.com",
+  projectId: "mount-rushmore-daily-f6451",
+  appId: "1:843731697656:web:dd745e1ad75a2fc19a200d"
+};
+let fbPromise = null;
+function fb(){
+  if(!fbPromise) fbPromise = (async()=>{
+    if(typeof firebase==="undefined") throw new Error("Leaderboard couldn't load. Check your connection.");
+    const app = firebase.apps.length ? firebase.app() : firebase.initializeApp(FB_CONFIG);
+    const auth = app.auth();
+    const cred = auth.currentUser ? {user:auth.currentUser} : await auth.signInAnonymously();
+    return {db: app.database(), uid: cred.user.uid};
+  })();
+  fbPromise.catch(()=>{ fbPromise=null; });
+  return fbPromise;
+}
+const B = {day:null, rows:[], uid:null, loaded:false, err:"", posting:false, unsub:null};
+/* Scores are recomputed from the stored picks, so a post whose score doesn't match its picks is ignored. */
+function boardRows(day, raw){
+  const t = topicForDay(day), rows=[];
+  for(const [uid,v] of Object.entries(raw||{})){
+    if(!v || !v.picks || typeof v.name!=="string") continue;
+    const labels=[0,1,2,3].map(i=>v.picks[i]).filter(x=>typeof x==="string");
+    if(labels.length!==4) continue;
+    const faces=labels.map(l=>{ const m=matchEntry(t,l); return {label:m?m.label:l, rank:m?m.rank:null}; });
+    const score=scoreFaces(faces).total;
+    if(score!==v.score) continue;
+    rows.push({uid, name:v.name, score, ts:v.ts||0, faces});
+  }
+  rows.sort((a,b)=>b.score-a.score||a.ts-b.ts);
+  let place=0, prev=null; rows.forEach((r,i)=>{ if(r.score!==prev){ place=i+1; prev=r.score; } r.place=place; });
+  return rows;
+}
+async function watchBoard(day){
+  if(B.day===day) return;   // already watching (or loading) this day
+  if(B.unsub){ B.unsub(); B.unsub=null; }
+  Object.assign(B,{day, rows:[], loaded:false, err:""});
+  try{
+    const {db, uid} = await fb(); B.uid=uid;
+    const ref = db.ref("solo/"+day);
+    const cb = snap=>{ B.rows=boardRows(day, snap.val()); B.loaded=true; B.err=""; if(S.solo) render(); maybeAutoPost(); };
+    ref.on("value", cb, e=>{ B.err="Leaderboard is unavailable right now."; render(); });
+    B.unsub = ()=>ref.off("value", cb);
+  }catch(e){ B.err=e.message||"Leaderboard is unavailable right now."; if(S.solo) render(); }
+}
+function myBoardRow(){ return B.rows.find(r=>r.uid===B.uid); }
+async function postSolo(name){
+  const st=soloState(); if(!st.locked || B.posting || myBoardRow()) return;
+  name=(name||"").trim().slice(0,18); if(!name){ B.err="Add a name for the leaderboard."; render(); return; }
+  setName(name);
+  const faces=st.order.map(i=>st.picks[i]);
+  B.posting=true; B.err=""; render();
+  try{
+    const {db, uid} = await fb();
+    await db.ref("solo/"+S.solo.day+"/"+uid).set({name, score:scoreFaces(faces).total,
+      picks:{0:faces[0].label,1:faces[1].label,2:faces[2].label,3:faces[3].label}, ts:firebase.database.ServerValue.TIMESTAMP});
+  }catch(e){ B.err = /permission/i.test(String(e&&e.message)) ? "This device already posted today." : "Couldn't post your score. Try again."; }
+  B.posting=false; render();
+}
+function maybeAutoPost(){
+  const st=soloState();
+  if(S.solo && st.locked && B.loaded && !myBoardRow() && myName() && !B.autoTried){ B.autoTried=true; postSolo(myName()); }
+}
+function boardCard(){
+  if(B.err && !B.loaded) return `<section class="card"><div class="eyebrow">Global leaderboard</div><p class="muted" style="margin:6px 0 0">${esc(B.err)}</p></section>`;
+  if(!B.loaded) return `<section class="card"><div class="eyebrow">Global leaderboard</div><p class="muted" style="margin:6px 0 0">Loading today's rankings…</p></section>`;
+  const me=myBoardRow(), n=B.rows.length;
+  const head = me
+    ? `<div class="row" style="justify-content:space-between;align-items:baseline"><div><div class="eyebrow">Global leaderboard · #${S.solo.day}</div>
+         <div class="display" style="font-size:28px">#${me.place} <span class="muted mono" style="font-size:14px">of ${n}</span></div></div>
+         <div class="mono muted">Top ${Math.max(1,Math.ceil(me.place/n*100))}%</div></div>`
+    : `<div class="stack" style="gap:8px"><div class="eyebrow">Global leaderboard · ${n} player${n===1?"":"s"} so far</div>
+         <div class="row" style="gap:8px;flex-wrap:nowrap"><input class="t" id="bname" maxlength="18" placeholder="Name for the board" value="${esc(myName())}">
+         <button class="btn gold" data-act="spost" ${B.posting?"disabled":""}>${B.posting?"Posting…":"Post score"}</button></div></div>`;
+  const top = B.rows.slice(0,10);
+  if(me && !top.includes(me)) top.push(me);
+  return `<section class="card stack" style="gap:10px">${head}${B.err?`<div class="err">${esc(B.err)}</div>`:""}
+    ${n?`<table class="faces" style="margin:0 -18px;width:calc(100% + 36px)"><tbody>${top.map(r=>`<tr${r===me?' style="background:var(--gold-soft)"':""}>
+      <td class="pts" style="text-align:left;width:44px">${r.place}</td>
+      <td><div class="fn">${esc(r.name)}${r===me?" (you)":""}</div><div class="sub">${r.faces.map(f=>`<span class="tier" style="background:var(--t${tierOf(f.rank)})"></span>`).join("")}</div></td>
+      <td class="pts">${r.score}</td></tr>`).join("")}</tbody></table>`:`<p class="muted" style="margin:0">Be the first on today's board.</p>`}
+  </section>`;
 }
 
 /* ---------------- suggestions ---------------- */
@@ -1522,7 +1617,7 @@ async function openCrew(g){
   const seen=store.get(seenKey,0);
   S.probing=false; connect(Math.max(1,n,seen)); render();
 }
-function goHome(){ S.solo=null; if(S.es) S.es.close(); S.es=null; S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
+function goHome(){ S.solo=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } if(S.es) S.es.close(); S.es=null; S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
 
 /* Automatic steps once the round's history has loaded: create the round if nobody has yet,
    and take a seat if you're part of the crew and haven't chosen to sit out. */
@@ -1575,6 +1670,7 @@ document.addEventListener("click", e=>{
     if(a==="sremove" && !st.locked){ st.picks.splice(+b.dataset.i,1); st.order=[0,1,2,3]; soloSave(st); render(); return; }
     if((a==="sup"||a==="sdown") && !st.locked){ const i=+b.dataset.i, j=a==="sup"?i-1:i+1; [st.order[i],st.order[j]]=[st.order[j],st.order[i]]; soloSave(st); render(); return; }
     if(a==="slock" && st.picks.length===4){ st.locked=true; soloSave(st); render(); window.scrollTo(0,0); return; }
+    if(a==="spost") return postSolo(($("#bname")||{}).value);
     if(a==="sshare") return shareOrCopy(soloShareText(st),"Mount Rushmore", location.origin+location.pathname+"?solo");
     return;
   }

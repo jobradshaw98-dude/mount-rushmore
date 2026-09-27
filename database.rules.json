@@ -1,0 +1,22 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "solo": {
+      "$day": {
+        ".read": "$day.matches(/^[0-9]{1,5}$/)",
+        "$uid": {
+          ".write": "auth != null && auth.uid === $uid && !data.exists()",
+          ".validate": "newData.hasChildren(['name', 'score', 'picks', 'ts'])",
+          "name": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 18" },
+          "score": { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 482" },
+          "ts": { ".validate": "newData.val() === now" },
+          "picks": {
+            "$i": { ".validate": "$i.matches(/^[0-3]$/) && newData.isString() && newData.val().length > 0 && newData.val().length <= 60" }
+          },
+          "$other": { ".validate": false }
+        }
+      }
+    }
+  }
+}
