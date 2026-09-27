@@ -1216,6 +1216,11 @@ function homeView(){
     ${crews.length?`<section class="card stack" style="gap:10px"><span class="eyebrow">Your crews</span>
       <div class="row">${crews.map(c=>`<button class="btn ghost" data-act="opencrew" data-g="${esc(c.g)}" style="font-family:var(--mono);letter-spacing:.1em">${esc(c.g)}</button>`).join("")}</div></section>`:""}
 
+    ${(()=>{ const st=store.get(soloKey(n),null); const done=st&&st.locked;
+      const score=done?scoreFaces(st.order.map(i=>st.picks[i])).total:0;
+      return `<section class="card row" style="justify-content:space-between"><div><div class="eyebrow">Solo daily</div><div style="font-weight:700">${done?"You scored "+score+" today":"Guess the consensus top 4"}</div></div>
+        <button class="btn ${done?"ghost":"gold"}" data-act="solo">${done?"See my mountain":"Play solo"}</button></section>`; })()}
+
     <section class="card stack" aria-labelledby="hs">
       <h2 id="hs" class="display" style="font-size:22px">${crews.length?"Start another crew":"Start a crew"}</h2>
       <p class="muted" style="margin:0;font-size:14px">A crew is your group of 2 to 4. It gets one link that works every day: open it for the daily topic, or deal bonus rounds any time.</p>
@@ -1420,11 +1425,76 @@ function shareText(s){
   return lines.join("\n");
 }
 
+
+/* ---------------- solo daily: guess the consensus top 4, one try per day, kept on this phone ---------------- */
+const soloKey = d => "mr.solo."+d+(SEAT?"."+SEAT:"");
+function soloTopic(){ return topicForDay(S.solo.day); }
+function soloState(){
+  const k=soloKey(S.solo.day);
+  if(!S.soloMem || S.soloMem.k!==k) S.soloMem={k, st:store.get(k, {picks:[], order:[0,1,2,3], locked:false})};
+  return JSON.parse(JSON.stringify(S.soloMem.st));
+}
+function soloSave(st){ S.soloMem={k:soloKey(S.solo.day), st:JSON.parse(JSON.stringify(st))}; store.set(S.soloMem.k, st); }
+function soloPick(text){
+  const st=soloState(), t=soloTopic();
+  text=(text||"").trim(); if(!key(text) || st.picks.length>=4 || st.locked) return;
+  const m=matchEntry(t,text), k=m?"E"+m.rank:"W"+key(text);
+  if(st.picks.some(p=>p.k===k)){ S.err=(m?m.label:titleCase(text))+" is already on your mountain."; render(); return; }
+  st.picks.push({label:m?m.label:titleCase(text), rank:m?m.rank:null, k});
+  soloSave(st); S.draft=""; S.sugIdx=0; S.confirmWrite=null; S.err="";
+  const inp=$("#pick"); if(inp) inp.value="";
+  render(); $("#pick")?.focus();
+}
+function soloShareText(st){
+  const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces);
+  return [`\u{1F5FB} Mount Rushmore #${S.solo.day} (solo) \u00B7 ${soloTopic().name}`, "",
+    `${faces.map(f=>TIER_EMO[tierOf(f.rank)]).join("")} ${sc.total}/482`, faces.map((f,i)=>(i+1)+". "+f.label).join("  ")].join("\n");
+}
+function soloView(){
+  const st=soloState(), t=soloTopic(), n=st.picks.length;
+  document.title="Mount Rushmore Daily";
+  const head=`<div class="top">${brand()}<span class="conn">Solo · #${S.solo.day}</span></div>
+    <div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">Mount Rushmore #${S.solo.day} · Solo</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc(t.name)}</h1></div>`;
+  if(st.locked){
+    const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces);
+    return head+`<div class="stack">
+      <section class="winner card"><div class="eyebrow">Your mountain</div><div class="display">${sc.total}<span class="mono muted" style="font-size:16px"> /482</span></div>
+        <div class="row" style="justify-content:center;margin-top:14px"><button class="btn gold" data-act="sshare">Share score</button></div>
+        <textarea class="share" id="sharebox" hidden aria-label="Copy your score" style="margin-top:12px"></textarea></section>
+      <article class="rcard">${mountain(faces.map(f=>initials(f.label)))}
+        <table class="faces"><tbody>${sc.rows.map(x=>`<tr><td><div class="fn"><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)}</div>
+          <div class="sub">${x.f.rank?"Consensus #"+x.f.rank:"Write-in"}${x.right?`<span class="bonus">+10 right slot</span>`:""}${x.exact?`<span class="bonus">+15 exact spot</span>`:""}</div></td><td class="pts">${x.pts}</td></tr>`).join("")}</tbody></table></article>
+      <details class="cons"><summary>Reveal the consensus top 10 <span class="muted" style="font-weight:400">(spoils today's crew game)</span></summary><ol>${t.entries.slice(0,10).map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></details>
+      <p class="muted" style="margin:0;text-align:center">New topic in ${untilTomorrow()}. Want more? Start a crew and play bonus rounds with friends.</p>
+    </div>`;
+  }
+  if(n<4){
+    return head+`<div class="stack">
+      <div class="clock mine"><div><div class="eyebrow">Pick ${n+1} of 4</div><div class="who">Guess the consensus top 4</div></div></div>
+      <form class="pickbox stack" id="pickform" style="gap:6px" autocomplete="off">
+        <div class="row" style="gap:8px;flex-wrap:nowrap">
+          <input class="t" id="pick" placeholder="Name a ${esc(t.name.replace(/s$/,"").toLowerCase())}…" aria-label="Your pick" aria-autocomplete="list" aria-controls="sug" enterkeyhint="done">
+          <button class="btn gold" type="submit">Carve</button></div>
+        <div class="hint" id="hint"></div><ul class="sug" id="sug" role="listbox"></ul><div class="err">${esc(S.err)}</div></form>
+      <div class="col">${[0,1,2,3].map(i=>st.picks[i]
+        ? `<div class="slot"><span class="i">${i+1}</span><span class="l" style="flex:1">${esc(st.picks[i].label)}</span><button class="btn ghost small" data-act="sremove" data-i="${i}" aria-label="Remove">Remove</button></div>`
+        : `<div class="slot empty"><span class="i">${i+1}</span>—</div>`).join("")}</div>
+      <p class="muted" style="margin:0;font-size:14px">No draft, no rivals: you're scored purely on how well you match the consensus. One try per day.</p>
+    </div>`;
+  }
+  return head+`<section class="stack" style="gap:10px"><div><h2 class="display" style="font-size:22px">Carve your order</h2><p class="muted" style="margin:4px 0 0;font-size:14px">Best face in the Washington spot. Locking in is final for today.</p></div>
+    <ol class="olist">${st.order.map((pi,slot)=>`<li><span class="spot">#${slot+1}<br>${SPOTS[slot]}</span><span class="nm">${esc(st.picks[pi].label)}</span>
+      <span class="arrows"><button data-act="sup" data-i="${slot}" ${slot===0?"disabled":""} aria-label="Move up">&uarr;</button><button data-act="sdown" data-i="${slot}" ${slot===3?"disabled":""} aria-label="Move down">&darr;</button></span></li>`).join("")}</ol>
+    <button class="btn gold block" data-act="slock">Lock in my mountain</button>
+    <button class="btn ghost small" data-act="sremove" data-i="3" style="align-self:flex-start">Change my last pick</button></section>`;
+}
+
 /* ---------------- suggestions ---------------- */
 function taken(s){ return new Set(s.picks.map(p=>p.k)); }
 function updateSuggest(){
   const inp=$("#pick"); if(!inp) return;
-  const s=fold(S.events), tk=taken(s), txt=inp.value, k=key(txt);
+  const s = S.solo ? {topic:soloTopic()} : fold(S.events);
+  const tk = S.solo ? new Set(soloState().picks.map(p=>p.k)) : taken(s), txt=inp.value, k=key(txt);
   const sug=$("#sug"), hint=$("#hint");
   S.draft = txt;
   if(!k){ sug.innerHTML=""; hint.innerHTML=""; return; }
@@ -1434,7 +1504,7 @@ function updateSuggest(){
   sug.innerHTML = list.map((e,i)=>`<li><button type="button" role="option" data-act="sug" data-label="${esc(e.label)}" aria-selected="${i===S.sugIdx}">${esc(e.label)}</button></li>`).join("");
   const m = matchEntry(s.topic, txt);
   const dup = m ? tk.has("E"+m.rank) : tk.has("W"+k);
-  hint.innerHTML = dup ? `<span class="err">Already drafted.</span>` : m ? `Matches <b>${esc(m.label)}</b>` : list.length ? `Tap a suggestion, or keep typing` : `Not on the board: counts as a write-in (${WRITE_IN} pts)`;
+  hint.innerHTML = dup ? `<span class="err">${S.solo?"Already on your mountain.":"Already drafted."}</span>` : m ? `Matches <b>${esc(m.label)}</b>` : list.length ? `Tap a suggestion, or keep typing` : `Not on the board: counts as a write-in (${WRITE_IN} pts)`;
 }
 
 /* ---------------- navigation ---------------- */
@@ -1452,7 +1522,7 @@ async function openCrew(g){
   const seen=store.get(seenKey,0);
   S.probing=false; connect(Math.max(1,n,seen)); render();
 }
-function goHome(){ if(S.es) S.es.close(); S.es=null; S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
+function goHome(){ S.solo=null; if(S.es) S.es.close(); S.es=null; S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
 
 /* Automatic steps once the round's history has loaded: create the round if nobody has yet,
    and take a seat if you're part of the crew and haven't chosen to sit out. */
@@ -1480,6 +1550,7 @@ async function doCreate(){
   const g=crewCode(); setURL(g); openCrew(g);
 }
 async function doPick(text){
+  if(S.solo) return soloPick(text);
   const s=fold(S.events); const me=myPid();
   text=(text||"").trim(); if(!key(text)) return;
   const m=matchEntry(s.topic,text), pk=m?"E"+m.rank:"W"+key(text);
@@ -1497,6 +1568,16 @@ document.addEventListener("click", e=>{
   if(a==="create") return doCreate();
   if(a==="opencrew"){ setURL(b.dataset.g); return openCrew(b.dataset.g); }
   if(a==="joincode"){ const c=($("#joincode").value||"").toUpperCase().replace(/[^A-Z0-9]/g,""); if(c.length!==6){ S.err="Crew codes are 6 characters."; render(); return;} setURL(c); return openCrew(c); }
+  if(a==="solo"){ S.solo={day:dayNumber()}; S.err=""; history.pushState(null,"","?solo"+(SEAT?"&seat="+SEAT:"")); render(); window.scrollTo(0,0); return; }
+  if(a==="sug" && S.solo) return soloPick(b.dataset.label);
+  if(S.solo){
+    const st=soloState();
+    if(a==="sremove" && !st.locked){ st.picks.splice(+b.dataset.i,1); st.order=[0,1,2,3]; soloSave(st); render(); return; }
+    if((a==="sup"||a==="sdown") && !st.locked){ const i=+b.dataset.i, j=a==="sup"?i-1:i+1; [st.order[i],st.order[j]]=[st.order[j],st.order[i]]; soloSave(st); render(); return; }
+    if(a==="slock" && st.picks.length===4){ st.locked=true; soloSave(st); render(); window.scrollTo(0,0); return; }
+    if(a==="sshare") return shareOrCopy(soloShareText(st),"Mount Rushmore", location.origin+location.pathname+"?solo");
+    return;
+  }
   if(!S.code) return;
   const s=fold(S.events), me=myPid();
   if(a==="join"){ const nm=($("#jname").value||"").trim(); if(!nm){S.err="Add your name first."; render(); return;} setName(nm); store.set("mr.out."+S.code,false); delete S.auto[S.code+"j"]; render(); return; }
@@ -1521,7 +1602,7 @@ document.addEventListener("click", e=>{
 });
 document.addEventListener("submit", e=>{
   if(e.target.id==="pickform"){ e.preventDefault(); const opts=[...document.querySelectorAll("#sug [data-label]")]; const inp=$("#pick");
-    const m = fold(S.events); const exact = matchEntry(m.topic, inp.value);
+    const m = S.solo ? {topic:soloTopic()} : fold(S.events); const exact = matchEntry(m.topic, inp.value);
     if(!exact && opts.length && S.sugNav) return doPick(opts[S.sugIdx].dataset.label);
     // Not on the board but close to something that is: make the write-in a deliberate second tap.
     if(!exact && opts.length && S.confirmWrite!==key(inp.value)){ S.confirmWrite=key(inp.value); $("#hint").innerHTML=`Tap a suggestion, or press <b>Carve</b> again to write in "${esc(titleCase(inp.value))}" (${WRITE_IN} pts)`; return; }
@@ -1548,7 +1629,8 @@ function render(){
   const ae=document.activeElement;
   if(ae && ae.tagName==="INPUT" && ae.id){ focusId=ae.id; try{ a=ae.selectionStart; b=ae.selectionEnd; }catch{} }
   if("pick" in keep) S.draft=keep.pick;
-  app.innerHTML = S.group ? roomView() : homeView();
+  if(S.solo && S.solo.day!==dayNumber()){ S.solo.day=dayNumber(); S.draft=""; S.err=""; }
+  app.innerHTML = S.solo ? soloView() : S.group ? roomView() : homeView();
   for(const [id,v] of Object.entries(keep)){ const el=document.getElementById(id); if(el) el.value=v; }
   const ni=$("#pick"); if(ni){ ni.value=S.draft; updateSuggest(); }
   const f=focusId && document.getElementById(focusId);
@@ -1556,12 +1638,14 @@ function render(){
   autoSteps();
 }
 function boot(){
+  if(new URLSearchParams(location.search).has("solo")){ if(S.es) S.es.close(); S.es=null; S.group=null; S.code=null; S.solo={day:dayNumber()}; render(); return; }
+  S.solo=null;
   const g=(new URLSearchParams(location.search).get("g")||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
   if(g.length===6){ if(g!==S.group) openCrew(g); else render(); }
   else { if(S.es) S.es.close(); S.es=null; S.group=null; S.code=null; render(); }
 }
 boot();
-setInterval(()=>{ if(!S.group && !(document.activeElement && document.activeElement.tagName==="INPUT")) render(); }, 60000);
+setInterval(()=>{ if(S.solo && S.solo.day!==dayNumber()) return render(); if(!S.group && !(document.activeElement && document.activeElement.tagName==="INPUT")) render(); }, 60000);
 </script>
 </body>
 </html>
