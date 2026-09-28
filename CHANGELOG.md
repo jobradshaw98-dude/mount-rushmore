@@ -2,6 +2,20 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-09-28: turn alerts fixed, "your move" highlight
+
+### Fixed
+- Turn alerts: phones can sign up for alerts again. Since the evening of 09-27 the database rejected every sign-up because the live page used an older format.
+- A new crew's creator now gets alerts in that crew's first game.
+- Write-in picks are capped at 60 characters instead of failing with a vague error.
+- Offline mode no longer serves the page in place of a missing script.
+
+### Added
+- Home: a crew waiting on you (your pick, or your mountain to lock in) glows gold, moves to the front and says which. The home-screen icon shows a count.
+
+### Changed
+- Game rules and scoring live in game.js, shared with the server's solo-score check.
+
 ## 2026-09-27 (night): simplification pass
 
 ### Changed
