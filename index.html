@@ -194,6 +194,10 @@ textarea.share{width:100%;min-height:150px;font-family:var(--mono);font-size:13p
 .crewrow{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
 .crewchip{flex:none;display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:8px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;line-height:1.25}
 .crewchip b{font-size:15px}.crewchip .mono{font-size:10px;letter-spacing:.1em;opacity:.6}
+.crewchip.yours{border-color:var(--gold);background:var(--gold-soft);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold) 30%,transparent);animation:yourturn 1.6s ease-in-out infinite}
+.crewchip .yourmove{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+@keyframes yourturn{50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--gold) 12%,transparent)}}
+@media (prefers-reduced-motion:reduce){.crewchip.yours{animation:none}}
 .links{display:flex;flex-direction:column;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
 .lrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 16px;background:transparent;border:0;border-top:1px solid var(--line);text-align:left;cursor:pointer;font-size:15px;min-height:48px}
 .lrow:first-child{border-top:0}
@@ -226,837 +230,9 @@ textarea.share{width:100%;min-height:150px;font-family:var(--mono);font-size:13p
 <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-database-compat.js"></script>
+<script src="game.js"></script>
 <script>
 "use strict";
-/* ------------------------------------------------------------------
-   TOPICS: each list is the consensus board, ranked 1..24.
-   Format per line: Label|alias|alias
-------------------------------------------------------------------- */
-const TOPICS = [
-{id:"nba",name:"NBA Players",note:"All-time",items:`Michael Jordan|mj
-LeBron James|lebron|king james|bron
-Kareem Abdul-Jabbar|kareem
-Magic Johnson|magic
-Bill Russell
-Wilt Chamberlain|wilt
-Larry Bird|bird
-Kobe Bryant|kobe
-Tim Duncan|duncan
-Shaquille O'Neal|shaq
-Stephen Curry|steph|curry
-Hakeem Olajuwon|hakeem|the dream
-Kevin Durant|kd|durant
-Oscar Robertson|big o
-Kevin Garnett|kg
-Jerry West|the logo
-Julius Erving|dr j
-Nikola Jokic|jokic|joker
-Dirk Nowitzki|dirk
-Giannis Antetokounmpo|giannis|greek freak
-Moses Malone
-Karl Malone|the mailman
-Elgin Baylor
-David Robinson|the admiral`},
-{id:"breakfast",name:"Breakfast Foods",items:`Pancakes|flapjacks|hotcakes
-Bacon
-Eggs|scrambled eggs|fried eggs
-Waffles
-French Toast
-Breakfast Burrito
-Bagel|bagel and cream cheese|lox bagel
-Hash Browns|hashbrowns
-Omelette|omelet
-Biscuits and Gravy
-Cereal
-Eggs Benedict|benedict
-Sausage|breakfast sausage
-Breakfast Sandwich|egg sandwich|bacon egg and cheese|bec
-Chicken and Waffles
-Croissant
-Cinnamon Roll
-Avocado Toast
-Oatmeal|porridge
-Donut|doughnut
-Grits
-Yogurt Parfait|yogurt|parfait
-Muffin|blueberry muffin
-Shakshuka`},
-{id:"pizza",name:"Pizza Toppings",items:`Pepperoni
-Sausage|italian sausage
-Mushrooms
-Extra Cheese|cheese
-Onions
-Bacon
-Green Peppers|peppers|bell peppers
-Black Olives|olives
-Pineapple
-Ham
-Jalapeños|jalapenos|jalapeno
-Chicken
-Hot Honey
-Basil|fresh basil
-Spinach
-Garlic
-Tomatoes|tomato
-Meatballs
-Banana Peppers
-Ricotta
-Prosciutto
-Anchovies
-Artichokes|artichoke
-Arugula`},
-{id:"pixar",name:"Pixar Movies",items:`Toy Story
-Up
-Inside Out
-WALL-E|walle
-Finding Nemo|nemo
-Ratatouille
-The Incredibles
-Coco
-Toy Story 3
-Monsters, Inc.|monsters inc
-Toy Story 2
-Soul
-Cars
-Incredibles 2
-Toy Story 4
-Inside Out 2
-Brave
-A Bug's Life|bugs life
-Finding Dory|dory
-Monsters University
-Luca
-Turning Red
-Onward
-Elemental`},
-{id:"fastfood",name:"Fast Food Chains",items:`In-N-Out|innout|in and out
-Chick-fil-A|chickfila|cfa
-McDonald's|mcdonalds|mickey ds
-Taco Bell
-Wendy's
-Chipotle
-Five Guys
-Raising Cane's|canes
-Popeyes
-Whataburger
-Shake Shack
-Culver's
-Burger King|bk
-Subway
-Panda Express|panda
-KFC|kentucky fried chicken
-Jack in the Box
-Sonic
-Wingstop
-Jersey Mike's
-Arby's
-Dairy Queen|dq
-Del Taco
-Carl's Jr.|carls junior`},
-{id:"music",name:"Musical Artists",note:"All-time",items:`The Beatles
-Michael Jackson|mj
-Elvis Presley|elvis
-Queen
-Led Zeppelin|zeppelin
-The Rolling Stones|stones
-Prince
-Bob Dylan|dylan
-Taylor Swift|taylor
-Beyoncé
-Pink Floyd
-Madonna
-David Bowie|bowie
-Stevie Wonder
-Whitney Houston|whitney
-Aretha Franklin|aretha
-Nirvana
-Jimi Hendrix|hendrix
-Bruce Springsteen|springsteen|the boss
-Elton John
-Johnny Cash
-Frank Sinatra|sinatra
-Bob Marley|marley
-Fleetwood Mac`},
-{id:"golf",name:"Golfers",note:"All-time",items:`Tiger Woods|tiger
-Jack Nicklaus|nicklaus|golden bear
-Arnold Palmer|arnie
-Ben Hogan
-Bobby Jones
-Sam Snead
-Gary Player
-Tom Watson
-Phil Mickelson|phil|lefty
-Scottie Scheffler|scheffler
-Rory McIlroy|rory|mcilroy
-Byron Nelson
-Walter Hagen
-Seve Ballesteros|seve
-Lee Trevino|trevino
-Annika Sörenstam|annika
-Nick Faldo|faldo
-Gene Sarazen
-Ernie Els|els
-Harry Vardon
-Mickey Wright
-Greg Norman|the shark
-Vijay Singh|vijay
-Brooks Koepka|koepka`},
-{id:"sitcoms",name:"Sitcoms",items:`Seinfeld
-The Office
-Friends
-Parks and Recreation|parks and rec
-Arrested Development
-The Simpsons
-Curb Your Enthusiasm|curb
-It's Always Sunny in Philadelphia|always sunny|iasip
-Cheers
-Frasier
-Brooklyn Nine-Nine|b99|brooklyn 99
-30 Rock
-Modern Family
-How I Met Your Mother|himym
-Community
-Schitt's Creek
-The Fresh Prince of Bel-Air|fresh prince
-M*A*S*H|mash
-Everybody Loves Raymond|raymond
-Scrubs
-I Love Lucy
-Abbott Elementary|abbott
-New Girl
-That '70s Show|70s show`},
-{id:"candy",name:"Candy",items:`Reese's Peanut Butter Cups|reeses|reeses cups|peanut butter cups
-Snickers
-Kit Kat|kitkat
-Twix
-M&M's|mms
-Sour Patch Kids|sour patch
-Skittles
-Peanut M&M's|peanut mms
-Butterfinger
-Starburst
-Hershey's Bar|hersheys|hershey bar
-3 Musketeers|three musketeers
-Swedish Fish
-Nerds
-Milky Way
-Twizzlers
-Reese's Pieces
-Gummy Bears|gummies
-Airheads
-Jolly Ranchers|jolly rancher
-Almond Joy
-Nerds Gummy Clusters|nerds clusters
-Junior Mints
-Whoppers`},
-{id:"villains",name:"Movie Villains",items:`Darth Vader|vader
-The Joker|joker
-Hannibal Lecter|hannibal
-Voldemort|lord voldemort
-Thanos
-Anton Chigurh|chigurh
-Hans Gruber|gruber
-Norman Bates
-Scar
-Emperor Palpatine|palpatine|the emperor
-Nurse Ratched|ratched
-Agent Smith
-The Terminator|t 800
-Freddy Krueger|freddy
-Michael Myers
-Hans Landa|colonel landa|landa
-Loki
-Gollum|smeagol
-Sauron
-Bane
-Ursula
-Maleficent
-Pennywise
-Jaws|the shark`},
-{id:"sandwiches",name:"Sandwiches",items:`Philly Cheesesteak|cheesesteak|philly cheese steak
-BLT
-Grilled Cheese
-Reuben
-Italian Sub|italian hoagie|italian
-Fried Chicken Sandwich|chicken sandwich
-Cuban|cubano
-Banh Mi
-French Dip
-Club Sandwich|club|turkey club
-Meatball Sub
-Pastrami on Rye|pastrami
-Chicken Parm|chicken parmesan
-Peanut Butter and Jelly|pbj|pb and j
-Tuna Melt
-Po' Boy|poboy
-Lobster Roll
-Muffuletta
-Gyro
-Patty Melt
-Monte Cristo
-Sloppy Joe
-Caprese
-Egg Salad`},
-{id:"boardgames",name:"Board Games",items:`Monopoly
-Catan|settlers of catan
-Chess
-Scrabble
-Clue|cluedo
-Risk
-Ticket to Ride
-Codenames
-Trivial Pursuit
-The Game of Life|life|game of life
-Sorry!
-Connect Four|connect 4
-Battleship
-Pandemic
-Candy Land|candyland
-Checkers
-Stratego
-Backgammon
-Guess Who?
-Operation
-Carcassonne
-Wingspan
-Mouse Trap|mousetrap
-Chutes and Ladders`},
-{id:"superheroes",name:"Superheroes",items:`Spider-Man|spiderman|spidey
-Batman
-Superman
-Iron Man|ironman|tony stark
-Wonder Woman
-Captain America|cap
-Wolverine|logan
-The Hulk|hulk
-Thor
-Black Panther
-The Flash|flash
-Deadpool
-Doctor Strange|dr strange
-Aquaman
-Green Lantern
-Black Widow
-Captain Marvel
-Daredevil
-Storm
-Ant-Man|antman
-Green Arrow
-Hawkeye
-Cyclops
-Shazam`},
-{id:"holidays",name:"Holidays",items:`Christmas|xmas
-Thanksgiving
-Halloween
-Fourth of July|july 4th|4th of july|independence day
-New Year's Eve|nye|new years
-Easter
-Valentine's Day|valentines
-St. Patrick's Day|saint patricks day|st paddys
-Super Bowl Sunday|super bowl
-Hanukkah|chanukah
-Mother's Day
-Memorial Day
-Labor Day
-Father's Day
-Lunar New Year|chinese new year
-Diwali
-Cinco de Mayo
-Mardi Gras
-Juneteenth
-Kwanzaa
-Veterans Day
-MLK Day|martin luther king day
-April Fools' Day|april fools
-Groundhog Day`},
-{id:"videogames",name:"Video Games",note:"All-time",items:`Super Mario 64|mario 64|sm64
-The Legend of Zelda: Ocarina of Time|ocarina of time|ocarina|oot
-The Legend of Zelda: Breath of the Wild|breath of the wild|botw
-Tetris
-Minecraft
-Super Mario Bros.|super mario brothers
-Grand Theft Auto V|gta 5|gta v|gta
-Red Dead Redemption 2|rdr2|red dead 2|red dead
-The Last of Us|tlou
-Halo: Combat Evolved|halo|halo ce
-Pokémon Red and Blue|pokemon red|pokemon blue|pokemon
-The Elder Scrolls V: Skyrim|skyrim
-Elden Ring
-The Witcher 3|witcher
-Street Fighter II|street fighter 2|street fighter
-Pac-Man|pacman
-Half-Life 2|half life
-GoldenEye 007|goldeneye
-Super Smash Bros. Melee|melee|smash bros|smash
-Final Fantasy VII|ff7|final fantasy 7
-Portal 2|portal
-Mario Kart 8|mario kart
-Call of Duty 4: Modern Warfare|cod4|modern warfare|call of duty
-Fortnite`},
-{id:"cereal",name:"Breakfast Cereals",items:`Cinnamon Toast Crunch|ctc
-Frosted Flakes
-Honey Nut Cheerios
-Reese's Puffs
-Lucky Charms
-Froot Loops|fruit loops
-Cap'n Crunch|captain crunch
-Frosted Mini-Wheats|mini wheats
-Honey Bunches of Oats
-Fruity Pebbles
-Cocoa Puffs
-Cheerios
-Apple Jacks
-Golden Grahams
-Cocoa Pebbles
-Rice Krispies
-Raisin Bran
-Corn Flakes
-Cookie Crisp
-Trix
-Crispix
-Corn Pops
-Honey Smacks
-Kix`},
-{id:"events",name:"Sporting Events",items:`Super Bowl
-World Cup Final|world cup
-March Madness|ncaa tournament
-The Masters
-NBA Finals
-World Series
-Summer Olympics|olympics
-Kentucky Derby
-Wimbledon
-Stanley Cup Final|stanley cup
-Champions League Final|ucl final
-Ryder Cup
-Daytona 500
-Indianapolis 500|indy 500
-College Football Playoff|cfp
-Tour de France
-The Open Championship|british open|the open
-Winter Olympics
-US Open Tennis|us open
-NFL Draft
-Home Run Derby
-Rose Bowl
-Army-Navy Game|army navy
-Boston Marathon`},
-{id:"condiments",name:"Condiments",items:`Ketchup|catsup
-Ranch
-Hot Sauce
-Mayonnaise|mayo
-Mustard|yellow mustard
-BBQ Sauce|barbecue sauce|bbq
-Sriracha
-Soy Sauce
-Salsa
-Buffalo Sauce|buffalo
-Honey Mustard
-Guacamole|guac
-Chick-fil-A Sauce|cfa sauce
-Aioli|garlic aioli
-Tzatziki
-Chimichurri
-Pesto
-Sweet Chili Sauce|sweet chili
-Tartar Sauce
-Relish
-Horseradish
-Gochujang
-Teriyaki Sauce|teriyaki
-Worcestershire Sauce|worcestershire`},
-{id:"movies",name:"Movies",note:"All-time",items:`The Godfather|godfather
-The Shawshank Redemption|shawshank
-The Dark Knight
-Pulp Fiction
-Star Wars|a new hope
-The Empire Strikes Back|empire strikes back
-Goodfellas
-Casablanca
-Jaws
-Back to the Future|bttf
-Schindler's List
-Forrest Gump
-Jurassic Park
-The Godfather Part II|godfather 2|godfather part 2
-Raiders of the Lost Ark|raiders|indiana jones
-The Lord of the Rings: The Return of the King|return of the king|lotr|lord of the rings
-Titanic
-The Matrix
-Fight Club
-Gladiator
-Saving Private Ryan
-Inception
-E.T. the Extra-Terrestrial|et
-Citizen Kane`},
-{id:"dogs",name:"Dog Breeds",items:`Golden Retriever|golden
-Labrador Retriever|lab|labrador
-German Shepherd
-Bernese Mountain Dog|berner|bernese
-French Bulldog|frenchie
-Australian Shepherd|aussie
-Border Collie
-Corgi
-Siberian Husky|husky
-Beagle
-Goldendoodle|doodle
-Poodle
-Dachshund|wiener dog|sausage dog
-Boxer
-Cavalier King Charles Spaniel|cavalier
-Pit Bull|pitbull|pittie
-Great Dane
-Rottweiler|rottie
-Shiba Inu|shiba
-Doberman
-English Bulldog|bulldog
-Pug
-Dalmatian
-Chihuahua`},
-{id:"cocktails",name:"Cocktails",items:`Margarita
-Old Fashioned
-Espresso Martini
-Negroni
-Mojito
-Martini|dry martini
-Moscow Mule|mule
-Aperol Spritz|spritz
-Manhattan
-Piña Colada
-Whiskey Sour
-Paloma
-Daiquiri
-Mai Tai
-Gin and Tonic|g and t|gin tonic
-French 75
-Cosmopolitan|cosmo
-Bloody Mary
-Long Island Iced Tea|long island
-Mint Julep
-Tom Collins
-Sazerac
-Dark 'n' Stormy|dark and stormy
-Gimlet`},
-{id:"desserts",name:"Desserts",items:`Chocolate Chip Cookies|cookies|chocolate chip cookie
-Cheesecake
-Ice Cream
-Brownies
-Tiramisu
-Apple Pie
-Chocolate Cake
-Crème Brûlée
-Key Lime Pie
-Churros
-Banana Pudding
-Carrot Cake
-Cinnamon Rolls|cinnamon roll
-Red Velvet Cake|red velvet
-Cannoli
-Pumpkin Pie
-Peach Cobbler|cobbler
-Strawberry Shortcake
-Lava Cake|molten lava cake
-Donuts|doughnuts
-Macarons
-S'mores
-Bread Pudding
-Milkshake`},
-{id:"rappers",name:"Rappers",note:"All-time",items:`Tupac|2pac|tupac shakur
-The Notorious B.I.G.|biggie|biggie smalls
-Jay-Z|jayz|hov
-Eminem|slim shady
-Kendrick Lamar|kendrick
-Nas
-Kanye West|kanye|ye
-Lil Wayne|weezy|wayne
-Drake
-André 3000|andre|3 stacks
-Snoop Dogg|snoop
-Rakim
-Ice Cube
-J. Cole|cole
-Lauryn Hill
-Dr. Dre|dre
-Nicki Minaj|nicki
-Missy Elliott|missy
-50 Cent|fifty cent
-DMX
-Method Man
-KRS-One
-Busta Rhymes|busta
-Travis Scott`},
-{id:"disney",name:"Disney Animated Movies",items:`The Lion King
-Beauty and the Beast
-Aladdin
-The Little Mermaid
-Moana
-Frozen
-Tangled
-Mulan
-Lilo & Stitch
-Zootopia
-Cinderella
-Snow White and the Seven Dwarfs|snow white
-The Jungle Book
-Encanto
-Sleeping Beauty
-Tarzan
-Peter Pan
-Hercules
-Pinocchio
-Bambi
-101 Dalmatians
-The Emperor's New Groove
-Wreck-It Ralph
-Fantasia`},
-{id:"fruit",name:"Fruits",items:`Strawberries|strawberry
-Mango
-Watermelon
-Pineapple
-Blueberries|blueberry
-Grapes
-Peaches|peach
-Raspberries|raspberry
-Bananas
-Cherries|cherry
-Apples
-Oranges
-Kiwi
-Blackberries|blackberry
-Cantaloupe
-Pears
-Clementines|clementine|cuties|mandarin
-Plums
-Pomegranate
-Lychee
-Papaya
-Grapefruit
-Dragon Fruit
-Passion Fruit`},
-{id:"qbs",name:"NFL Quarterbacks",note:"All-time",items:`Tom Brady|brady|tb12
-Peyton Manning|peyton
-Joe Montana|montana
-Patrick Mahomes|mahomes
-Johnny Unitas|unitas
-Dan Marino|marino
-John Elway|elway
-Aaron Rodgers|rodgers
-Drew Brees|brees
-Brett Favre|favre
-Steve Young
-Otto Graham
-Roger Staubach|staubach
-Terry Bradshaw
-Troy Aikman|aikman
-Bart Starr
-Fran Tarkenton|tarkenton
-Kurt Warner
-Jim Kelly
-Josh Allen
-Lamar Jackson|lamar
-Ben Roethlisberger|big ben
-Warren Moon
-Joe Burrow|burrow`},
-{id:"chips",name:"Chips & Salty Snacks",items:`Doritos Nacho Cheese|doritos|nacho cheese doritos
-Cool Ranch Doritos|cool ranch
-Flamin' Hot Cheetos|hot cheetos
-Cheetos
-Lay's Classic|lays
-Takis
-Pringles
-Ruffles
-Kettle Chips|kettle
-Salt and Vinegar Chips|salt and vinegar
-Tostitos
-Fritos
-Sun Chips|sunchips
-Goldfish
-Cheez-It|cheezits
-Funyuns
-Pretzels
-Chex Mix
-Popcorn
-Cape Cod Chips|cape cod
-Sour Cream & Onion Chips|sour cream and onion
-BBQ Chips|barbecue chips
-Veggie Straws
-Bugles`},
-{id:"soccer",name:"Soccer Players",note:"All-time",items:`Lionel Messi|messi|leo messi
-Cristiano Ronaldo|cr7|cristiano|ronaldo
-Pelé
-Diego Maradona|maradona
-Johan Cruyff|cruyff
-Zinedine Zidane|zidane|zizou
-Ronaldo Nazário|r9|brazilian ronaldo
-Franz Beckenbauer|beckenbauer
-Alfredo Di Stéfano|di stefano
-Ronaldinho
-Kylian Mbappé|mbappe
-Thierry Henry|henry
-Paolo Maldini|maldini
-Ferenc Puskás|puskas
-Andrés Iniesta|iniesta
-Xavi
-George Best
-Eusébio
-Lev Yashin|yashin
-Kaká
-Zlatan Ibrahimović|zlatan
-Erling Haaland|haaland
-Luka Modrić|modric
-Neymar`},
-{id:"dramas",name:"TV Dramas",items:`Breaking Bad
-The Sopranos
-The Wire
-Game of Thrones|got
-Mad Men
-Better Call Saul
-Succession
-The West Wing
-Lost
-Friday Night Lights|fnl
-True Detective
-Stranger Things
-Six Feet Under
-Band of Brothers
-Chernobyl
-Twin Peaks
-The Leftovers
-Deadwood
-Severance
-The Crown
-Yellowstone
-Ozark
-Peaky Blinders
-House of the Dragon`},
-{id:"pasta",name:"Pasta Shapes",items:`Spaghetti
-Penne
-Rigatoni
-Fettuccine|fettucine
-Linguine|linguini
-Bucatini
-Orecchiette
-Pappardelle
-Farfalle|bow ties|bowtie
-Rotini
-Macaroni|elbows|elbow macaroni
-Tortellini
-Ravioli
-Gnocchi
-Lasagna|lasagne
-Fusilli
-Angel Hair|capellini
-Cavatappi
-Ziti
-Orzo
-Shells|conchiglie
-Tagliatelle
-Cavatelli
-Ditalini`}
-];
-
-/* Topic revisions take effect from REVISE_FROM so games already played keep the list they were scored on. */
-const REVISE_FROM = 2;
-const CATEGORY = {breakfast:"food",pizza:"food",fastfood:"food",candy:"food",sandwiches:"food",condiments:"food",cocktails:"food",desserts:"food",fruit:"food",chips:"food",pasta:"food",cereal:"food",
-  nba:"sports",golf:"sports",events:"sports",qbs:"sports",soccer:"sports",
-  pixar:"screen",sitcoms:"screen",villains:"screen",movies:"screen",disney:"screen",dramas:"screen",superheroes:"screen",videogames:"screen",
-  music:"music",rappers:"music", boardgames:"play",holidays:"life",dogs:"life"};
-function revise(base, id, drop, insert){
-  const lines=base.items.trim().split("\n").filter(l=>!drop.includes(l.split("|")[0].trim()));
-  for(const [pos,line] of insert) lines.splice(pos-1, 0, line);
-  return {...base, id, base:base.id, items:lines.join("\n")};
-}
-const REVISED = [
-  revise(TOPICS.find(t=>t.id==="villains"), "villains2", ["Loki","Bane"],
-    [[10,"The Wicked Witch of the West|wicked witch|wicked witch of the west"],[15,"Cruella de Vil|cruella|cruella deville"]]),
-  revise(TOPICS.find(t=>t.id==="boardgames"), "boardgames2", ["Wingspan","Mouse Trap"],
-    [[5,"Uno"],[12,"Jenga"]]),
-];
-const REV = Object.fromEntries(REVISED.map(t=>[t.base,t]));
-const ALL_TOPICS = TOPICS.concat(REVISED);
-
-/* ---------------- matching ---------------- */
-function key(s){
-  let t = String(s).normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase()
-    .replace(/&/g," and ").replace(/['’.]/g,"").replace(/[^a-z0-9]+/g," ").trim();
-  t = t.replace(/^the /,"");
-  return t.split(" ").filter(Boolean).map(w => (w.length>=2 && w.endsWith("s") && !w.endsWith("ss")) ? w.slice(0,-1) : w).join(" ");
-}
-for (const t of ALL_TOPICS){
-  t.entries = t.items.trim().split("\n").map((line,i)=>{
-    const [label,...al] = line.split("|").map(x=>x.trim());
-    const k = key(label);
-    return {label, rank:i+1, keys:[k, ...al.map(key)], tokens:k.split(" ").filter(w=>w.length>=4)};
-  });
-  t.size = t.entries.length;
-}
-const TOPIC = Object.fromEntries(ALL_TOPICS.map(t=>[t.id,t]));
-function matchEntry(t, text){
-  const k = key(text); if(!k) return null;
-  const exact = t.entries.find(e=>e.keys.includes(k)); if(exact) return exact;
-  if(!k.includes(" ") && k.length>=4){ const c=t.entries.filter(e=>e.tokens.includes(k)); if(c.length===1) return c[0]; }
-  if(k.length>=6){ const c=t.entries.filter(e=>e.keys[0].includes(k)); if(c.length===1) return c[0]; }
-  return null;
-}
-function titleCase(s){ return s.trim().replace(/\s+/g," ").slice(0,40).replace(/\b([a-z])/g,(m,c)=>c.toUpperCase()); }
-
-/* ---------------- daily (one calendar for everyone: the day turns over at midnight Pacific) ---------------- */
-const TZ = "America/Los_Angeles";
-function ptParts(d=new Date()){
-  const p = Object.fromEntries(new Intl.DateTimeFormat("en-US",{timeZone:TZ,year:"numeric",month:"numeric",day:"numeric",hour:"numeric",minute:"numeric",hourCycle:"h23"}).formatToParts(d).map(x=>[x.type,x.value]));
-  return {y:+p.year, m:+p.month, d:+p.day, h:+p.hour, min:+p.minute};
-}
-function dayNumber(d=new Date()){ const p=ptParts(d); return Math.round((Date.UTC(p.y,p.m-1,p.d)-Date.UTC(2026,8,27))/864e5)+1; } // #1 = Sep 27 2026
-function shortDay(n){ return new Date(Date.UTC(2026,8,27)+(n-1)*864e5).toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric",timeZone:"UTC"}); }
-function dayLabel(n){ const t=new Date(Date.UTC(2026,8,27)+(n-1)*864e5); return t.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric",timeZone:"UTC"}); }
-function untilTomorrow(){ const p=ptParts(); const m=Math.max(1,1440-(p.h*60+p.min)); return `${Math.floor(m/60)}h ${m%60}m`; }
-function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-function shuffled(list, seed){ const r=mulberry(seed), p=list.slice(); for(let i=p.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[p[i],p[j]]=[p[j],p[i]]} return p; }
-function hash(str){ let h=2166136261; for(const c of str){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); } return h>>>0; }
-const PERM = shuffled(TOPICS.map((_,i)=>i), 1776);
-const onDay = (t, day) => (day>=REVISE_FROM && REV[t.id]) || t;
-function topicForDay(n){ const L=TOPICS.length; return onDay(TOPICS[PERM[((n-1)%L+L)%L]], n); }
-/* Reorder a shuffled list so two topics from the same category never sit back to back. */
-function spreadOut(list, prevCat){
-  const out=[], pool=list.slice();
-  while(pool.length){
-    const last = out.length ? CATEGORY[out[out.length-1].base||out[out.length-1].id] : prevCat;
-    let i = pool.findIndex(t=>CATEGORY[t.base||t.id]!==last); if(i<0) i=0;
-    out.push(pool.splice(i,1)[0]);
-  }
-  return out;
-}
-/* Round 1 is the shared daily topic. Bonus rounds deal from a crew-and-day shuffle of the rest,
-   so every phone derives the same topic for "round 3 today" with no coordination and no repeats in a day. */
-function topicForRound(g, day, n){
-  const daily = topicForDay(day);
-  if(n<=1) return daily;
-  const dailyBase = daily.base || daily.id;
-  let rest = shuffled(TOPICS.filter(t=>t.id!==dailyBase), hash(g+":"+day)).map(t=>onDay(t, day));
-  if(day>=REVISE_FROM) rest = spreadOut(rest, CATEGORY[dailyBase]);
-  return rest[(n-2)%rest.length];
-}
-
-/* ---------------- scoring ---------------- */
-const WRITE_IN = 15;
-function basePts(rank){ return rank ? 100-(rank-1)*3 : WRITE_IN; }
-function tierOf(rank){ return !rank ? 4 : rank<=4 ? 1 : rank<=10 ? 2 : 3; }
-const TIER_EMO = {1:"\u{1F7E9}",2:"\u{1F7E8}",3:"\u{1F7E7}",4:"⬜"};
-const TIER_TXT = {1:"Consensus top 4",2:"Top 10",3:"On the board",4:"Write-in"};
-const SPOTS = ["Washington spot","Jefferson spot","Roosevelt spot","Lincoln spot"];
-function scoreFaces(faces){
-  // faces: 4 picks in the player's chosen order (slot 0 = #1)
-  const eff = f => f.rank || 999;
-  const ideal = faces.map((f,i)=>({f,i})).sort((a,b)=>eff(a.f)-eff(b.f)||a.i-b.i).map(x=>x.f);
-  const rows = faces.map((f,slot)=>{
-    const base = basePts(f.rank);
-    const right = f.rank && ideal[slot]===f ? 10 : 0;
-    const exact = f.rank===slot+1 ? 15 : 0;
-    return {f, slot, base, right, exact, pts:base+right+exact};
-  });
-  return {rows, total: rows.reduce((s,r)=>s+r.pts,0)};
-}
-
 /* ---------------- storage ---------------- */
 const store = {
   get(k,d=null){ try{ const v=localStorage.getItem(k); return v==null?d:JSON.parse(v);}catch{return d} },
@@ -1087,7 +263,7 @@ async function connect(n){
   if(S.unsubDay){ S.unsubDay(); S.unsubDay=null; }
   S.round=n; S.code=roundKey(S.group,S.day,n); S.rxOpen=null;
   if(S.group){ const mk="mr.maxround."+S.group+"."+S.day; if(n>store.get(mk,0)) store.set(mk,n); }
-  S.events=[]; S.ids=[]; S.conn="connecting"; S.synced=false; S.myOrder=null; S.lastPickCount=0; S.next=null; S.err="";
+  S.events=[]; S.ids=[]; S.conn="connecting"; S.synced=false; S.myOrder=null; S.draft=""; S.confirmWrite=null; S.lastPickCount=0; S.next=null; S.err="";
   const k=S.code;
   let db; try{ ({db}=await fb()); }catch(e){ if(S.gen===gen){ S.conn="down"; S.err=e.message; render(); } return; }
   if(S.gen!==gen) return;
@@ -1095,28 +271,44 @@ async function connect(n){
   const cb=snap=>{
     if(S.gen!==gen) return;
     const ids=[], evs=[];
-    snap.forEach(c=>{ const e=c.val(); if(e && typeof e.type==="string"){ ids.push(c.key); evs.push(e); } });
-    S.ids=ids; S.events=evs; S.synced=true; S.conn = S.online===false ? "reconnecting" : "live"; queueRender(); watchNext();
+    const pairs=[]; snap.forEach(c=>{ const e=c.val(); if(e && typeof e.type==="string") pairs.push([c.key,e]); });
+    for(const [k,e] of arrivalOrder(pairs)){ ids.push(k); evs.push(e); }
+    S.ids=ids; S.events=evs; S.synced=true; S.conn = S.online===false ? "reconnecting" : "live"; remoteRender(); watchNext();
   };
   ref.on("value", cb, ()=>{ S.conn="down"; render(); });
   S.unsubRound=()=>ref.off("value",cb);
 }
+/* A phone stamps each event's key when the player taps, so a message that was stuck on a weak
+   connection would slot in where it was sent. Rounds whose create carries a server timestamp (sv)
+   are replayed in the order the server received each event instead, so a late message lands last
+   and the usual checks reject it. Older rounds keep key order and replay exactly as they were played. */
+const PUSH_CHARS="-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
+function keyTime(k){ let t=0; for(let i=0;i<8;i++) t=t*64+PUSH_CHARS.indexOf(k[i]); return t; }
+function arrivalOrder(pairs){
+  const first=pairs[0] && pairs[0][1];
+  if(!first || first.type!=="create" || typeof first.sv!=="number") return pairs;
+  const tm=([k,e])=> typeof e.sv==="number" ? e.sv : keyTime(k);
+  return pairs.slice().sort((a,b)=>tm(a)-tm(b) || (a[0]<b[0]?-1:a[0]>b[0]?1:0));
+}
 async function send(e){
+  // Capture the round now: the player may navigate away while this is still sending.
+  const code=S.code, group=S.group, day=S.day, round=S.round, events=S.events;
   const {db, uid} = await fb();
-  const ev = {...e, pid: e.pid || myPid(), uid, at: Date.now()};
+  const ev = {...e, pid: e.pid || pidFor(group), uid, at: Date.now(), sv: firebase.database.ServerValue.TIMESTAMP};
   for(const x in ev) if(ev[x]===undefined) delete ev[x];
   if(S.online===false) throw new Error("You're offline. Reconnect, then try again.");
   const ok = await Promise.race([
-    db.ref("rounds/"+S.code+"/events").push(ev).then(()=>true, ()=>false),
+    db.ref("rounds/"+code+"/events").push(ev).then(()=>true, ()=>false),
     new Promise(r=>setTimeout(()=>r(null), 10000))
   ]);
   if(ok===null) throw new Error("Still sending… check your connection. It will appear once it goes through.");
   if(!ok) throw new Error("Couldn't send that. Check your connection and try again.");
-  if(e.type==="create") await db.ref(`crewRounds/${S.group}/${S.day}/${S.round}`).set(true).catch(()=>{});
+  if(e.type==="create"){ await db.ref(`crewRounds/${group}/${day}/${round}`).set(true).catch(()=>{});
+    if(crewAlertsOn(group)) saveSubFor(group); }   // a brand-new crew can only claim alert slots once it exists
   if(e.type==="pick" || e.type==="start"){
-    const s=fold(S.events.includes(ev)?S.events:S.events.concat([ev])); if(s.started){
-      if(!s.draftDone) notifyPlayer("turn", onClock(s, s.picks.length));
-      else s.seats.forEach(p=>notifyPlayer("order", p)); }
+    const s=fold(events.concat([{...ev, sv:Date.now()}])); if(s.started){
+      if(!s.draftDone) notifyPlayer("turn", onClock(s, s.picks.length), s.picks.length, code, group);
+      else s.seats.forEach(p=>notifyPlayer("order", p, s.total, code, group)); }
   }
 }
 /* While a finished round is on screen, show a banner when a crewmate opens the next one. */
@@ -1132,21 +324,32 @@ async function watchNext(){
       if(!snap.val() || S.code!==k || S.next) return;
       const ev=(await db.ref("rounds/"+roundKey(S.group,S.day,nextN)+"/events").orderByKey().limitToFirst(8).get()).val()||{};
       const s2=fold(Object.keys(ev).sort().map(x=>ev[x]));
-      if(S.code===k && s2.created){ S.next={n:nextN, topic:s2.topic.name, by:s2.name(s2.host)}; render(); }
+      if(S.code===k && s2.created){ S.next={n:nextN, topic:s2.topic.name, by:s2.name(s2.host)}; remoteRender(); }
     };
     ref.on("value", cb);
     if(S.unsubDay) S.unsubDay();
     S.unsubDay=()=>ref.off("value",cb);
   }catch{}
 }
+/* A new day (midnight Pacific) while a crew is open: move to today's game unless you're mid-draft,
+   so friends who open the crew fresh and you land in the same round. */
+function crewRollover(){
+  if(!S.group || dayNumber()===S.day) return;
+  const s=fold(S.events);
+  if(!s.started || s.done || !s.seats.includes(myPid())) return openCrew(S.group);
+  render();   // mid-game: finish first, the banner offers the jump
+}
 document.addEventListener("visibilitychange", ()=>{
-  if(document.visibilityState!=="visible" || !S.group) return;
-  if(dayNumber()!==S.day){
-    const s=fold(S.events);
-    if(!s.started || s.done || !s.seats.includes(myPid())) return openCrew(S.group);   // new day: go to today's game
-    render();                                                                            // mid-game: finish first, banner offers the jump
-  }
+  if(document.visibilityState!=="visible") return;
+  if(S.group) crewRollover(); else { fetchCrewStatus(crewList().map(c=>c.g), true); if(!typing()) render(); }
 });
+window.addEventListener("online", ()=>{ if(S.group && (S.conn==="down" || !S.code)) openCrew(S.group); else remoteRender(); });
+const typing = () => { const ae=document.activeElement; return !!(ae && (ae.tagName==="INPUT"||ae.tagName==="TEXTAREA") && ae.closest("#app")); };
+/* Other players' moves arrive at any time. While someone is typing, hold the redraw until they leave
+   the box: rebuilding the page under an open phone keyboard closes it mid-word. */
+function remoteRender(){ if(typing()){ S.pendingRender=true; return; } queueRender(); }
+document.addEventListener("focusout", ()=>{ if(!S.pendingRender) return;
+  setTimeout(()=>{ if(S.pendingRender && !typing()){ S.pendingRender=false; render(); } }, 400); });
 let rq=0; function queueRender(){ if(rq) return; rq=setTimeout(()=>{rq=0;render();},0); }
 
 /* ---------------- game state = fold over the event log ---------------- */
@@ -1162,7 +365,10 @@ function fold(events){
     const seated = s.seats.includes(e.pid);
     switch(e.type){
       case "create":
-        if(!s.created && TOPIC[e.topic]){ s.created=true; s.createdAt=e.at||0; s.fair=(e.at||0)>=FAIR_PLAY_FROM; s.host=e.pid; s.topic=TOPIC[e.topic]; s.day=e.day|0; s.round=e.round|0||1; }
+        // Only the first create counts. A topic this phone doesn't know means its copy of the game is old.
+        if(s.sawCreate) break; s.sawCreate=true;
+        if(!TOPIC[e.topic]){ s.unknownTopic=true; break; }
+        if(!s.created){ s.created=true; s.createdAt=e.at||0; s.fair=(e.at||0)>=FAIR_PLAY_FROM; s.host=e.pid; s.topic=TOPIC[e.topic]; s.day=e.day|0; s.round=e.round|0||1; }
         break;
       case "join": {
         if(!s.created || typeof e.name!=="string") break;
@@ -1207,7 +413,7 @@ function fold(events){
       case "react": {
         // Tapping the same emoji again takes it back. Reactions ride on the pick, so an undone pick loses them.
         const p = s.picks[e.n];
-        if(!p || !REACTS.includes(e.text) || !s.players.some(x=>x.pid===e.pid)) break;
+        if(!p || (e.k && p.k!==e.k) || !REACTS.includes(e.text) || !s.players.some(x=>x.pid===e.pid)) break;
         const re = p.re || (p.re={}), who = re[e.text] || (re[e.text]=[]), i = who.indexOf(e.pid);
         if(i<0) who.push(e.pid); else who.splice(i,1);
         break; }
@@ -1264,14 +470,17 @@ function crewRecord(g){
   return Object.values(by).map(x=>({...x, avg:Math.round(x.pts/x.games)})).sort((a,b)=>b.wins-a.wins||b.avg-a.avg);
 }
 function rememberCrew(g){
-  const list=store.get("mr.crews",[]).filter(x=>x.g!==g);
+  const list=crewList().filter(x=>x.g!==g);
   list.unshift({g, at:Date.now()});
   store.set("mr.crews", list.slice(0,10));
-  pushProfile("crews/"+g, {pid:pidFor(g), at:Date.now()});
+  pushProfile("crews/"+g, {pid:pidFor(g), at:Date.now()}); pushProfile("left/"+g, null);   // rejoining undoes a leave
   if(crewAlertsOn(g)) saveSubFor(g);
 }
 
 /* ---------------- helpers ---------------- */
+function crewList(){ const v=store.get("mr.crews",[]); return Array.isArray(v) ? v.filter(c=>c && typeof c.g==="string" && /^[A-Z0-9]{6}$/.test(c.g)) : []; }
+function validSolo(st){ return !!(st && Array.isArray(st.picks) && st.picks.length<=4 && st.picks.every(p=>p && typeof p.label==="string")
+  && Array.isArray(st.order) && st.order.length===4 && [0,1,2,3].every(i=>st.order.includes(i)) && (!st.locked || st.picks.length===4)); }
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const pcol = i => `var(--p${i})`;
@@ -1281,7 +490,7 @@ async function shareOrCopy(text, title, url){
   if(navigator.share){ try{ await navigator.share(url?{title,text,url}:{title,text}); return; }catch(e){ if(e && e.name==="AbortError") return; } }
   const full = url ? text+"\n"+url : text;
   try{ await navigator.clipboard.writeText(full); toast("Copied to clipboard"); }
-  catch{ const ta=$("#sharebox"); if(ta){ ta.hidden=false; ta.value=full; ta.select(); toast("Select all and copy"); } else { S.pic={text:full}; render(); } }
+  catch{ openPopup("pic", {text:full}); const ta=$("#sharebox"); if(ta){ ta.focus(); ta.select(); } }
 }
 function initials(label){ const w=label.replace(/^the\s+/i,"").split(/[\s-]+/).filter(x=>/[A-Za-z0-9]/.test(x)); return ((w[0]||"?")[0]+(w.length>1?w[w.length-1][0]:(w[0]||"")[1]||"")).toUpperCase(); }
 const roundLabel = n => n<=1 ? "Daily topic" : "Bonus round "+(n-1);
@@ -1315,8 +524,8 @@ function connBadge(){
 /* ---------------- views ---------------- */
 function homeView(){
   const n=dayNumber(), t=topicForDay(n);
-  const crews = store.get("mr.crews",[]);
-  const st=store.get(soloKey(n),null), soloDone=st&&st.locked;
+  const crews = crewList();
+  const st=store.get(soloKey(n),null), soloDone=validSolo(st)&&st.locked;
   const soloScore=soloDone?scoreFaces(st.order.map(i=>st.picks[i])).total:0;
   return `
   <div class="top">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap"><span class="conn">#${n}</span>${helpBtn()}</div></div>
@@ -1341,7 +550,8 @@ function homeView(){
       <div class="err" id="homeerr">${esc(S.err)}</div></section>`:""}
 
     ${crews.length?`<section class="stack" style="gap:6px"><span class="eyebrow">Your crews</span>
-      <div class="crewrow">${crews.map(c=>`<button class="crewchip" data-act="opencrew" data-g="${esc(c.g)}"><b>${esc(crewName(c.g)||c.g)}</b>${crewName(c.g)?`<span class="mono">${esc(c.g)}</span>`:""}</button>`).join("")}</div></section>`:""}
+      <div class="crewrow">${[...crews].sort((a,b)=>!!crewMove(b.g)-!!crewMove(a.g)).map(c=>{ const mv=crewMove(c.g);
+        return `<button class="crewchip${mv?" yours":""}" data-act="opencrew" data-g="${esc(c.g)}"><b>${esc(crewName(c.g)||c.g)}</b>${mv?`<span class="yourmove">${mv==="pick"?"Your pick":"Lock in yours"}</span>`:crewName(c.g)?`<span class="mono">${esc(c.g)}</span>`:""}</button>`; }).join("")}</div></section>`:""}
 
     <nav class="links" aria-label="More">
       ${lrow("me","You", streak()?streak()+"-day streak · stats, past topics, settings":"stats, past topics, settings")}
@@ -1358,6 +568,7 @@ function roomView(){
   document.title = "Mount Rushmore Daily";
   const t = topicForRound(S.group,S.day,S.round);
   const title = `<div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">${crewName(S.group)?esc(crewName(S.group))+" · ":""}Mount Rushmore #${S.day} · ${roundLabel(S.round)}</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc((s.topic||t).name)}</h1></div>`;
+  if(!s.created && s.unknownTopic) return head+title+`<div class="card stack"><b>This round needs the latest version of the game.</b><button class="btn gold" data-act="reload">Update now</button></div>`;
   if(!s.created){
     if(myName()) return head+title+`<div class="card"><p class="muted" style="margin:0">Setting up the round…</p><div class="err">${esc(S.err)}</div></div>`;
     return head+title+nameBox("Join this crew", "You'll be dealt into today's game.");
@@ -1378,7 +589,6 @@ function inviteCard(){
   return `<section class="card row" style="justify-content:space-between;gap:10px">
       <div><div class="eyebrow">Invite · same link every day</div><span class="code" style="display:inline-block;margin-top:6px">${esc(S.group)}</span></div>
       <button class="btn gold" data-act="invite">Share invite</button>
-      <textarea class="share" id="sharebox" hidden aria-label="Copy this text"></textarea>
     </section>`;
 }
 function crewPanel(){
@@ -1420,8 +630,8 @@ function lobbyView(s,me,member){
 }
 
 function spectatorClaim(s){
-  return `<details class="cons" style="margin-bottom:14px"><summary>Are you one of these players? Rejoin on this device</summary>
-    <div class="row" style="margin-top:10px">${s.seats.map((p,i)=>`<button class="btn ghost small" data-act="claim" data-pid="${esc(p)}"><span class="chip" style="background:${pcol(i)}"></span>${esc(s.name(p))}</button>`).join("")}</div></details>`;
+  return `<div style="margin-bottom:14px">${fold2("claim"+S.code, "Are you one of these players? Rejoin on this device",
+    `<div class="row" style="margin-top:10px">${s.seats.map((p,i)=>`<button class="btn ghost small" data-act="claim" data-pid="${esc(p)}"><span class="chip" style="background:${pcol(i)}"></span>${esc(s.name(p))}</button>`).join("")}</div>`)}</div>`;
 }
 
 function draftView(s,me,member){
@@ -1452,7 +662,7 @@ function draftView(s,me,member){
     </div>
     ${mine?`<form class="pickbox stack" id="pickform" style="gap:6px" autocomplete="off">
       <div class="row" style="gap:8px;flex-wrap:nowrap">
-        <input class="t" id="pick" placeholder="Name a ${esc(s.topic.name.replace(/s$/,"").toLowerCase())}…" aria-label="Your pick" aria-autocomplete="list" aria-controls="sug" enterkeyhint="done">
+        <input class="t" id="pick" placeholder="Name a ${esc(s.topic.name.replace(/s$/,"").toLowerCase())}…" maxlength="60" aria-label="Your pick" aria-autocomplete="list" aria-controls="sug" enterkeyhint="done">
         <button class="btn gold" type="submit" ${S.busy?"disabled":""}>Carve</button>
       </div>
       <div class="hint" id="hint"></div>
@@ -1477,7 +687,8 @@ function orderView(s,me){
       <ol class="olist">${S.myOrder.map((pi,slot)=>`<li><span class="spot">#${slot+1}<br>${SPOTS[slot]}</span><span class="nm">${esc(picks[pi].label)}</span>
         <span class="arrows"><button data-act="up" data-i="${slot}" ${slot===0?"disabled":""} aria-label="Move up">&uarr;</button><button data-act="down" data-i="${slot}" ${slot===3?"disabled":""} aria-label="Move down">&darr;</button></span></li>`).join("")}</ol>
       <button class="btn gold block" data-act="lock" ${S.busy?"disabled":""}>Lock in my mountain</button><div class="err">${esc(S.err)}</div></section>`;
-  return `<div class="stack">${body}
+  const last=s.picks[s.picks.length-1], canUndo = last && last.pid===me && !Object.keys(s.orders).length;
+  return `<div class="stack">${canUndo?`<button class="btn ghost small" data-act="undo" style="align-self:flex-start">Undo my last pick (${esc(last.label)})</button>`:""}${body}
     <section class="stack" style="gap:8px"><span class="eyebrow">Draft complete</span><div class="plist" style="grid-template-columns:1fr">${status}</div></section>
     ${locked && s.seats.some(p=>!s.orders[p]) ? `<button class="btn ghost small" data-act="nudge" style="align-self:flex-start">Nudge the crew</button>` : ""}
     ${locked?`<button class="btn ghost small" data-act="finish" style="align-self:flex-start">Score it now (anyone still ordering keeps draft order)</button>`:""}
@@ -1515,8 +726,7 @@ function resultsView(s,me){
       <div class="row" style="justify-content:center;margin-top:12px"><button class="btn gold" data-act="shareres">Share</button></div>
       <div style="margin:10px -16px 0">${mountain(top[0].faces.map(f=>initials(f.label)), pcol(top[0].seat))}</div>
     </section>
-    ${newDay}
-    ${nextBanner}
+    ${newDay || nextBanner}
     <div class="res">${cards}</div>
     ${fold2("cons"+S.code, `Reveal the full top ${s.topic.size}`, `<ol>${s.topic.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol>`)}
     ${appNudgeCard()}
@@ -1540,7 +750,7 @@ const soloKey = d => "mr.solo."+d+(SEAT?"."+SEAT:"");
 function soloTopic(){ return topicForDay(S.solo.day); }
 function soloState(){
   const k=soloKey(S.solo.day);
-  if(!S.soloMem || S.soloMem.k!==k) S.soloMem={k, st:store.get(k, {picks:[], order:[0,1,2,3], locked:false})};
+  if(!S.soloMem || S.soloMem.k!==k){ const v=store.get(k,null); S.soloMem={k, st: validSolo(v) ? v : {picks:[], order:[0,1,2,3], locked:false}}; }
   return JSON.parse(JSON.stringify(S.soloMem.st));
 }
 function soloSave(st){ S.soloMem={k:soloKey(S.solo.day), st:JSON.parse(JSON.stringify(st))}; store.set(S.soloMem.k, st); pushProfile("solo/"+S.solo.day, JSON.stringify(st)); }
@@ -1563,6 +773,7 @@ function soloView(){
   const st=soloState(), t=soloTopic(), n=st.picks.length;
   document.title="Mount Rushmore Daily";
   const head=`<div class="top compact">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap;min-width:0"><span class="conn">Solo · #${S.solo.day}</span>${helpBtn()}${homeBtn()}</div></div>
+    ${S.solo.day!==dayNumber()?`<section class="card clock mine" style="margin-bottom:14px"><div><div class="eyebrow">A new topic is out</div><div class="who">${esc(topicForDay(dayNumber()).name)}</div></div><button class="btn gold" data-act="solotoday">Play it</button></section>`:""}
     <div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">Mount Rushmore #${S.solo.day} · Solo</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc(t.name)}</h1></div>`;
   if(st.locked){
     markPlayed(S.solo.day);
@@ -1583,7 +794,7 @@ function soloView(){
       <div class="clock mine"><div><div class="eyebrow">Pick ${n+1} of 4</div><div class="who">Name the top 4</div></div></div>
       <form class="pickbox stack" id="pickform" style="gap:6px" autocomplete="off">
         <div class="row" style="gap:8px;flex-wrap:nowrap">
-          <input class="t" id="pick" placeholder="Name a ${esc(t.name.replace(/s$/,"").toLowerCase())}…" aria-label="Your pick" aria-autocomplete="list" aria-controls="sug" enterkeyhint="done">
+          <input class="t" id="pick" placeholder="Name a ${esc(t.name.replace(/s$/,"").toLowerCase())}…" maxlength="60" aria-label="Your pick" aria-autocomplete="list" aria-controls="sug" enterkeyhint="done">
           <button class="btn gold" type="submit">Carve</button></div>
         <div class="hint" id="hint"></div><ul class="sug" id="sug" role="listbox"></ul><div class="err">${esc(S.err)}</div></form>
       <div class="col">${[0,1,2,3].map(i=>st.picks[i]
@@ -1603,6 +814,13 @@ function soloView(){
 
 /* ---------------- accounts: sign in with Google to share crews, name and solo progress across devices ---------------- */
 const ACCT = {user:null, busy:false, synced:false};
+/* Played days from every device are merged, never overwritten, so a streak can't lose a day. */
+function pushDays(list){
+  if(!ACCT.user || !ACCT.synced) return;
+  const uid=ACCT.user.uid;
+  fb().then(({db})=>db.ref("users/"+uid+"/days").transaction(cur=>{ let r=[]; try{ r=JSON.parse(cur||"[]"); }catch{}
+    return JSON.stringify([...new Set((Array.isArray(r)?r:[]).concat(list))].filter(Number.isFinite).sort((a,b)=>a-b).slice(-400)); })).catch(()=>{});
+}
 function pushProfile(path, val){
   if(!ACCT.user || !ACCT.synced) return;
   const uid=ACCT.user.uid;
@@ -1616,25 +834,26 @@ async function syncProfile(){
     const {db}=await fb(); const ref=db.ref("users/"+u.uid);
     const p=(await ref.get()).val()||{}, upd={};
     if(p.name){ if(p.name!==myName()) store.set("mr.name"+(SEAT?"."+SEAT:""), p.name); } else if(myName()) upd.name=myName();
-    const local=store.get("mr.crews",[]), remote=p.crews||{};
+    const left=p.left||{}, local=crewList().filter(c=>!left[c.g]), remote=p.crews||{};
     const live = S.group ? fold(S.events) : null;
     const playingNow = g => live && g===S.group && (live.players.some(p=>p.pid===pidFor(g)) || live.seats.includes(pidFor(g)));
-    for(const [g,v] of Object.entries(remote)){
+    for(const [g,v] of Object.entries(remote)){ if(left[g]) continue;
       if(v && v.pid && !playingNow(g)) store.set(pidKey(g), v.pid);   // account seat wins, except mid-round on this device
       if(!local.some(c=>c.g===g)) local.push({g, at:(v&&v.at)||0});
     }
     for(const c of local) if(!remote[c.g]) upd["crews/"+c.g]={pid:pidFor(c.g), at:c.at||Date.now()};
+    for(const g of Object.keys(left)) if(remote[g]) upd["crews/"+g]=null;
     local.sort((a,b)=>(b.at||0)-(a.at||0)); store.set("mr.crews", local.slice(0,10));
     let rd=[]; try{ rd=JSON.parse(p.days||"[]"); }catch{}
     const allDays=[...new Set(playedDays().concat(Array.isArray(rd)?rd:[]))].filter(Number.isFinite).sort((a,b)=>a-b).slice(-400);
-    store.set("mr.days", allDays); if(allDays.length!==(Array.isArray(rd)?rd.length:0)) upd.days=JSON.stringify(allDays);
+    store.set("mr.days", allDays); if(allDays.length!==(Array.isArray(rd)?rd.length:0)) setTimeout(()=>pushDays(allDays), 0);
     const d=dayNumber(), key=soloKey(d), ls=store.get(key,null);
     let rs=null; try{ rs=p.solo&&p.solo[d]?JSON.parse(p.solo[d]):null; }catch{}
-    const score=st=>!st?-1:(st.locked?10:0)+st.picks.length;
+    const score=st=>!validSolo(st)?-1:(st.locked?10:0)+st.picks.length;
     if(rs && score(rs)>score(ls)){ store.set(key, rs); S.soloMem=null; }
     else if(ls && score(ls)>score(rs)) upd["solo/"+d]=JSON.stringify(ls);
     // Earlier days' finished solo games fill in past topics and stats on a new device.
-    for(const [pd,v] of Object.entries(p.solo||{})){ if(+pd===d || store.get(soloKey(+pd),null)) continue; try{ const o=JSON.parse(v); if(o && o.locked) store.set(soloKey(+pd), o); }catch{} }
+    for(const [pd,v] of Object.entries(p.solo||{})){ if(+pd===d || store.get(soloKey(+pd),null)) continue; try{ const o=JSON.parse(v); if(validSolo(o) && o.locked) store.set(soloKey(+pd), o); }catch{} }
     if(Object.keys(upd).length) await ref.update(upd);
     ACCT.synced = true;
   }catch(e){}
@@ -1699,11 +918,12 @@ function fb(){
       ACCT.user = u && !u.isAnonymous ? u : null;
       if(u) B.uid = u.uid;
       if(ACCT.user && ACCT.user.uid!==was){ ACCT.synced=false; syncProfile(); }
-      render();
+      remoteRender();
     });
+    setTimeout(()=>{ if(alertsOn()) for(const c of crewList()) if(!store.get("mr.alertsOff."+c.g,false)) saveSubFor(c.g); }, 4000);
     db.ref(".info/connected").on("value", snap=>{
       S.online = !!snap.val();
-      if(S.code){ S.conn = !S.online ? "reconnecting" : S.synced ? "live" : "connecting"; render(); }
+      if(S.code){ S.conn = !S.online ? "reconnecting" : S.synced ? "live" : "connecting"; remoteRender(); }
     });
     return {db, get uid(){ return auth.currentUser ? auth.currentUser.uid : null; }};
   })();
@@ -1719,8 +939,11 @@ function boardRows(day, raw){
     const labels=[0,1,2,3].map(i=>v.picks[i]).filter(x=>typeof x==="string");
     if(labels.length!==4) continue;
     const faces=labels.map(l=>{ const m=matchEntry(t,l); return {label:m?m.label:l, rank:m?m.rank:null}; });
+    if(new Set(faces.map(f=>f.rank?"E"+f.rank:"W"+key(f.label))).size!==4) continue;   // the same face four times isn't a mountain
     const score=scoreFaces(faces).total;
     if(score!==v.score) continue;
+    const td = typeof v.ts==="number" ? dayNumber(new Date(v.ts)) : day;   // posted on its day (or just after midnight)
+    if(td<day || td>day+1) continue;
     rows.push({uid, name:v.name, score, ts:v.ts||0, faces});
   }
   rows.sort((a,b)=>b.score-a.score||a.ts-b.ts);
@@ -1730,15 +953,15 @@ function boardRows(day, raw){
 async function watchBoard(day){
   if(B.day===day) return;   // already watching (or loading) this day
   if(B.unsub){ B.unsub(); B.unsub=null; }
-  Object.assign(B,{day, rows:[], me:null, meChecked:false, count:0, loaded:false, err:""});
+  Object.assign(B,{day, rows:[], me:null, meChecked:false, count:0, loaded:false, err:"", autoTried:false});
   try{
     const {db} = await fb();
     if(B.day!==day) return;
     // Only the top 50 scores stream live; the day's player count is a single number.
     const top = db.ref("solo/"+day).orderByChild("score").limitToLast(50);
     const cnt = db.ref("soloCount/"+day);
-    const cb = snap=>{ B.rows=boardRows(day, snap.val()); B.loaded=true; B.err=""; refreshMe(); if(S.solo) render(); };
-    const cc = snap=>{ B.count=+snap.val()||0; if(S.solo) render(); };
+    const cb = snap=>{ B.rows=boardRows(day, snap.val()); B.loaded=true; B.err=""; refreshMe(); if(S.solo) remoteRender(); };
+    const cc = snap=>{ B.count=+snap.val()||0; if(S.solo) remoteRender(); };
     top.on("value", cb, ()=>{ B.err="Leaderboard is unavailable right now."; render(); });
     cnt.on("value", cc, ()=>{});
     B.unsub = ()=>{ top.off("value", cb); cnt.off("value", cc); };
@@ -1761,7 +984,7 @@ async function refreshMe(){
       }
     }
     if(B.day!==day) return;
-    B.me=me; B.meChecked=true; if(S.solo) render(); maybeAutoPost();
+    B.me=me; B.meChecked=true; if(S.solo) remoteRender(); maybeAutoPost();
   }catch{}
 }
 function myBoardRow(){ return B.me; }
@@ -1775,7 +998,6 @@ async function postSolo(name){
     const {db, uid} = await fb();
     await db.ref("solo/"+S.solo.day+"/"+uid).set({name, score:scoreFaces(faces).total,
       picks:{0:faces[0].label,1:faces[1].label,2:faces[2].label,3:faces[3].label}, ts:firebase.database.ServerValue.TIMESTAMP});
-    db.ref("soloCount/"+S.solo.day).transaction(c=>(+c||0)+1).catch(()=>{});
     setTimeout(refreshMe, 400);
     const st2=soloState(); st2.postedUid=uid; soloSave(st2);
   }catch(e){ B.err = /permission/i.test(String(e&&e.message)) ? "This device already posted today." : "Couldn't post your score. Try again."; }
@@ -1811,6 +1033,37 @@ function boardCard(){
 /* ---------------- crew names ---------------- */
 const CN = {names:{}, watching:null, off:null, editing:false, fetched:{}};
 function crewName(g){ return CN.names[g] || ""; }
+
+/* ---------------- "your move" on the home screen ----------------
+   Reads each crew's newest round for today and marks the ones waiting on you: your pick in the
+   draft, or your mountain still to lock in. Refreshed on the home screen at most every 15s and
+   whenever the app comes back to the front. Also sets the home-screen icon's badge count. */
+const CS = {state:{}, at:0, busy:false};
+function crewMove(g){ return CS.state[g] || null; }
+async function fetchCrewStatus(list, force){
+  if(!list.length){ try{ navigator.clearAppBadge && navigator.clearAppBadge().catch(()=>{}); }catch{} return; }
+  if(CS.busy || (!force && Date.now()-CS.at < 15000)) return;
+  CS.busy=true; CS.at=Date.now();
+  try{
+    const {db}=await fb(), day=dayNumber();
+    await Promise.all(list.map(async g=>{
+      try{
+        const ns=Object.keys((await db.ref(`crewRounds/${g}/${day}`).get()).val()||{}).map(Number).filter(x=>x>0);
+        if(!ns.length){ delete CS.state[g]; return; }
+        const evs=[], pairs=[];
+        (await db.ref("rounds/"+roundKey(g,day,Math.max(...ns))+"/events").orderByKey().get()).forEach(c=>{ const e=c.val(); if(e && typeof e.type==="string") pairs.push([c.key,e]); });
+        for(const [,e] of arrivalOrder(pairs)) evs.push(e);
+        const s=fold(evs), me=pidFor(g);
+        CS.state[g] = !s.seats.includes(me) || s.done ? null
+          : !s.draftDone ? (onClock(s, s.picks.length)===me ? "pick" : null)
+          : (!s.orders[me] ? "lock" : null);
+      }catch{}
+    }));
+    const n=list.filter(g=>CS.state[g]).length;
+    try{ if(navigator.setAppBadge) (n ? navigator.setAppBadge(n) : navigator.clearAppBadge()).catch(()=>{}); }catch{}
+    if(!S.group && !S.solo) remoteRender();
+  }catch{} finally{ CS.busy=false; }
+}
 async function watchCrewName(g){
   if(CN.watching===g) return;
   if(CN.off){ CN.off(); CN.off=null; }
@@ -1818,7 +1071,7 @@ async function watchCrewName(g){
   try{
     const {db}=await fb(); if(CN.watching!==g) return;
     const ref=db.ref("crews/"+g+"/name");
-    const cb=snap=>{ const v=snap.val(); if(typeof v==="string") CN.names[g]=v; else delete CN.names[g]; render(); };
+    const cb=snap=>{ const v=snap.val(); if(typeof v==="string") CN.names[g]=v; else delete CN.names[g]; remoteRender(); };
     ref.on("value", cb); CN.off=()=>ref.off("value", cb);
   }catch{}
 }
@@ -1828,7 +1081,7 @@ async function fetchCrewNames(list){
   try{
     const {db}=await fb();
     await Promise.all(need.map(async g=>{ const v=(await db.ref("crews/"+g+"/name").get()).val(); if(typeof v==="string") CN.names[g]=v; }));
-    render();
+    remoteRender();
   }catch{}
 }
 async function saveCrewName(g, name){
@@ -1904,7 +1157,7 @@ function playedDays(){ const d=store.get("mr.days",[]); return Array.isArray(d)?
 function markPlayed(day){
   const d=playedDays(); if(d.includes(day)) return;
   d.push(day); d.sort((a,b)=>a-b); const keep=d.slice(-400);
-  store.set("mr.days", keep); pushProfile("days", JSON.stringify(keep));
+  store.set("mr.days", keep); pushDays(keep);
 }
 function streak(){
   const set=new Set(playedDays()); let day=dayNumber(); if(!set.has(day)) day--;   // today not played yet: yesterday keeps it alive
@@ -1924,23 +1177,27 @@ async function pushSubscription(create){
   const reg = await navigator.serviceWorker.ready;
   return (await reg.pushManager.getSubscription()) || (create ? reg.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:vapidKey()}) : null);
 }
+/* Each device keeps its own alert slot (a signed-in phone and laptop share one account), keyed by a
+   short fingerprint of that device's push address. Returns false if the server refused. */
+const devKey = sub => hash(sub.endpoint).toString(36);
 async function saveSubFor(g){
-  try{ const sub=await pushSubscription(false); if(!sub) return; const {db,uid}=await fb(); const pid=pidFor(g);
-    await db.ref(`pidOwner/${g}/${pid}`).set(uid);   // first device account to claim this seat owns its alerts
-    await db.ref(`pushSubs/${g}/${pid}/${uid}`).set(JSON.parse(JSON.stringify(sub))); }catch{}
+  try{ const sub=await pushSubscription(false); if(!sub) return true; const {db,uid}=await fb(); const pid=pidFor(g);
+    await db.ref(`pidOwner/${g}/${pid}`).set(uid);   // this seat's alerts belong to this account
+    await db.ref(`pushSubs/${g}/${pid}/${uid}`).update({[devKey(sub)]: JSON.parse(JSON.stringify(sub)), endpoint:null, keys:null, expirationTime:null});
+    return true; }catch{ return false; }
 }
-async function dropSubFor(g){ try{ const {db,uid}=await fb(); await db.ref(`pushSubs/${g}/${pidFor(g)}/${uid}`).remove(); }catch{} }
+async function dropSubFor(g){ try{ const sub=await pushSubscription(false); if(!sub) return; const {db,uid}=await fb(); await db.ref(`pushSubs/${g}/${pidFor(g)}/${uid}/${devKey(sub)}`).remove(); }catch{} }
 async function enableAlerts(){
-  if(!alertsSupported()){ if(isIOS() && !isStandalone()){ S.ig=true; render(); toast("Add Rushmore to your Home Screen first, then turn on alerts from the app."); } else toast("This browser can't show alerts."); return; }
+  if(!alertsSupported()){ if(isIOS() && !isStandalone()){ openPopup("ig"); toast("Add Rushmore to your Home Screen first, then turn on alerts from the app."); } else toast("This browser can't show alerts."); return; }
   const perm = await Notification.requestPermission();
   if(perm!=="granted"){ toast("Alerts are blocked. Allow notifications for Rushmore in your phone's settings."); return; }
   try{ await pushSubscription(true); }catch{ toast("Couldn't turn on alerts. Try again."); return; }
   store.set("mr.alerts", true);
-  for(const c of store.get("mr.crews",[])) if(!store.get("mr.alertsOff."+c.g,false)) await saveSubFor(c.g);
-  toast("Alerts on. You'll hear when it's your turn."); render();
+  let failed=0; for(const c of crewList()) if(!store.get("mr.alertsOff."+c.g,false) && !(await saveSubFor(c.g))) failed++;
+  toast(failed ? "Alerts on, but "+failed+" crew"+(failed>1?"s":"")+" couldn't be set up. Open that crew and try again." : "Alerts on. You'll hear when it's your turn."); render();
 }
 async function disableAlerts(){
-  for(const c of store.get("mr.crews",[])) await dropSubFor(c.g);
+  for(const c of crewList()) await dropSubFor(c.g);
   try{ const sub=await pushSubscription(false); if(sub) await sub.unsubscribe(); }catch{}
   store.set("mr.alerts", false); toast("Alerts off."); render();
 }
@@ -1948,20 +1205,20 @@ async function toggleCrewAlerts(g){
   if(!alertsOn()) return enableAlerts();
   const off=!store.get("mr.alertsOff."+g,false);
   store.set("mr.alertsOff."+g, off);
-  if(off) await dropSubFor(g); else await saveSubFor(g);
+  if(off) await dropSubFor(g); else if(!(await saveSubFor(g))){ store.set("mr.alertsOff."+g, true); toast("Couldn't turn on alerts for this crew. Try again."); render(); return; }
   toast(off?"Alerts off for this crew.":"Alerts on for this crew."); render();
 }
 /* Tell the server who should hear about a move; it sends the push. */
-async function notifyPlayer(kind, to){
-  if(!to || to===myPid() || !S.code) return;
-  try{ const {db}=await fb(); await db.ref("notify/"+S.code).push({kind, to}); }catch{}
+async function notifyPlayer(kind, to, n, code=S.code, group=S.group){
+  if(!to || !code || to===pidFor(group)) return;
+  try{ const {db}=await fb(); await db.ref("notify/"+code).push({kind, to, n:n|0}); }catch{}
 }
 async function leaveCrew(g){
   await dropSubFor(g);
   const s=fold(S.events);
   if(S.group===g && s.created && !s.started && s.players.some(p=>p.pid===myPid())) { try{ await send({type:"leave"}); }catch{} }
-  store.set("mr.crews", store.get("mr.crews",[]).filter(c=>c.g!==g));
-  if(ACCT.user && ACCT.synced){ try{ const {db}=await fb(); await db.ref("users/"+ACCT.user.uid+"/crews/"+g).remove(); }catch{} }
+  store.set("mr.crews", crewList().filter(c=>c.g!==g));
+  if(ACCT.user && ACCT.synced){ try{ const {db}=await fb(); await db.ref("users/"+ACCT.user.uid).update({["crews/"+g]:null, ["left/"+g]:true}); }catch{} }
   S.confirmLeave=null; goHome(); toast("You left the crew. The invite link still works if you want back in.");
 }
 function crewSettingsRow(){
@@ -2010,11 +1267,14 @@ async function sharePicture(opts, text){
   try{
     const c=await mountainPicture(opts);
     const blob=await new Promise(r=>c.toBlob(r,"image/png"));
-    if(S.pic && S.pic.url) URL.revokeObjectURL(S.pic.url);
-    S.pic={file:new File([blob], `mount-rushmore-${opts.day}.png`, {type:"image/png"}), url:URL.createObjectURL(blob), text}; render();
+    openPopup("pic", {file:new File([blob], `mount-rushmore-${opts.day}.png`, {type:"image/png"}), url:URL.createObjectURL(blob), text});
   }catch{ shareOrCopy(text, "Mount Rushmore"); }
 }
-function closePicture(){ if(S.pic && S.pic.url) URL.revokeObjectURL(S.pic.url); S.pic=null; render(); }
+function closePicture(){ closePopups(); }
+/* Popups add a history entry, so the phone's back button closes the popup instead of leaving the screen. */
+function openPopup(name, val=true){ const had=S.help||S.ig||S.pic; if(name==="pic" && S.pic && S.pic.url) URL.revokeObjectURL(S.pic.url); S[name]=val; if(!had) history.pushState({popup:1},"",location.href); render(); }
+function dropPopups(){ if(S.pic && S.pic.url) URL.revokeObjectURL(S.pic.url); S.pic=null; S.help=false; S.ig=false; }
+function closePopups(){ dropPopups(); render(); if(history.state && history.state.popup) history.back(); }
 /* Preview, then share from a fresh tap (iPhones refuse a share that starts after the drawing work). */
 function pictureView(){
   if(!S.pic.file) return `<div class="guide-back" data-act="picclose-bg"><div class="guide" role="dialog" aria-modal="true" aria-label="Copy this text" style="padding:14px">
@@ -2027,7 +1287,6 @@ function pictureView(){
     <div class="row" style="gap:8px;margin-top:12px;flex-wrap:nowrap">${canShare?`<button class="btn gold" style="flex:1" data-act="picshare">Share picture</button>`:`<a class="btn gold" style="flex:1;text-decoration:none" href="${S.pic.url}" download="${esc(S.pic.file.name)}">Save picture</a>`}
       <button class="btn ghost" style="flex:1" data-act="pictext">Share as text</button></div>
     <button class="btn ghost small block" data-act="picclose" style="margin-top:8px;border:0">Close</button>
-    <textarea class="share" id="sharebox" hidden aria-label="Copy this text" style="margin-top:8px"></textarea>
   </div></div>`;
 }
 
@@ -2046,12 +1305,12 @@ async function sendSuggestion(text){
 
 /* ---------------- past topics + personal stats (read from this device, and the account when signed in) ---------------- */
 function soloResult(d){
-  const st=store.get(soloKey(d),null); if(!st || !st.locked || !Array.isArray(st.picks) || st.picks.length!==4) return null;
+  const st=store.get(soloKey(d),null); if(!validSolo(st) || !st.locked) return null;
   const faces=st.order.map(i=>st.picks[i]); return {faces, ...scoreFaces(faces)};
 }
 function myCrewGames(){
   const out=[];
-  for(const c of store.get("mr.crews",[])){ const pid=pidFor(c.g);
+  for(const c of crewList()){ const pid=pidFor(c.g);
     for(const game of crewHistory(c.g)){ const me=game.rows.find(r=>r.pid===pid); if(me) out.push({g:c.g, day:game.day, round:game.round, topic:game.topic, rows:game.rows, me}); } }
   return out;
 }
@@ -2153,7 +1412,7 @@ function updateSuggest(){
   sug.innerHTML = list.map((e,i)=>`<li><button type="button" role="option" data-act="sug" data-label="${esc(e.label)}" aria-selected="${i===S.sugIdx}">${esc(e.label)}</button></li>`).join("");
   const m = matchEntry(s.topic, txt);
   const dup = m ? tk.has("E"+m.rank) : tk.has("W"+k);
-  hint.innerHTML = dup ? `<span class="err">${S.solo?"Already on your mountain.":"Already drafted."}</span>` : m ? `Matches <b>${esc(m.label)}</b>` : list.length ? `Tap a suggestion, or keep typing` : `Not on the board: counts as a write-in (${WRITE_IN} pts)`;
+  hint.innerHTML = !dup && !m && list.length && S.confirmWrite===k ? `Tap a suggestion, or press <b>Carve</b> again to write in "${esc(titleCase(txt))}" (${WRITE_IN} pts)` : dup ? `<span class="err">${S.solo?"Already on your mountain.":"Already drafted."}</span>` : m ? `Matches <b>${esc(m.label)}</b>` : list.length ? `Tap a suggestion, or keep typing` : `Not on the board: counts as a write-in (${WRITE_IN} pts)`;
 }
 
 /* ---------------- navigation ---------------- */
@@ -2175,7 +1434,9 @@ async function openCrew(g){
   if(S.group!==g) return;
   S.probing=false; connect(Math.max(1,n)); render();
 }
-function goHome(){ if(S.pic) closePicture(); S.rxOpen=null; S.solo=null; S.page=null; ARCH.open=null; CN.editing=false; if(CN.off){ CN.off(); CN.off=null; } CN.watching=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } stopSync(); S.group=null; S.code=null; S.err=""; setURL(null); document.title="Mount Rushmore Daily"; render(); }
+/* Everything a screen leaves behind: listeners, half-typed text, open menus. */
+function leaveScreen(){ dropPopups(); S.rxOpen=null; S.draft=""; S.confirmWrite=null; S.solo=null; S.page=null; ARCH.open=null; CN.editing=false; if(CN.off){ CN.off(); CN.off=null; } CN.watching=null; if(B.unsub){ B.unsub(); B.unsub=null; B.day=null; } stopSync(); S.group=null; S.code=null; S.err=""; document.title="Mount Rushmore Daily"; }
+function goHome(){ leaveScreen(); setURL(null); render(); }
 
 /* Automatic steps once the round's history has loaded: create the round if nobody has yet,
    and take a seat if you're part of the crew and haven't chosen to sit out. */
@@ -2183,7 +1444,7 @@ function autoSteps(){
   if(!S.code || S.busy || !S.synced) return;
   const s=fold(S.events), me=myPid(), name=myName(), k=S.code;
   if(!name) return;
-  if(!s.created && !S.auto[k+"c"]){
+  if(!s.created && !s.unknownTopic && !S.auto[k+"c"]){
     S.auto[k+"c"]=true;
     const t=topicForRound(S.group,S.day,S.round);
     act(async()=>{ try{ await send({type:"create",topic:t.id,day:S.day,round:S.round}); }
@@ -2192,10 +1453,19 @@ function autoSteps(){
   }
   if(s.created && !s.started && s.players.length<4 && !s.players.some(p=>p.pid===me) && !S.auto[k+"j"] && !store.get("mr.out."+k,false)){
     S.auto[k+"j"]=true;
-    act(()=>send({type:"join",name}));
+    act(async()=>{ try{ await send({type:"join",name}); }
+      catch(e){ setTimeout(()=>{ if(S.code===k){ delete S.auto[k+"j"]; render(); } }, 5000); throw e; } });
   }
 }
 
+/* A typed code must match a crew that exists, or a typo would quietly start a new empty crew. */
+async function joinByCode(c){
+  if(!/^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}$/.test(c)){ S.err = c.length!==6 ? "Crew codes are 6 characters." : "That's not a crew code (codes never use O, 0, I, 1 or L)."; render(); return; }
+  try{ const {db}=await fb(); const [a,b]=await Promise.all([db.ref("crewRounds/"+c).get(), db.ref("crews/"+c).get()]);
+    if(!a.exists() && !b.exists()){ S.err="No crew with that code. Check it with whoever sent it."; render(); return; } }
+  catch{ S.err="Couldn't check that code. Check your connection."; render(); return; }
+  setURL(c); openCrew(c);
+}
 async function doCreate(){
   const name=($("#name").value||"").trim();
   if(!name){ S.err="Add your name so friends know who's drafting."; render(); $("#name")?.focus(); return; }
@@ -2217,21 +1487,23 @@ async function act(fn){ if(S.busy) return; S.busy=true; S.err=""; render(); try{
 document.addEventListener("click", e=>{
   const b=e.target.closest("[data-act]"); if(!b) return;
   const a=b.dataset.act;
-  if(a==="help"){ S.help=true; render(); document.querySelector(".guide")?.focus(); return; }
-  if(a==="helpclose" || (a==="helpclose-bg" && e.target===b)){ S.help=false; store.set("mr.seenHelp",true); render(); return; }
+  if(a==="help"){ openPopup("help"); document.querySelector(".guide")?.focus(); return; }
+  if(a==="helpclose" || (a==="helpclose-bg" && e.target===b)){ store.set("mr.seenHelp",true); return closePopups(); }
   if(a==="helpclose-bg") return;
   if(a==="picshare"){ navigator.share({files:[S.pic.file]}).catch(()=>{}); return; }
-  if(a==="pictext"){ const t=S.pic.text; closePicture(); return shareOrCopy(t, "Mount Rushmore"); }
+  if(a==="pictext"){ const t=S.pic.text; shareOrCopy(t, "Mount Rushmore").then(()=>{ if(S.pic && S.pic.file) closePopups(); }); return; }
   if(a==="tog"){ e.preventDefault(); S.open[b.dataset.id]=!S.open[b.dataset.id]; render(); return; }
   if(a==="picclose" || (a==="picclose-bg" && e.target===b)) return closePicture();
   if(a==="picclose-bg") return;
-  if(a==="igopen"){ S.ig=true; render(); return; }
-  if(a==="igclose" || (a==="igclose-bg" && e.target===b)){ S.ig=false; render(); return; }
+  if(a==="igopen") return openPopup("ig");
+  if(a==="igclose" || (a==="igclose-bg" && e.target===b)) return closePopups();
   if(a==="igclose-bg") return;
   if(a==="home") return goHome();
+  if(a==="reload"){ location.reload(); return; }
+  if(a==="resetlocal"){ try{ for(const k of Object.keys(localStorage)) if(k.startsWith("mr.") && !/^mr\.(name|pid\.|crews$)/.test(k)) localStorage.removeItem(k); }catch{} S.soloMem=null; goHome(); return; }
   if(a==="create") return doCreate();
   if(a==="opencrew"){ setURL(b.dataset.g); return openCrew(b.dataset.g); }
-  if(a==="joincode"){ const c=($("#joincode").value||"").toUpperCase().replace(/[^A-Z0-9]/g,""); if(c.length!==6){ S.err="Crew codes are 6 characters."; render(); return;} setURL(c); return openCrew(c); }
+  if(a==="joincode") return joinByCode(($("#joincode").value||"").toUpperCase().replace(/[^A-Z0-9]/g,""));
   if(a==="install"){ const ev=INSTALL.evt; if(ev){ ev.prompt(); ev.userChoice.finally(()=>{ INSTALL.evt=null; render(); }); } return; }
   if(a==="newcrew"){ S.newCrew=!S.newCrew; render(); if(S.newCrew) document.getElementById("name")?.focus(); return; }
   if(a==="suggest"){ S.showSuggest=!S.showSuggest; render(); if(S.showSuggest) document.getElementById("suggest")?.focus(); return; }
@@ -2246,6 +1518,7 @@ document.addEventListener("click", e=>{
   if(a==="signout") return signOutGoogle();
   if(a==="solo"){ S.solo={day:dayNumber()}; S.err=""; history.pushState(null,"","?solo"+(SEAT?"&seat="+SEAT:"")); render(); window.scrollTo(0,0); return; }
   if(a==="sug" && S.solo) return soloPick(b.dataset.label);
+  if(a==="solotoday"){ S.solo={day:dayNumber()}; S.soloMem=null; S.draft=""; S.err=""; render(); window.scrollTo(0,0); return; }
   if(S.solo){
     const st=soloState();
     if(a==="sremove" && !st.locked){ st.picks.splice(+b.dataset.i,1); st.order=[0,1,2,3]; soloSave(st); render(); return; }
@@ -2283,7 +1556,7 @@ document.addEventListener("click", e=>{
     const msg = !s.draftDone
       ? `${s.name(onClock(s,n))}, you're on the clock! Pick ${n+1} of ${s.total} in Mount Rushmore${crew?" ("+crew+")":""}: ${topic}`
       : `Lock in your mountain! Everyone's waiting to see the scores for ${topic}${crew?" in "+crew:""}.`;
-    if(!s.draftDone) notifyPlayer("turn", onClock(s,n)); else s.seats.filter(p=>!s.orders[p]).forEach(p=>notifyPlayer("order", p));
+    if(!s.draftDone) notifyPlayer("turn", onClock(s,n), n); else s.seats.filter(p=>!s.orders[p]).forEach(p=>notifyPlayer("order", p, s.total));
     return shareOrCopy(msg, "Mount Rushmore", crewURL(S.group));
   }
   if(a==="bonus"){ S.watchingNext=null; connect(S.round+1); render(); return; }
@@ -2294,7 +1567,7 @@ document.addEventListener("click", e=>{
   if(a==="react"){ const n=+b.dataset.n, emo=b.dataset.e, k=S.code+":"+n+emo; S.rxOpen=null; render();
     // A second tap while the first is still sending would cancel it out: ignore it.
     S.rxSending=S.rxSending||new Set(); if(S.rxSending.has(k)) return; S.rxSending.add(k);
-    send({type:"react", n, text:emo}).catch(err=>toast(err.message||"Couldn't react.")).finally(()=>S.rxSending.delete(k)); return; }
+    send({type:"react", n, text:emo, k:(s.picks[n]||{}).k}).catch(err=>toast(err.message||"Couldn't react.")).finally(()=>S.rxSending.delete(k)); return; }
 });
 document.addEventListener("submit", e=>{
   if(e.target.id==="pickform"){ e.preventDefault(); const opts=[...document.querySelectorAll("#sug [data-label]")]; const inp=$("#pick");
@@ -2307,9 +1580,7 @@ document.addEventListener("submit", e=>{
 document.addEventListener("input", e=>{ if(e.target.id==="pick"){ S.sugIdx=0; S.sugNav=false; S.err=""; updateSuggest(); } if(e.target.id==="name"||e.target.id==="joincode") S.err=""; });
 document.addEventListener("keydown", e=>{
   if((e.key==="Enter"||e.key===" ") && e.target.classList && e.target.classList.contains("tap")){ e.preventDefault(); e.target.click(); return; }
-  if(e.key==="Escape" && S.pic) return closePicture();
-  if(e.key==="Escape" && S.ig){ S.ig=false; render(); return; }
-  if(e.key==="Escape" && S.help){ S.help=false; store.set("mr.seenHelp",true); render(); return; }
+  if(e.key==="Escape" && (S.pic||S.ig||S.help)){ if(S.help) store.set("mr.seenHelp",true); return closePopups(); }
   if(e.target.id==="pick" && (e.key==="ArrowDown"||e.key==="ArrowUp")){
     const n=document.querySelectorAll("#sug [data-label]").length; if(!n) return; e.preventDefault(); S.sugNav=true;
     S.sugIdx=(S.sugIdx+(e.key==="ArrowDown"?1:-1)+n)%n; updateSuggest();
@@ -2320,7 +1591,7 @@ document.addEventListener("keydown", e=>{
   if(e.target.id==="crewname" && e.key==="Enter"){ e.preventDefault(); saveCrewName(S.group, e.target.value); }
   if(e.target.id==="jname" && e.key==="Enter"){ e.preventDefault(); $('[data-act="join"]')?.click(); }
 });
-window.addEventListener("popstate", ()=>boot());
+window.addEventListener("popstate", ()=>{ if(S.pic||S.ig||S.help){ dropPopups(); render(); return; } boot(); });
 
 /* ---------------- render ---------------- */
 function render(){
@@ -2331,10 +1602,16 @@ function render(){
   const ae=document.activeElement;
   if(ae && ae.tagName==="INPUT" && ae.id){ focusId=ae.id; try{ a=ae.selectionStart; b=ae.selectionEnd; }catch{} }
   if("pick" in keep) S.draft=keep.pick;
-  if(S.solo && S.solo.day!==dayNumber()){ S.solo.day=dayNumber(); S.draft=""; S.err=""; }
+  if(S.solo && S.solo.day!==dayNumber()){ const st=store.get(soloKey(S.solo.day),null);   // an untouched game moves on; a started one waits
+    if(!validSolo(st) || !st.picks.length){ S.solo.day=dayNumber(); S.draft=""; S.err=""; S.soloMem=null; } }
   document.documentElement.style.overflow = (S.help||S.ig||S.pic) ? "hidden" : "";
-  if(S.group) watchCrewName(S.group); else fetchCrewNames(store.get("mr.crews",[]).map(c=>c.g));
-  app.innerHTML = (S.solo ? soloView() : S.group ? roomView() : S.page==="me" ? meView() : homeView()) + (S.help ? guideView() : "") + (S.ig ? installGuideView() : "") + (S.pic ? pictureView() : "");
+  if(S.group) watchCrewName(S.group); else { const gs=crewList().map(c=>c.g); fetchCrewNames(gs); fetchCrewStatus(gs); }
+  let html;
+  try{ html = (S.solo ? soloView() : S.group ? roomView() : S.page==="me" ? meView() : homeView()) + (S.help ? guideView() : "") + (S.ig ? installGuideView() : "") + (S.pic ? pictureView() : ""); }
+  catch(err){ console.error(err); html = `<div class="card stack" style="margin-top:20px"><b>Something went wrong on this screen.</b>
+    <div class="row"><button class="btn gold" data-act="home">Go home</button><button class="btn ghost" data-act="resetlocal">Reset this device's game data</button></div>
+    <p class="muted" style="margin:0;font-size:13px">Resetting keeps your name and crews.</p></div>`; }
+  app.innerHTML = html;
   for(const [id,v] of Object.entries(keep)){ const el=document.getElementById(id); if(el) el.value=v; }
   const ni=$("#pick"); if(ni){ ni.value=S.draft; updateSuggest(); }
   const now=document.querySelector(".snake .now"); if(now) now.parentElement.scrollLeft = now.offsetLeft - now.parentElement.offsetLeft - 8;
@@ -2343,20 +1620,21 @@ function render(){
   autoSteps();
 }
 function boot(){
-  if(S.pic){ if(S.pic.url) URL.revokeObjectURL(S.pic.url); S.pic=null; }
   const q=new URLSearchParams(location.search);
+  const g=(q.get("g")||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
+  // Same screen (e.g. back closed a popup): just redraw, keeping the solo day and listeners.
+  if((g.length===6 && g===S.group) || (q.has("solo") && S.solo) || (q.has("me") && S.page==="me")){ dropPopups(); return render(); }
+  leaveScreen();
+  if(q.has("solo")){ S.solo={day:dayNumber()}; return render(); }
+  if(g.length===6) return openCrew(g);
   S.page = q.has("me")||q.has("past")||q.has("stats") ? "me" : null;
-  if(q.has("solo")){ S.page=null; stopSync(); S.group=null; S.code=null; S.solo={day:dayNumber()}; render(); return; }
-  S.solo=null;
-  const g=(new URLSearchParams(location.search).get("g")||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
-  if(g.length===6){ if(g!==S.group) openCrew(g); else render(); }
-  else { stopSync(); S.group=null; S.code=null; render(); }
+  render();
 }
 if(!store.get("mr.seenHelp",false)) S.help=true;
 boot();
 fb().catch(()=>{});
 document.addEventListener("DOMContentLoaded", ()=>render());
-setInterval(()=>{ if(S.solo && S.solo.day!==dayNumber()) return render(); if(!S.group && !(document.activeElement && document.activeElement.tagName==="INPUT")) render(); }, 60000);
+setInterval(()=>{ if(S.group) return crewRollover(); if(!typing()) render(); }, 60000);
 </script>
 </body>
 </html>

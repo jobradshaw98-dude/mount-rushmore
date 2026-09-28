@@ -1,3 +1,4 @@
 *.secret
 functions/.env*
 functions/node_modules/
+functions/game.js
