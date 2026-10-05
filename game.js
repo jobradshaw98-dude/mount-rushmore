@@ -813,13 +813,25 @@ function spreadOut(list, prevCat){
 }
 /* Round 1 is the shared daily topic. Bonus rounds deal from a crew-and-day shuffle of the rest,
    so every phone derives the same topic for "round 3 today" with no coordination and no repeats in a day. */
-function topicForRound(g, day, n){
-  const daily = topicForDay(day);
-  if(n<=1) return daily;
-  const dailyBase = daily.base || daily.id;
+function roundDeck(g, day){
+  const daily = topicForDay(day), dailyBase = daily.base || daily.id;
   let rest = shuffled(TOPICS.filter(t=>t.id!==dailyBase && (t.from||1)<=day), hash(g+":"+day)).map(t=>onDay(t, day));
   if(day>=REVISE_FROM) rest = spreadOut(rest, CATEGORY[dailyBase]);
+  return rest;
+}
+function topicForRound(g, day, n){
+  if(n<=1) return topicForDay(day);
+  const rest = roundDeck(g, day);
   return rest[(n-2)%rest.length];
+}
+/* "New topic" in a bonus round's lobby deals from the BACK of the same deck (rounds deal from the front),
+   skipping topics already dealt today and every topic this round has shown (seen = topic ids, oldest first),
+   so a swap rarely collides with a later round. */
+function swapTopic(g, day, n, seen){
+  const rest = roundDeck(g, day), used = new Set(seen);
+  for(let k=2;k<=n;k++) used.add(topicForRound(g, day, k).id);
+  const fresh = rest.slice().reverse().filter(t=>!used.has(t.id));
+  return fresh[0] || rest.find(t=>t.id!==seen[seen.length-1]) || rest[0];
 }
 
 /* ---------------- scoring ---------------- */
@@ -842,4 +854,4 @@ function scoreFaces(faces){
   return {rows, total: rows.reduce((s,r)=>s+r.pts,0)};
 }
 
-if (typeof module !== "undefined") module.exports = {TOPICS, ALL_TOPICS, TOPIC, key, matchEntry, dayNumber, topicForDay, topicForRound, scoreFaces, basePts, tierOf};
+if (typeof module !== "undefined") module.exports = {TOPICS, ALL_TOPICS, TOPIC, key, matchEntry, dayNumber, topicForDay, topicForRound, swapTopic, scoreFaces, basePts, tierOf};

@@ -368,8 +368,13 @@ function fold(events){
         // Only the first create counts. A topic this phone doesn't know means its copy of the game is old.
         if(s.sawCreate) break; s.sawCreate=true;
         if(!TOPIC[e.topic]){ s.unknownTopic=true; break; }
-        if(!s.created){ s.created=true; s.createdAt=e.at||0; s.fair=(e.at||0)>=FAIR_PLAY_FROM; s.host=e.pid; s.topic=TOPIC[e.topic]; s.day=e.day|0; s.round=e.round|0||1; }
+        if(!s.created){ s.created=true; s.createdAt=e.at||0; s.fair=(e.at||0)>=FAIR_PLAY_FROM; s.host=e.pid; s.topic=TOPIC[e.topic]; s.seen=[e.topic]; s.day=e.day|0; s.round=e.round|0||1; }
         break;
+      case "retopic": {
+        // A seated player swaps a bonus round's topic in the lobby. n = topics shown so far, so two taps at once swap once.
+        if(!s.created || s.started || s.round<2 || !TOPIC[e.topic] || e.n!==s.seen.length || !s.players.some(p=>p.pid===e.pid)) break;
+        s.topic=TOPIC[e.topic]; s.seen.push(e.topic); s.swappedBy=s.players.find(p=>p.pid===e.pid).name;
+        break; }
       case "join": {
         if(!s.created || typeof e.name!=="string") break;
         const name = e.name.trim().slice(0,18) || "Player";
@@ -617,6 +622,7 @@ function lobbyView(s,me,member){
   const ctl = member
       ? `${missing.length?`<div class="muted" style="font-size:14px">Not here yet: <b>${esc(missing.join(", "))}</b></div>`:""}
          <button class="btn gold block" data-act="start" ${s.players.length<2||S.busy?"disabled":""}>${esc(startTxt)}</button>
+         ${S.round>1?`<div class="row" style="justify-content:space-between"><span class="muted" style="font-size:13px">${s.swappedBy?`${esc(s.swappedBy)} swapped the topic.`:"Not feeling this one?"}</span><button class="btn ghost small" data-act="retopic" ${S.busy?"disabled":""}>New topic</button></div>`:""}
          <div class="row" style="justify-content:space-between"><span class="muted" style="font-size:13px">Anyone seated can start once everyone's in.</span><button class="btn ghost small" data-act="leave">Sit out</button></div>
          <div class="err">${esc(S.err)}</div>` : "";
   const alone = s.players.length<2;
@@ -1534,6 +1540,8 @@ document.addEventListener("click", e=>{
   const s=fold(S.events), me=myPid();
   if(a==="join"){ const nm=($("#jname").value||"").trim(); if(!nm){S.err="Add your name first."; render(); return;} setName(nm); store.set("mr.out."+S.code,false); delete S.auto[S.code+"j"]; render(); return; }
   if(a==="rejoin"){ store.set("mr.out."+S.code,false); delete S.auto[S.code+"j"]; render(); return; }
+  if(a==="retopic"){ const s=fold(S.events); if(s.started) return; const t=swapTopic(S.group,S.day,S.round,s.seen);
+    return act(()=>send({type:"retopic",topic:t.id,n:s.seen.length})); }
   if(a==="leave"){ store.set("mr.out."+S.code,true); return act(()=>send({type:"leave"})); }
   if(a==="start"){
     const missing = crewRecord(S.group).filter(r=>!s.players.some(p=>p.pid===r.pid));
