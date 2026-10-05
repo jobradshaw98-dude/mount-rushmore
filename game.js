@@ -825,13 +825,14 @@ function topicForRound(g, day, n){
   return rest[(n-2)%rest.length];
 }
 /* "New topic" in a bonus round's lobby deals from the BACK of the same deck (rounds deal from the front),
-   skipping topics already dealt today and every topic this round has shown (seen = topic ids, oldest first),
-   so a swap rarely collides with a later round. */
+   skipping topics already dealt today and every topic this round has shown (seen = topic ids, oldest first).
+   Each bonus round starts its swaps SWAP_GAP cards further in, so round 2's swaps and round 3's swaps differ. */
+const SWAP_GAP = 5;
 function swapTopic(g, day, n, seen){
   const rest = roundDeck(g, day), used = new Set(seen);
   for(let k=2;k<=n;k++) used.add(topicForRound(g, day, k).id);
   const fresh = rest.slice().reverse().filter(t=>!used.has(t.id));
-  return fresh[0] || rest.find(t=>t.id!==seen[seen.length-1]) || rest[0];
+  return fresh[((n-2)*SWAP_GAP + seen.length-1) % (fresh.length||1)] || rest.find(t=>t.id!==seen[seen.length-1]) || rest[0];
 }
 
 /* ---------------- scoring ---------------- */

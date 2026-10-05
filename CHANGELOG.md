@@ -5,7 +5,8 @@ Notable changes to Mount Rushmore Daily.
 ## 2026-10-04: swap a bonus round's topic
 
 ### Added
-- Bonus rounds: a "New topic" button in the lobby (before the draft starts) deals a different topic for the whole crew. Any seated player can tap it, as many times as they like; it never repeats a topic already shown that day. The daily topic (round 1) stays fixed.
+- Bonus rounds: a "New topic" button in the lobby (before the draft starts) deals a different topic for the whole crew. Any seated player can tap it, as many times as they like; it never repeats a topic already shown in that round or dealt as a bonus round that day.
+- A phone running an older copy of the game now asks to update when it sees a move it doesn't understand, instead of silently keeping a different score. The daily topic (round 1) stays fixed.
 
 ## 2026-09-28: turn alerts fixed, "your move" highlight
 

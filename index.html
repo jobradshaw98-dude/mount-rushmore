@@ -422,6 +422,7 @@ function fold(events){
         const re = p.re || (p.re={}), who = re[e.text] || (re[e.text]=[]), i = who.indexOf(e.pid);
         if(i<0) who.push(e.pid); else who.splice(i,1);
         break; }
+      default: s.unknownEvent=true;   // an event from a newer copy of the game: this copy would fold it wrong
     }
   }
   s.P = s.seats.length; s.total = 4*s.P;
@@ -573,7 +574,7 @@ function roomView(){
   document.title = "Mount Rushmore Daily";
   const t = topicForRound(S.group,S.day,S.round);
   const title = `<div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">${crewName(S.group)?esc(crewName(S.group))+" · ":""}Mount Rushmore #${S.day} · ${roundLabel(S.round)}</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc((s.topic||t).name)}</h1></div>`;
-  if(!s.created && s.unknownTopic) return head+title+`<div class="card stack"><b>This round needs the latest version of the game.</b><button class="btn gold" data-act="reload">Update now</button></div>`;
+  if((!s.created && s.unknownTopic) || s.unknownEvent) return head+title+`<div class="card stack"><b>This round needs the latest version of the game.</b><button class="btn gold" data-act="reload">Update now</button></div>`;
   if(!s.created){
     if(myName()) return head+title+`<div class="card"><p class="muted" style="margin:0">Setting up the round…</p><div class="err">${esc(S.err)}</div></div>`;
     return head+title+nameBox("Join this crew", "You'll be dealt into today's game.");
