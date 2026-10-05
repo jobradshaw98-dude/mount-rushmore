@@ -2,7 +2,11 @@
 
 Notable changes to Mount Rushmore Daily.
 
-## 2026-10-04: swap a bonus round's topic
+## 2026-10-04: swap a round's topic
+
+### Changed
+- "New topic" now works on the daily round too, for a crew that already played today's topic in person. Past topics shows which topic a swapped game used.
+
 
 ### Added
 - Bonus rounds: a "New topic" button in the lobby (before the draft starts) deals a different topic for the whole crew. Any seated player can tap it, as many times as they like; it never repeats a topic already shown in that round or dealt as a bonus round that day.

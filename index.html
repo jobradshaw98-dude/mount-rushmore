@@ -371,8 +371,8 @@ function fold(events){
         if(!s.created){ s.created=true; s.createdAt=e.at||0; s.fair=(e.at||0)>=FAIR_PLAY_FROM; s.host=e.pid; s.topic=TOPIC[e.topic]; s.seen=[e.topic]; s.day=e.day|0; s.round=e.round|0||1; }
         break;
       case "retopic": {
-        // A seated player swaps a bonus round's topic in the lobby. n = topics shown so far, so two taps at once swap once.
-        if(!s.created || s.started || s.round<2 || !TOPIC[e.topic] || e.n!==s.seen.length || !s.players.some(p=>p.pid===e.pid)) break;
+        // A seated player swaps the round's topic in the lobby. n = topics shown so far, so two taps at once swap once.
+        if(!s.created || s.started || !TOPIC[e.topic] || e.n!==s.seen.length || !s.players.some(p=>p.pid===e.pid)) break;
         s.topic=TOPIC[e.topic]; s.seen.push(e.topic); s.swappedBy=s.players.find(p=>p.pid===e.pid).name;
         break; }
       case "join": {
@@ -623,7 +623,7 @@ function lobbyView(s,me,member){
   const ctl = member
       ? `${missing.length?`<div class="muted" style="font-size:14px">Not here yet: <b>${esc(missing.join(", "))}</b></div>`:""}
          <button class="btn gold block" data-act="start" ${s.players.length<2||S.busy?"disabled":""}>${esc(startTxt)}</button>
-         ${S.round>1?`<div class="row" style="justify-content:space-between"><span class="muted" style="font-size:13px">${s.swappedBy?`${esc(s.swappedBy)} swapped the topic.`:"Not feeling this one?"}</span><button class="btn ghost small" data-act="retopic" ${S.busy?"disabled":""}>New topic</button></div>`:""}
+         <div class="row" style="justify-content:space-between"><span class="muted" style="font-size:13px">${s.swappedBy?`${esc(s.swappedBy)} swapped the topic.`:S.round>1?"Not feeling this one?":"Already played this one?"}</span><button class="btn ghost small" data-act="retopic" ${S.busy?"disabled":""}>New topic</button></div>
          <div class="row" style="justify-content:space-between"><span class="muted" style="font-size:13px">Anyone seated can start once everyone's in.</span><button class="btn ghost small" data-act="leave">Sit out</button></div>
          <div class="err">${esc(S.err)}</div>` : "";
   const alone = s.players.length<2;
@@ -1359,7 +1359,7 @@ function pastList(){
       ${open?`<div class="body">
         ${solo?`<div><div class="eyebrow">Your solo mountain</div>${solo.rows.map(x=>`<div><span class="tier" style="background:var(--t${tierOf(x.f.rank)})"></span>${x.slot+1}. ${esc(x.f.label)} <span class="muted mono">${x.pts}</span></div>`).join("")}</div>`:""}
         ${games.length?`<div><div class="eyebrow">Your crew games</div>${games.map(x=>{ const w=x.rows.filter(r=>r.place===1).map(r=>r.name).join(" & ");
-          return `<div>${esc(crewName(x.g)||x.g)} · ${esc(roundLabel(x.round))}: ${x.me.place===1?"<b>you won</b>":"won by "+esc(w)} <span class="muted mono">(you ${x.me.total})</span></div>`; }).join("")}</div>`:""}
+          return `<div>${esc(crewName(x.g)||x.g)} · ${esc(roundLabel(x.round))}${x.topic&&x.topic!==t.name?" ("+esc(x.topic)+")":""}: ${x.me.place===1?"<b>you won</b>":"won by "+esc(w)} <span class="muted mono">(you ${x.me.total})</span></div>`; }).join("")}</div>`:""}
         <div><div class="eyebrow">Global top 3</div>${!bd||bd.loading?`<span class="muted">Loading…</span>`:bd.err?`<span class="muted">Couldn't load the board.</span>`:!bd.rows.length?`<span class="muted">Nobody posted that day.</span>`
           :bd.rows.map(r=>`<div>${r.place}. ${esc(r.name)} <span class="muted mono">${r.score}</span></div>`).join("")+`<div class="muted" style="font-size:12px">${bd.count} player${bd.count===1?"":"s"}</div>`}</div>
         <div><div class="eyebrow">Consensus top ${t.size}</div><ol>${t.entries.map(e=>`<li>${esc(e.label)}</li>`).join("")}</ol></div>
