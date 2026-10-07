@@ -450,7 +450,7 @@ function standings(s){
   const rows = s.seats.map(pid=>{
     const picks = picksOf(s,pid), ord = s.orders[pid]||[0,1,2,3];
     const faces = ord.map(i=>picks[i]);
-    return {pid, name:s.name(pid), seat:s.seatIdx(pid), faces, ...scoreFaces(faces)};
+    return {pid, name:s.name(pid), seat:s.seatIdx(pid), faces, ...scoreFaces(faces, s.day)};
   }).sort((a,b)=>b.total-a.total);
   let place=0, prev=null;
   rows.forEach((r,i)=>{ if(r.total!==prev){ place=i+1; prev=r.total; } r.place=place; });
@@ -532,7 +532,7 @@ function homeView(){
   const n=dayNumber(), t=topicForDay(n);
   const crews = crewList();
   const st=store.get(soloKey(n),null), soloDone=validSolo(st)&&st.locked;
-  const soloScore=soloDone?scoreFaces(st.order.map(i=>st.picks[i])).total:0;
+  const soloScore=soloDone?scoreFaces(st.order.map(i=>st.picks[i]), n).total:0;
   return `
   <div class="top">${brand()}<div class="row" style="gap:10px;flex-wrap:nowrap"><span class="conn">#${n}</span>${helpBtn()}</div></div>
   <div class="stack">
@@ -772,9 +772,9 @@ function soloPick(text){
   render(); $("#pick")?.focus();
 }
 function soloShareText(st){
-  const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces);
+  const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces, S.solo.day);
   return [`\u{1F5FB} Mount Rushmore #${S.solo.day} (solo) \u00B7 ${soloTopic().name}`, "",
-    `${faces.map(f=>TIER_EMO[tierOf(f.rank)]).join("")} ${sc.total}/482${myBoardRow()?` \u00B7 #${myBoardRow().place} of ${B.rows.length} worldwide`:""}`, faces.map((f,i)=>(i+1)+". "+f.label).join("  ")].concat(streak()>=2?["\u{1F525} "+streak()+"-day streak"]:[]).join("\n");
+    `${faces.map(f=>TIER_EMO[tierOf(f.rank)]).join("")} ${sc.total}/${maxScore(S.solo.day)}${myBoardRow()?` \u00B7 #${myBoardRow().place} of ${B.rows.length} worldwide`:""}`, faces.map((f,i)=>(i+1)+". "+f.label).join("  ")].concat(streak()>=2?["\u{1F525} "+streak()+"-day streak"]:[]).join("\n");
 }
 function soloView(){
   const st=soloState(), t=soloTopic(), n=st.picks.length;
@@ -784,10 +784,10 @@ function soloView(){
     <div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">Mount Rushmore #${S.solo.day} · Solo</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc(t.name)}</h1></div>`;
   if(st.locked){
     markPlayed(S.solo.day);
-    const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces);
+    const faces=st.order.map(i=>st.picks[i]), sc=scoreFaces(faces, S.solo.day);
     return head+`<div class="stack">
       <section class="rcard"><div class="head"><div><div class="eyebrow">Your mountain</div><div class="muted" style="font-size:13px">New topic in ${untilTomorrow()}</div></div>
-        <div class="total">${sc.total}<small> /482</small></div></div>
+        <div class="total">${sc.total}<small> /${maxScore(S.solo.day)}</small></div></div>
         ${mountain(faces.map(f=>initials(f.label)), "var(--teal)")}
         ${scoreTable(null, sc.rows)}
         <div style="padding:12px 16px 16px"><button class="btn gold block" data-act="sshare">Share</button></div></section>
@@ -947,7 +947,7 @@ function boardRows(day, raw){
     if(labels.length!==4) continue;
     const faces=labels.map(l=>{ const m=matchEntry(t,l); return {label:m?m.label:l, rank:m?m.rank:null}; });
     if(new Set(faces.map(f=>f.rank?"E"+f.rank:"W"+key(f.label))).size!==4) continue;   // the same face four times isn't a mountain
-    const score=scoreFaces(faces).total;
+    const score=scoreFaces(faces, day).total;
     if(score!==v.score) continue;
     const td = typeof v.ts==="number" ? dayNumber(new Date(v.ts)) : day;   // posted on its day (or just after midnight)
     if(td<day || td>day+1) continue;
@@ -1003,7 +1003,7 @@ async function postSolo(name){
   B.posting=true; B.err=""; render();
   try{
     const {db, uid} = await fb();
-    await db.ref("solo/"+S.solo.day+"/"+uid).set({name, score:scoreFaces(faces).total,
+    await db.ref("solo/"+S.solo.day+"/"+uid).set({name, score:scoreFaces(faces, S.solo.day).total,
       picks:{0:faces[0].label,1:faces[1].label,2:faces[2].label,3:faces[3].label}, ts:firebase.database.ServerValue.TIMESTAMP});
     setTimeout(refreshMe, 400);
     const st2=soloState(); st2.postedUid=uid; soloSave(st2);
@@ -1259,7 +1259,7 @@ async function mountainPicture({day, topic, sub, name, total, place, rows, color
     const m=initials(rows[i].f.label); x.fillStyle=IMG.lo; x.font=`${m.length>2?12:17}px ${disp}`; x.textAlign="center"; x.fillText(m,0,7); x.restore(); });
   x.restore();
   x.textAlign="center"; x.fillStyle=IMG.ink; x.font=`150px ${disp}`; const tw=x.measureText(String(total)).width;
-  x.fillText(String(total), W/2-40, 870); x.textAlign="left"; x.fillStyle=IMG.muted; x.font=`500 40px ${body}`; x.fillText("/482", W/2-40+tw/2+10, 870);
+  x.fillText(String(total), W/2-40, 870); x.textAlign="left"; x.fillStyle=IMG.muted; x.font=`500 40px ${body}`; x.fillText("/"+maxScore(day), W/2-40+tw/2+10, 870);
   x.textAlign="center"; x.fillStyle=IMG.ink; x.font=`700 38px ${body}`; x.fillText([name, place].filter(Boolean).join(" · "), W/2, 930);
   const top=975, rh=64; x.fillStyle=IMG.card; x.beginPath(); rrect(x,60,top,W-120,rh*4+24,28); x.fill();
   rows.forEach((r,i)=>{ const y=top+12+i*rh+rh/2;
@@ -1313,7 +1313,7 @@ async function sendSuggestion(text){
 /* ---------------- past topics + personal stats (read from this device, and the account when signed in) ---------------- */
 function soloResult(d){
   const st=store.get(soloKey(d),null); if(!validSolo(st) || !st.locked) return null;
-  const faces=st.order.map(i=>st.picks[i]); return {faces, ...scoreFaces(faces)};
+  const faces=st.order.map(i=>st.picks[i]); return {faces, ...scoreFaces(faces, d)};
 }
 function myCrewGames(){
   const out=[];
@@ -1395,9 +1395,9 @@ function guideView(){
         <div>R3 ${chip(0,"A")}${chip(1,"B")}${chip(2,"C")} &rarr;</div>
         <div class="muted">and so on for 4 rounds</div>
       </div></div></div>
-    <div class="step"><div class="num">3</div><div><b>Carve your order</b><p>Rank your four. Your #1 gets the Washington spot.</p>
+    <div class="step"><div class="num">3</div><div><b>Carve your order</b><p>Rank your four. Your #1 gets the Washington spot. The order is for bragging rights; it does not change your score.</p>
       <div class="spotrow" aria-hidden="true"><span>#1<br>Washington</span><span>#2<br>Jefferson</span><span>#3<br>Roosevelt</span><span>#4<br>Lincoln</span></div></div></div>
-    <div class="step"><div class="num">4</div><div><b>Face the judges</b><p>Every pick is scored against a consensus top 24: 100 points for #1, down to 31 for #24. A write-in off the board earns a pity 15. Bonuses: +15 when a pick's spot matches its consensus rank, +10 when it's in the right order among your four. A perfect mountain scores 482.</p>
+    <div class="step"><div class="num">4</div><div><b>Face the judges</b><p>Every pick is scored by where it sits on a consensus top 24 built from published polls and rankings. Points fall fast, so the top of the board is the prize: #1 is worth 150, #2 136, #4 112, #10 68, down to 36 for #24. A write-in off the board earns a pity 15. A perfect mountain scores ${maxScore(SCORE2_FROM)}.</p>
       <div class="legend" style="margin-top:8px">${[1,2,3,4].map(x=>`<span><span class="tier" style="background:var(--t${x})"></span>${TIER_TXT[x]}</span>`).join("")}</div></div></div>
     <div class="step"><div class="num">&#9733;</div><div><b>No crew? Go solo</b><p>Guess the consensus top 4 on your own, once a day, and see where you rank against everyone playing.</p></div></div>
     <button class="btn gold block" data-act="helpclose" style="margin-top:14px">Let's carve</button>
@@ -1532,7 +1532,7 @@ document.addEventListener("click", e=>{
     if((a==="sup"||a==="sdown") && !st.locked){ const i=+b.dataset.i, j=a==="sup"?i-1:i+1; [st.order[i],st.order[j]]=[st.order[j],st.order[i]]; soloSave(st); render(); return; }
     if(a==="slock" && st.picks.length===4){ st.locked=true; soloSave(st); render(); window.scrollTo(0,0); return; }
     if(a==="spost") return postSolo(($("#bname")||{}).value);
-    if(a==="sshare" && st.locked){ const me=myBoardRow(), sc=scoreFaces(st.order.map(i=>st.picks[i]));
+    if(a==="sshare" && st.locked){ const me=myBoardRow(), sc=scoreFaces(st.order.map(i=>st.picks[i]), S.solo.day);
       return sharePicture({day:S.solo.day, topic:soloTopic().name, sub:"Solo", name:myName(), place:me?`#${me.place} of ${Math.max(B.count,B.rows.length,me.place)} worldwide`:"",
         total:sc.total, rows:sc.rows}, soloShareText(st)+"\n"+location.origin+location.pathname+"?solo"); }
     return;

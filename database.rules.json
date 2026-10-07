@@ -12,7 +12,7 @@
             ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 18"
           },
           "score": {
-            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 482"
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 521"
           },
           "ts": {
             ".validate": "newData.val() === now"

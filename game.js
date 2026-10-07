@@ -836,23 +836,31 @@ function swapTopic(g, day, n, seen){
 }
 
 /* ---------------- scoring ---------------- */
-const WRITE_IN = 15;
-function basePts(rank){ return rank ? 100-(rank-1)*3 : WRITE_IN; }
+/* From SCORE2_FROM on (Oct 8 2026), points fall off steeply so the top of the board is worth chasing
+   (#1 150, #2 136, #4 112, #10 68, #24 36) and the order you carve your four in no longer scores.
+   Earlier days keep the old rules (100 down to 31 by 3s, +10 right order, +15 exact spot) so old games keep their scores. */
+const WRITE_IN = 15, SCORE2_FROM = 12;
+const isScore2 = day => (day||0) >= SCORE2_FROM;
+function basePts(rank, day){
+  if(!rank) return WRITE_IN;
+  return isScore2(day) ? Math.round(30 + 120*Math.pow(0.88, rank-1)) : 100-(rank-1)*3;
+}
+function maxScore(day){ return isScore2(day) ? [1,2,3,4].reduce((s,r)=>s+basePts(r,day),0) : 482; }
 function tierOf(rank){ return !rank ? 4 : rank<=4 ? 1 : rank<=10 ? 2 : 3; }
 const TIER_EMO = {1:"\u{1F7E9}",2:"\u{1F7E8}",3:"\u{1F7E7}",4:"⬜"};
 const TIER_TXT = {1:"Consensus top 4",2:"Top 10",3:"On the board",4:"Write-in"};
 const SPOTS = ["Washington spot","Jefferson spot","Roosevelt spot","Lincoln spot"];
-function scoreFaces(faces){
-  // faces: 4 picks in the player's chosen order (slot 0 = #1)
-  const eff = f => f.rank || 999;
+function scoreFaces(faces, day){
+  // faces: 4 picks in the player's chosen order (slot 0 = #1); day = the game's day number (decides the rules)
+  const v2 = isScore2(day), eff = f => f.rank || 999;
   const ideal = faces.map((f,i)=>({f,i})).sort((a,b)=>eff(a.f)-eff(b.f)||a.i-b.i).map(x=>x.f);
   const rows = faces.map((f,slot)=>{
-    const base = basePts(f.rank);
-    const right = f.rank && ideal[slot]===f ? 10 : 0;
-    const exact = f.rank===slot+1 ? 15 : 0;
+    const base = basePts(f.rank, day);
+    const right = !v2 && f.rank && ideal[slot]===f ? 10 : 0;
+    const exact = !v2 && f.rank===slot+1 ? 15 : 0;
     return {f, slot, base, right, exact, pts:base+right+exact};
   });
   return {rows, total: rows.reduce((s,r)=>s+r.pts,0)};
 }
 
-if (typeof module !== "undefined") module.exports = {TOPICS, ALL_TOPICS, TOPIC, key, matchEntry, dayNumber, topicForDay, topicForRound, swapTopic, scoreFaces, basePts, tierOf};
+if (typeof module !== "undefined") module.exports = {TOPICS, ALL_TOPICS, TOPIC, key, matchEntry, dayNumber, topicForDay, topicForRound, swapTopic, scoreFaces, basePts, maxScore, tierOf, SCORE2_FROM};

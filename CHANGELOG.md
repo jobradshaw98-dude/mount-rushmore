@@ -2,6 +2,12 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-10-07: steeper scoring from #12
+
+### Changed
+- From game #12 (Oct 8), points fall off fast so the top of the board is worth chasing: #1 is 150, #2 136, #4 112, #10 68, #24 36 (was 100 down to 31 by 3s). A perfect mountain scores 521.
+- The order you carve your four in no longer scores (the +10 right-order and +15 exact-spot bonuses are gone). Games before #12 keep their old scores.
+
 ## 2026-10-04: swap a round's topic
 
 ### Changed

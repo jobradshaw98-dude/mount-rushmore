@@ -86,7 +86,7 @@ exports.checkSoloPost = onValueCreated(
       const t = game.topicForDay(day);
       const faces = labels.map(l => { const m = game.matchEntry(t, l); return { label: m ? m.label : l, rank: m ? m.rank : null }; });
       if (new Set(faces.map(f => f.rank ? "E" + f.rank : "W" + game.key(f.label))).size !== 4) return reject("duplicate picks");
-      if (game.scoreFaces(faces).total !== v.score) return reject("score mismatch");
+      if (game.scoreFaces(faces, day).total !== v.score) return reject("score mismatch");
       await admin.database().ref(`soloCount/${day}`).transaction(c => (Number(c) || 0) + 1);
     } catch (e) {
       console.error("checkSoloPost", e);
