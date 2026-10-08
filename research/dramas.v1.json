@@ -1,0 +1,83 @@
+{
+ "sources": [
+  {
+   "name": "WGA 101 Best Written TV Series (Writers Guild of America East/West)",
+   "url": "https://www.wgaeast.org/101-lists/101-best-written-tv-shows/list",
+   "method": "guild-member vote; drama-only ordering derived by me (comedy/variety/kids removed, 50 dramas); shows that began after mid-2013 excluded from their averages (Better Call Saul, Succession, Chernobyl, Crown, Stranger Things, Fargo, True Detective, Leftovers, etc.)",
+   "year": 2013
+  },
+  {
+   "name": "BBC Culture 100 Greatest TV Series of the 21st Century",
+   "url": "https://icheckmovies.com/lists/bbcs+the+100+greatest+tv+series+of+the+21st+century/beasterne/ (transcription of the BBC list; BBC page not fetched)",
+   "method": "poll of 206 critics, academics and industry people in 43 countries, each naming a top 10; drama-only ordering derived by me (62 dramas); 21st-century starters only, so pre-2000 shows (Sopranos, West Wing, Twilight Zone, X-Files, etc.) and post-2021 shows (Severance, HotD) excluded from its averages",
+   "year": 2021
+  },
+  {
+   "name": "Rolling Stone 100 Greatest TV Shows of All Time",
+   "url": "https://icheckmovies.com/lists/rolling+stones+the+100+greatest+tv+shows+of+all+time+2022/applevoy/ (transcription; RS page not fetched)",
+   "method": "editorial list led by Alan Sepinwall (not a public poll); drama-only ordering derived by me (36 dramas)",
+   "year": 2022
+  },
+  {
+   "name": "IMDb Top 250 TV (user ratings), Wayback snapshot of 2026-01-01",
+   "url": "https://web.archive.org/web/20260101051019/https://www.imdb.com/chart/toptv/",
+   "method": "IMDb user-rating chart (vote-weighted); live-action drama/crime/sci-fi ordinals derived by me from the 250 (75 dramas; animation, docs, comedy removed)",
+   "year": 2026
+  }
+ ],
+ "list": [
+  "The Sopranos",
+  "Breaking Bad",
+  "The Wire",
+  "The Twilight Zone",
+  "Succession",
+  "Mad Men",
+  "Game of Thrones|got",
+  "Twin Peaks",
+  "Better Call Saul",
+  "The West Wing",
+  "Six Feet Under",
+  "Chernobyl",
+  "Friday Night Lights|fnl",
+  "Deadwood",
+  "Fargo",
+  "True Detective",
+  "The X-Files|x files",
+  "Band of Brothers",
+  "Battlestar Galactica|bsg",
+  "Downton Abbey|downton",
+  "The Crown",
+  "Sherlock",
+  "Lost",
+  "The Shield"
+ ],
+ "avg_rank": [
+  2.33,
+  3,
+  3,
+  5,
+  10,
+  10.25,
+  10.75,
+  13,
+  13.33,
+  13.67,
+  16.75,
+  18,
+  19.25,
+  20,
+  23,
+  24.67,
+  25,
+  25.75,
+  28.25,
+  28.5,
+  29.33,
+  30,
+  30.25,
+  31
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Out: Stranger Things (avg 41.3), The Leftovers (31.3, #26, with The Americans 31.0 just outside), Severance (37.5, one eligible source), Yellowstone, Ozark, Peaky Blinders, House of the Dragon (few or no hits); Lost drops from #9 to #23; new entrants: The Twilight Zone, Fargo, The X-Files, Battlestar Galactica, Downton Abbey, Sherlock, The Shield.",
+ "confidence": "medium. Top 3 (Sopranos, Breaking Bad, Wire) is very solid across all four sources. Weak points: three of four sources are critic/industry lists, drama-only ordinals are my own filtering (classification of Twilight Zone, Sherlock, Fargo as dramas is a judgment call), and IMDb's chart is rating-weighted so mass-audience hits (Lost, Yellowstone, Stranger Things) are under-credited. Positions 19-24 are separated by under 3 points and would reshuffle with a fifth source. Not used: TVLine 2023 (editorial, not a poll) and YouGov/CBS 2020 favorite-shows list (broadcast/game-show heavy, little drama signal)."
+}

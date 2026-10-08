@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "YouGov Ratings top 25 'most popular dining brands' (positive opinion), via Eat This. Includes dessert chains",
+   "url": "https://www.eatthis.com/most-popular-fast-food-america/",
+   "method": "YouGov ratings, 1,500+ US panelists, daily tracking",
+   "year": 2024
+  },
+  {
+   "name": "QSR 50 by US systemwide sales. Ranks 1-10 verified on the fetched Eat This page. Ranks 11-23 (Panda Express, Panera, Popeyes, Cane's, Wingstop, Sonic, Pizza Hut, Dairy Queen, Whataburger 20, Arby's, Jersey Mike's, Jack in the Box 23) come from a search-result extract of the QSR page, which returned 403 when I tried to fetch it. Rank 19 not seen",
+   "url": "https://www.eatthis.com/largest-fast-food-chains-america-qsr-sales-2026/",
+   "method": "sales data (2025 US system sales, QSR 50 2026)",
+   "year": 2026
+  },
+  {
+   "name": "ACSI restaurant satisfaction ranking of fast food chains. Ranks 1-5 fetched via Fox29. Ranks 6-24 come from a search extract, with the 'All others' slot removed",
+   "url": "https://www.fox29.com/news/chick-fil-a-highest-rated-fast-food-restaurant-list",
+   "method": "customer satisfaction survey (ACSI)",
+   "year": 2025
+  },
+  {
+   "name": "Ranker 'best fast food restaurants' (top 10 + McDonald's at 12; Whataburger excluded from list), via Wide Open Country",
+   "url": "https://www.wideopencountry.com/americas-favorite-fast-food-brand",
+   "method": "fan vote, 8,023 votes",
+   "year": 2025
+  }
+ ],
+ "list": [
+  "Chick-fil-A|chickfila|cfa",
+  "Wendy's",
+  "Taco Bell",
+  "Dunkin'|dunkin|dunkin donuts",
+  "Subway",
+  "Burger King|bk",
+  "McDonald's|mcdonalds|mickey ds",
+  "Domino's|dominos",
+  "Dairy Queen|dq",
+  "Panera Bread|panera",
+  "Arby's|arbys",
+  "KFC|kentucky fried chicken",
+  "Pizza Hut",
+  "Starbucks|sbux",
+  "Panda Express|panda",
+  "Popeyes",
+  "Chipotle",
+  "Papa John's|papa johns",
+  "Little Caesars|little caesar's",
+  "Five Guys",
+  "Sonic",
+  "Baskin-Robbins|baskin robbins|br",
+  "Cinnabon",
+  "Culver's"
+ ],
+ "avg_rank": [
+  3.8,
+  7.5,
+  9.2,
+  9.8,
+  10.2,
+  10.5,
+  11,
+  11,
+  12.2,
+  12.2,
+  12.8,
+  12.8,
+  13,
+  13,
+  15,
+  16.5,
+  17,
+  17.8,
+  18,
+  19,
+  19,
+  19.2,
+  19.8,
+  21.2
+ ],
+ "changes_vs_current": "Chick-fil-A stays #1. In-N-Out (was #1) falls out of the top 24 (only Ranker, at 10) and Whataburger, Raising Cane's, Shake Shack, Wingstop, Jersey Mike's, Jack in the Box, Del Taco and Carl's Jr. also fall out. Wendy's, Taco Bell, Dunkin', Subway, Burger King move up. New entrants: Domino's, Panera, Pizza Hut, Starbucks, Papa John's, Little Caesars, Baskin-Robbins, Cinnabon. Baskin-Robbins and Cinnabon (22-23) are dessert shops, each in one source only. Swap them for A&W (22.0), Jack in the Box (22.2) or Jersey Mike's (22.2) if you want savory fast food only.",
+ "confidence": "medium-low. Four independent methods (popularity poll, sales, satisfaction, fan vote), but they measure different things: YouGov favors ice cream and pizza, QSR favors size, ACSI favors satisfaction. Parts of the QSR (11-23) and ACSI (6-24) rankings are from search extracts, not fetched pages. Regional chains (In-N-Out, Whataburger, Culver's) are structurally penalized by national samples. I did not use the Five Guys vs In-N-Out burger poll because it only ranks burgers."
+}

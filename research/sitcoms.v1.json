@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "Rolling Stone, 100 Best Sitcoms of All Time (read via La Tercera repost of the full list; top 10 cross-checked against CBS Minnesota and Audacy pages; RS site is paywalled)",
+   "url": "https://latercera.com/culto/2021/05/04/las-100-mejores-sitcoms-de-la-historia-segun-rolling-stone",
+   "method": "critic panel (staff list)",
+   "year": 2021
+  },
+  {
+   "name": "Paste, The 100 Best TV Sitcoms of All Time (updated 2022)",
+   "url": "https://www.pastemagazine.com/tv/the-100-best-tv-sitcoms-of-all-time",
+   "method": "critic panel (staff vote)",
+   "year": 2022
+  },
+  {
+   "name": "Stacker, 100 Top-Rated Sitcoms (IMDb user ratings, Dec 2022, English-language US sitcoms with 5,000+ votes)",
+   "url": "https://stacker.com/stories/tv/100-top-rated-sitcoms-all-time",
+   "method": "fan ratings (IMDb user rating, genre-filtered, includes animation)",
+   "year": 2022
+  },
+  {
+   "name": "Not used in the numbers, context only: YouTube TV/OnePoll poll of 2,000 US adults, Friends 43%, Seinfeld 40%, Three's Company/Frasier/The Office 36% (mixed with dramas, top 10 only)",
+   "url": "https://thebrighterside.news/post/best-tv-shows-of-all-time-friends-beats-out-seinfeld-as-greatest-ever",
+   "method": "poll of 2,000",
+   "year": 2022
+  }
+ ],
+ "list": [
+  "Seinfeld",
+  "The Simpsons",
+  "Parks and Recreation|parks and rec",
+  "I Love Lucy",
+  "Arrested Development",
+  "Curb Your Enthusiasm|curb",
+  "The Office",
+  "BoJack Horseman|bojack",
+  "The Dick Van Dyke Show|dick van dyke",
+  "The Andy Griffith Show|andy griffith|mayberry",
+  "Community",
+  "It's Always Sunny in Philadelphia|always sunny|iasip",
+  "The Larry Sanders Show|larry sanders",
+  "30 Rock",
+  "Frasier",
+  "South Park",
+  "Cheers",
+  "Friends",
+  "Veep",
+  "Brooklyn Nine-Nine|b99|brooklyn 99",
+  "All in the Family|archie bunker",
+  "The Mary Tyler Moore Show|mary tyler moore|mtm",
+  "The Good Place",
+  "M*A*S*H|mash"
+ ],
+ "avg_rank": [
+  3,
+  4.67,
+  10,
+  12,
+  12.67,
+  13.67,
+  14,
+  18.67,
+  19.67,
+  20.67,
+  22.67,
+  22.67,
+  23,
+  25,
+  25.67,
+  30,
+  30.67,
+  33.67,
+  34,
+  38.67,
+  38.67,
+  39,
+  40,
+  40
+ ],
+ "changes_vs_current": "Seinfeld, Simpsons, Parks, I Love Lucy, Arrested Development, Curb, Office rise to the top 7 (Friends falls from 3rd to 18th, Cheers from 9th to 17th). Added: BoJack Horseman, Dick Van Dyke Show, Andy Griffith Show, Larry Sanders, South Park, Veep, All in the Family, Mary Tyler Moore, The Good Place. Dropped: Modern Family, How I Met Your Mother, Fresh Prince, Everybody Loves Raymond, Scrubs, Abbott Elementary, New Girl, That '70s Show.",
+ "confidence": "low-medium: only 3 usable full lists, two are critic panels and the third (IMDb) is genre-filtered and includes cartoons, which ranks Cheers 89th and omits M*A*S*H, All in the Family and Mary Tyler Moore from its top 100 (scored 105 each). That distorts the middle: BoJack, Dick Van Dyke and Andy Griffith are likely too high for a general-audience game, and Friends/Modern Family/HIMYM too low. Friends and Scrubs ranks in Paste could not be verified (page prints '17' and '20', which collide with other entries); Friends was scored 60 and Scrubs 63 in Paste, and Friends makes the top 24 either way (rank 9 if Paste truly has it 17th). Ranker (the large fan vote) was unreachable. YouGov had no sitcom-only ranking I could read. Consider re-running with a Ranker/YouGov read or dropping the IMDb source."
+}

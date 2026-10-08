@@ -1,0 +1,89 @@
+{
+ "sources": [
+  {
+   "name": "IMDb Top 250 (user votes), read via r.jina.ai text mirror of the IMDb page because imdb.com blocked direct fetch",
+   "url": "https://www.imdb.com/chart/top/",
+   "method": "Weighted user ratings from millions of voters; ranks 1-250 read live 2026-10-07.",
+   "year": 2026
+  },
+  {
+   "name": "AFI 100 Years...100 Movies (10th Anniversary Edition), jury of about 1,500 film leaders (via Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies_(10th_Anniversary_Edition)",
+   "method": "Jury ranking of American films 1-100. Excluded (not penalized) for post-2006 films and non-American-eligible films (Dark Knight, Inception, Seven Samurai, Good Bad and Ugly, etc.).",
+   "year": 2007
+  },
+  {
+   "name": "They Shoot Pictures, Don't They: 1,000 Greatest Films (2025 edition)",
+   "url": "https://www.theyshootpictures.com/gf1000_all1000films_table.php",
+   "method": "Aggregate of thousands of critics' and festival lists. Top 250 used. It includes Sight & Sound 2022 as an input, so S&S was read (https://www.bfi.org.uk/sight-and-sound/polls/greatest-films-all-time, 1,600+ critics, 2022) but NOT averaged separately.",
+   "year": 2025
+  },
+  {
+   "name": "Talker Research: America's all-time favorite movies (n=2,000 US adults, Jan 31-Feb 3 2025)",
+   "url": "https://talkerresearch.com/whats-americas-all-time-favorite-movie/",
+   "method": "Public poll, top 20. Series entries mapped to flagship film (Star Wars to Star Wars, Indiana Jones to Raiders, Jurassic Park series to Jurassic Park).",
+   "year": 2025
+  },
+  {
+   "name": "YouGov Ratings: most popular all-time movies in America",
+   "url": "https://yougov.com/en-us/ratings/all-time-movies",
+   "method": "Share with positive opinion, top 20 visible, skews family/holiday films.",
+   "year": 2026
+  }
+ ],
+ "list": [
+  "The Godfather|godfather",
+  "Seven Samurai|7 samurai",
+  "The Godfather Part II|godfather 2|godfather part 2",
+  "Psycho",
+  "Casablanca",
+  "City Lights",
+  "Apocalypse Now",
+  "Singin' in the Rain|singing in the rain",
+  "It's a Wonderful Life|its a wonderful life",
+  "Citizen Kane",
+  "2001: A Space Odyssey|2001",
+  "Vertigo",
+  "Lawrence of Arabia",
+  "Star Wars|a new hope|star wars episode iv",
+  "Goodfellas",
+  "Pulp Fiction",
+  "Some Like It Hot",
+  "One Flew Over the Cuckoo's Nest|cuckoos nest|one flew over the cuckoos nest",
+  "Taxi Driver",
+  "The Good, the Bad and the Ugly|good bad and ugly|the good the bad and the ugly",
+  "Raging Bull",
+  "Bicycle Thieves|bicycle thief|ladri di biciclette",
+  "Chinatown",
+  "Schindler's List|schindlers list"
+ ],
+ "avg_rank": [
+  9,
+  21,
+  23.2,
+  25.4,
+  27.4,
+  28.6,
+  30,
+  31,
+  33.8,
+  34.4,
+  35,
+  35.8,
+  41.4,
+  42.8,
+  43.8,
+  46.6,
+  49,
+  50.4,
+  51.8,
+  54.2,
+  56.8,
+  60.8,
+  62.4,
+  64
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Heavy shift to the critic canon: new are Seven Samurai, Psycho, City Lights, Apocalypse Now, Singin' in the Rain, It's a Wonderful Life, Lawrence of Arabia, Vertigo, Some Like It Hot, Taxi Driver, Good/Bad/Ugly, Raging Bull, Bicycle Thieves, Chinatown. Dropped out: Shawshank (34th), Dark Knight (37th), Jaws (41st), Back to the Future (39th), Forrest Gump (29th), Empire Strikes Back (58th), Matrix (45th), Fight Club (57th), Inception (44th), Saving Private Ryan (40th), Raiders (26th), Return of the King (51st), E.T. (75th), Gladiator (72nd), Jurassic Park (78th), Titanic (86th).",
+ "confidence": "low-medium for game fit: the math is solid but the sources split into two camps. Per the specified raw-rank average, IMDb (250) and TSPDT (250) dominate because the public polls only list 20, so critic-favored classics beat audience favorites. Only The Godfather is clearly top-ranked in every source. Shawshank (IMDb #1, YouGov #15) scores 73.6 only because TSPDT ranks it 449th and AFI 72nd. If the game audience is casual players, consider a popular-vote-weighted variant (IMDb top: Shawshank, Godfather, Dark Knight, Godfather II, Return of the King, 12 Angry Men, Schindler's List). Letterboxd (404 on official list) and Ranker were unavailable. Tie-ish zone is positions 9-24 (averages 33.8-64.0)."
+}

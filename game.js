@@ -747,7 +747,735 @@ const REVISED = [
     [[5,"Uno"],[12,"Jenga"]]),
 ];
 const REV = Object.fromEntries(REVISED.map(t=>[t.base,t]));
-const ALL_TOPICS = TOPICS.concat(REVISED);
+/* Researched lists replace every topic from RESEARCHED_FROM: each is ranked from published polls, fan votes and
+   sales, weighting what people pick over critics. Sources live in research/<id>.json; tools/build-lists.js writes this block. */
+const RESEARCHED_FROM = 13;
+const RESEARCHED = [
+/* BEGIN RESEARCHED */
+{base:"nba",items:`Michael Jordan|mj
+LeBron James|lebron|king james|bron
+Kareem Abdul-Jabbar|kareem
+Magic Johnson|magic
+Wilt Chamberlain|wilt
+Larry Bird|bird
+Bill Russell
+Kobe Bryant|kobe
+Tim Duncan|duncan
+Shaquille O'Neal|shaq
+Oscar Robertson|big o
+Hakeem Olajuwon|hakeem|the dream
+Jerry West|the logo
+Moses Malone
+Stephen Curry|steph|curry
+Kevin Durant|kd|durant
+Karl Malone|the mailman
+Julius Erving|dr j
+Elgin Baylor
+Charles Barkley|barkley|sir charles|chuck
+David Robinson|the admiral
+Dirk Nowitzki|dirk
+Kevin Garnett|kg
+Isiah Thomas|isiah|zeke`},
+{base:"breakfast",items:`Eggs|scrambled eggs|fried eggs
+Cereal
+Bacon
+Toast
+Fruit|fresh fruit
+Pancakes|flapjacks|hotcakes
+Omelette|omelet
+French Toast
+Waffles
+Hash Browns|hashbrowns
+Avocado Toast
+Bagel|bagel and cream cheese|lox bagel
+Breakfast Sandwich|egg sandwich|bacon egg and cheese|bec
+Sausage|breakfast sausage
+Breakfast Burrito
+Donut|doughnut
+Yogurt Parfait|yogurt|parfait
+Oatmeal|porridge
+Biscuits and Gravy
+Muffin|blueberry muffin
+Eggs Benedict|benedict
+Chicken and Waffles
+Croissant
+Cinnamon Roll`},
+{base:"pizza",items:`Pepperoni
+Sausage|italian sausage
+Mushrooms
+Bacon
+Onions
+Extra Cheese|cheese
+Black Olives|olives
+Green Peppers|peppers|bell peppers
+Ham
+Pineapple
+Spinach
+Chicken
+Tomatoes|tomato
+Meatballs
+Jalapeños|jalapenos|jalapeno
+Hot Honey
+Garlic
+Basil|fresh basil
+Banana Peppers
+Ricotta
+Prosciutto
+Arugula
+Artichokes|artichoke
+Anchovies`},
+{base:"pixar",items:`Toy Story
+Finding Nemo|nemo
+Up
+Toy Story 3
+WALL-E|walle
+Monsters, Inc.|monsters inc
+The Incredibles|incredibles
+Inside Out
+Ratatouille
+Toy Story 2
+Coco
+Toy Story 4
+Incredibles 2
+A Bug's Life|bugs life
+Finding Dory|dory
+Soul
+Cars
+Monsters University
+Inside Out 2
+Turning Red
+Luca
+Onward
+Brave
+Cars 3`},
+{base:"fastfood",items:`McDonald's|mcdonalds|mickey ds
+Wendy's
+Chick-fil-A|chickfila|cfa
+Taco Bell
+Domino's|dominos
+Burger King|bk
+Dunkin'|dunkin|dunkin donuts
+Subway
+Dairy Queen|dq
+KFC|kentucky fried chicken
+Pizza Hut
+Chipotle
+Panera Bread|panera
+Panda Express|panda
+Popeyes
+Starbucks|sbux
+Arby's|arbys
+Sonic
+Little Caesars|little caesar's
+Jersey Mike's
+Papa John's|papa johns
+Five Guys
+Raising Cane's|canes
+Wingstop`},
+{base:"music",items:`The Beatles|beatles
+Elton John
+Taylor Swift|taylor
+Elvis Presley|elvis
+Whitney Houston|whitney
+Mariah Carey|mariah
+Michael Jackson|mj
+Drake|drizzy
+Madonna
+Stevie Wonder
+The Rolling Stones|stones|rolling stones
+Rihanna|riri
+Billy Joel
+Eminem|slim shady
+Janet Jackson|janet
+Garth Brooks|garth
+Prince
+Barbra Streisand|streisand|barbra
+Chicago
+Queen
+Eagles|the eagles
+Rod Stewart|rod
+Fleetwood Mac
+Bruce Springsteen|springsteen|the boss`},
+{base:"golf",items:`Tiger Woods|tiger
+Jack Nicklaus|nicklaus|golden bear
+Bobby Jones
+Ben Hogan
+Arnold Palmer|arnie
+Sam Snead
+Gary Player
+Tom Watson
+Seve Ballesteros|seve
+Phil Mickelson|phil|lefty
+Walter Hagen
+Gene Sarazen
+Lee Trevino|trevino
+Mickey Wright
+Annika Sörenstam|annika
+Byron Nelson
+Kathy Whitworth|whitworth
+Nick Faldo|faldo
+Rory McIlroy|rory|mcilroy
+Old Tom Morris|tom morris
+Ernie Els|els
+Vijay Singh|vijay
+Nancy Lopez
+Billy Casper`},
+{base:"sitcoms",items:`Friends
+The Simpsons
+Seinfeld
+M*A*S*H|mash
+The Big Bang Theory|big bang theory|bbt
+I Love Lucy
+Family Guy
+The Office
+Bob's Burgers|bobs burgers
+American Dad!|american dad
+The Golden Girls|golden girls
+Sanford and Son
+Cheers
+Married... with Children|married with children
+Happy Days
+Three's Company|threes company
+Gilligan's Island|gilligans island
+Bewitched
+The Beverly Hillbillies|beverly hillbillies
+Frasier
+The Munsters|munsters
+Young Sheldon
+Full House
+The Dick Van Dyke Show|dick van dyke`},
+{base:"candy",items:`M&M's|mms
+Reese's Peanut Butter Cups|reeses|reeses cups|peanut butter cups
+Skittles
+Kit Kat|kitkat
+Hershey's Bar|hersheys|hershey bar|hershey's milk chocolate|hershey's miniatures
+Hershey's Kisses|kisses|hersheys kisses
+Snickers
+Candy Corn
+Sour Patch Kids|sour patch
+Twizzlers
+Starburst
+Hot Tamales
+Peanut M&M's|peanut mms
+York Peppermint Pattie|york|peppermint patty
+Ghirardelli|ghirardelli chocolate
+Twix
+Baby Ruth
+Gummy Bears|gummies|gummi bears
+Butterfinger
+3 Musketeers|three musketeers
+Swedish Fish
+Nerds
+Milky Way
+Reese's Pieces`},
+{base:"villains",items:`Darth Vader|vader
+The Joker|joker
+Hannibal Lecter|hannibal
+Voldemort|lord voldemort
+Hans Gruber|gruber
+Freddy Krueger|freddy
+Thanos
+Michael Myers
+The Terminator|t 800
+Loki
+The Wicked Witch of the West|wicked witch|wicked witch of the west
+Hans Landa|colonel landa|landa
+Norman Bates
+Kylo Ren|kylo
+Pennywise
+Agent Smith
+Anton Chigurh|chigurh
+Nurse Ratched|ratched
+Sauron
+The Alien|alien|xenomorph
+Scar
+Queen of Hearts
+Bane
+Cruella de Vil|cruella|cruella deville`},
+{base:"sandwiches",items:`Grilled Cheese
+Turkey|turkey sandwich
+Chicken Sandwich|grilled chicken|fried chicken sandwich|chicken
+Roast Beef
+Ham|ham sandwich
+Peanut Butter and Jelly|pbj|pb and j
+Tuna Sandwich|tuna melt|tuna salad
+Pulled Pork
+BLT
+Club Sandwich|club|turkey club
+Meatball Sub|meatball
+Egg Salad
+Philly Cheesesteak|cheesesteak|philly cheese steak
+Reuben
+French Dip
+Italian Sub|italian hoagie|italian
+Cuban|cubano
+Banh Mi
+Pastrami on Rye|pastrami
+Chicken Parm|chicken parmesan
+Po' Boy|poboy
+Lobster Roll
+Muffuletta
+Gyro`},
+{base:"boardgames",items:`Monopoly
+Checkers
+Chess
+Clue|cluedo
+Scrabble
+Battleship
+Candy Land|candyland
+Pictionary
+Rummikub
+Connect Four|connect 4
+Mancala
+Trivial Pursuit
+The Game of Life|life|game of life
+Catan|settlers of catan
+Sorry!
+Backgammon
+Chutes and Ladders|snakes and ladders
+Yahtzee
+Risk
+Go|game of go|baduk|weiqi
+Stratego
+Trouble
+Mahjong|mah-jongg|mahjongg
+Parcheesi`},
+{base:"superheroes",items:`Superman
+Batman
+Spider-Man|spiderman|spidey
+Wonder Woman
+Captain America|cap
+Wolverine|logan
+Iron Man|ironman|tony stark
+Captain Marvel
+The Hulk|hulk
+Thor
+The Flash|flash
+Robin|nightwing|dick grayson
+Green Lantern
+Daredevil
+Deadpool
+Hellboy
+Green Arrow
+Black Panther
+Doctor Strange|dr strange
+Cyclops
+Storm
+Aquaman
+Hawkeye
+Shazam`},
+{base:"holidays",items:`Christmas|xmas
+Thanksgiving
+Mother's Day
+Halloween
+Easter
+Fourth of July|july 4th|4th of july|independence day
+Father's Day
+Memorial Day
+New Year's Eve|nye|new years
+Valentine's Day|valentines
+Veterans Day
+Labor Day
+MLK Day|martin luther king day
+Super Bowl Sunday|super bowl
+St. Patrick's Day|saint patricks day|st paddys
+Juneteenth
+Hanukkah|chanukah
+Lunar New Year|chinese new year
+Diwali
+Cinco de Mayo
+Mardi Gras
+Kwanzaa
+April Fools' Day|april fools
+Groundhog Day`},
+{base:"videogames",items:`The Witcher 3|witcher|the witcher 3: wild hunt
+Red Dead Redemption 2|rdr2|red dead 2|red dead
+The Elder Scrolls V: Skyrim|skyrim
+Grand Theft Auto V|gta 5|gta v|gta
+Cyberpunk 2077|cyberpunk
+The Legend of Zelda: Breath of the Wild|breath of the wild|botw|zelda|legend of zelda
+Minecraft
+The Last of Us|tlou
+The Legend of Zelda: Ocarina of Time|ocarina of time|ocarina|oot
+Mario Kart 8|mario kart|mario kart 8 deluxe
+Super Mario Bros.|super mario brothers|super mario bros|mario
+Elden Ring
+Resident Evil 4|re4
+God of War|god of war 2018|gow
+Ghost of Tsushima|tsushima
+Bloodborne
+God of War Ragnarok|ragnarok|gow ragnarok
+Sonic the Hedgehog|sonic
+Final Fantasy VII|ff7|final fantasy 7
+Tetris
+Animal Crossing: New Horizons|animal crossing|acnh
+Marvel's Spider-Man|spider-man|spiderman
+Mass Effect 2|me2
+Wii Sports`},
+{base:"cereal",items:`Cinnamon Toast Crunch|ctc
+Cheerios
+Frosted Flakes
+Lucky Charms
+Honey Bunches of Oats
+Honey Nut Cheerios
+Froot Loops|fruit loops
+Raisin Bran
+Cocoa Puffs
+Special K
+Frosted Mini-Wheats|mini wheats
+Corn Flakes
+Rice Krispies
+Fruity Pebbles
+Life|life cereal
+Reese's Puffs
+Cap'n Crunch|captain crunch
+Apple Jacks
+Golden Grahams
+Cocoa Pebbles
+Cookie Crisp
+Trix
+Crispix
+Corn Pops`},
+{base:"events",items:`Super Bowl
+Summer Olympics|olympics
+Winter Olympics
+NBA Finals
+Kentucky Derby
+March Madness|ncaa tournament
+World Cup Final|world cup|fifa world cup
+Wimbledon
+Tour de France
+Indianapolis 500|indy 500
+World Series
+US Open Tennis|us open
+The Masters
+College Football Playoff|cfp
+Women's World Cup|womens world cup
+Daytona 500
+Stanley Cup Final|stanley cup
+NFL Draft
+Champions League Final|ucl final
+Ryder Cup
+The Open Championship|british open|the open
+Home Run Derby
+Rose Bowl
+Army-Navy Game|army navy`},
+{base:"condiments",items:`Ketchup|catsup
+Mayonnaise|mayo
+Mustard|yellow mustard
+Ranch
+Hot Sauce
+Salsa
+BBQ Sauce|barbecue sauce|bbq
+Relish
+Pickles|pickle
+Soy Sauce
+Sriracha
+Buffalo Sauce|buffalo
+Honey Mustard
+Guacamole|guac
+Chick-fil-A Sauce|cfa sauce
+Aioli|garlic aioli
+Tzatziki
+Chimichurri
+Pesto
+Sweet Chili Sauce|sweet chili
+Tartar Sauce
+Horseradish
+Gochujang
+Teriyaki Sauce|teriyaki`},
+{base:"movies",items:`Forrest Gump|forrest gump
+The Godfather|godfather
+Star Wars|a new hope|star wars episode iv
+Titanic
+The Lion King|lion king
+The Wizard of Oz|wizard of oz|oz
+Gone with the Wind|gwtw
+The Shawshank Redemption|shawshank
+Jurassic Park
+The Sound of Music|sound of music
+The Empire Strikes Back|empire strikes back
+The Lord of the Rings: The Return of the King|return of the king|lotr|lord of the rings
+Home Alone
+E.T. the Extra-Terrestrial|et|e.t.
+Back to the Future|bttf
+The Dark Knight|dark knight
+Raiders of the Lost Ark|raiders|indiana jones
+The Godfather Part II|godfather 2|godfather part 2|godfather ii|godfather part ii
+Toy Story
+The Ten Commandments|ten commandments
+Jaws
+Dirty Dancing
+Schindler's List|schindlers list
+Ghostbusters`},
+{base:"dogs",items:`Labrador Retriever|lab|labrador
+Golden Retriever|golden
+German Shepherd
+Australian Shepherd|aussie
+Beagle
+English Bulldog|bulldog
+Dachshund|wiener dog|sausage dog
+Poodle
+Border Collie
+Rottweiler|rottie
+German Shorthaired Pointer|gsp
+Bernese Mountain Dog|berner|bernese
+Shetland Sheepdog|sheltie
+Miniature American Shepherd|mini aussie
+Cane Corso|corso
+Boxer
+Cavalier King Charles Spaniel|cavalier
+Yorkshire Terrier|yorkie
+Alaskan Malamute|malamute
+Doberman
+Entlebucher Mountain Dog|entlebucher|entle
+Boston Terrier|boston
+Shih Tzu
+Corgi|pembroke welsh corgi|pembroke`},
+{base:"cocktails",items:`Margarita
+Mojito
+Old Fashioned
+Espresso Martini
+Negroni
+Manhattan
+Martini|dry martini|vodka martini
+Daiquiri
+Moscow Mule|mule
+Paloma
+Cosmopolitan|cosmo
+Bloody Mary
+Whiskey Sour
+Long Island Iced Tea|long island
+Gimlet
+Amaretto Sour|amaretto
+Aperol Spritz|spritz
+Pornstar Martini|porn star martini
+Penicillin
+Boulevardier
+Piña Colada|pina colada
+White Russian
+Mai Tai
+Caipirinha`},
+{base:"desserts",items:`Chocolate Chip Cookies|cookies|chocolate chip cookie
+Apple Pie
+Ice Cream
+Chocolate Cake
+Tiramisu
+Cheesecake
+Brownies
+Churros
+Cannoli
+Carrot Cake
+Pecan Pie
+Key Lime Pie
+Crème Brûlée
+Banana Pudding
+Cinnamon Rolls|cinnamon roll
+Red Velvet Cake|red velvet
+Pumpkin Pie
+Peach Cobbler|cobbler
+Strawberry Shortcake
+Lava Cake|molten lava cake
+Donuts|doughnuts
+Macarons
+S'mores
+Bread Pudding`},
+{base:"rappers",items:`Eminem|slim shady
+Drake
+Kendrick Lamar|kendrick
+Tupac|2pac|tupac shakur|pac
+50 Cent|fifty cent
+Snoop Dogg|snoop
+Jay-Z|jayz|hov
+Kanye West|kanye|ye
+Nicki Minaj|nicki
+Lil Wayne|weezy|wayne
+LL Cool J|ll
+J. Cole|cole
+Ice Cube
+Dr. Dre|dre
+Pitbull|mr worldwide
+The Notorious B.I.G.|biggie|biggie smalls
+Ludacris
+Missy Elliott|missy
+Nelly
+André 3000|andre|andre 3000|3 stacks
+Nas
+Travis Scott
+Future
+Juice WRLD|juice`},
+{base:"disney",items:`The Lion King
+Aladdin
+Beauty and the Beast
+Moana
+Frozen
+Cinderella
+Snow White and the Seven Dwarfs|snow white
+The Jungle Book
+Fantasia
+Tarzan
+Mulan
+Hercules
+Dumbo
+Sleeping Beauty
+Pinocchio
+Alice in Wonderland|alice in wonderland
+Pocahontas
+Peter Pan
+101 Dalmatians|one hundred and one dalmatians
+Robin Hood
+The Little Mermaid
+Bambi
+The Hunchback of Notre Dame|hunchback
+Tangled`},
+{base:"fruit",items:`Bananas|banana
+Strawberries|strawberry
+Grapes|grape
+Watermelon
+Lemons|lemon
+Apples|apple
+Blueberries|blueberry
+Pineapple
+Oranges|orange
+Clementines|clementine|cuties|mandarin|tangerine|tangerines
+Raspberries|raspberry
+Blackberries|blackberry
+Peaches|peach
+Mango|mangoes|mangos
+Limes|lime
+Avocado|avocados
+Cherries|cherry
+Plums|plum
+Cantaloupe
+Pears|pear
+Nectarines|nectarine
+Kiwi
+Pomegranate
+Grapefruit`},
+{base:"qbs",items:`Tom Brady|brady|tb12
+Peyton Manning|peyton
+Joe Montana|montana
+Dan Marino|marino
+Aaron Rodgers|rodgers
+Johnny Unitas|unitas
+John Elway|elway
+Roger Staubach|staubach
+Drew Brees|brees
+Brett Favre|favre
+Steve Young
+Patrick Mahomes|mahomes
+Otto Graham
+Fran Tarkenton|tarkenton
+Bart Starr
+Terry Bradshaw
+Troy Aikman|aikman
+Ben Roethlisberger|big ben
+Kurt Warner
+Jim Kelly
+Russell Wilson|russ|wilson
+Sammy Baugh|baugh|slingin sammy
+Matthew Stafford|stafford
+Warren Moon`},
+{base:"chips",items:`Doritos Nacho Cheese|doritos|nacho cheese doritos
+Lay's Classic|lays
+Pringles
+Cheetos
+Ruffles
+Goldfish
+Cheez-It|cheezits
+Takis
+Fritos
+Popcorn
+Tostitos
+Cool Ranch Doritos|cool ranch
+Flamin' Hot Cheetos|hot cheetos
+Kettle Chips|kettle
+Salt and Vinegar Chips|salt and vinegar
+Sun Chips|sunchips
+Funyuns
+Pretzels
+Chex Mix
+Cape Cod Chips|cape cod
+Sour Cream & Onion Chips|sour cream and onion
+BBQ Chips|barbecue chips
+Veggie Straws
+Bugles`},
+{base:"soccer",items:`Lionel Messi|messi|leo messi
+Diego Maradona|maradona
+Pelé
+Cristiano Ronaldo|cr7|cristiano|ronaldo
+Johan Cruyff|cruyff
+Zinedine Zidane|zidane|zizou
+Franz Beckenbauer|beckenbauer
+Ronaldo Nazário|r9|brazilian ronaldo
+Alfredo Di Stéfano|di stefano
+Michel Platini|platini
+Gerd Müller|gerd muller|muller|der bomber
+Ferenc Puskás|puskas
+George Best
+Garrincha
+Paolo Maldini|maldini
+Zico
+Romário|romario
+Bobby Charlton|charlton|sir bobby
+Marco van Basten|van basten|basten
+Giuseppe Meazza|meazza
+Eusébio
+Andrés Iniesta|iniesta
+Roberto Baggio|baggio
+Raymond Kopa|kopa`},
+{base:"dramas",items:`Game of Thrones|got
+Breaking Bad
+Stranger Things
+The Sopranos
+Sherlock
+The Pitt|pitt
+Better Call Saul|bcs
+The Wire
+True Detective
+Peaky Blinders|peaky
+Grey's Anatomy|greys anatomy|greys
+Black Mirror
+The Boys
+Twin Peaks
+Band of Brothers
+Chernobyl
+Dexter
+The Walking Dead|walking dead|twd
+Battlestar Galactica|bsg
+Law & Order|law and order
+The Twilight Zone|twilight zone
+Bridgerton
+Fargo
+Dark`},
+{base:"pasta",items:`Spaghetti
+Fettuccine|fettucine
+Lasagna|lasagne
+Macaroni|elbows|elbow macaroni
+Penne
+Angel Hair|capellini
+Ravioli
+Ziti|baked ziti
+Tortellini|tortelloni
+Farfalle|bow ties|bowtie|bowties
+Manicotti
+Rigatoni
+Linguine|linguini
+Rotini
+Bucatini
+Orecchiette
+Pappardelle
+Gnocchi
+Fusilli
+Cavatappi
+Orzo
+Shells|conchiglie
+Tagliatelle
+Cavatelli`}
+/* END RESEARCHED */
+].map(r=>({...TOPICS.find(t=>t.id===r.base), id:r.base+"_r", base:r.base, items:r.items}));
+const RES = Object.fromEntries(RESEARCHED.map(t=>[t.base,t]));
+const ALL_TOPICS = TOPICS.concat(REVISED, RESEARCHED);
 
 /* ---------------- matching ---------------- */
 function key(s){
@@ -799,7 +1527,7 @@ function dayIndex(n){
     start+=order.length;
   }
 }
-const onDay = (t, day) => (day>=REVISE_FROM && REV[t.id]) || t;
+const onDay = (t, day) => (day>=RESEARCHED_FROM && RES[t.id]) || (day>=REVISE_FROM && REV[t.id]) || t;
 function topicForDay(n){ return onDay(TOPICS[dayIndex(n)], n); }
 /* Reorder a shuffled list so two topics from the same category never sit back to back. */
 function spreadOut(list, prevCat){

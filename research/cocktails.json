@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "Drinks International Cocktail Report 2025, world's best-selling classic cocktails (full 1-50 read)",
+   "url": "https://drinksint.com/news/fullstory.php/aid/12027/The_bestselling_classic_cocktails_at_the_world_s_best_bars_2025.html",
+   "method": "sales poll of 100 top bars in 30+ countries (bartender/world-bar skew, not US-only)",
+   "year": 2025
+  },
+  {
+   "name": "VinePair summary of Ranker's best cocktails (top 20)",
+   "url": "https://vinepair.com/booze-news/best-cocktail-list/",
+   "method": "fan vote, ~2,500 voters / 22,000 votes on 109 choices (undated, likely older than 2025)",
+   "year": 2020
+  },
+  {
+   "name": "The Ice Maker Hub US cocktail study (national top 10 via Patch; Time Out NYC)",
+   "url": "https://patch.com/georgia/across-ga/amp/33030646/these-are-the-3-most-popular-cocktails-in-ga-and-how-to-make-them",
+   "method": "Google Keyword Planner search volume, Aug 2024-Jul 2025, US national top 10",
+   "year": 2025
+  },
+  {
+   "name": "Make Me a Cocktail Top 100 of 2025 (top 20 named)",
+   "url": "https://makemeacocktail.com/en/level-up/1186/the-top-100-cocktails-of-2025",
+   "method": "site/app usage: 3M+ page views, ~360K app searches, favorites (global user base)",
+   "year": 2025
+  }
+ ],
+ "list": [
+  "Margarita",
+  "Mojito",
+  "Old Fashioned",
+  "Espresso Martini",
+  "Negroni",
+  "Manhattan",
+  "Martini|dry martini|vodka martini",
+  "Daiquiri",
+  "Moscow Mule|mule",
+  "Paloma",
+  "Cosmopolitan|cosmo",
+  "Bloody Mary",
+  "Whiskey Sour",
+  "Long Island Iced Tea|long island",
+  "Gimlet",
+  "Amaretto Sour|amaretto",
+  "Aperol Spritz|spritz",
+  "Pornstar Martini|porn star martini",
+  "Penicillin",
+  "Boulevardier",
+  "Piña Colada|pina colada",
+  "White Russian",
+  "Mai Tai",
+  "Caipirinha"
+ ],
+ "avg_rank": [
+  2.25,
+  6.5,
+  8.25,
+  8.25,
+  11,
+  11.5,
+  11.75,
+  13.25,
+  15,
+  15.25,
+  15.5,
+  15.75,
+  16,
+  17,
+  18,
+  18.25,
+  18.25,
+  19,
+  19.25,
+  19.5,
+  20,
+  20,
+  20.5,
+  20.5
+ ],
+ "changes_vs_current": "Margarita to #1 (4/4 sources), Mojito up to #2, Negroni drops from #4 to #5, Old Fashioned/Espresso Martini hold. Added: Amaretto Sour, Pornstar Martini, Penicillin, Boulevardier, White Russian, Caipirinha. Dropped: Gin and Tonic, French 75, Mint Julep, Tom Collins, Sazerac, Dark 'n' Stormy (French 75 just missed at 20.75; Gin and Tonic only in Ranker). Also shifted: Aperol Spritz #8 to #17, Piña Colada #10 to #21. Note: Nielsen CGA US on-premise 2024 sales (https://bevindustry.com/articles/97163-these-cocktails-stole-the-spotlight-in-us-on-premise) lists Margarita, Mojito, Espresso Martini, Negroni, Spritz as top 5 - read but excluded from the math (only 5 items); it supports the top of this list.",
+ "confidence": "medium - 4 independent sources agree on the top ~8, but none is a US general-public poll of many cocktails: Drinks International is world-bar sales, Ranker snapshot is undated, Ice Maker Hub is search volume, Make Me a Cocktail is global app usage. Bartender-skewed picks (Penicillin, Boulevardier, Pornstar Martini at 18-20) come from Drinks International alone and may feel unfamiliar to casual US players; short source lists (10/20) inflate the missing-item penalty for mid-ranked items. Ranker's live page was blocked (HTTP 401)."
+}

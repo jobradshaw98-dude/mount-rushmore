@@ -1,0 +1,95 @@
+{
+ "sources": [
+  {
+   "name": "YouGov Ratings, most popular sitcoms (positive opinion), top 10: Simpsons 56, Big Bang 53, Family Guy 43, Two and a Half Men 43, Modern Family 42, South Park 42, Roseanne 41, Will & Grace 39, Mike & Molly 38, Parks 35",
+   "url": "https://yougov.com/en-us/articles/21688-big-bang-theory-most-popular-sitcom-women",
+   "method": "YouGov national panel",
+   "year": 2018
+  },
+  {
+   "name": "YouTube TV/OnePoll, 2,000 US adults choosing from 35 shows, top 20 published (sitcom subset used: Friends 43, Seinfeld 40, Three's Company 36, Frasier 36, Office 36, MASH 35, Simpsons 29, Family Guy 27, American Dad 23, Bob's Burgers 23, Community 21)",
+   "url": "https://thebrighterside.news/post/best-tv-shows-of-all-time-friends-beats-out-seinfeld-as-greatest-ever",
+   "method": "poll of 2,000 US adults",
+   "year": 2022
+  },
+  {
+   "name": "Nielsen streaming, top 20 acquired series Dec 29 2025 to Jun 28 2026 (sitcom subset: Big Bang, Family Guy, Bob's Burgers, Young Sheldon, Friends, American Dad, Simpsons, Modern Family)",
+   "url": "https://tvline.com/2229934/most-streamed-tv-shows-2026",
+   "method": "US viewing minutes",
+   "year": 2026
+  },
+  {
+   "name": "Rotten Tomatoes fall TV survey, favorite comedy, all respondents top 7: Friends, Seinfeld, Big Bang, Office, MASH, I Love Lucy, Parks",
+   "url": "https://editorial.rottentomatoes.com/article/fall-tv-survey-favorite-comedy-shows",
+   "method": "reader survey (n not given)",
+   "year": 2018
+  },
+  {
+   "name": "YouGov, most-liked sitcoms no longer on air among streaming subscribers, top 5: I Love Lucy, Fresh Prince, Bewitched, Seinfeld, Munsters (applied only to shows off air in Nov 2019)",
+   "url": "https://yougov.com/en-us/articles/26354-tv-sitcom-reboots-what-america-wants-watch",
+   "method": "YouGov survey",
+   "year": 2019
+  },
+  {
+   "name": "Context only, not in the math: YouGov/CBS all-time most popular TV shows (all genres, top 50; Cheers 26, Fresh Prince 24, Seinfeld 40, Friends 45, Office absent) skews old/kids/game shows; YouGov Q2 2026 contemporary TV top 20 has only Simpsons (2) and South Park (15) as sitcoms",
+   "url": "https://www.cbsnews.com/amp/pictures/most-popular-tv-shows-america-ranked",
+   "method": "context",
+   "year": 2021
+  }
+ ],
+ "list": [
+  "Family Guy",
+  "Friends",
+  "The Big Bang Theory|big bang theory|bbt",
+  "The Simpsons",
+  "Seinfeld",
+  "The Office",
+  "M*A*S*H|mash",
+  "Bob's Burgers|bobs burgers",
+  "I Love Lucy",
+  "Modern Family",
+  "American Dad!|american dad",
+  "Three's Company|threes company",
+  "Frasier",
+  "Two and a Half Men|2.5 men",
+  "Parks and Recreation|parks and rec",
+  "The Fresh Prince of Bel-Air|fresh prince",
+  "Roseanne",
+  "South Park",
+  "Young Sheldon",
+  "Bewitched",
+  "Mike & Molly|mike and molly",
+  "Community",
+  "The Munsters|munsters",
+  "Will & Grace|will and grace"
+ ],
+ "avg_rank": [
+  6.25,
+  6.4,
+  6.4,
+  6.75,
+  7.2,
+  9.4,
+  9.8,
+  10,
+  10.2,
+  10.25,
+  10.5,
+  10.6,
+  10.8,
+  11,
+  11.2,
+  11.6,
+  11.6,
+  11.75,
+  11.75,
+  11.8,
+  12,
+  12.2,
+  12.2,
+  12.25
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Friends, Seinfeld, Office, Simpsons, Big Bang Theory are the top 6 (BoJack and critic picks gone); streaming/animated sitcoms (Family Guy, Bob's Burgers, American Dad) and YouGov favorites (Big Bang, Two and a Half Men, Roseanne) rise; Cheers, Frasier-tier classics, Curb, Arrested Development, 30 Rock, B99, Schitt's Creek, HIMYM, Scrubs, Abbott, New Girl, That '70s Show, Everybody Loves Raymond have no public-poll evidence and fall out.",
+ "confidence": "low. No sitcom-specific, recent, large US poll was readable (YouGov Ratings sitcom page 404s, Ranker/IMDb blocked); the five sources are partial (top 5 to top 20) and two predate 2019. Top 6 is solid (Friends/Seinfeld/Office/Simpsons/Big Bang appear across several US sources); Family Guy at #1 is an artifact of streaming minutes plus YouGov 2018 and a human should likely put Friends/Seinfeld/Office above it. Positions 8-24 are mostly 1-2 sources and tie-heavy, so Roseanne, Mike & Molly, Munsters, Bewitched are weak. Including the YouGov/CBS 2020 all-time list would have pushed Gilligan's Island/Munsters/Beverly Hillbillies above The Office, so I excluded its numbers. Nothing in any readable source covers Cheers, Arrested Development, Parks (only 2 weak hits), so consider hand-adding Cheers/Parks/Frasier-era staples if the game wants them."
+}

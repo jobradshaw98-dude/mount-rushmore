@@ -1,0 +1,70 @@
+{
+ "sources": [
+  {
+   "name": "Inspired Taste favorite-pasta-shape survey (top 5 shapes only; read via the Inspired Taste page, matches Fox News and Mental Floss coverage)",
+   "url": "https://inspiredtaste.net/85199/chief-pasta-officer-dream-job",
+   "method": "poll of 1,007 Americans (self-reported); top 5 = spaghetti 26%, penne 25%, fettuccine 15%, elbow 14%, bowties 14%",
+   "year": 2025
+  },
+  {
+   "name": "YouGov Ratings: Most Popular Italian Dishes in America (dish-level; pasta dishes mapped to shapes: lasagna, mac and cheese->macaroni, spaghetti with meatballs->spaghetti, ravioli, fettuccine Alfredo, baked ziti, tortelloni, angel hair w/ shrimp, manicotti)",
+   "url": "https://yougov.com/en-us/ratings/italian-dishes",
+   "method": "YouGov Ratings popularity (% positive), 20 dishes, Q2 2026 average; sample size not published",
+   "year": 2026
+  }
+ ],
+ "list": [
+  "Spaghetti",
+  "Macaroni|elbows|elbow macaroni|mac",
+  "Fettuccine|fettucine",
+  "Lasagna|lasagne",
+  "Ravioli",
+  "Ziti|baked ziti",
+  "Tortellini|tortelloni",
+  "Angel Hair|capellini",
+  "Penne",
+  "Manicotti",
+  "Farfalle|bow ties|bowtie",
+  "Rigatoni",
+  "Linguine|linguini",
+  "Bucatini",
+  "Orecchiette",
+  "Pappardelle",
+  "Rotini",
+  "Gnocchi",
+  "Fusilli",
+  "Cavatappi",
+  "Orzo",
+  "Shells|conchiglie",
+  "Tagliatelle",
+  "Cavatelli"
+ ],
+ "avg_rank": [
+  2,
+  3.25,
+  5,
+  5.5,
+  7.5,
+  10,
+  10.5,
+  12,
+  13.5,
+  14,
+  14.75,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5
+ ],
+ "changes_vs_current": "Spaghetti stays #1; Macaroni jumps from 11 to 2, Lasagna 15 to 4, Ravioli 13 to 5, Fettuccine 4 to 3, Ziti 19 to 6; Penne falls 2 to 9 only because YouGov has no plain-penne dish (artifact, Inspired Taste has it #2); Manicotti added, Ditalini dropped. Ranks 12-24 have NO data and are the old list order (Rigatoni and Linguine first because Mental Floss/Inspired Taste show each winning a state).",
+ "confidence": "low. Only 2 fetched sources: one is a top-5-only poll, the other is dishes not shapes. Barilla National Spaghetti Day survey (n=1,800; reportedly spaghetti, angel hair, penne, fettuccine, lasagna) appeared in search snippets but the page would not load (AOL 404), so it is NOT used. Ranker pasta list (fan vote) returned 401/not found. No US sales data by shape found. Recommend treating top ~11 as sourced and the rest as unverified; Penne arguably belongs top 3."
+}

@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "Kitchen Infinity survey via Mental Floss (15 foods ranked)",
+   "url": "https://www.mentalfloss.com/food/most-popular-breakfast-foods",
+   "method": "poll of 2,500 US adults",
+   "year": 2022
+  },
+  {
+   "name": "Ranker fan vote via Uproxx (top 10 shown; burrito 34th, biscuits and gravy 37th). Ranker's own page returned 401, so this is second-hand",
+   "url": "https://uproxx.com/life/best-breakfast-foods-ranked/",
+   "method": "fan vote, 44,000 votes",
+   "year": 2022
+  },
+  {
+   "name": "OnePoll for Sabra via Today (eggs, coffee-only, cereal, breakfast sandwich, bacon)",
+   "url": "https://www.today.com/today/amp/tdna159329",
+   "method": "poll of 2,000",
+   "year": 2019
+  },
+  {
+   "name": "Grubhub 2022 top breakfast orders via Fox10 (sausage egg+cheese sandwich, doughnuts, sausage burritos, bagel+cream cheese, muffins)",
+   "url": "https://www.fox10phoenix.com/news/most-ordered-takeout-foods-2022-us-grubhub-report",
+   "method": "sales/order data",
+   "year": 2022
+  }
+ ],
+ "list": [
+  "Eggs|scrambled eggs|fried eggs",
+  "Cereal",
+  "Bacon",
+  "Fruit|fresh fruit",
+  "Toast",
+  "Pancakes|flapjacks|hotcakes",
+  "Omelette|omelet",
+  "French Toast",
+  "Waffles",
+  "Hash Browns|hashbrowns",
+  "Bagel|bagel and cream cheese|lox bagel",
+  "Breakfast Sandwich|egg sandwich|bacon egg and cheese|bec",
+  "Donut|doughnut",
+  "Breakfast Burrito",
+  "Avocado Toast",
+  "Yogurt Parfait|yogurt|parfait",
+  "Sausage|breakfast sausage",
+  "Oatmeal|porridge",
+  "Muffin|blueberry muffin",
+  "Biscuits and Gravy",
+  "Eggs Benedict|benedict",
+  "Chicken and Waffles",
+  "Croissant",
+  "Cinnamon Roll"
+ ],
+ "avg_rank": [
+  5,
+  6,
+  7,
+  7.2,
+  8,
+  8.2,
+  9.2,
+  10.2,
+  10.5,
+  11.2,
+  15.8,
+  16.8,
+  16.8,
+  16.8,
+  16.8,
+  17,
+  18,
+  18.5,
+  19.2,
+  19.2,
+  null,
+  null,
+  null,
+  null
+ ],
+ "changes_vs_current": "Eggs, Cereal, Bacon rise to the top; Pancakes drops from #1 to #6 and Waffles/French Toast to #8-9. Fruit and Toast are added (top 5 in two sources each, not on the current list). Dropped: Grits, Shakshuka. Eggs Benedict, Chicken and Waffles, Croissant and Cinnamon Roll (ranks 21-24) are kept from the current list with no source behind them.",
+ "confidence": "low-medium. Four sources, but no two share a granularity: Kitchen Infinity and OnePoll are broad categories (Eggs, Cereal), Ranker is dishes, Grubhub is delivery orders (skews to breakfast sandwich, donut, burrito). Ranks 11-20 are mostly penalty artifacts of items missing from short top-5 lists. Missing penalty for Ranker used 37+5=42, since its list reaches at least rank 37. Ranker data is second-hand. Ranks 21-24 are unsourced."
+}

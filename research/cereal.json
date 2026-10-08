@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "Pattern/The Takeout: Amazon consumer-demand ranking (top 10; Cream of Wheat #2 excluded as a hot cereal)",
+   "url": "https://thetakeout.com/most-popular-breakfast-cereal-usa-cheerios-amazon-2024-1851297366",
+   "method": "Amazon shopping-volume data",
+   "year": 2024
+  },
+  {
+   "name": "IRI top-10 best-selling cereals (via Fox News)",
+   "url": "https://www.foxnews.com/food-drink/top-10-best-selling-cereals.amp",
+   "method": "retail sales data, ranked, no figures published",
+   "year": 2016
+  },
+  {
+   "name": "Statista cereals consumed in past 12 months (top 3 only: Cinnamon Toast Crunch 43%, Cheerios 41%, Fruity Pebbles 34%)",
+   "url": "https://www.statista.com/chart/34203/cereal-consumption-by-brand-us/",
+   "method": "US consumer survey (sample size not shown on page)",
+   "year": 2025
+  },
+  {
+   "name": "Midwood Argus reader poll (top 7 only)",
+   "url": "https://midwoodargus.com/blog/2024/10/30/argus-poll-whats-the-best-breakfast-cereal",
+   "method": "poll of 211 high-school students, up to 3 picks; weak sample",
+   "year": 2024
+  }
+ ],
+ "list": [
+  "Cinnamon Toast Crunch|ctc",
+  "Cheerios",
+  "Frosted Flakes",
+  "Lucky Charms",
+  "Honey Bunches of Oats",
+  "Honey Nut Cheerios",
+  "Froot Loops|fruit loops",
+  "Raisin Bran",
+  "Cocoa Puffs",
+  "Special K",
+  "Frosted Mini-Wheats|mini wheats",
+  "Corn Flakes",
+  "Rice Krispies",
+  "Fruity Pebbles",
+  "Life|life cereal",
+  "Reese's Puffs",
+  "Cap'n Crunch|captain crunch",
+  "Apple Jacks",
+  "Golden Grahams",
+  "Cocoa Pebbles",
+  "Cookie Crisp",
+  "Trix",
+  "Crispix",
+  "Corn Pops"
+ ],
+ "avg_rank": [
+  3.25,
+  3.5,
+  5.25,
+  6.125,
+  6.5,
+  7.125,
+  8.5,
+  9.5,
+  10.25,
+  10.25,
+  10.5,
+  10.5,
+  11,
+  11.25,
+  11.25,
+  12.5,
+  12.5,
+  12.5,
+  12.5,
+  12.5,
+  12.5,
+  12.5,
+  12.5,
+  12.5
+ ],
+ "changes_vs_current": "Cinnamon Toast Crunch #1 (was 1 too) but Cheerios jumps 12 to 2, Frosted Flakes 2 to 3, Honey Bunches of Oats 9 to 5, Raisin Bran 17 to 8, Corn Flakes 18 to 12; Honey Nut Cheerios 3 to 6, Reese's Puffs 4 to 16, Fruity Pebbles 10 to 14. Added Special K and Life; dropped Honey Smacks and Kix. Ranks 16-24 have no data (old list order). Ranker (88k votes per search snippet) was not fetchable (401), so not used.",
+ "confidence": "low-medium. 4 real sources but none is a full consensus list: one is 2016 sales, one is Amazon search demand (biased to adult/hot cereals), two are top-3/top-7 only, one is a small student poll. Top ~8 agree across sources; 9-15 are thin; 16-24 are unsourced."
+}

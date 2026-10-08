@@ -2,6 +2,11 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-10-07: researched lists from #13
+
+### Changed
+- From game #13 (Oct 9), every topic uses a top 24 ranked from published polls, fan votes and sales instead of a hand-written list, with what people pick ranked above what critics pick. Sources for each topic are in research/. Games before #13 keep the lists they were played on.
+
 ## 2026-10-07: steeper scoring from #12
 
 ### Changed

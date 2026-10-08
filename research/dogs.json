@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "AKC Most Popular Dog Breeds 2025 (top 30 used)",
+   "url": "https://www.akc.org/expert-advice/dog-breeds/most-popular-dog-breeds-2025/",
+   "method": "AKC registration statistics",
+   "year": 2025
+  },
+  {
+   "name": "YouGov America's favorite dogs (head-to-head win %, 193 breeds; only top 10 plus Beagle 15, German Shepherd 19, French Bulldog 80 published; unlisted breeds scored as rank 24)",
+   "url": "https://yougov.com/en-us/articles/36600-ranked-americas-favorite-dogs",
+   "method": "poll of 2,541 US adults, 10 head-to-head matchups each",
+   "year": 2021
+  },
+  {
+   "name": "Rover annual pet-parent survey (mixed breed excluded)",
+   "url": "https://www.fox13news.com/news/national-dog-pay-popular-breeds-america-rover",
+   "method": "survey of 1,000 pet parents plus platform data; 7 breeds shown on fetched page",
+   "year": 2024
+  },
+  {
+   "name": "Forbes Advisor favorite breeds survey (read via AOL syndication; top 10)",
+   "url": "https://aol.com/survey-reveals-americas-favorite-dog-162000513.html",
+   "method": "survey of ~10,000 US dog parents",
+   "year": 2024
+  }
+ ],
+ "list": [
+  "Labrador Retriever|lab|labrador",
+  "Golden Retriever|golden",
+  "German Shepherd",
+  "Australian Shepherd|aussie",
+  "Beagle",
+  "English Bulldog|bulldog",
+  "Dachshund|wiener dog|sausage dog",
+  "Poodle",
+  "Border Collie",
+  "Rottweiler|rottie",
+  "German Shorthaired Pointer|gsp",
+  "Bernese Mountain Dog|berner|bernese",
+  "Shetland Sheepdog|sheltie",
+  "Miniature American Shepherd|mini aussie",
+  "Cane Corso|corso",
+  "Boxer",
+  "Cavalier King Charles Spaniel|cavalier",
+  "Yorkshire Terrier|yorkie",
+  "Alaskan Malamute|malamute",
+  "Doberman",
+  "Entlebucher Mountain Dog|entlebucher|entle",
+  "Boston Terrier|boston",
+  "Shih Tzu",
+  "Corgi|pembroke welsh corgi|pembroke"
+ ],
+ "avg_rank": [
+  2,
+  3.75,
+  7.25,
+  9,
+  10,
+  12.25,
+  12.75,
+  14.25,
+  14.75,
+  14.75,
+  15,
+  15.25,
+  15.25,
+  15.5,
+  15.5,
+  15.75,
+  15.75,
+  16,
+  16.25,
+  16.5,
+  16.5,
+  16.75,
+  16.75,
+  16.75
+ ],
+ "changes_vs_current": "Lab and Golden now 1-2 (Golden was 1). French Bulldog falls out (was 5; AKC #1 but YouGov ranks it 80th and it is absent from Forbes top 10), plus Husky, Great Dane, Chihuahua, Goldendoodle, Pit Bull, Shiba, Pug, Dalmatian, Siberian Husky dropped. Added English Bulldog already existed; newly added: German Shorthaired Pointer, Shetland Sheepdog, Miniature American Shepherd, Cane Corso, Yorkshire Terrier, Alaskan Malamute, Entlebucher, Boston Terrier, Shih Tzu. Ranks 8-24 are separated by under 3 points (near-ties).",
+ "confidence": "medium-low. 4 real sources but they measure different things (registrations vs cuteness head-to-head vs owner favorites) and disagree sharply on French Bulldog, Goldendoodle and Husky. YouGov full 193-breed table is not published on the page, so its missing-rank penalty is an assumption. Entlebucher and Malamute are YouGov head-to-head artifacts and may be too obscure for a typing game; Frenchie arguably should be kept (AKC #1 four years running, Rover #6). Ranker not fetchable."
+}

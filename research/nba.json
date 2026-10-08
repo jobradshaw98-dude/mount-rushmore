@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "ESPN, NBA 75th Anniversary Team ranked 1-76 (expert panel, voted on head-to-head matchups; panel size not stated)",
+   "url": "https://africa.espn.com/nba/story/_/id/33297498/the-nba-75th-anniversary-team-ranked-where-76-basketball-legends-check-our-list",
+   "method": "expert panel",
+   "year": 2022
+  },
+  {
+   "name": "Sports Illustrated, 50 Greatest NBA Players of All Time (SI staff)",
+   "url": "https://www.si.com/nba/2016/02/08/50-greatest-nba-players-all-time",
+   "method": "expert staff ranking",
+   "year": 2016
+  },
+  {
+   "name": "ClutchPoints, 50 Greatest NBA Players (Omar Guerrero)",
+   "url": "https://clutchpoints.com/nba/nba-stories/updating-ranking-the-50-greatest-players-nba",
+   "method": "single-writer ranking",
+   "year": 2024
+  },
+  {
+   "name": "Complex, 30 Best NBA Players of All Time (4 authors)",
+   "url": "https://www.complex.com/sports/a/adam-caparell/best-nba-players-of-all-time-ranked",
+   "method": "staff ranking",
+   "year": 2026
+  }
+ ],
+ "list": [
+  "Michael Jordan|mj",
+  "LeBron James|lebron|king james|bron",
+  "Kareem Abdul-Jabbar|kareem",
+  "Magic Johnson|magic",
+  "Wilt Chamberlain|wilt",
+  "Larry Bird|bird",
+  "Bill Russell",
+  "Kobe Bryant|kobe",
+  "Tim Duncan|duncan",
+  "Shaquille O'Neal|shaq",
+  "Oscar Robertson|big o",
+  "Hakeem Olajuwon|hakeem|the dream",
+  "Jerry West|the logo",
+  "Moses Malone",
+  "Stephen Curry|steph|curry",
+  "Kevin Durant|kd|durant",
+  "Karl Malone|the mailman",
+  "Julius Erving|dr j",
+  "Elgin Baylor",
+  "Charles Barkley|barkley|sir charles|chuck",
+  "David Robinson|the admiral",
+  "Dirk Nowitzki|dirk",
+  "Kevin Garnett|kg",
+  "Isiah Thomas|isiah|zeke"
+ ],
+ "avg_rank": [
+  1,
+  2.75,
+  3.25,
+  4.75,
+  5.5,
+  7,
+  7.5,
+  8,
+  9.75,
+  11,
+  11.5,
+  14,
+  14.75,
+  15,
+  16,
+  19,
+  19,
+  19,
+  19.25,
+  21.75,
+  24,
+  24.5,
+  24.75,
+  25
+ ],
+ "changes_vs_current": "Dropped Nikola Jokic and Giannis Antetokounmpo (only the 2024 and 2026 lists have them; ESPN 2022 and SI 2016 omit or predate them, which penalizes both: Jokic avg 43.5, Giannis 32.0). Added Charles Barkley and Isiah Thomas. Curry slides from 11th to 15th, Bill Russell and Kobe move up a few spots, Larry Bird to 6th. Ties at 19.0 (Durant, Karl Malone, Erving) broken by median rank.",
+ "confidence": "medium. All 4 sources list every item in the top 15 and the top ~10 order is very stable across them. Weaknesses: only 2 of the 4 are real expert panels (ESPN, SI); ClutchPoints and Complex are writer lists. Two sources are stale (SI 2016, ESPN 2022), so active stars (Jokic, Giannis, Curry, Durant) are underrated; ranks 16-24 are within about 1 point of each other, so treat them as a cluster. I could not read a large fan vote: Ranker returns 401 and the Athletic's NBA 75 is paywalled. Cross-check only (not in the average): The Athletic's 2024 poll of 133 NBA players (via CBS Sports) had Jordan 45.9%, LeBron 42.1%, Kobe 9.8%, which is consistent with the top 3 here. ESPN's 2016 #NBArank top 10 (same outlet as source 1) also agrees."
+}

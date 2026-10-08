@@ -1,0 +1,94 @@
+{
+ "sources": [
+  {
+   "name": "IMDb TV series sorted by number of ratings (most votes), top 100, read 2026-10-07",
+   "url": "https://www.imdb.com/search/title/?title_type=tv_series&sort=num_votes,desc",
+   "method": "Audience vote counts, fetched via r.jina.ai mirror (IMDb blocks direct curl). Live-action non-comedy ordinals derived by me (64 shows). Averaged with the next entry into ONE IMDb source so IMDb is not double-weighted.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "IMDb Top 250 TV (user ratings), Wayback snapshot 2026-10-06",
+   "url": "http://web.archive.org/web/20261006092430/https://www.imdb.com/chart/toptv/",
+   "method": "User-rating chart; drama-only ordinals derived by me (50 dramas; animation, docs, comedy, foreign-language, kids removed; Succession, Six Feet Under, This Is Us kept as dramas)",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouTube TV / OnePoll survey of 2,000 US adults, best TV show ever (35 shows; only top 20 published), via StudyFinds",
+   "url": "https://www.studyfinds.org/best-tv-shows-friends-seinfeld/",
+   "method": "Public poll. Drama ordinals: GoT, Battlestar Galactica, The Wire, Twin Peaks, The Sopranos, Law & Order, Grey's Anatomy (7). Excluded for shows that began 2022 or later.",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Nielsen streaming minutes, Dec 29 2025 to Jun 28 2026 (originals + acquired), via TVLine",
+   "url": "https://www.tvline.com/2229934/most-streamed-tv-shows-2026/",
+   "method": "US viewing minutes; drama ordinals for the 13 scripted dramas at or above 9.4B minutes (Stranger Things, The Pitt, Grey's, Bridgerton, Criminal Minds, The Rookie, Landman, SVU, NCIS, Law & Order, The Closer, Lincoln Lawyer, The Boys)",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Prior-file critic lists (WGA 2013, BBC Culture 2021, Rolling Stone 2022), used ONLY to break ties",
+   "url": "C:/Users/jobra/projects/mount-rushmore/research/dramas.json",
+   "method": "Tie-break only: Chernobyl over Dexter, Twilight Zone over Bridgerton, Fargo over Dark",
+   "year": 2022,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Game of Thrones|got",
+  "Breaking Bad",
+  "Stranger Things",
+  "The Sopranos",
+  "Sherlock",
+  "The Pitt|pitt",
+  "Better Call Saul|bcs",
+  "The Wire",
+  "True Detective",
+  "Peaky Blinders|peaky",
+  "Grey's Anatomy|greys anatomy|greys",
+  "Black Mirror",
+  "The Boys",
+  "Twin Peaks",
+  "Band of Brothers",
+  "Chernobyl",
+  "Dexter",
+  "The Walking Dead|walking dead|twd",
+  "Battlestar Galactica|bsg",
+  "Law & Order|law and order",
+  "The Twilight Zone|twilight zone",
+  "Bridgerton",
+  "Fargo",
+  "Dark"
+ ],
+ "avg_rank": [
+  7.67,
+  10.33,
+  10.67,
+  12,
+  12.17,
+  12.25,
+  12.83,
+  13.5,
+  13.67,
+  14.5,
+  15,
+  15,
+  15.17,
+  15.67,
+  16.17,
+  16.33,
+  16.33,
+  16.5,
+  16.67,
+  17,
+  17,
+  17,
+  17.17,
+  17.17
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Out (13): Mad Men, Succession, West Wing, Lost, Friday Night Lights, Six Feet Under, Leftovers, Deadwood, Severance, The Crown, Yellowstone, Ozark, House of the Dragon; In (13): Sherlock, The Pitt, Grey's Anatomy, Black Mirror, The Boys, Dexter, Walking Dead, Battlestar Galactica, Law & Order, Twilight Zone, Bridgerton, Fargo, Dark; Stranger Things moves from #12 to #3.",
+ "confidence": "low-medium. Top 4 (GoT, Breaking Bad, Stranger Things, Sopranos) pass the party test, but only 3 people-sources exist and the math is IMDb-heavy. IMDb skews young, male and international, which lifts Sherlock (#5), Peaky Blinders, Black Mirror, Dark and True Detective over shows Americans watch more (Yellowstone averages 21.7 and misses the cut; Lost 18.2, Succession 18.2, West Wing 18.0, Criminal Minds 17.3 and Narcos/Squid Game 17.5 are bunched just outside). The Pitt (#6) is a 2025 show and may be too recent. Positions 14-24 sit within 1.5 points and each rests on a single source. YouGov Ratings no longer has a TV-drama page (404); its all-time and current TV pages (top 20 only) are dominated by cartoons, game shows and procedurals, so I did not use them. No Harris, Morning Consult or Talker drama poll newer than 2022 turned up. Ranker blocked."
+}

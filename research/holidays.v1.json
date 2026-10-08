@@ -1,0 +1,76 @@
+{
+ "sources": [
+  {
+   "name": "YouGov favorite-day-of-the-year survey, as tabulated by Visual Capitalist (top 10 by % naming it favorite)",
+   "url": "https://www.visualcapitalist.com/ranked-americas-favorite-holidays/",
+   "method": "poll of 1,000 US adults, Feb 2-6 2024",
+   "year": 2024
+  },
+  {
+   "name": "YouGov holiday popularity (% who like), 15 holidays, via Stacker/KOTA (Black History Month occupies rank 14 but is not a holiday entry; July 4 is not in this table)",
+   "url": "https://www.kotatv.com/2022/12/24/how-popularity-us-holidays-varies-by-generation/",
+   "method": "YouGov tracking poll data",
+   "year": 2022
+  },
+  {
+   "name": "Harris Poll favorite holiday (top 6; read via KPEL syndication)",
+   "url": "https://kpel965.com/americas-favorite-holiday",
+   "method": "poll of 2,368 US adults (sample per Harris, from search result; fetched page did not state it)",
+   "year": 2015
+  }
+ ],
+ "list": [
+  "Christmas|xmas",
+  "Thanksgiving",
+  "Halloween",
+  "Easter",
+  "Mother's Day",
+  "New Year's Eve|nye|new years",
+  "Father's Day",
+  "Veterans Day",
+  "Memorial Day",
+  "Fourth of July|july 4th|4th of july|independence day",
+  "MLK Day|martin luther king day",
+  "Valentine's Day|valentines",
+  "Labor Day",
+  "St. Patrick's Day|saint patricks day|st paddys",
+  "Hanukkah|chanukah",
+  "Super Bowl Sunday|super bowl",
+  "Lunar New Year|chinese new year",
+  "Diwali",
+  "Cinco de Mayo",
+  "Mardi Gras",
+  "Juneteenth",
+  "Kwanzaa",
+  "April Fools' Day|april fools",
+  "Groundhog Day"
+ ],
+ "avg_rank": [
+  1.33,
+  1.67,
+  5.67,
+  5.83,
+  6.83,
+  7.67,
+  9.5,
+  9.67,
+  10,
+  10.33,
+  10.67,
+  11.17,
+  11.33,
+  12.67,
+  13.5,
+  15.33,
+  15.33,
+  15.33,
+  15.33,
+  15.33,
+  15.33,
+  15.33,
+  15.33,
+  15.33
+ ],
+ "changes_vs_current": "Top 3 now Christmas, Thanksgiving, Halloween then Easter and Mother's Day; Fourth of July falls 4 to 10 and Valentine's 7 to 12 (poll-based 'like/favorite' measures favor civic and family holidays: Veterans Day 21 to 8, Memorial Day 12 to 9, MLK 22 to 11, Father's Day 14 to 7). Ranks 16-24 have no data and keep the old order (Super Bowl Sunday only has a YouGov 2024 'least favorite' 13% signal).",
+ "confidence": "medium for ranks 1-15, none for 16-24. 3 real sources, but two are the same YouGov family and mix 'favorite' with 'like' measures; Fourth of July is penalized by being omitted from the 2022 15-item table (participation data like Prosper Insights puts it #2 but that page was not fetched). Statista Q3 2025 YouGov ratings (Thanksgiving, Veterans Day, Memorial Day top) confirmed the same pattern but figures were paywalled so not used."
+}

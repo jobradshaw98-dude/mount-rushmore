@@ -1,0 +1,76 @@
+{
+ "sources": [
+  {
+   "name": "ClutchPoints, 25 Greatest Golfers of All Time (Nate Duffett)",
+   "url": "https://clutchpoints.com/golf/25-greatest-golfers-all-time-ranked",
+   "method": "single-writer ranking, 25 items, includes women",
+   "year": 2023
+  },
+  {
+   "name": "NESN, Greatest Golfers of All Time (NESN Staff), 9 items",
+   "url": "https://nesn.com/golf/news/greatest-golfers-all-time-ranked/0e71ddef847f72fa1f33340a",
+   "method": "staff ranking, 9 items",
+   "year": 2025
+  },
+  {
+   "name": "Elegant Resorts, Top 10 Best Golfers of All Time (Mark Martin)",
+   "url": "https://stories.elegantresorts.co.uk/eleganttraveller/story/top-10-best-golfers-of-all-time-ranked",
+   "method": "travel-company golf specialists, 10 items",
+   "year": 2025
+  }
+ ],
+ "list": [
+  "Tiger Woods|tiger",
+  "Jack Nicklaus|nicklaus|golden bear",
+  "Bobby Jones",
+  "Ben Hogan",
+  "Arnold Palmer|arnie",
+  "Sam Snead",
+  "Gary Player",
+  "Tom Watson",
+  "Seve Ballesteros|seve",
+  "Phil Mickelson|phil|lefty",
+  "Walter Hagen",
+  "Gene Sarazen",
+  "Lee Trevino|trevino",
+  "Mickey Wright",
+  "Annika Sörenstam|annika",
+  "Byron Nelson",
+  "Kathy Whitworth|whitworth",
+  "Nick Faldo|faldo",
+  "Rory McIlroy|rory|mcilroy",
+  "Old Tom Morris|tom morris",
+  "Ernie Els|els",
+  "Vijay Singh|vijay",
+  "Nancy Lopez",
+  "Billy Casper"
+ ],
+ "avg_rank": [
+  1.33,
+  1.67,
+  4,
+  4.33,
+  4.67,
+  7,
+  7,
+  8.33,
+  10,
+  11,
+  12,
+  13.33,
+  13.67,
+  14,
+  14.33,
+  14.67,
+  15.33,
+  15.67,
+  16,
+  16.33,
+  16.67,
+  17,
+  17.33,
+  17.67
+ ],
+ "changes_vs_current": "Top 8 are the same eight names as before, but order shifts: Jones up to 3rd, Hogan 4th, Palmer drops from 3rd to 5th. Dropped Scottie Scheffler, Harry Vardon, Greg Norman (25th, just missed) and Brooks Koepka (none appear in any source I read). Added Kathy Whitworth and Nancy Lopez, plus Old Tom Morris (ClutchPoints lumps Old and Young Tom into one slot, so that entry is ambiguous). Snead/Player tie at 7.0 broken by current-list order.",
+ "confidence": "low. No poll or large fan vote was readable: Golf Digest's Harris Poll page returned 403, Ranker returned 401. All 3 sources are single-writer or company lists, and two of them are short (9 and 10 names), so ranks 12-24 rest on a single source (ClutchPoints) and are essentially ClutchPoints' order. Only the top ~8 are corroborated by all 3. Cross-checks that were fetched but not averaged: topendsports reader poll (unscientific, closed 2025) had Nicklaus narrowly ahead of Woods; LINKS Magazine (~2014, split into American men, international men and women, so it cannot be merged) also puts Nicklaus, Woods, Jones, Snead, Hogan on top. Women and early-era players are underrepresented, so consider a manual check before shipping."
+}

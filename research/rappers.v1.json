@@ -1,0 +1,89 @@
+{
+ "sources": [
+  {
+   "name": "Billboard and Vibe 50 Greatest Rappers of All Time (editorial boards)",
+   "url": "https://www.billboard.com/lists/best-rappers-all-time/",
+   "method": "Editorial ranking 1-50 (full list read from page); Wikipedia summary at https://en.wikipedia.org/wiki/Billboard_and_Vibe%27s_50_Greatest_Rappers_of_All_Time",
+   "year": 2023
+  },
+  {
+   "name": "NME.com readers' vote: Greatest Rappers Ever (top 30)",
+   "url": "https://www.nme.com/?p=1430325",
+   "method": "Reader vote, 1-30 (UK-leaning; voter count not stated). Excluded for Travis Scott (not yet active).",
+   "year": 2013
+  },
+  {
+   "name": "Celebrity Family Feud best-rapper survey (100 people surveyed), HipHopDX report",
+   "url": "https://hiphopdx.com/news/biggie-jay-z-nas-the-big-3-family-feud/",
+   "method": "Public survey, top 8 answers only: Snoop, 2Pac, Eminem, Dr. Dre, LL Cool J, Biggie, 50 Cent, Jay-Z.",
+   "year": 2024
+  },
+  {
+   "name": "YouGov Ratings: popularity of rap & hip-hop music artists (US)",
+   "url": "https://yougov.com/en-us/ratings/rap-hiphop-artists",
+   "method": "Share with a positive opinion; only top 20 visible (pool includes groups and non-rappers). It measures likability, not greatness.",
+   "year": 2026
+  },
+  {
+   "name": "Commercial composite (counted as ONE source): rapper-only order within RIAA US certified units (Wikipedia), Wikipedia worldwide certified units, and Billboard Greatest of All Time Billboard 200 Artists",
+   "url": "https://en.wikipedia.org/wiki/List_of_best-selling_music_artists_in_the_United_States",
+   "method": "Mean of each rapper's position among rappers in the three lists (missing = rappers listed + 5). Other URLs: https://en.wikipedia.org/wiki/List_of_best-selling_music_artists ; https://www.billboard.com/charts/greatest-of-all-time-artists/",
+   "year": 2026
+  }
+ ],
+ "list": [
+  "Eminem|slim shady",
+  "Tupac|2pac|tupac shakur",
+  "The Notorious B.I.G.|biggie|biggie smalls",
+  "Snoop Dogg|snoop",
+  "Nas",
+  "Kendrick Lamar|kendrick",
+  "Jay-Z|jayz|hov",
+  "André 3000|andre|andre 3000|3 stacks",
+  "Kanye West|kanye|ye",
+  "Ice Cube",
+  "LL Cool J|ll",
+  "50 Cent|fifty cent",
+  "Missy Elliott|missy",
+  "Big Pun|big punisher",
+  "Drake",
+  "Ghostface Killah|ghostface",
+  "Lil Wayne|weezy|wayne",
+  "Big Daddy Kane|kane",
+  "Black Thought|tariq trotter",
+  "Rakim",
+  "Nicki Minaj|nicki",
+  "Q-Tip|qtip",
+  "KRS-One|krs",
+  "Mos Def|yasin bey"
+ ],
+ "avg_rank": [
+  3.7,
+  7.3,
+  8.6,
+  10.6,
+  10.8,
+  11,
+  11.7,
+  13,
+  13.7,
+  13.8,
+  14.6,
+  15.4,
+  16.2,
+  16.2,
+  16.5,
+  17,
+  17.1,
+  17.6,
+  17.8,
+  18,
+  18.6,
+  18.6,
+  18.8,
+  19
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Out: J. Cole, Lauryn Hill, Dr. Dre, Method Man, Busta Rhymes, DMX, Travis Scott (Dre ranks 28th; Cole 26th, Lauryn 25th, just outside). In: Ice Cube/LL/50 Cent moved up, plus Big Pun, Ghostface, Big Daddy Kane, Black Thought, Q-Tip, Mos Def from the Billboard and NME lists.",
+ "confidence": "low: only ONE rigorous rap-specific panel (Billboard/Vibe 2023) exists in what I could fetch. The other inputs are weak (NME 2013 UK reader vote, a 100-person Family Feud survey with top 8 only, YouGov likability top 20, sales). Ranker was skipped as instructed; Rolling Stone and Complex have no all-time rapper list I could read; Forbes list returned 403. Averages are tightly bunched (positions 10-24 span only 13.8-19.0), so order there is noisy and positions 14, 16, 18-19, 22-24 (Big Pun, Ghostface, Kane, Black Thought, Q-Tip, KRS-One, Mos Def) come mostly from the NME vote. Billboard/Vibe alone would give: Jay-Z, Kendrick, Nas, Tupac, Eminem, Biggie, Lil Wayne, Drake, Snoop, Nicki, Kanye, Andre 3000. Consider using Billboard/Vibe as the backbone and treating this blend with caution."
+}

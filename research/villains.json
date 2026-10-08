@@ -1,0 +1,94 @@
+{
+ "sources": [
+  {
+   "name": "Fandango fan poll, Best Movie Villains Ever (top 15 shown; 'thousands of Fandango movie fans', no n given)",
+   "url": "https://www.fandango.com/movie-news/best-movie-villains-ever-755199",
+   "method": "fan vote, US moviegoers",
+   "year": 2024
+  },
+  {
+   "name": "Empire readers' vote, Greatest Movie Villains (top 10; fan-voted, readers not journalists; international readership, no n given)",
+   "url": "https://screenrant.com/darth-vader-joker-best-movie-villains-empire/",
+   "method": "fan vote",
+   "year": 2018
+  },
+  {
+   "name": "Shane Co. Google Trends study, most popular villain by US state (live-action: Joker 9 states, Hannibal 6, Bane 4; Disney: Scar 7, Queen of Hearts 6, Cruella/Maleficent 3). Used ONLY to fill positions 21-24",
+   "url": "https://theloupe.wpengine.com/articles-and-news/most-popular-movie-villains-across-america/",
+   "method": "US search interest by state, 87 pre-selected villains",
+   "year": 2022
+  },
+  {
+   "name": "Context only, not in the math: Hollywood Reporter survey of 1,000 industry pros, top 5 = Vader, Hannibal, Wicked Witch, Joker, Ratched",
+   "url": "https://mentalfloss.com/article/551834/favorite-movie-villains",
+   "method": "industry survey",
+   "year": 2018
+  },
+  {
+   "name": "Context only: global search-data ranking (Thanos, Vader, Joker, Voldemort, Kylo Ren, Hannibal, Terminator, Palpatine, Alien, Farquaad)",
+   "url": "https://flicks.com.au/features/the-worlds-top-10-movie-villains-according-to-an-exhaustive-online-poll",
+   "method": "search data, global",
+   "year": 2020
+  }
+ ],
+ "list": [
+  "Darth Vader|vader",
+  "The Joker|joker",
+  "Hannibal Lecter|hannibal",
+  "Voldemort|lord voldemort",
+  "Hans Gruber|gruber",
+  "Freddy Krueger|freddy",
+  "Thanos",
+  "Michael Myers",
+  "The Terminator|t 800",
+  "Loki",
+  "The Wicked Witch of the West|wicked witch|wicked witch of the west",
+  "Hans Landa|colonel landa|landa",
+  "Norman Bates",
+  "Kylo Ren|kylo",
+  "Pennywise",
+  "Agent Smith",
+  "Anton Chigurh|chigurh",
+  "Nurse Ratched|ratched",
+  "Sauron",
+  "The Alien|alien|xenomorph",
+  "Scar",
+  "Queen of Hearts",
+  "Bane",
+  "Cruella de Vil|cruella|cruella deville"
+ ],
+ "avg_rank": [
+  1,
+  2.5,
+  3.5,
+  6.5,
+  7,
+  10,
+  10.5,
+  11,
+  11.5,
+  11.5,
+  12,
+  13,
+  13,
+  13.5,
+  13.5,
+  14,
+  14,
+  14.5,
+  15,
+  15,
+  null,
+  null,
+  null,
+  null
+ ],
+ "no_data_positions": [
+  21,
+  22,
+  23,
+  24
+ ],
+ "changes_vs_current": "Vader/Joker/Hannibal restored to the top 3, Voldemort and Gruber 4-5; critic picks (Harry Powell, Amon Goeth, Cody Jarrett, Alex Forrest etc.) gone; Chigurh, Landa, Bates, Ratched, Wicked Witch, Sauron kept; Palpatine, Ursula, Maleficent, Jaws, Gollum, Cruella-tier Disney villains drop except Scar/Cruella/Queen of Hearts at 21-24; added Loki, Kylo Ren, Bane, Queen of Hearts.",
+ "confidence": "low-medium. Only two usable fan votes with different audiences (Fandango = US moviegoers; Empire readers = international), 15 and 10 items long, so positions 11-20 are mostly single-source and tie-heavy. Positions 21-24 rest on one weak source (US Google Trends state-win counts from a pre-selected list) and are flagged no-data. Ranker (129K votes) and IMDb polls were unreadable (blocked), and the two sources agree strongly on Vader/Joker/Hannibal, the 2018 THR industry poll agrees with them too. Kylo Ren and Loki are Empire-reader artifacts and are the first to cut if it feels off."
+}

@@ -1,0 +1,95 @@
+{
+ "sources": [
+  {
+   "name": "Rolling Stone 100 Greatest Artists (2011 update), critic/musician panel of 55",
+   "url": "https://www.rollingstone.com/music/music-lists/100-greatest-artists-147446/",
+   "method": "Panel ranking. Ranks 51-100 read from the rollingstone.com page; ranks 1-50 read from the listchallenges.com transcription (https://www.listchallenges.com/rolling-stones-100-greatest-artists-list). Stale for post-2010 careers: excluded for Taylor Swift, Drake, Rihanna.",
+   "year": 2011
+  },
+  {
+   "name": "VH1 100 Greatest Artists of All Time (via Stereogum list page)",
+   "url": "https://www.stereogum.com/495331/vh1-100-greatest-artists-of-all-time/list/",
+   "method": "TV/industry panel ranking 1-100. Excluded for Taylor Swift, Drake, Rihanna (career too young).",
+   "year": 2010
+  },
+  {
+   "name": "Billboard Greatest of All Time Hot 100 Artists",
+   "url": "https://www.billboard.com/charts/greatest-hot-100-artists/",
+   "method": "Chart-performance points on the weekly Hot 100 (Aug 1958 to Oct 2015 data). Page updated 2024.",
+   "year": 2024
+  },
+  {
+   "name": "Billboard Greatest of All Time Billboard 200 Artists",
+   "url": "https://www.billboard.com/charts/greatest-of-all-time-artists/",
+   "method": "Album-chart-performance points; read live on 2026-10-07 (page loaded 138 entries, capped at top 100 here).",
+   "year": 2026
+  },
+  {
+   "name": "RIAA certified album-equivalent units, top 100 (Wikipedia table citing RIAA, as of Nov 30 2025)",
+   "url": "https://en.wikipedia.org/wiki/List_of_best-selling_music_artists_in_the_United_States",
+   "method": "US certified units incl. streaming equivalents; Wikipedia page title is 'List of highest-certified music artists in the United States'.",
+   "year": 2025
+  },
+  {
+   "name": "Wikipedia List of best-selling music artists (ordered by total certified units, worldwide, available markets)",
+   "url": "https://en.wikipedia.org/wiki/List_of_best-selling_music_artists",
+   "method": "Rank order by total certified units from IFPI/RIAA/BPI-type certifications; top 100 used.",
+   "year": 2026
+  }
+ ],
+ "list": [
+  "The Beatles|beatles",
+  "Elvis Presley|elvis",
+  "The Rolling Stones|stones|rolling stones",
+  "Michael Jackson|mj",
+  "Taylor Swift|taylor",
+  "Madonna",
+  "Elton John",
+  "Drake|drizzy",
+  "Rihanna|riri",
+  "Led Zeppelin|zeppelin",
+  "Bruce Springsteen|springsteen|the boss",
+  "Whitney Houston|whitney",
+  "Stevie Wonder",
+  "Mariah Carey|mariah",
+  "Prince",
+  "Billy Joel",
+  "U2",
+  "The Beach Boys|beach boys",
+  "Queen",
+  "Pink Floyd",
+  "Bob Dylan|dylan",
+  "Eminem|slim shady",
+  "Eagles|the eagles",
+  "Beyoncé|beyonce"
+ ],
+ "avg_rank": [
+  1.2,
+  5.7,
+  10,
+  10.3,
+  12,
+  13.8,
+  16.5,
+  19.8,
+  27,
+  29,
+  35.2,
+  36.3,
+  37.7,
+  38.5,
+  39.5,
+  39.5,
+  43.7,
+  44.2,
+  45.7,
+  47,
+  47.2,
+  48,
+  49.5,
+  50
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Out: Bowie, Aretha, Nirvana, Hendrix, Johnny Cash, Sinatra, Bob Marley, Fleetwood Mac. In: Drake, Rihanna, Mariah Carey, Billy Joel, U2, Beach Boys, Eagles, Eminem; Queen, Pink Floyd, Dylan, Prince, Stevie, Whitney slide down. Averages were computed with every source capped at top 100 (missing = 105). Prince and Billy Joel tie at 39.5 and I put Prince first on best single-source rank (7 vs 9).",
+ "confidence": "medium-low: 4 of 6 sources are sales/chart data, which lifts Drake, Rihanna, Mariah, Billy Joel, Eagles and sinks critic favorites (Dylan 21st, Queen 19th, Bowie/Aretha/Hendrix/Marley out). Only RS 2011 and VH1 2010 are critic panels and both are 13+ years old. The top 7 are stable across sources. Positions 8-24 are close (averages 20-50) and swing with source choice. YouGov Ratings (Q2 2026) was read but not averaged because it shows only the top 20 by likability (Dolly Parton, Stevie, Whitney, Elton, Ray Charles, Cash...). RateYourMusic/Acclaimed Music returned 403, so no modern critic aggregate. Tie of Prince and Joel is arbitrary."
+}

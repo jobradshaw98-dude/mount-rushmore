@@ -1,0 +1,91 @@
+{
+ "sources": [
+  {
+   "name": "Inspired Taste favorite-pasta-shape survey: Spaghetti 26, Penne 25, Fettuccine 15, Elbow 14, Bowtie 14 (top 5 national); orzo and angel hair tied as least favorite (18%)",
+   "url": "https://inspiredtaste.net/85199/chief-pasta-officer-dream-job",
+   "method": "Self-reported survey, 1,007 Americans, Apr 2025 (also reported by Fox News and Mental Floss)",
+   "year": 2025
+  },
+  {
+   "name": "Barilla National Spaghetti Day survey, top 5: Spaghetti, Angel Hair, Penne, Fettuccine, Lasagna",
+   "url": "https://sg.style.yahoo.com/most-loved-pasta-shape-us-173000937.html",
+   "method": "Barilla consumer survey (Tasting Table: 1,800 consumers, late 2024); no percentages published",
+   "year": 2024
+  },
+  {
+   "name": "YouGov Ratings Q2 2026, pasta dishes mapped to shape (Lasagna 85, Macaroni and cheese 81, Spaghetti with meatballs 78, Ravioli 76, Fettuccine Alfredo 74, Baked Ziti 66, Tortelloni 64, Angel Hair with Shrimp 63, Stuffed Manicotti 58)",
+   "url": "https://yougov.com/en-us/ratings/italian-dishes",
+   "method": "YouGov Ratings % positive, Q2 2026; dish-level not shape-level",
+   "year": 2026
+  }
+ ],
+ "list": [
+  "Spaghetti",
+  "Fettuccine|fettucine",
+  "Lasagna|lasagne",
+  "Macaroni|elbows|elbow macaroni",
+  "Penne",
+  "Angel Hair|capellini",
+  "Ravioli",
+  "Ziti|baked ziti",
+  "Tortellini|tortelloni",
+  "Farfalle|bow ties|bowtie|bowties",
+  "Manicotti",
+  "Rigatoni",
+  "Linguine|linguini",
+  "Rotini",
+  "Bucatini",
+  "Orecchiette",
+  "Pappardelle",
+  "Gnocchi",
+  "Fusilli",
+  "Cavatappi",
+  "Orzo",
+  "Shells|conchiglie",
+  "Tagliatelle",
+  "Cavatelli"
+ ],
+ "avg_rank": [
+  1.67,
+  4,
+  5.33,
+  5.5,
+  6.33,
+  6.67,
+  8,
+  8.67,
+  9,
+  9.5,
+  9.67,
+  11.33,
+  11.33,
+  11.33,
+  11.33,
+  11.33,
+  11.33,
+  11.33,
+  11.33,
+  11.33,
+  11.33,
+  11.33,
+  11.33,
+  11.33
+ ],
+ "no_data_positions": [
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24
+ ],
+ "changes_vs_current": "Spaghetti stays 1; Fettuccine 4 to 2, Lasagna 15 to 3, Macaroni 11 to 4, Penne 2 to 5 (artifact), Angel Hair 17 to 6, Ravioli 13 to 7, Ziti 19 to 8, Tortellini 12 to 9, Farfalle 9 to 10, Manicotti added at 11, Ditalini dropped; 12-24 no poll evidence (Rigatoni, Linguine, Rotini first because Inspired Taste state-level results show each winning states).",
+ "confidence": "low. Only 3 sources: two are top-5 lists and the third is dish-level. Penne is #2 in Inspired Taste and #3 in Barilla but is absent from the YouGov dish list (no plain-penne dish), so its mechanical rank of 5 is an artifact; it belongs top 3 on shape-level evidence. Lasagna/Macaroni/Ravioli are boosted by YouGov dish popularity (mac and cheese, lasagna), not shape preference. Not found: shape-level US sales (Circana/IRI/NPA) or a Harris/YouGov shape poll. Old Experian 2004 data (spaghetti used by 63.6% of households, macaroni 41%) found but excluded as pre-2019."
+}

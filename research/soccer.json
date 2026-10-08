@@ -1,0 +1,76 @@
+{
+ "sources": [
+  {
+   "name": "FourFourTwo, 100 Greatest Footballers (Oct 2022 update), top 30 read via GiveMeSport copy (author Danny Ryan)",
+   "url": "https://www.givemesport.com/88069545-messi-ronaldo-pele-maradona-zidane-the-100-greatest-footballers-ever/",
+   "method": "magazine expert ranking, 100 items; I read only the top 30",
+   "year": 2022
+  },
+  {
+   "name": "Sports Illustrated, 65 Greatest Soccer Players of All Time (peak-based), top 30 read",
+   "url": "https://www.si.com/soccer/2019/05/21/50-greatest-footballers-all-time",
+   "method": "staff ranking, 65 items; I read only the top 30",
+   "year": 2024
+  },
+  {
+   "name": "IFFHS, Men's Historical All-Time Top 10 (via Noticias RCN)",
+   "url": "https://www.noticiasrcn.com/deportes/los-10-mejores-futbolistas-de-la-historia-segun-la-iffhs-892440",
+   "method": "football-statistics federation, top 10 only",
+   "year": 2025
+  }
+ ],
+ "list": [
+  "Lionel Messi|messi|leo messi",
+  "Diego Maradona|maradona",
+  "Pelé",
+  "Cristiano Ronaldo|cr7|cristiano|ronaldo",
+  "Johan Cruyff|cruyff",
+  "Zinedine Zidane|zidane|zizou",
+  "Franz Beckenbauer|beckenbauer",
+  "Ronaldo Nazário|r9|brazilian ronaldo",
+  "Alfredo Di Stéfano|di stefano",
+  "Michel Platini|platini",
+  "Gerd Müller|gerd muller|muller|der bomber",
+  "Ferenc Puskás|puskas",
+  "George Best",
+  "Garrincha",
+  "Paolo Maldini|maldini",
+  "Zico",
+  "Romário|romario",
+  "Bobby Charlton|charlton|sir bobby",
+  "Marco van Basten|van basten|basten",
+  "Giuseppe Meazza|meazza",
+  "Eusébio",
+  "Andrés Iniesta|iniesta",
+  "Roberto Baggio|baggio",
+  "Raymond Kopa|kopa"
+ ],
+ "avg_rank": [
+  1,
+  2,
+  3.33,
+  5,
+  5.33,
+  6,
+  6.67,
+  7.67,
+  10.33,
+  12.33,
+  12.67,
+  12.67,
+  13,
+  13.67,
+  15,
+  15,
+  17.67,
+  18,
+  18.33,
+  18.67,
+  19,
+  20.33,
+  21.67,
+  22
+ ],
+ "changes_vs_current": "Top 9 are the same names as the current list, reordered (CR7 4th, Zidane 6th, R9 8th). Dropped 10 modern or later names: Ronaldinho, Mbappé, Henry, Xavi, Yashin, Kaká, Zlatan, Haaland, Modrić, Neymar. Added 10 older greats: Platini, Gerd Müller, Garrincha, Zico, Romário, Bobby Charlton, van Basten, Meazza, Baggio, Kopa. Ties (Puskás/Müller, Maldini/Zico) broken by median then current-list order.",
+ "confidence": "medium-low. Only 3 sources, and 2 are truncated (I read only the top 30 of FourFourTwo's 100 and SI's 65; items beyond that are scored as rank 35, so Henry, Yashin, Kaká etc. may be understated). The IFFHS list is top 10 only, so everyone outside it gets 15, which flatters the 11th-30th names. Ranks 17-24 are separated by under 4 points and could swap on a longer read; Ronaldinho (23.67) narrowly misses against Kopa (22.0) and Baggio (21.67). Not averaged but fetched: YouGov UK poll of 2,000 adults (Jan 26, 2023, choosing from FourFourTwo's top 25) had Pelé 31%, Messi 27%, Best/Maradona/Ronaldo 5% each, Charlton 3%, Zidane 2%. The Athletic's 'The Soccer 100' (Dec 2025) per Planet Football has Messi 1st, Ronaldo 5th, Mbappé 29th, Modrić 36th, Neymar 46th, so modern names landing outside the top 24 is consistent; I could not read its full top 30. FourFourTwo's own 2017 list had Maradona above Messi."
+}

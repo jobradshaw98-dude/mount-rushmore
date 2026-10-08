@@ -1,0 +1,97 @@
+{
+ "sources": [
+  {
+   "name": "YouGov poll of Disney princess movies, 'loved it' (Moana 54, Aladdin 50, Beauty and the Beast 49, Frozen 49, Pocahontas last of 13; Brave excluded as Pixar)",
+   "url": "https://yougov.com/en-us/articles/45848-americans-favorite-disney-princess-cinderella-poll",
+   "method": "poll of 1,000 US adults, Apr 12-20 2023",
+   "year": 2023
+  },
+  {
+   "name": "UpgradedPoints Disney vs Pixar survey, favorite Disney movie by state (Lion King 25 states, Aladdin 9, Beauty and the Beast 3, Mulan 3, Little Mermaid 1)",
+   "url": "https://upgradedpoints.com/news/disney-vs-pixar-american-preferences/",
+   "method": "survey of 3,100+ US adults, Apr 2022",
+   "year": 2022
+  },
+  {
+   "name": "YouGov Ratings, most popular animation movies Q2 2026, top 20 (Disney Animation films in it: Lion King 1st at 80%, Moana 20th at 59%; Lion King also #2 in YouGov all-time movies)",
+   "url": "https://yougov.com/en-us/ratings/animation-movies",
+   "method": "YouGov positive-opinion, US",
+   "year": 2026
+  },
+  {
+   "name": "Rotten Tomatoes users' Disney Animated Films Showdown (Lion King winner, Beauty and the Beast runner-up; Frozen, Moana, Mulan, Aladdin named as strong competitors, treated as tied 3rd-6th)",
+   "url": "https://editorial.rottentomatoes.com/article/disney-animated-films-showdown",
+   "method": "fan bracket vote, hundreds of thousands of votes",
+   "year": 2021
+  },
+  {
+   "name": "OnBuy/Ahrefs most-searched classic Disney movies, 20 pre-2000 films (via Mental Floss). Search interest, not a preference poll, and excludes post-1999 films",
+   "url": "https://www.mentalfloss.com/article/622713/most-popular-animated-classic-disney-movies",
+   "method": "monthly search volume",
+   "year": 2020
+  },
+  {
+   "name": "Wikipedia: highest-grossing US/Canada films adjusted for ticket-price inflation (Snow White #10, 101 Dalmatians #12, Lion King #19, Fantasia #23, Jungle Book #36, Sleeping Beauty #37, Pinocchio #48, Cinderella #70; Disney films absent from the top ~100 got the missing penalty)",
+   "url": "https://en.wikipedia.org/wiki/List_of_highest-grossing_films_in_the_United_States_and_Canada",
+   "method": "attendance/sales proxy, US",
+   "year": 2025
+  }
+ ],
+ "list": [
+  "The Lion King",
+  "Aladdin",
+  "Beauty and the Beast",
+  "Moana",
+  "Frozen",
+  "Cinderella",
+  "Snow White and the Seven Dwarfs|snow white",
+  "The Jungle Book",
+  "Fantasia",
+  "Tarzan",
+  "Mulan",
+  "Hercules",
+  "Dumbo",
+  "Sleeping Beauty",
+  "Pinocchio",
+  "Alice in Wonderland|alice in wonderland",
+  "Pocahontas",
+  "Peter Pan",
+  "101 Dalmatians|one hundred and one dalmatians",
+  "Robin Hood",
+  "The Little Mermaid",
+  "Bambi",
+  "The Hunchback of Notre Dame|hunchback",
+  "Tangled"
+ ],
+ "avg_rank": [
+  1.4,
+  5.08,
+  5.33,
+  6.1,
+  7.6,
+  8,
+  8,
+  8.2,
+  9,
+  9.2,
+  9.4,
+  9.4,
+  9.6,
+  10,
+  10,
+  10,
+  10.5,
+  10.6,
+  11,
+  11,
+  11.2,
+  11.6,
+  11.8,
+  null
+ ],
+ "no_data_positions": [
+  24
+ ],
+ "changes_vs_current": "Zootopia (was #1 in first pass), Encanto, Lilo & Stitch, Emperor's New Groove, Wreck-It Ralph, Big Hero 6 and Winnie the Pooh drop out for lack of public-preference evidence; Lion King back to #1, then Aladdin, Beauty and the Beast, Moana, Frozen; Alice in Wonderland, Pocahontas, Robin Hood, Hunchback enter on 2020 search volume only.",
+ "confidence": "low-medium. Top 5 (Lion King, Aladdin, Beauty and the Beast, Moana, Frozen) is well supported by 4 independent US sources including a hundreds-of-thousands-vote fan bracket and YouGov. Below that, evidence is thin and old-skewed (search volume of pre-2000 films, inflation-adjusted attendance); modern favorites (Tangled, Lilo & Stitch, Encanto, Zootopia, Little Mermaid at 21) are probably understated because no readable source ranks post-2010 films beyond Moana/Frozen. Position 24 (Tangled) is a no-data placeholder. Ranker, IMDb and the YouGov per-movie pages were unreadable."
+}

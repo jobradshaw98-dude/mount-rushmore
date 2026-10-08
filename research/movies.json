@@ -1,0 +1,94 @@
+{
+ "sources": [
+  {
+   "name": "Harris Poll America's Favorite Movie, Nov 12-17 2014, n=2,276 US adults (top 10 only). Read as the iCheckMovies transcription via r.jina.ai; the Harris page itself was not fetched",
+   "url": "https://icheckmovies.com/lists/the+harris+poll+americas+favorite+movie/elessar/",
+   "method": "Open-ended 'favorite movie of all time'; ranks 1-10 (Gone with the Wind, Star Wars, Titanic, Godfather, LOTR, Sound of Music, Dirty Dancing, Wizard of Oz, It's a Wonderful Life, E.T.). Missing = 15.",
+   "year": 2014,
+   "kind": "people"
+  },
+  {
+   "name": "Talker Research: America's all-time favorite movies, n=2,000 US adults, Jan 31-Feb 3 2025",
+   "url": "https://talkerresearch.com/whats-americas-all-time-favorite-movie/",
+   "method": "Top 20 as published (ties at 12% taken in listed order). Series entries mapped to flagship film (Star Wars, Indiana Jones to Raiders, Jurassic Park). Missing = 25.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings: most popular all-time movies in America",
+   "url": "https://yougov.com/en-us/ratings/all-time-movies",
+   "method": "Share with a positive opinion; top 20 only (page data confirmed in the HTML). Skews family/holiday films. Missing = 25.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Wikipedia: highest-grossing films in US and Canada, adjusted for ticket-price inflation (top 30; a 2026 release that is still in theaters was ignored)",
+   "url": "https://en.wikipedia.org/wiki/List_of_highest-grossing_films_in_the_United_States_and_Canada",
+   "method": "Domestic box office attendance proxy, ranks 1-30. Missing = 35. Only counts films a lot of people paid to see; favors 1930s-70s epics.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "IMDb Top 250 (user ratings), read via r.jina.ai mirror",
+   "url": "https://www.imdb.com/chart/top/",
+   "method": "Ranks 1-250 read live today; ranks capped at 35, absent = 35. Rating-weighted, so it favors acclaimed films over broad favorites.",
+   "year": 2026,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Forrest Gump|forrest gump",
+  "The Godfather|godfather",
+  "Star Wars|a new hope|star wars episode iv",
+  "Titanic",
+  "The Lion King|lion king",
+  "The Wizard of Oz|wizard of oz|oz",
+  "Gone with the Wind|gwtw",
+  "The Shawshank Redemption|shawshank",
+  "Jurassic Park",
+  "The Sound of Music|sound of music",
+  "The Empire Strikes Back|empire strikes back",
+  "The Lord of the Rings: The Return of the King|return of the king|lotr|lord of the rings",
+  "Home Alone",
+  "E.T. the Extra-Terrestrial|et|e.t.",
+  "Back to the Future|bttf",
+  "The Dark Knight|dark knight",
+  "Raiders of the Lost Ark|raiders|indiana jones",
+  "The Godfather Part II|godfather 2|godfather part 2|godfather ii|godfather part ii",
+  "Toy Story",
+  "The Ten Commandments|ten commandments",
+  "Jaws",
+  "Dirty Dancing",
+  "Schindler's List|schindlers list",
+  "Ghostbusters"
+ ],
+ "avg_rank": [
+  12.8,
+  13.6,
+  13.6,
+  14.2,
+  15,
+  16.2,
+  17.4,
+  18.2,
+  18.6,
+  18.8,
+  18.8,
+  19,
+  19,
+  19.8,
+  20.4,
+  20.6,
+  20.8,
+  20.8,
+  21,
+  21.2,
+  21.4,
+  21.4,
+  21.4,
+  21.6
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Critic canon replaced by people picks: Forrest Gump, Titanic, Lion King, Wizard of Oz, Gone with the Wind, Sound of Music, Home Alone, Toy Story, Ten Commandments, Dirty Dancing, Ghostbusters enter; Shawshank and Dark Knight stay (8th, 16th); Seven Samurai, City Lights, Psycho, Apocalypse Now, Vertigo, Citizen Kane, Casablanca, Pulp Fiction, Goodfellas, Fight Club, Matrix, Inception, Gladiator, Saving Private Ryan and Fight Club drop out.",
+ "confidence": "medium. Top 10 passes the 'typical adult at a party' check: Gump, Godfather, Star Wars, Titanic, Lion King, Wizard of Oz, Gone with the Wind, Shawshank, Jurassic Park, Sound of Music. Weak spots: (1) positions 12-24 are near-tied (19.0 to 21.6) and mostly rest on 1-2 sources, so order there is soft; (2) The Ten Commandments (#20) is a box-office-only artifact of the inflation-adjusted list (Doctor Zhivago, Exorcist, Snow White sat just behind it) and a hand swap to Pulp Fiction, Fight Club, Matrix, or Inception would likely suit casual players better; (3) the Harris poll is 12 years old and was read second-hand; (4) the 2014-2025 polls are only top 10-20, so the missing-penalty rule does a lot of the work. Ties broken by source count, then critic standing from the prior research file (not re-fetched): Godfather before Star Wars, Return of the King before Home Alone, Jaws before Dirty Dancing. No Morning Consult or Harris 2020s all-time poll exists to corroborate."
+}

@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "Rotten Tomatoes editorial, All Pixar Movies Ranked by Tomatometer (31 films, updated Sep 3 2026; page order used)",
+   "url": "https://editorial.rottentomatoes.com/article/all-pixar-movies-ranked-from-best-to-worst/",
+   "method": "critic aggregate",
+   "year": 2026
+  },
+  {
+   "name": "IMDb user ratings via Yahoo UK, Every Pixar film ranked (29 films, includes Elio; ties averaged; no Hoppers or Toy Story 5)",
+   "url": "https://malaysia.news.yahoo.com/every-pixar-film-ranked-worst-best-101136624.html",
+   "method": "fan ratings (IMDb user rating)",
+   "year": 2025
+  },
+  {
+   "name": "YouGov Ratings, Most Popular Pixar Movies in America (Q2 2026; only top 20 read, others scored as 25)",
+   "url": "https://yougov.com/en-us/ratings/pixar-movies",
+   "method": "continuous US poll, % positive opinion (popularity, so older and better-known films are favored)",
+   "year": 2026
+  },
+  {
+   "name": "NPR Pop Culture Happy Hour listener vote (top 10 only; read via WAMC mirror of NPR story, others scored as 15)",
+   "url": "https://www.wamc.org/2025-07-07/whats-the-best-pixar-movie-heres-what-our-listeners-said",
+   "method": "fan vote, 2,500+ votes, 3 picks each, 28 films",
+   "year": 2025
+  }
+ ],
+ "list": [
+  "Toy Story",
+  "Finding Nemo|nemo",
+  "Up",
+  "Toy Story 3",
+  "WALL-E|walle",
+  "Monsters, Inc.|monsters inc",
+  "The Incredibles|incredibles",
+  "Inside Out",
+  "Ratatouille",
+  "Toy Story 2",
+  "Coco",
+  "Toy Story 4",
+  "Incredibles 2",
+  "A Bug's Life|bugs life",
+  "Finding Dory|dory",
+  "Soul",
+  "Cars",
+  "Monsters University",
+  "Inside Out 2",
+  "Turning Red",
+  "Luca",
+  "Onward",
+  "Brave",
+  "Cars 3"
+ ],
+ "avg_rank": [
+  3.12,
+  3.75,
+  6,
+  6.75,
+  7.12,
+  7.5,
+  7.62,
+  7.75,
+  8.25,
+  8.5,
+  8.75,
+  12.5,
+  14.88,
+  15.62,
+  15.62,
+  15.62,
+  16.88,
+  18.62,
+  18.62,
+  19.25,
+  19.38,
+  19.62,
+  20.25,
+  21.88
+ ],
+ "changes_vs_current": "Top 11 is the same set as before but reshuffled (Toy Story 1, Nemo 2, Up 3, Toy Story 3 4, WALL-E 5; Inside Out falls from 2nd-5th to 8th, Coco rises to 11th). Cars moves up to 17th (YouGov popularity). Dropped: Elemental (it was 24th). Added: Cars 3. Toy Story 5, Hoppers and Elio (2025-26 releases) just miss (about 22.5 avg, rank 26-28) because the IMDb source predates them.",
+ "confidence": "medium: 4 independent sources agree on the top 11, but the 12-24 band is noisy. YouGov is popularity, not quality (Cars is 5th there). NPR is top-10 only. Ranker (fan vote) could not be read (Cloudflare block). Toy Story 5 and Hoppers have 1 usable source each, so they are under-counted. RT page order has small oddities (Toy Story 4 listed at 96% above 97% films); page order was used as published."
+}

@@ -1,0 +1,76 @@
+{
+ "sources": [
+  {
+   "name": "YouGov positive opinion scores, 50 most popular food and snack brands, Q4 2022 (Stacker; chip/snack brands extracted in rank order)",
+   "url": "https://abc17news.com/stacker-lifestyle/2023/03/17/50-most-popular-food-and-snack-brands/",
+   "method": "poll, % positive opinion (Lay's 80, Doritos 77, Ruffles 76, Pringles 76, Cheetos 75, Fritos 73, Orville Redenbacher 72, Goldfish 71, Tostitos 71)",
+   "year": 2022
+  },
+  {
+   "name": "Snipp Interactive favorite snack brands: YouGov popularity + Instagram hashtags (via AOL), top 10 snack brands; 4 chip brands used",
+   "url": "https://www.aol.com/americas-favorite-snack-brands-did-130000485.html",
+   "method": "YouGov popularity ratings + Instagram hashtag counts (Doritos 4th, Pringles 8th, Lay's 9th, Cheetos 10th among all snacks)",
+   "year": 2024
+  },
+  {
+   "name": "SmarterRanking Best Snack Brands 2026 (via Muddy River News)",
+   "url": "https://muddyrivernews.com/opinion/daily-dirt-americas-favorite-snack-that-would-be-doritos/20260813084056/",
+   "method": "editorial weighted score (taste 35%, value 20%, variety 20%, availability 10%, reviews 15%), 8 brands",
+   "year": 2026
+  }
+ ],
+ "list": [
+  "Doritos Nacho Cheese|doritos|nacho cheese doritos",
+  "Lay's Classic|lays",
+  "Pringles",
+  "Cheetos",
+  "Ruffles",
+  "Goldfish",
+  "Cheez-It|cheezits",
+  "Takis",
+  "Fritos",
+  "Popcorn",
+  "Tostitos",
+  "Cool Ranch Doritos|cool ranch",
+  "Flamin' Hot Cheetos|hot cheetos",
+  "Kettle Chips|kettle",
+  "Salt and Vinegar Chips|salt and vinegar",
+  "Sun Chips|sunchips",
+  "Funyuns",
+  "Pretzels",
+  "Chex Mix",
+  "Cape Cod Chips|cape cod",
+  "Sour Cream & Onion Chips|sour cream and onion",
+  "BBQ Chips|barbecue chips",
+  "Veggie Straws",
+  "Bugles"
+ ],
+ "avg_rank": [
+  1.33,
+  2,
+  3.33,
+  5,
+  6.33,
+  8.33,
+  8.67,
+  9.33,
+  9.33,
+  9.67,
+  10.33,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12,
+  12
+ ],
+ "changes_vs_current": "Sources rank brands, not flavors, so the top 11 are brand-level: Doritos Nacho Cheese #1, Lay's #2, Pringles #3, Cheetos #4 (Flamin' Hot Cheetos as a flavor line and Cool Ranch have no flavor-level data, so they are carried at 12-13 although they likely belong higher), Ruffles up, Goldfish/Cheez-It/Takis/Fritos/Popcorn/Tostitos all mid. Positions 12-24 are no-data carryovers in current order (avg 12.0 = 'no data' value). Circana 2025 potato chip sales (Frito-Lay $6.5B, Kellanov $1.5B, Cape Cod $460M, Utz $441M, Kettle $337M; https://www.snackandbakery.com/articles/114108-state-of-the-industry-2025-chips-are-down-and-up) read but company-level, not used in the math.",
+ "confidence": "low - only 3 sources, one editorial and one with only 4 relevant chip brands; no flavor-level poll or sales list found (Ranker's 100 Best Chips page blocked, HTTP 401; Statista brand purchase survey n=439 paywalled; Circana brand-level data not public). Brand order Doritos/Lay's/Pringles/Cheetos is solid across all three; everything below ~#11 is unverified."
+}

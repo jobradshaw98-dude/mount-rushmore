@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "YouGov most-liked toppings. The page itself shows only the top 5 (pepperoni 64, sausage 56, mushrooms 54, extra cheese 52, onions 48). Ranks 6-10 (bacon, peppers, black olives, ham, tomato) come from Pequod's page reproducing the YouGov numbers, so they are second-hand",
+   "url": "https://yougov.com/en-us/articles/34075-most-liked-disliked-pizza-toppings-poll-data",
+   "method": "poll of 6,168 US adults, 'like' share",
+   "year": 2021
+  },
+  {
+   "name": "Grubhub order ranking (pepperoni, mushrooms, sausage, black olives, bacon, onions, pineapple, peppers, spinach, ham) as reproduced by Pequod's. The top 5 also matched a separate search summary of Grubhub data",
+   "url": "https://pequodspizza.com/blog/most-popular-pizza-toppings-of-2022/",
+   "method": "sales/order data",
+   "year": 2022
+  },
+  {
+   "name": "BLACK+DECKER Pizza Pulse survey (pepperoni 67, sausage 44, bacon 39, mushrooms 32, onions 26), via Fox13. Top 5 only, sample size not stated",
+   "url": "https://www.fox13news.com/news/most-popular-pizza-topping",
+   "method": "poll of US adults 18+ who eat pizza several times a month",
+   "year": 2024
+  },
+  {
+   "name": "YouGov single favorite topping (pepperoni 24, sausage 13, extra cheese 11, mushrooms 9, chicken 6). Top 5 only",
+   "url": "https://yougov.com/en-us/articles/45715-americans-favorite-pizza-topping-pepperoni-poll",
+   "method": "poll of 1,000 US adults",
+   "year": 2023
+  }
+ ],
+ "list": [
+  "Pepperoni",
+  "Sausage|italian sausage",
+  "Mushrooms",
+  "Bacon",
+  "Onions",
+  "Extra Cheese|cheese",
+  "Black Olives|olives",
+  "Green Peppers|peppers|bell peppers",
+  "Ham",
+  "Pineapple",
+  "Spinach",
+  "Chicken",
+  "Tomatoes|tomato",
+  "Meatballs",
+  "Jalapeños|jalapenos|jalapeno",
+  "Hot Honey",
+  "Garlic",
+  "Basil|fresh basil",
+  "Banana Peppers",
+  "Ricotta",
+  "Prosciutto",
+  "Arugula",
+  "Artichokes|artichoke",
+  "Anchovies"
+ ],
+ "avg_rank": [
+  1,
+  2.2,
+  3.2,
+  6,
+  6.5,
+  8,
+  8,
+  8.8,
+  9.8,
+  10.5,
+  11,
+  11.2,
+  11.2,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "changes_vs_current": "Top 3 unchanged. Bacon moves up (6 to 4) and Onions (5 to 5); Extra Cheese falls from 4 to 6. Ham, Pineapple, Spinach and Tomatoes are placed by data. Chicken is placed at 12 (it is 5th in one YouGov poll). Ranks 14-24 are NOT data-ranked: no source I could read covers them. The Ranker pizza-topping list (13.3K voters, 215K votes) exists but returned 401 and could not be read, and I'm not citing it. Ranks 14-24 are the current list's tail with Meatballs moved up (3% favorite in YouGov 2023, per The Takeout) and Anchovies and Artichokes moved to the bottom (most disliked in YouGov 2021).",
+ "confidence": "medium-low. Only the top ~13 are evidence-based. Four sources, but each shows only the top 5-10, and two of those 10-deep lists are second-hand reproductions. Ranks 14-24 are unverified filler. A Datassential/PMQ 2025 menu-penetration report (onions on 77% of pizzeria menus) was found but measures what is on menus, not preference, so it is excluded."
+}

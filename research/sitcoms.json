@@ -1,0 +1,87 @@
+{
+ "sources": [
+  {
+   "name": "YouGov Ratings: most popular all-time TV shows in America (top 300 read via the page's public data endpoint; sitcom-only ranks taken; kids' cartoons, game shows, dramas, SNL, variety excluded)",
+   "url": "https://yougov.com/en-us/ratings/all-time-tv-shows",
+   "method": "US panel, share with positive opinion; sitcom subset rank (I Love Lucy 1, Simpsons 2, Golden Girls 3, Sanford and Son 4, Cheers 5, M*A*S*H 6, Seinfeld 7, Friends 10, Big Bang Theory 16, The Office 24, Frasier 37, Modern Family 40, Family Guy 41; Parks, Arrested Development and the rest are deeper). Ranks capped at 35, missing = 35. Skews older and nostalgia-driven.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouTube TV/OnePoll, 2,000 US adults choosing from 35 shows, top 20 published (sitcom subset ranked: Friends, Seinfeld, Three's Company, Frasier, The Office, M*A*S*H, Simpsons, Family Guy, American Dad, Bob's Burgers, Community)",
+   "url": "https://thebrighterside.news/post/best-tv-shows-of-all-time-friends-beats-out-seinfeld-as-greatest-ever",
+   "method": "Public poll from a curated 35-show ballot, so Cheers, Parks etc. may not have been offered; missing = 25 per the rule.",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Nielsen streaming, acquired/library series, Dec 29 2025 to Jun 28 2026 (sitcom subset ranked: Big Bang Theory, Family Guy, Bob's Burgers, Young Sheldon, Friends, American Dad, Simpsons, Modern Family)",
+   "url": "https://tvline.com/2229934/most-streamed-tv-shows-2026",
+   "method": "US viewing minutes, top 20; missing = 25. Favors long libraries (the Office not in the top 20).",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Rotten Tomatoes 2018 Fall TV survey, favorite comedy, all respondents, top 7 (Friends, Seinfeld, Big Bang, Office, M*A*S*H, I Love Lucy, Parks)",
+   "url": "https://editorial.rottentomatoes.com/article/fall-tv-survey-favorite-comedy-shows",
+   "method": "Reader survey, sample not stated; missing = 12.",
+   "year": 2018,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Friends",
+  "The Simpsons",
+  "Seinfeld",
+  "M*A*S*H|mash",
+  "The Big Bang Theory|big bang theory|bbt",
+  "I Love Lucy",
+  "Family Guy",
+  "The Office",
+  "Bob's Burgers|bobs burgers",
+  "American Dad!|american dad",
+  "The Golden Girls|golden girls",
+  "Sanford and Son",
+  "Cheers",
+  "Married... with Children|married with children",
+  "Happy Days",
+  "Three's Company|threes company",
+  "Gilligan's Island|gilligans island",
+  "Bewitched",
+  "The Beverly Hillbillies|beverly hillbillies",
+  "Frasier",
+  "The Munsters|munsters",
+  "Young Sheldon",
+  "Full House",
+  "The Dick Van Dyke Show|dick van dyke"
+ ],
+ "avg_rank": [
+  4.25,
+  7,
+  9,
+  10.5,
+  11.25,
+  14.25,
+  14.25,
+  14.5,
+  15,
+  15.5,
+  16.25,
+  16.5,
+  16.75,
+  17.5,
+  17.75,
+  18.25,
+  18.25,
+  18.5,
+  18.75,
+  19,
+  19,
+  19,
+  19.25,
+  19.75
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Cheers (13th) and Frasier (20th) stay; Friends, Simpsons, Seinfeld, Office and Big Bang Theory lead; M*A*S*H, I Love Lucy, Family Guy and Bob's Burgers rise; new are Big Bang Theory, Family Guy, Bob's Burgers, American Dad, Golden Girls, Sanford and Son, Married with Children, Happy Days, Three's Company, Gilligan's Island, Bewitched, Beverly Hillbillies, Munsters, Young Sheldon, Full House, Dick Van Dyke; Parks, Arrested Development, Curb, Always Sunny, B99, 30 Rock, Modern Family (25th just outside), HIMYM, Schitt's Creek, Community, Fresh Prince, Raymond, Scrubs, Abbott, New Girl and That '70s Show drop out.",
+ "confidence": "medium-low. Top 5 (Friends, Simpsons, Seinfeld, M*A*S*H, Big Bang Theory) is solid across 3-4 people-sources and passes the party check; The Office at #8 is weakest of that tier because it is only #24 in YouGov popularity and absent from Nielsen's top 20. Off-feeling spots: Bob's Burgers and American Dad at #9-10 come from Nielsen minutes plus one OnePoll ballot (Family Guy at #7 has the same artifact); positions 11-24 are tied within 3 points and most rest on a single YouGov Ratings placement, so the older-skewing 'liked among those who know it' measure decides them (Sanford and Son, Married with Children, Gilligan's Island, Munsters would not be top-of-mind for under-45s). No sitcom-specific recent general-population poll was found. A 2018 YouGov sitcom article (Simpsons 56, Big Bang 53, Family Guy 43, Two and a Half Men 43, Modern Family 42) was not used because its ballot was restricted and it is superseded by the 2026 ratings. Ties: I Love Lucy before Family Guy, Frasier before Munsters/Young Sheldon decided by critic standing and judgement."
+}

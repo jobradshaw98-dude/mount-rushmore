@@ -1,0 +1,101 @@
+{
+ "sources": [
+  {
+   "name": "YouGov Ratings: most popular all-time music artists (US), Q2 2026",
+   "url": "https://yougov.com/en-us/ratings/all-time-music-artists",
+   "method": "Share with a positive opinion, top 20: Dolly Parton, Stevie Wonder, Whitney Houston, Elton John, Ray Charles, Johnny Cash, Louis Armstrong, Aretha Franklin, Tina Turner, Queen, Fleetwood Mac, The Beatles, Prince, Adele, Beach Boys, Sinatra, Bowie, Elvis, Marvin Gaye, Billy Joel. Likability among people who know them, not greatness.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "RIAA highest-certified artists in the US, top 100 (Wikipedia table)",
+   "url": "https://en.wikipedia.org/wiki/List_of_best-selling_music_artists_in_the_United_States",
+   "method": "Certified US units, read 2026-10-07 (redirects to 'List of highest-certified music artists in the United States')",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Billboard Greatest of All Time Billboard 200 Artists",
+   "url": "https://www.billboard.com/charts/greatest-of-all-time-artists/",
+   "method": "Album-chart points, 125 entries read via r.jina.ai mirror 2026-10-07",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Billboard Greatest of All Time Hot 100 Artists",
+   "url": "https://www.billboard.com/charts/greatest-hot-100-artists/",
+   "method": "Singles-chart points; 80 of the 100 entries recovered from the mirrored page (gaps are lesser acts like Olivia Newton-John and Brenda Lee)",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Spotify most-streamed artists of all time (kworb)",
+   "url": "https://kworb.net/spotify/artists.html",
+   "method": "Total streams rank, capped at 35",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Prior-file critic panels (Rolling Stone 2011, VH1 2010), used ONLY to break ties",
+   "url": "C:/Users/jobra/projects/mount-rushmore/research/music.json",
+   "method": "Tie-break only: Prince over Streisand, Springsteen over Usher",
+   "year": 2011,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "The Beatles|beatles",
+  "Elton John",
+  "Taylor Swift|taylor",
+  "Elvis Presley|elvis",
+  "Whitney Houston|whitney",
+  "Mariah Carey|mariah",
+  "Michael Jackson|mj",
+  "Drake|drizzy",
+  "Madonna",
+  "Stevie Wonder",
+  "The Rolling Stones|stones|rolling stones",
+  "Rihanna|riri",
+  "Billy Joel",
+  "Eminem|slim shady",
+  "Janet Jackson|janet",
+  "Garth Brooks|garth",
+  "Prince",
+  "Barbra Streisand|streisand|barbra",
+  "Chicago",
+  "Queen",
+  "Eagles|the eagles",
+  "Rod Stewart|rod",
+  "Fleetwood Mac",
+  "Bruce Springsteen|springsteen|the boss"
+ ],
+ "avg_rank": [
+  10.2,
+  11.2,
+  12.4,
+  14.6,
+  15.6,
+  16.2,
+  16.6,
+  16.8,
+  17.2,
+  17.4,
+  18.4,
+  19.8,
+  22.2,
+  22.4,
+  23.2,
+  23.2,
+  23.6,
+  23.6,
+  24.2,
+  24.4,
+  25.2,
+  26,
+  26.6,
+  26.6
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Out (11): Led Zeppelin, Bob Dylan, Beyoncé, Pink Floyd, David Bowie, Aretha Franklin, Nirvana, Jimi Hendrix, Johnny Cash, Frank Sinatra, Bob Marley; In (11): Mariah Carey, Drake, Rihanna, Billy Joel, Eminem, Janet Jackson, Garth Brooks, Barbra Streisand, Chicago, Eagles, Rod Stewart; Michael Jackson falls from #2 to #7, Elton John rises to #2.",
+ "confidence": "medium-low. Top 3 and the Beatles at #1 are solid (all four chart/sales lists agree; YouGov likability has them 4th, 12th and 13th). Things that look off for a typical American adult: Michael Jackson at #7 and Elvis at #4 behind Elton John and Taylor Swift; Beyoncé (average 33.0, lands just outside), Led Zeppelin (27.0) and Queen (#20) are low; Garth Brooks, Barbra Streisand, Chicago and Rod Stewart come from RIAA and Billboard longevity points, not name recognition. Spotify skews young and global (Bad Bunny, The Weeknd and Bieber outrank the Beatles there), and YouGov covers only 20 names and misses MJ, Taylor and Drake entirely. Positions 12-24 are bunched (19.8 to 26.6) and would reshuffle with another source. Nobody ran a national 'greatest artist' poll recently: the closest were Gallup 1999 (rock bands only) and Monmouth 2018 (Beatles 23%). A Family Feud 'biggest pop star' survey (Oct 2025) put Michael Jackson first, but only the article snippet was seen, so it is not used."
+}

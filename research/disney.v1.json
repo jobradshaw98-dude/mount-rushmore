@@ -1,0 +1,70 @@
+{
+ "sources": [
+  {
+   "name": "Rotten Tomatoes editorial, All Disney Animated Theatrical Movies Ranked by Tomatometer (75 films, updated Aug 20 2026)",
+   "url": "https://editorial.rottentomatoes.com/guide/all-disney-animated-theatrical-movies-ranked-by-tomatometer/",
+   "method": "critic aggregate",
+   "year": 2026
+  },
+  {
+   "name": "PrettyFamous/Stacker 'Smart Rating' (Metacritic + IMDb + RT + Gracenote + inflation-adjusted box office), 33 films, Mar 2016 (read via Fox 6 and WTOP copies)",
+   "url": "https://www.fox6now.com/news/ranking-the-best-disney-movies-of-all-time",
+   "method": "critic + fan + box-office composite",
+   "year": 2016
+  }
+ ],
+ "list": [
+  "Zootopia",
+  "Aladdin",
+  "Beauty and the Beast",
+  "Pinocchio",
+  "Fantasia",
+  "Snow White and the Seven Dwarfs|snow white",
+  "101 Dalmatians|one hundred and one dalmatians",
+  "The Lion King",
+  "Cinderella",
+  "The Little Mermaid",
+  "Big Hero 6",
+  "Dumbo",
+  "Lady and the Tramp",
+  "Bambi",
+  "Sleeping Beauty",
+  "Frozen",
+  "Mulan",
+  "The Jungle Book",
+  "Bolt",
+  "Wreck-It Ralph",
+  "Moana",
+  "Tangled",
+  "Tarzan",
+  "Winnie the Pooh"
+ ],
+ "avg_rank": [
+  3,
+  3.5,
+  5,
+  5.5,
+  6.5,
+  6.5,
+  7,
+  7,
+  9,
+  10,
+  13,
+  13.5,
+  16,
+  17,
+  18,
+  19.5,
+  19.5,
+  19.5,
+  21,
+  22,
+  22,
+  23,
+  23,
+  23
+ ],
+ "changes_vs_current": "Zootopia 10th to 1st, Pinocchio 19th to 4th, Fantasia 24th to 5th, 101 Dalmatians 21st to 7th, Lion King falls from 1st to 8th (RT rank 13). Added: Dumbo, Lady and the Tramp, Big Hero 6, Bolt, Winnie the Pooh. Dropped: Lilo & Stitch, Peter Pan, Hercules, Encanto, The Emperor's New Groove.",
+ "confidence": "low: only 2 sources and no fan vote or poll (Ranker unreachable, YouGov Disney page not found, search budget exhausted). Both are critic-weighted, which favors classics and Zootopia over crowd favorites (Lion King 8th, Frozen 16th). The 2016 Smart Rating predates Moana, Encanto, Raya, Zootopia 2, Frozen II, so those were scored 38 for it; using RT alone they would sit Moana 6th, Raya 11th, Encanto 12th, Zootopia 2 15th. Treat Moana/Encanto placement as understated. Recommend adding a fan source before using."
+}

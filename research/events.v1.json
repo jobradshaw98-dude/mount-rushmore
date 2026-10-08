@@ -1,0 +1,88 @@
+{
+ "sources": [
+  {
+   "name": "Bleacher Report, Top 25 Greatest Sporting Events (via topendsports; no date shown, mid-2010s by URL)",
+   "url": "https://www.topendsports.com/world/lists/must-see-events/bleacherreport.htm",
+   "method": "editorial ranking, 25 items",
+   "year": null
+  },
+  {
+   "name": "Wonderlist, 10 Greatest Sporting Events (via topendsports; generic 'Champions League' and 'NBA' mapped to Champions League Final and NBA Finals)",
+   "url": "https://www.topendsports.com/world/lists/must-see-events/top10-wonderlist.htm",
+   "method": "website ranking, 10 items",
+   "year": null
+  },
+  {
+   "name": "Pledgesports, Biggest Sporting Events in the World (compiled from various reach sources; season-long leagues excluded)",
+   "url": "https://www.topendsports.com/world/lists/popular-event/pledgesports.htm",
+   "method": "reach-based compilation, 7 items",
+   "year": 2019
+  },
+  {
+   "name": "Roadtrips, Most Watched Sporting Events in the World (viewership, duration, peak, social engagement), top 15",
+   "url": "https://www.roadtrips.com/luxury-travel-guides/the-most-watched-sporting-events-in-the-world/",
+   "method": "viewership-based ranking, 15 items",
+   "year": 2026
+  },
+  {
+   "name": "Repucom SponsorLink survey of 1,000 US adults, 'can't miss' sporting events (via NBC Sports; only the top ~10 percentages were published; date not shown, College Football Playoff era)",
+   "url": "https://www.nbcsports.com/nascar/news/daytona-500-ranks-among-top-cant-miss-sporting-events-in-survey-of-u-s-sports-fans",
+   "method": "poll of 1,000 US adults",
+   "year": null
+  }
+ ],
+ "list": [
+  "Summer Olympics|olympics",
+  "World Cup Final|world cup",
+  "Super Bowl",
+  "Cricket World Cup|cwc",
+  "Tour de France",
+  "Wimbledon",
+  "Champions League Final|ucl final",
+  "World Series",
+  "NBA Finals",
+  "Rugby World Cup",
+  "Winter Olympics",
+  "Kentucky Derby",
+  "The Masters|masters",
+  "March Madness|ncaa tournament",
+  "24 Hours of Le Mans|le mans",
+  "Grand National|aintree",
+  "College Football Playoff|cfp",
+  "Polo at Palermo|palermo polo|argentine open polo",
+  "Daytona 500",
+  "Women's World Cup|womens world cup",
+  "Ryder Cup",
+  "Boston Marathon",
+  "The Open Championship|british open|the open",
+  "Indianapolis 500|indy 500"
+ ],
+ "avg_rank": [
+  1.8,
+  4,
+  6.2,
+  8,
+  8.2,
+  10.2,
+  10.6,
+  10.8,
+  11,
+  11.2,
+  11.6,
+  11.7,
+  12.4,
+  12.5,
+  13,
+  13.4,
+  13.8,
+  13.8,
+  14.4,
+  15.2,
+  15.6,
+  16.4,
+  16.6,
+  16.8
+ ],
+ "changes_vs_current": "Biggest shifts: Summer Olympics 7th to 1st, Super Bowl 1st to 3rd, Masters 4th to 13th, Kentucky Derby up slightly. Added global events from the viewership and worldwide lists: Cricket World Cup, Rugby World Cup, Women's World Cup, 24 Hours of Le Mans, Grand National, Polo at Palermo. Dropped Stanley Cup Final (25th, just missed), US Open Tennis, NFL Draft, Home Run Derby, Rose Bowl and Army-Navy (not in any source I read, except Rose Bowl at B&R 25th). College Football Playoff counted once from the poll (the poll listed both the championship game and the playoff separately); B&R's BCS Championship mapped to CFP. CFP/Polo tie at 13.8 went to CFP (more sources).",
+ "confidence": "low. There is no single agreed measure: the sources mix editorial 'greatest' lists (B&R, Wonderlist), global reach (Pledgesports, Roadtrips) and one US-adult poll (Repucom, top 10 only). YouGov's 2019 'most exciting' poll of 11 US events (Super Bowl 29%, NBA Finals 19%, Final Four 18%, Kentucky Derby 15%, MLB All-Star Game 14%) only published 5 events so it was not averaged, but it supports the US ordering. Ranks 15-24 each come from a single source (mostly the undated B&R list), so Le Mans, Grand National, Polo at Palermo and Women's World Cup are weak entries for a US-leaning game. Jordan may prefer to replace them with Stanley Cup Final, Rose Bowl, US Open Tennis or Formula One; the method as specified produced the list above. Ranker and similar fan-vote pages were not readable. Several source lists are short, so missing items get a low penalty (length+5)."
+}

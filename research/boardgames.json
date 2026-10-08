@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "YouGov Board Games survey (33 games, ranked by 'played many times'; tied scores share averaged rank; Uno and Jenga were not asked, so they score as missing = 38)",
+   "url": "https://ygo-assets-websites-editorial-emea.yougov.net/documents/Board_Games_poll_results.pdf",
+   "method": "poll of 1,131 US adult citizens, May 6-10 2026",
+   "year": 2026
+  },
+  {
+   "name": "Cribbage Online classic board game survey (averaged 'still played today' top 5 and 'childhood favorites' top 5, via meeplesherald and cribbage-online.net)",
+   "url": "https://cribbage-online.net/nostalgic-board-games",
+   "method": "survey of 992 US residents",
+   "year": 2023
+  },
+  {
+   "name": "World of Card Games study: Google search volume for 605 board games (top 20; biased toward games people look up rules for)",
+   "url": "https://natixis.ezine.intercountry.com/index.php/2023/08/17/move-over-monopoly-here-are-americas-most-popular-board-games/",
+   "method": "Google search volume ('board game', 'how to play', 'rules')",
+   "year": 2023
+  },
+  {
+   "name": "Fun.com all-time units sold, via 24/7 Wall St (top 20; many figures are estimates, e.g. Checkers)",
+   "url": "https://247wallst.com/special-report/2023/03/03/the-most-popular-board-games-of-all-time/2/",
+   "method": "cumulative sales estimates",
+   "year": 2023
+  }
+ ],
+ "list": [
+  "Monopoly",
+  "Checkers",
+  "Chess",
+  "Clue|cluedo",
+  "Scrabble",
+  "Battleship",
+  "Candy Land|candyland",
+  "Pictionary",
+  "Rummikub",
+  "Connect Four|connect 4",
+  "Mancala",
+  "Trivial Pursuit",
+  "The Game of Life|life|game of life",
+  "Catan|settlers of catan",
+  "Sorry!",
+  "Backgammon",
+  "Chutes and Ladders|snakes and ladders",
+  "Yahtzee",
+  "Risk",
+  "Go|game of go|baduk|weiqi",
+  "Stratego",
+  "Trouble",
+  "Mahjong|mah-jongg|mahjongg",
+  "Parcheesi"
+ ],
+ "avg_rank": [
+  2,
+  4,
+  5.38,
+  7.5,
+  9.63,
+  11.63,
+  11.63,
+  11.63,
+  12,
+  12.69,
+  13,
+  13.63,
+  13.88,
+  14.63,
+  14.75,
+  14.88,
+  15.38,
+  16.13,
+  17,
+  17.13,
+  18,
+  18.13,
+  18.63,
+  19.75
+ ],
+ "changes_vs_current": "Monopoly #1 stays; Checkers added at #2 (was absent) and Chess 3 (was 3); Clue 6 to 4, Scrabble 4 to 5; Catan 2 to 14, Ticket to Ride, Codenames, Pandemic, Carcassonne, Operation, Guess Who, Chutes? (kept) dropped. UNO (22.75) and JENGA (23.8) fall out under the literal rule because only the Cribbage survey (where Uno is #2 'still played') covers them; YouGov did not ask and they are card/stacking games absent from search/sales lists. Added Checkers, Pictionary, Rummikub, Mancala, Yahtzee, Go, Trouble, Mahjong, Parcheesi.",
+ "confidence": "medium for ranks 1-10 (YouGov poll plus 3 other sources agree on Monopoly, Checkers, Chess, Clue, Scrabble), low for 11-24 (they rest on search and sales sources). Note the missing-rank rule penalizes Uno/Jenga unfairly; if you want them kept, they are the next-best candidates after Parcheesi (Uno 22.75, Jenga 23.8, Ticket to Ride 22.0, Codenames 22.75). Ranker 'best board games' (fan vote) returned 401, BoardGameGeek is a hobbyist audience so was not used."
+}

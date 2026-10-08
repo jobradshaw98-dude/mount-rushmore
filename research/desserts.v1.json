@@ -1,0 +1,76 @@
+{
+ "sources": [
+  {
+   "name": "Datassential Most Loved Desserts (via Frozen Food Europe)",
+   "url": "https://www.frozenfoodeurope.com/?p=9001",
+   "method": "poll of 2,531 US consumers, published Jun 2019, top 5 only (ice cream 90%, choc chip cookie 86%, ice cream sandwich, soft serve, ice cream cake)",
+   "year": 2019
+  },
+  {
+   "name": "Verasight survey: 'true American dessert' (ICA Omnibus)",
+   "url": "https://data.verasight.io/culture/apple-pie-tops-the-list-of-most-american-desserts",
+   "method": "poll of 1,000 US adults, Jun 25-30 2025, MoE +/-3.8; measures 'most American', not favorite",
+   "year": 2025
+  },
+  {
+   "name": "Lovefood: America's most beloved desserts, ranked (21 items)",
+   "url": "https://www.lovefood.com/gallerylist/454873/americas-most-beloved-desserts-ranked",
+   "method": "editorial ranking ('unavoidably subjective'), excludes ice cream; 'American' desserts only",
+   "year": 2025
+  }
+ ],
+ "list": [
+  "Apple Pie",
+  "Chocolate Chip Cookies|cookies|chocolate chip cookie",
+  "Brownies",
+  "Pecan Pie",
+  "Pumpkin Pie",
+  "S'mores",
+  "Ice Cream",
+  "Key Lime Pie",
+  "Peach Cobbler|cobbler",
+  "Chocolate Cake",
+  "Cheesecake",
+  "Tiramisu",
+  "Crème Brûlée",
+  "Churros",
+  "Banana Pudding",
+  "Carrot Cake",
+  "Cinnamon Rolls|cinnamon roll",
+  "Red Velvet Cake|red velvet",
+  "Cannoli",
+  "Strawberry Shortcake",
+  "Lava Cake|molten lava cake",
+  "Donuts|doughnuts",
+  "Macarons",
+  "Bread Pudding"
+ ],
+ "avg_rank": [
+  4,
+  5.33,
+  7.67,
+  8,
+  8.33,
+  8.67,
+  9.67,
+  10,
+  10.67,
+  13,
+  13.33,
+  15.67,
+  15.67,
+  15.67,
+  15.67,
+  15.67,
+  15.67,
+  15.67,
+  15.67,
+  15.67,
+  15.67,
+  15.67,
+  15.67,
+  15.67
+ ],
+ "changes_vs_current": "Mechanical result puts Apple Pie #1 and Ice Cream drops from #3 to #7 - this is an ARTIFACT: Lovefood's list omits ice cream, while Datassential (90%, #1), Verasight (#2) and older Yahoo 2015 (41%, #1 favorite) all put it at or near the top. Recommend manually keeping Ice Cream #1 or #2. Added Pecan Pie. Positions 12-24 (Tiramisu onward) have NO data and are carried over from the current list order (Milkshake dropped for space).",
+ "confidence": "low - only 3 usable sources, and none is a full-list US favorites poll: one is top-5, one measures 'most American', one is a writer's ranking. Ranker dessert list (6.7K voters) blocked by HTTP 401; YouGov has no dessert-wide ranking (only ice cream truck treats and flavors). Treat positions 1-11 as indicative only and 12-24 as unverified."
+}

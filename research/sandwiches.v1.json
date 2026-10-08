@@ -1,0 +1,70 @@
+{
+ "sources": [
+  {
+   "name": "YouGov 'America's favorite sandwich' (15 sandwiches, like %: grilled cheese 79, grilled chicken 75, turkey 75, roast beef 71, ham 69, BLT 69, club 68, bacon 67, PB&J 66, pulled pork 65, tuna 64, egg salad 58, meatball 56, Reuben 48, French dip 46). Full 15 read on the Eat This page. The YouGov page itself shows only the top 5",
+   "url": "https://www.eatthis.com/most-popular-sandwiches-america/",
+   "method": "poll of 1,223 US adults",
+   "year": 2019
+  },
+  {
+   "name": "Talker Research for Buddig, favorite sandwiches (grilled cheese 42, chicken 40, turkey 30, ham 27, tuna 24, egg 21, PB&J 21). 'Egg' not mapped to Egg Salad because it is ambiguous",
+   "url": "https://talkerresearch.com/average-american-eats-6-sandwiches-a-week/",
+   "method": "poll of 2,000 Americans",
+   "year": 2024
+  }
+ ],
+ "list": [
+  "Grilled Cheese",
+  "Chicken Sandwich|grilled chicken|fried chicken sandwich|chicken",
+  "Turkey|turkey sandwich",
+  "Ham|ham sandwich",
+  "Tuna Sandwich|tuna melt|tuna salad",
+  "Peanut Butter and Jelly|pbj|pb and j",
+  "Roast Beef",
+  "BLT",
+  "Club Sandwich|club|turkey club",
+  "Pulled Pork",
+  "Egg Salad",
+  "Meatball Sub|meatball",
+  "Reuben",
+  "French Dip",
+  "Banh Mi",
+  "Lobster Roll",
+  "Cuban|cubano",
+  "Philly Cheesesteak|cheesesteak|philly cheese steak",
+  "Pastrami on Rye|pastrami",
+  "Italian Sub|italian hoagie|italian",
+  "Chicken Parm|chicken parmesan",
+  "Po' Boy|poboy",
+  "Muffuletta",
+  "Gyro"
+ ],
+ "avg_rank": [
+  1,
+  2,
+  3,
+  4.5,
+  8,
+  8,
+  8,
+  8.5,
+  9.5,
+  11,
+  12,
+  12.5,
+  13,
+  13.5,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "changes_vs_current": "The polls rank generic sandwich types, not named specialty sandwiches: Turkey, Ham, Roast Beef, Pulled Pork and Chicken Sandwich (grilled and fried merged) are added. Grilled Cheese rises to #1 (was #3), BLT stays high. Philly Cheesesteak (was #1), Italian Sub, Cuban, Banh Mi and Lobster Roll fall out of the data-ranked part. YouGov 2019 tested lobster roll (~35% like, below French dip at 45%) and Cuban, and neither made its top 15. Dropped: Monte Cristo, Sloppy Joe, Patty Melt, Caprese. 'Bacon' (YouGov #8) is not used as a sandwich name. Ranks 15-24 are not poll-ranked: 15-19 are ordered by the TasteAtlas expert ranking (banh mi ~5th, lobster roll 6th, Cuban 11th, cheesesteak 21st, pastrami 24th, per Statista's summary of a global list, not a US poll), and 20-24 are current-list order.",
+ "confidence": "low-medium. Only two usable US polls (YouGov 2019, Talker 2024), so the task's 3-source minimum is not met for ranks 1-14. Datassential 2014 (most-consumed: turkey, ham, PB&J, BLT) was found but excluded as too old and a consumption measure, not a liking measure. Its results are consistent with the top of this list. A YouGov Ratings Q2 2026 note (via Tasting Table) also puts grilled cheese as America's most popular sandwich, but the page gave no full ranking. Ranker sandwich lists could not be read. Ranks 15-24 are mostly unverified."
+}

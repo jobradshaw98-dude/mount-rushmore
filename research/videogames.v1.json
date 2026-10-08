@@ -1,0 +1,83 @@
+{
+ "sources": [
+  {
+   "name": "Video Game Canon v8.0 (meta-analysis of 80 editorial best-games lists, 1985-2025; ranked by C-score; excludes games released after 2020-09-30, so Elden Ring and Tears of the Kingdom were left out of its average; reader-poll-only lists were excluded by VGC; top 1000 parsed)",
+   "url": "https://www.videogamecanon.com/top-1000/",
+   "method": "aggregate of 80 lists (avg rank + appearance frequency), mostly editorial",
+   "year": 2025
+  },
+  {
+   "name": "Edge 100 Greatest Games (30th anniversary)",
+   "url": "https://gameworldobserver.com/2023/10/05/100-greatest-games-edge-30-years-by-industry-leaders",
+   "method": "poll of readers, current/past staff and industry reps; ONLY the top 20 was readable online, so missing = 25",
+   "year": 2023
+  },
+  {
+   "name": "Rolling Stone 50 Greatest Video Games (editorial; one entry per franchise except 2D/3D Zelda and Metroid)",
+   "url": "https://www.videogamecanon.com/adventurelog/rolling-stone-best-video-games-of-all-time/ (summary); full order read from transcription https://www.listchallenges.com/rolling-stone-magazines-top-50-greatest-video (RS page itself not fetched)",
+   "method": "editor list; franchise-limited, so RS was excluded from the averages of OoT, SM64, SMB, SMB3, Pokemon RB, Pac-Man, Melee, MK8, GTA III, Mario Galaxy, RDR1 (a sibling game already sits on its list)",
+   "year": 2025
+  },
+  {
+   "name": "Game Informer Readers' Choice Top 300 Games of All Time",
+   "url": "https://gameinformer.com/b/features/archive/2018/03/19/readers-choice-top-300-games-of-all-time.aspx (top 10 read there); ranks 11-300 read from transcription https://www.listchallenges.com/game-informers-readers-choice-top-300-games-of",
+   "method": "reader vote, 880 games nominated, top 300 published; predates RDR2, God of War 2018, Hades, Outer Wilds, Elden Ring so excluded for those",
+   "year": 2018
+  }
+ ],
+ "list": [
+  "The Legend of Zelda: Breath of the Wild|breath of the wild|botw",
+  "The Legend of Zelda: Ocarina of Time|ocarina of time|ocarina|oot",
+  "The Last of Us|tlou",
+  "The Witcher 3|witcher",
+  "Final Fantasy VII|ff7|final fantasy 7",
+  "Resident Evil 4|re4",
+  "Half-Life 2|half life",
+  "The Elder Scrolls V: Skyrim|skyrim",
+  "Halo: Combat Evolved|halo|halo ce",
+  "Mass Effect 2|me2",
+  "Super Mario 64|mario 64|sm64",
+  "Red Dead Redemption|rdr1|red dead 1",
+  "Super Metroid",
+  "Metal Gear Solid|mgs",
+  "Super Mario World|smw",
+  "Shadow of the Colossus|sotc",
+  "Grand Theft Auto V|gta 5|gta v|gta",
+  "Red Dead Redemption 2|rdr2|red dead 2",
+  "World of Warcraft|wow",
+  "The Legend of Zelda: A Link to the Past|link to the past|alttp",
+  "BioShock|bioshock",
+  "Chrono Trigger",
+  "Dark Souls",
+  "Elden Ring"
+ ],
+ "avg_rank": [
+  3.25,
+  5,
+  6.25,
+  11.75,
+  12,
+  12.25,
+  14.25,
+  15.5,
+  16,
+  16.25,
+  16.67,
+  18,
+  18.5,
+  19.75,
+  20.75,
+  21.75,
+  22.25,
+  22.33,
+  24,
+  24.25,
+  25.25,
+  25.75,
+  26.5,
+  26.5
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Biggest reshuffle: Tetris (avg 35.75, #33; VGC #1, RS #2 but GI reader vote #115 and not in Edge top 20), Minecraft (37.75), Super Mario Bros (58.7), Pokemon Red/Blue (48.3), Pac-Man (135.7), Street Fighter II (43.3), Portal 2 (36.8), CoD4 (33.5), GoldenEye (52), Melee (52.3), Mario Kart 8 (104), Fortnite (87.3) all fall out; new entrants are RE4, Mass Effect 2, RDR1, Super Metroid, MGS, Super Mario World, Shadow of the Colossus, WoW, A Link to the Past, BioShock, Chrono Trigger, Dark Souls. Elden Ring only holds #24 on two sources (Edge #9, RS #44) because VGC and GI 2018 predate it.",
+ "confidence": "low-medium. All four sources skew toward critics and hardcore console/PC gamers, and Edge is truncated to its top 20, which punishes mass-market titles (Tetris, Minecraft, Super Mario Bros, Pokemon, Pac-Man, Fortnite) under the 'length+5' rule. If you want a party-game audience, consider keeping Tetris and Minecraft (Tetris is VGC #1 and RS #2; Minecraft is Edge #13). Corroboration not in the math: Game Informer's 2024 reader bracket (200k+ votes) crowned Ocarina of Time over Skyrim, with The Last of Us and RDR2 in the final four (gameinformer.com/GameGauntlet2024, fetched). IGN's 2024 Top 100 could not be fetched (404, Wayback offline) and British GQ 2023 (239 experts) yielded only its top 3 (BotW, TLOU, Tetris) via videogamecanon.com, so neither was used. VGC overlaps with the other lists, so sources are not fully independent. Top 3 (BotW, OoT, TLOU) is solid; the rest are close, with a 1.5-point spread across positions 19-24."
+}

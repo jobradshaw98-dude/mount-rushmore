@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "Complex, 25 Best NFL Quarterbacks of All Time (Appleman, Erwin, Kirshner, Golianopoulos); Super Bowl era only",
+   "url": "https://www.complex.com/sports/a/jake-appleman/best-nfl-quarterbacks-of-all-time-ranked",
+   "method": "staff ranking",
+   "year": 2026
+  },
+  {
+   "name": "NFL.com, Top 25 Quarterbacks of All Time (Elliot Harrison with NFL Network researcher Jack Andrade)",
+   "url": "https://www.nfl.com/news/top-25-quarterbacks-of-all-time-patriots-tom-brady-leads-list-0ap3000001035041",
+   "method": "expert ranking with stats research (page shows no date; Mahomes is absent, so likely about 2019-2020)",
+   "year": null
+  },
+  {
+   "name": "ClutchPoints, 20 Greatest NFL Quarterbacks of All Time (Noam Gumerman)",
+   "url": "https://clutchpoints.com/nfl/nfl-stories/greatest-nfl-quarterbacks-of-all-time-ranked",
+   "method": "single-writer ranking",
+   "year": 2024
+  },
+  {
+   "name": "Sportsnaut, NFL's 10 Best Quarterbacks of All Time (Jason Burgos), 10 items",
+   "url": "https://sportsnaut.com/nfl-10-best-quarterbacks-of-all-time",
+   "method": "single-writer ranking, 10 items",
+   "year": 2023
+  }
+ ],
+ "list": [
+  "Tom Brady|brady|tb12",
+  "Peyton Manning|peyton",
+  "Joe Montana|montana",
+  "Dan Marino|marino",
+  "Aaron Rodgers|rodgers",
+  "Johnny Unitas|unitas",
+  "John Elway|elway",
+  "Roger Staubach|staubach",
+  "Drew Brees|brees",
+  "Brett Favre|favre",
+  "Steve Young",
+  "Patrick Mahomes|mahomes",
+  "Otto Graham",
+  "Fran Tarkenton|tarkenton",
+  "Bart Starr",
+  "Terry Bradshaw",
+  "Troy Aikman|aikman",
+  "Ben Roethlisberger|big ben",
+  "Kurt Warner",
+  "Jim Kelly",
+  "Russell Wilson|russ|wilson",
+  "Sammy Baugh|baugh|slingin sammy",
+  "Matthew Stafford|stafford",
+  "Warren Moon"
+ ],
+ "avg_rank": [
+  1,
+  2.75,
+  2.75,
+  6.25,
+  7,
+  7.25,
+  7.5,
+  9.75,
+  9.75,
+  11.25,
+  11.75,
+  12.75,
+  14.25,
+  15.75,
+  16,
+  16,
+  16.25,
+  17.5,
+  18.25,
+  19.5,
+  20.25,
+  20.25,
+  21,
+  21.5
+ ],
+ "changes_vs_current": "Dropped Josh Allen, Lamar Jackson and Joe Burrow (each appears in at most 1 source). Added Russell Wilson, Sammy Baugh and Matthew Stafford. Mahomes falls from 4th to 12th: he is 3rd in both Complex and ClutchPoints but missing from the older NFL.com list and the 10-name Sportsnaut list. Without NFL.com his avg would be about 7.0, around 7th. Manning/Montana tie at 2.75 (same medians) kept in current-list order; Staubach/Brees tie broken by median.",
+ "confidence": "medium for the top 11 (Brady, Manning, Montana first by every source) and low for ranks 12-24. Sources are 3 writer lists plus 1 expert-style NFL.com list; no large fan vote was readable (Ranker 401). Staleness and short lists distort Mahomes, Stafford, Baugh. Stafford's slot rests on one source (Complex 14th) and could reasonably be Josh Allen or Lamar Jackson instead (Complex ranks them 22nd and 19th). Cross-check not averaged: Morning Consult poll of 2,203 US adults (Feb 4-5, 2023, among NFL fans) had Brady 43%, Montana 11%, Manning 7%, Mahomes 4%, which is consistent with the top of this list (only the top 4 shares were published)."
+}

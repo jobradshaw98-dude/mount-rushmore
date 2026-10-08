@@ -1,0 +1,88 @@
+{
+ "sources": [
+  {
+   "name": "AFI 100 Years...100 Heroes & Villains, 50 villains (read via Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Heroes_%26_Villains",
+   "method": "institute panel (AFI jury of about 1,500 industry figures), film characters through 2003 only",
+   "year": 2003
+  },
+  {
+   "name": "Empire, The 50 Best Movie Villains of All Time (critics' list, updated Sep 25 2026)",
+   "url": "https://www.empireonline.com/movies/features/best-movie-villains/",
+   "method": "critic panel (staff)",
+   "year": 2026
+  },
+  {
+   "name": "Empire, Greatest Film and TV Villains (28 villain actors and filmmakers voted)",
+   "url": "https://www.empireonline.com/movies/features/greatest-villains/",
+   "method": "panel of 28 respondents",
+   "year": 2016
+  },
+  {
+   "name": "Not used in the numbers, context only: Hollywood Reporter survey of 1,000 industry pros, top 5 = Vader, Hannibal Lecter, Wicked Witch, Joker, Nurse Ratched",
+   "url": "https://mentalfloss.com/article/551834/favorite-movie-villains",
+   "method": "survey of 1,000",
+   "year": 2018
+  },
+  {
+   "name": "Not used in the numbers, context only: TheJournal.ie reader poll, 13,217 votes, 7 options: Hannibal 6,759, Joker 2,097, Vader 1,958, Chigurh 1,541, Gruber 859, Evil Queen 386",
+   "url": "https://www.thejournal.ie/article.php?id=5282553",
+   "method": "poll of 13,217",
+   "year": 2020
+  }
+ ],
+ "list": [
+  "Hannibal Lecter|hannibal",
+  "The Wicked Witch of the West|wicked witch|wicked witch of the west",
+  "Nurse Ratched|ratched",
+  "Darth Vader|vader",
+  "Norman Bates",
+  "Reverend Harry Powell|harry powell|powell|night of the hunter",
+  "The Joker|joker",
+  "Anton Chigurh|chigurh",
+  "Amon Goeth|amon göth|goeth",
+  "The Alien|alien|xenomorph",
+  "Annie Wilkes",
+  "HAL 9000|hal|hal 9000",
+  "Cody Jarrett|white heat",
+  "Alex DeLarge|alex|clockwork orange",
+  "Alex Forrest|fatal attraction",
+  "Jack Torrance|torrance|the shining",
+  "Freddy Krueger|freddy",
+  "Hans Gruber|gruber",
+  "Mr. Potter|henry potter|potter",
+  "Travis Bickle|bickle",
+  "Dracula|count dracula",
+  "Hans Landa|colonel landa|landa",
+  "Hans Beckert|m|peter lorre",
+  "Thanos"
+ ],
+ "avg_rank": [
+  2,
+  7.67,
+  8.67,
+  12.33,
+  13,
+  22,
+  22.67,
+  22.67,
+  25,
+  26.33,
+  27.33,
+  27.33,
+  28.33,
+  28.67,
+  30.33,
+  33.33,
+  34.67,
+  34.67,
+  35.67,
+  36.33,
+  36.67,
+  38.33,
+  38.67,
+  39
+ ],
+ "changes_vs_current": "Hannibal Lecter 1st and Wicked Witch/Ratched/Vader/Bates top 5; Joker falls from 2nd to 7th, Vader from 1st to 4th. Added: Harry Powell, Amon Goeth, The Alien, Annie Wilkes, HAL 9000, Cody Jarrett, Alex DeLarge, Alex Forrest, Jack Torrance, Mr. Potter, Travis Bickle, Dracula, Hans Beckert. Dropped: Voldemort, Palpatine, Agent Smith, Terminator, Cruella, Michael Myers, Gollum, Sauron, Ursula, Maleficent, Pennywise, Jaws, Scar.",
+ "confidence": "low: all three numeric sources are critic or industry panels (AFI 2003 predates Voldemort, Thanos, etc.; the 2016 Empire vote is only 28 people and ranks Vader 33rd), so the result skews classic and obscure (Cody Jarrett, Alex Forrest, Hans Beckert, Travis Bickle is an anti-hero). The two public/industry polls that favor Vader and the Joker (THR 1,000 pros; TheJournal 13,217 votes) were top-5/7-option only, so they are not in the math. Ranker's 129K-voter fan list could not be read (Cloudflare). Recommend a fan-vote source before replacing the live list; Empire 2026 alone would keep Vader, Joker, Gruber, Hannibal, Landa, Chigurh, Thanos, Voldemort at the top."
+}

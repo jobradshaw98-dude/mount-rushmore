@@ -1,0 +1,7 @@
+{
+ "sources": [],
+ "list": [],
+ "avg_rank": [],
+ "changes_vs_current": "No change: could not build a list from verified sources. Nothing from the earlier IGN/OnePoll/UK-poll check could be re-fetched, so it was not used.",
+ "confidence": "none: 0 usable sources. IGN Top 100 Comic Book Heroes (fetch blocked for www.ign.com), Ranker (Cloudflare 401), Scotsman UK poll (403 / no body text), GameSkinny (403) were all unreadable. The only page read was a single-writer 2016 top 10 on comicbookmovie.com (Batman, Spider-Man, Wonder Woman, Captain America, Flash...), which is one opinion and not usable. The WebSearch budget for this turn ran out mid-run, so no alternative source could be found. Re-run superheroes after the search budget resets (or raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION)."
+}

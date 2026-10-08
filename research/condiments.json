@@ -1,0 +1,82 @@
+{
+ "sources": [
+  {
+   "name": "YouGov: Americans' favorite condiments (love %, ownership %; 22 condiments surveyed, only top 10 'love' + 11 'own' published)",
+   "url": "https://yougov.com/en-us/articles/54116-americans-favorite-condiments",
+   "method": "poll of 1,104 US adult citizens, Jan 30-Feb 1 2026",
+   "year": 2026
+  },
+  {
+   "name": "Circana/Amazon Fresh condiment category sales (Food Institute)",
+   "url": "https://foodinstitute.com/?p=545332",
+   "method": "sales data, 52 wks ending Jul 2 2023 (mayo, ketchup, pickles, mustard only)",
+   "year": 2023
+  },
+  {
+   "name": "Tasting Table reader survey",
+   "url": "https://tastingtable.com/906696/survey-shows-almost-32-of-people-prefer-this-condiment",
+   "method": "poll of 626 readers, top 5 only",
+   "year": 2022
+  },
+  {
+   "name": "DoorDash grocery burger-condiment orders (Fox 5 Atlanta)",
+   "url": "https://www.fox5atlanta.com/news/these-are-the-most-popular-burger-condiments-used-by-americans-according-to-doordash-grocery-data",
+   "method": "delivery order data May 2022-Mar 2023, top 5 only",
+   "year": 2023
+  }
+ ],
+ "list": [
+  "Ketchup|catsup",
+  "Mayonnaise|mayo",
+  "Mustard|yellow mustard",
+  "Ranch",
+  "Hot Sauce",
+  "Salsa",
+  "BBQ Sauce|barbecue sauce|bbq",
+  "Relish",
+  "Pickles|pickle",
+  "Soy Sauce",
+  "Sriracha",
+  "Buffalo Sauce|buffalo",
+  "Honey Mustard",
+  "Guacamole|guac",
+  "Chick-fil-A Sauce|cfa sauce",
+  "Aioli|garlic aioli",
+  "Tzatziki",
+  "Chimichurri",
+  "Pesto",
+  "Sweet Chili Sauce|sweet chili",
+  "Tartar Sauce",
+  "Horseradish",
+  "Gochujang",
+  "Teriyaki Sauce|teriyaki"
+ ],
+ "avg_rank": [
+  1.75,
+  2.75,
+  4.5,
+  5.5,
+  7,
+  7.5,
+  7.75,
+  9,
+  9,
+  9.25,
+  10.5,
+  10.5,
+  10.5,
+  10.5,
+  10.5,
+  10.5,
+  10.5,
+  10.5,
+  10.5,
+  10.5,
+  10.5,
+  10.5,
+  10.5,
+  10.5
+ ],
+ "changes_vs_current": "Data only supports positions 1-10 (ketchup, mayo, mustard, ranch, hot sauce, salsa, BBQ, relish, pickles, soy sauce); mayo/mustard moved up, ranch/hot sauce/salsa down. Positions 11-24 are carried over from the current list in current order (avg 10.5 = 'no data' value, not a measured rank); Worcestershire dropped only to make room for Pickles. I excluded peanut butter, honey, chocolate sauce, maple syrup and jam from the YouGov list as spreads/toppings (they were #1,2,5,7,8 in YouGov's 'love' ranking) - add back if you want them as condiments.",
+ "confidence": "low - no source ranks more than 10 condiments; four short lists of mixed method (poll love %, sales, delivery orders, reader poll). Top ~5 (ketchup/mayo/mustard/ranch/hot sauce) is consistent across sources. Positions 11-24 are NOT data-backed. Ranker condiments page was blocked (HTTP 401), and Instacart/Harris 2021 only gave 'most hated' lists."
+}
