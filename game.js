@@ -726,7 +726,11 @@ Orzo
 Shells|conchiglie
 Tagliatelle
 Cavatelli
-Ditalini`}
+Ditalini`},
+/* Topics added by the weekly topic job (tools/build-lists.js writes this block from research/<id>.json files that carry a `topic`).
+   Each has from: <first day it may appear>, so days already played never change. Never reorder: the daily calendar indexes this array. */
+/* BEGIN ADDED */
+/* END ADDED */
 ];
 
 /* Topic revisions take effect from REVISE_FROM so games already played keep the list they were scored on. */
@@ -735,6 +739,7 @@ const CATEGORY = {breakfast:"food",pizza:"food",fastfood:"food",candy:"food",san
   nba:"sports",golf:"sports",events:"sports",qbs:"sports",soccer:"sports",
   pixar:"screen",sitcoms:"screen",villains:"screen",movies:"screen",disney:"screen",dramas:"screen",superheroes:"screen",videogames:"screen",
   music:"music",rappers:"music", boardgames:"play",holidays:"life",dogs:"life"};
+const catOf = t => CATEGORY[t.base||t.id] || t.cat;
 function revise(base, id, drop, insert){
   const lines=base.items.trim().split("\n").filter(l=>!drop.includes(l.split("|")[0].trim()));
   for(const [pos,line] of insert) lines.splice(pos-1, 0, line);
@@ -748,7 +753,8 @@ const REVISED = [
 ];
 const REV = Object.fromEntries(REVISED.map(t=>[t.base,t]));
 /* Researched lists replace every topic from RESEARCHED_FROM: each is ranked from published polls, fan votes and
-   sales, weighting what people pick over critics. Sources live in research/<id>.json; tools/build-lists.js writes this block. */
+   sales, weighting what people pick over critics. Sources live in research/<id>.json; tools/build-lists.js writes this block.
+   A re-ranked list is a new version with its own from: <day> (id <base>_r<day>); earlier days keep the version they were played on. */
 const RESEARCHED_FROM = 13;
 const RESEARCHED = [
 /* BEGIN RESEARCHED */
@@ -1473,8 +1479,11 @@ Shells|conchiglie
 Tagliatelle
 Cavatelli`}
 /* END RESEARCHED */
-].map(r=>({...TOPICS.find(t=>t.id===r.base), id:r.base+"_r", base:r.base, items:r.items}));
-const RES = Object.fromEntries(RESEARCHED.map(t=>[t.base,t]));
+].map(r=>({...TOPICS.find(t=>t.id===r.base), id:r.base+"_r"+(r.from&&r.from!==RESEARCHED_FROM?r.from:""), base:r.base, from:r.from||RESEARCHED_FROM, items:r.items}));
+const RES = {};
+for(const t of RESEARCHED) (RES[t.base]=RES[t.base]||[]).push(t);
+for(const b in RES) RES[b].sort((x,y)=>y.from-x.from);
+const resOn = (base, day) => (RES[base]||[]).find(v=>v.from<=day);
 const ALL_TOPICS = TOPICS.concat(REVISED, RESEARCHED);
 
 /* ---------------- matching ---------------- */
@@ -1527,14 +1536,14 @@ function dayIndex(n){
     start+=order.length;
   }
 }
-const onDay = (t, day) => (day>=RESEARCHED_FROM && RES[t.id]) || (day>=REVISE_FROM && REV[t.id]) || t;
+const onDay = (t, day) => resOn(t.id, day) || (day>=REVISE_FROM && REV[t.id]) || t;
 function topicForDay(n){ return onDay(TOPICS[dayIndex(n)], n); }
 /* Reorder a shuffled list so two topics from the same category never sit back to back. */
 function spreadOut(list, prevCat){
   const out=[], pool=list.slice();
   while(pool.length){
-    const last = out.length ? CATEGORY[out[out.length-1].base||out[out.length-1].id] : prevCat;
-    let i = pool.findIndex(t=>CATEGORY[t.base||t.id]!==last); if(i<0) i=0;
+    const last = out.length ? catOf(out[out.length-1]) : prevCat;
+    let i = pool.findIndex(t=>catOf(t)!==last); if(i<0) i=0;
     out.push(pool.splice(i,1)[0]);
   }
   return out;
@@ -1544,7 +1553,7 @@ function spreadOut(list, prevCat){
 function roundDeck(g, day){
   const daily = topicForDay(day), dailyBase = daily.base || daily.id;
   let rest = shuffled(TOPICS.filter(t=>t.id!==dailyBase && (t.from||1)<=day), hash(g+":"+day)).map(t=>onDay(t, day));
-  if(day>=REVISE_FROM) rest = spreadOut(rest, CATEGORY[dailyBase]);
+  if(day>=REVISE_FROM) rest = spreadOut(rest, catOf(TOPICS.find(t=>t.id===dailyBase)));
   return rest;
 }
 function topicForRound(g, day, n){

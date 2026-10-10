@@ -1,0 +1,18 @@
+{
+  "_note": "Read and updated by the weekly topic job (aria-rushmore-topics). rerank: worst first; take the top 2 each run and remove them when shipped. suggestions_handled: suggestion-box keys already turned into a topic or declined, with why.",
+  "rerank": [
+    {"id": "videogames", "why": "gamer/critic skew: Witcher 3 #1, Cyberpunk #5, no Tetris, Minecraft, Pac-Man, Mario, Pokemon, Halo"},
+    {"id": "breakfast", "why": "generic items in top 5 (Fruit, Toast) beat dishes people name: pancakes, waffles, bacon and eggs, breakfast burrito"},
+    {"id": "rappers", "why": "Biggie #16, Jay-Z / Snoop placement unchecked against general-public polls"},
+    {"id": "fruit", "why": "Lemons in top 5; check against favorite-fruit polls"},
+    {"id": "superheroes", "why": "Jordan 10-04: Wolverine should be ~#4 (polls #3-#4), Iron Man ~#6"},
+    {"id": "pasta", "why": "13 of 24 spots have no data"},
+    {"id": "desserts", "why": "12 of 24 spots have no data"},
+    {"id": "sandwiches", "why": "9 of 24 spots have no data"},
+    {"id": "holidays", "why": "7 of 24 spots have no data"},
+    {"id": "events", "why": "6 of 24 spots have no data"},
+    {"id": "villains", "why": "4 of 24 spots have no data"},
+    {"id": "dogs", "why": "French Bulldog dropped though it is the #1 AKC registration breed"}
+  ],
+  "suggestions_handled": {}
+}
