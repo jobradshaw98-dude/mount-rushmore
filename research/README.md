@@ -1,6 +1,6 @@
 # Researched topic lists
 
-Each `<id>.json` is the ranked top 24 for one topic and the sources it was built from. From game #13 (Oct 9 2026) the game uses these lists in place of the original hand-written ones. Since Oct 10 2026 a weekly job (`~/.claude/scheduled-tasks/aria-rushmore-topics/`) adds new topics and re-ranks weak lists.
+Each `<id>.json` is the ranked top 24 for one topic and the sources it was built from. From game #13 (Oct 9 2026) the game uses these lists in place of the original hand-written ones. Since Oct 10 2026 the lists live in the database (`/catalog`), and a weekly cloud routine adds new topics and re-ranks weak lists (instructions: `research/ROUTINE.md`).
 
 ## The goal of a list
 
@@ -26,6 +26,10 @@ The board is a guess at **what a typical American adult would name** for the top
 - `<id>.v1.json` / `.v2.json`: earlier research passes kept for the record (not used by the game).
 - `_queue.json`: lists waiting to be re-ranked, worst first, and the suggestion box items already handled.
 
-## Shipping
+## Publishing (how a research file reaches players)
 
-`node tools/ship.js "<message>"` builds the lists, proves no played day changed (`tools/check-history.js`), commits, pushes the page, deploys the server function and checks the live site. `--dry` stops before the commit.
+1. A pull request changes files here. The `validate` workflow runs `node tools/catalog.js plan` (builds the new rows from these files, proves no playable day changes) and the database rule tests. Auto-merge lands it when they pass.
+2. On `main`, the `publish` workflow runs `node tools/catalog.js publish`: a canary first proves the database refuses a backdated row from the publisher, then the new rows are written as `catalog-publisher` and read back.
+3. The database rules have the final say: published rows can never change or be deleted, and new ones must start at least 2 days out. The page and the scoring server read `/catalog` directly, so nothing is redeployed.
+
+By hand: `node tools/catalog.js plan` shows what would be published; publishing needs the `FIREBASE_SA` key, which lives only in GitHub secrets.
