@@ -1,94 +1,117 @@
 {
+ "from": 16,
  "sources": [
   {
-   "name": "Kitchen Infinity top breakfast picks, 15 ranked (cereal 14% #1, eggs, fruit, toast, avocado, yogurt, bagels, omelet, pancakes, bacon and/or sausage, cereal bar, porridge, donuts or cookies, pastries, smoked salmon)",
+   "name": "Kitchen Infinity survey of 2,500 US adults via Mental Floss: top breakfast pick",
    "url": "https://www.mentalfloss.com/food/most-popular-breakfast-foods",
-   "method": "Survey of 2,500 US adults, published Apr 2022 via Mental Floss; 'Avocado' mapped to Avocado Toast, 'Bacon and/or sausage' counted for both at 10",
-   "year": 2022
+   "method": "Top pick: Cereal, Eggs, Fruit, Toast, Avocado, Yogurt, Bagels, Omelet, Pancakes, Bacon/sausage, Cereal bar, Porridge, Donuts, Pastries, Smoked salmon",
+   "year": 2022,
+   "kind": "people"
   },
   {
-   "name": "OnePoll for Sabra: Eggs 65, Coffee 58, Cereal 56, Breakfast sandwich 46, Bacon 42, Avocado/hummus toast 29",
-   "url": "https://www.foxnews.com/food-drink/majority-americans-food-breakfast.amp",
-   "method": "OnePoll, 2,000 Americans, Jul 2019",
-   "year": 2019
-  },
-  {
-   "name": "OnePoll for Dave's Killer Bread favorite breakfast foods: Eggs 58, Sausage 2nd, Toast 3rd",
+   "name": "OnePoll for Dave's Killer Bread, 2,000 Americans: favorite breakfast foods (Fox News + Reviewed.com reprint of top 10)",
    "url": "https://www.foxnews.com/food-drink/second-breakfast-americans-polled.amp",
-   "method": "OnePoll, 2,000 Americans, Sep 2019 (top 3 only)",
-   "year": 2019
+   "method": "Eggs, Sausage, Toast, Pancakes, Bacon, Cereal, Fresh fruit, Oatmeal, Home fries, Doughnuts",
+   "year": 2019,
+   "kind": "people"
   },
   {
-   "name": "Ranker fan vote: French Toast, Waffles, Bacon, Pancakes, Hash Browns, Fruit, Scrambled Eggs, Toast, Omelette, Cereal; Breakfast Burrito 34th, Biscuits and Gravy 37th",
+   "name": "OnePoll for Sabra, 2,000 Americans: foods eaten at breakfast",
+   "url": "https://www.foxnews.com/food-drink/majority-americans-food-breakfast",
+   "method": "Eggs 65, Coffee 58, Cereal 56, Breakfast sandwich 46, Bacon 42, Avocado/hummus toast 29. What people eat, not favorites.",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "OnePoll for Happy Egg, 2,005 adults: most popular breakfast dishes",
+   "url": "https://studyfinds.com/breakfast-food-survey/",
+   "method": "Eggs 42%, Omelets 37%, Pancakes 36%",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "AYTM breakfast surveys (Sep 2015 + waffles surveys Mar/Sep 2015)",
+   "url": "https://aytm.com/post/breakfast-survey",
+   "method": "Eggs first, Bacon 2nd, Toast 3rd; waffles survey: Eggs, Bacon, Pancakes, French toast, Waffles. One pollster, counted once.",
+   "year": 2015,
+   "kind": "people"
+  },
+  {
+   "name": "Tasting Table reader survey, 626 respondents: go-to breakfast",
+   "url": "https://www.tastingtable.com/909078/new-survey-reveals-38-of-people-say-this-is-their-go-to-breakfast/",
+   "method": "Eggs 38, Cereal 24, Oatmeal 15, Pancakes/waffles 13, Toast 9. Not representative.",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Ranker fan vote (~44,000 votes) via Uproxx",
    "url": "https://uproxx.com/life/best-breakfast-foods-ranked/",
-   "method": "Ranker voting (~44,000 votes), read second-hand via Uproxx because Ranker blocks fetching; fan vote, not a representative poll. Missing items scored 42",
-   "year": 2022
+   "method": "French Toast, Waffles, Bacon, Pancakes, Hash Browns, Fruit, Scrambled Eggs, Toast, Omelette, Cereal; breakfast burrito 34, biscuits and gravy 37",
+   "year": 2022,
+   "kind": "people"
   },
   {
-   "name": "Grubhub most-ordered breakfast items: sausage egg and cheese sandwich, doughnuts, sausage burritos, bagels with cream cheese, muffins",
+   "name": "YouGov US breakfast poll, 1,295 adults",
+   "url": "https://yougov.com/en-us/articles/25615-how-americans-eggs-coffee-toast-bacon-breakfast",
+   "method": "93% say a hearty breakfast needs bacon; 81% drink coffee. Support only.",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "Grubhub most-ordered breakfast items of 2022",
    "url": "https://www.fox10phoenix.com/news/most-ordered-takeout-foods-2022-us-grubhub-report",
-   "method": "Grubhub delivery order data",
-   "year": 2022
+   "method": "Unranked: sausage egg and cheese sandwiches, doughnuts, sausage burritos, bagels, muffins",
+   "year": 2022,
+   "kind": "people"
   }
  ],
  "list": [
   "Eggs|scrambled eggs|fried eggs",
-  "Cereal",
   "Bacon",
-  "Toast",
-  "Fruit|fresh fruit",
-  "Pancakes|flapjacks|hotcakes",
-  "Omelette|omelet",
+  "Pancakes|pancake|flapjacks|hotcakes",
+  "Waffles|waffle",
   "French Toast",
-  "Waffles",
-  "Hash Browns|hashbrowns",
-  "Avocado Toast",
-  "Bagel|bagel and cream cheese|lox bagel",
+  "Cereal|cold cereal",
+  "Omelette|omelet|omelettes",
+  "Toast|buttered toast",
+  "Sausage|breakfast sausage|sausage links",
   "Breakfast Sandwich|egg sandwich|bacon egg and cheese|bec",
-  "Sausage|breakfast sausage",
+  "Hash Browns|hashbrowns|hash brown|home fries",
+  "Breakfast Burrito|burrito|breakfast burritos",
+  "Fruit|fresh fruit|fruit salad",
+  "Bagel|bagels|bagel and cream cheese",
+  "Avocado Toast|avocado",
+  "Donut|doughnut|donuts|doughnuts",
+  "Oatmeal|porridge|oats",
+  "Biscuits and Gravy|biscuit and gravy|biscuits n gravy",
+  "Yogurt|yoghurt|parfait|yogurt parfait",
+  "Muffin|muffins|blueberry muffin",
+  "Pastry|pastries|croissant|danish",
+  "Coffee",
+  "Cereal Bar|granola bar|breakfast bar",
+  "Smoked Salmon|lox"
+ ],
+ "gut_check": [
+  "Eggs",
+  "Bacon",
+  "Pancakes",
+  "Waffles",
+  "French Toast",
+  "Cereal",
   "Breakfast Burrito",
-  "Donut|doughnut",
-  "Yogurt Parfait|yogurt|parfait",
-  "Oatmeal|porridge",
-  "Biscuits and Gravy",
-  "Muffin|blueberry muffin",
-  "Eggs Benedict|benedict",
-  "Chicken and Waffles",
-  "Croissant",
-  "Cinnamon Roll"
+  "Breakfast Sandwich",
+  "Omelette",
+  "Hash Browns",
+  "Sausage",
+  "Toast"
  ],
- "avg_rank": [
-  4.2,
-  6.4,
-  7.2,
-  7.2,
-  7.6,
-  8.4,
-  9.2,
-  10,
-  10.2,
-  10.8,
-  14.2,
-  14.4,
-  15,
-  15,
-  15.2,
-  15.2,
-  15.4,
-  16.6,
-  17.2,
-  17.2,
-  18.2,
-  18.2,
-  18.2,
-  18.2
+ "changes_vs_current": [
+  "Fruit 5 -> 13, Toast 4 -> 8: generic categories, no source puts them above the dishes",
+  "Pancakes 6 -> 3, Waffles 9 -> 4, French Toast 8 -> 5 (French Toast thinnest: Ranker + AYTM)",
+  "Bacon 3 -> 2; Cereal 2 -> 6 (eaten most, not named as favorite)",
+  "Sausage 14 -> 9, Breakfast Sandwich 13 -> 10, Breakfast Burrito 15 -> 12 (thin)",
+  "Dropped Eggs Benedict, Chicken and Waffles, Cinnamon Roll (no data); added Pastry, Coffee, Cereal Bar, Smoked Salmon"
  ],
- "no_data_positions": [
-  21,
-  22,
-  23,
-  24
- ],
- "changes_vs_current": "Eggs 3 to 1, Cereal 11 to 2, Bacon 2 to 3; Toast and Fruit added (4-5); Pancakes 1 to 6, Omelette 9 to 7, French Toast 5 to 8, Waffles 4 to 9; Grits and Shakshuka dropped; Eggs Benedict, Chicken and Waffles, Croissant, Cinnamon Roll (21-24) have no evidence and keep current order.",
- "confidence": "low-medium. 5 sources but different granularity: Eggs/Cereal/Toast/Fruit are broad categories in 3 polls, while Ranker and Grubhub rank dishes. Ranks 1-10 are reasonably supported (each has 1-4 sources); ranks 11-20 are mostly penalty artifacts from items missing in short lists. Ranker is a second-hand fan vote and drives French Toast/Waffles/Hash Browns; Pancakes at 6 and Waffles at 9 may be understated since Pancakes/Waffles/French Toast are the 'favorite' picks in several other polls (Challenge Butter 2024: pancakes/waffles 65% weekend pick, found via search snippet only, not read, so not used). YouGov Ratings Q2 2026 has Hash browns 84% and Eggs and bacon 83% in the American-dishes top 20 (read) but no breakfast-wide ranking; not aggregated."
+ "confidence": "medium-low: top 6 well supported; several polls are not representative samples",
+ "no_data_positions": []
 }

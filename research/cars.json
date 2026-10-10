@@ -1,0 +1,136 @@
+{
+ "topic": {
+  "name": "Car Brands",
+  "cat": "brands",
+  "from": 16
+ },
+ "sources": [
+  {
+   "name": "GoodCarBadCar: 2025 US auto sales by brand",
+   "url": "https://www.goodcarbadcar.net/2025-us-auto-sales-figures-by-brand-brand-rankings/",
+   "method": "Units sold: Toyota, Ford, Chevrolet, Honda, Hyundai, Nissan, Kia, GMC, Subaru, Jeep, Tesla, Ram, Mazda, BMW, Lexus, Mercedes-Benz, VW, Buick, Cadillac, Audi; Dodge 25, Porsche 29, Ferrari 44",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov BrandIndex US auto brand health top 10 (via TorqueNews)",
+   "url": "https://www.torquenews.com/1084/top-10-car-brands-you-say-are-best-and-where-subaru-ranks-now",
+   "method": "Toyota, Honda, Chevrolet, Subaru, Ford, Lexus, Mercedes-Benz, BMW, Nissan, Audi",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov BrandIndex Apr 2025-Mar 2026, men, top 10 (via AutoGuide)",
+   "url": "https://www.autoguide.com/auto/top-10/s-the-10-car-brands-men-like-most-right-now-44633035",
+   "method": "Toyota, Honda, Ford, Subaru, Chevrolet, Lexus, Mercedes-Benz, BMW, Nissan, Audi",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov US Automotive Rankings 2021 (via MediaPost)",
+   "url": "https://www.mediapost.com/publications/article/361479/toyota-honda-chevy-tops-in-us-brand-health.html",
+   "method": "Toyota, Honda, Chevrolet, Ford, Subaru, Nissan, Lexus, Mercedes, BMW, Jeep. Same family as above; Jeep check only.",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov / Wards 2026 US auto rankings",
+   "url": "https://wardsauto.com/press-release/20260506-japanese-automakers-dominate-top-three-us-auto-rankings-as-new-yougov-rep-1/",
+   "method": "Toyota, Honda, Subaru top 3; consideration Toyota, Honda, Ford",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Kelley Blue Book Brand Watch 2025 (via CarPro)",
+   "url": "https://www.carpro.com/blog/toyota-lexus-top-kelley-blue-book-2025-brand-watch",
+   "method": "Consideration, non-luxury: Toyota, Chevrolet, Ford, Honda, GMC, Hyundai, Subaru, Nissan, Kia, Jeep; luxury: Lexus, BMW, Cadillac, Mercedes-Benz, Acura, Audi",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Google search interest 2022-2025 (via Extreme Terrain)",
+   "url": "https://www.extremeterrain.com/most-popular-car-in-each-state.html",
+   "method": "Top 5 searched: Toyota, Tesla, Honda, Ram, Ford",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Click4Reg US monthly Google searches (via MediaPost)",
+   "url": "https://www.mediapost.com/publications/article/341825/tesla-most-googled-car-brand-by-americans.html",
+   "method": "Tesla, Toyota, Ford, Jeep, Lamborghini, Chevrolet, Dodge, Chrysler",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "Tinting Chicago dream-vehicle survey, 2,000+ US adults (via The Shop)",
+   "url": "https://theshopmag.com/news/tinting-chicago-reveals-nationwide-dream-vehicle-survey/",
+   "method": "Dream makes: Ford, Toyota, Tesla; high-status: Porsche, BMW, Mercedes-Benz",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Consumer Reports 2026 owner satisfaction by brand (via Autoblog/Yahoo)",
+   "url": "https://autos.yahoo.com/ownership/articles/america-most-loved-car-brands-160000537.html",
+   "method": "Rivian, BMW, Subaru, Tesla, Ford, Genesis, Lexus, Toyota, Honda, Chevrolet",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Consumer Reports 2026 Brand Report Card",
+   "url": "https://www.automotiveaddicts.com/110729/foreign-brands-dominate-consumer-reports-2026-auto-brand-report-card",
+   "method": "Tie-breaks only",
+   "year": 2026,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Toyota",
+  "Honda",
+  "Ford",
+  "Chevrolet|chevy|chev",
+  "Tesla",
+  "Subaru",
+  "BMW|beemer|bimmer",
+  "Mercedes-Benz|mercedes|benz|mercedes benz|merc",
+  "Jeep",
+  "Lexus",
+  "Porsche",
+  "Nissan",
+  "Hyundai",
+  "Dodge",
+  "Audi",
+  "GMC",
+  "Ram|ram trucks|dodge ram",
+  "Kia",
+  "Cadillac|caddy",
+  "Volkswagen|vw|volks",
+  "Mazda",
+  "Lamborghini|lambo",
+  "Ferrari",
+  "Buick"
+ ],
+ "gut_check": [
+  "Ford",
+  "Toyota",
+  "Chevrolet",
+  "Honda",
+  "Tesla",
+  "BMW",
+  "Mercedes-Benz",
+  "Porsche",
+  "Jeep",
+  "Subaru",
+  "Lexus",
+  "Dodge"
+ ],
+ "changes_vs_current": [
+  "New topic (player suggestion 'Car brands')",
+  "Porsche to #11 on gut check + status-brand survey (sales #29)",
+  "Dodge to #14 on gut check + search volume",
+  "Tesla to #5 (#2 search interest, dream-car top 3)",
+  "Jeep #9 above Lexus (more nameable)",
+  "Ferrari/Lamborghini tail spots thin"
+ ],
+ "confidence": "medium: top 8 solid (5+ sources); 15-24 rest on 1-3 sources",
+ "no_data_positions": []
+}

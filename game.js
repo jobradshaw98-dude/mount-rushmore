@@ -730,6 +730,78 @@ Ditalini`},
 /* Topics added by the weekly topic job (tools/build-lists.js writes this block from research/<id>.json files that carry a `topic`).
    Each has from: <first day it may appear>, so days already played never change. Never reorder: the daily calendar indexes this array. */
 /* BEGIN ADDED */
+{id:"athletes",name:"Athletes",note:"All-time, any sport",cat:"sports",from:16,items:`Michael Jordan|jordan|mj|air jordan|his airness
+Muhammad Ali|ali|cassius clay|the greatest
+Babe Ruth|the babe|ruth|bambino
+Tom Brady|brady|tb12
+LeBron James|lebron|king james|bron
+Tiger Woods|tiger|woods
+Serena Williams|serena
+Kobe Bryant|kobe|black mamba
+Lionel Messi|messi|leo messi
+Wayne Gretzky|gretzky|the great one
+Michael Phelps|phelps
+Usain Bolt|bolt
+Jackie Robinson|jackie
+Peyton Manning|peyton|manning
+Joe Montana|montana
+Simone Biles|biles|simone
+Jim Thorpe|thorpe
+Pelé|pele
+Derek Jeter|jeter
+Stephen Curry|steph curry|curry|steph
+Kareem Abdul-Jabbar|kareem|abdul-jabbar|lew alcindor
+Willie Mays|mays|say hey kid
+Magic Johnson|magic
+Jesse Owens|owens`},
+{id:"summer",name:"Summer Activities",cat:"life",from:16,items:`Grilling|bbq|barbecue|barbeque|cookout|grilling out|barbecuing
+Going to the Beach|beach|the beach|beach day|go to the beach
+Swimming|swim|pool|swimming pool|pool day|going swimming
+Vacation|vacations|travel|traveling|getaway|weekend getaway|summer vacation
+Ice Cream|ice cream cone|popsicles|popsicle|frozen treats|gelato
+Road Trips|road trip|roadtrip|road tripping|summer road trip
+Fireworks|watching fireworks|fourth of july|4th of july|july 4th|july fourth
+Camping|camp|tent camping|go camping|campfire|campfires|rv camping
+Hiking|hike|hikes|trail|trails|going for a hike
+Visiting Family and Friends|family time|time with family|visit family|visiting family|seeing friends|hanging out with friends|family reunion
+Walking|nature walk|walks|go for a walk|taking a walk|evening walk
+Fishing|go fishing|fly fishing
+Picnic|picnics|picnic in the park|having a picnic
+Boating|boat|boat day|boat ride|lake|lake day|going to the lake|jet ski|pontoon|sailing
+Fairs and Festivals|festival|festivals|fair|county fair|state fair|carnival
+Baseball Game|baseball|going to a baseball game|ballgame|ball game|watching baseball
+Outdoor Concerts|concert|concerts|outdoor concert|live music|music in the park
+Biking|bike|bike ride|bicycling|cycling|bike riding
+Sitting on the Porch|porch|patio|deck|sitting outside|backyard|front porch
+Tubing|river tubing|floating|float the river|lazy river
+Kayaking|kayak|canoe|canoeing|paddleboarding|paddle boarding|stand up paddle
+Parades|parade|watching a parade|fourth of july parade
+Gardening|garden|yard work|vegetable garden
+Golf|golfing|playing golf|mini golf|miniature golf`},
+{id:"cars",name:"Car Brands",cat:"brands",from:16,items:`Toyota
+Honda
+Ford
+Chevrolet|chevy|chev
+Tesla
+Subaru
+BMW|beemer|bimmer
+Mercedes-Benz|mercedes|benz|mercedes benz|merc
+Jeep
+Lexus
+Porsche
+Nissan
+Hyundai
+Dodge
+Audi
+GMC
+Ram|ram trucks|dodge ram
+Kia
+Cadillac|caddy
+Volkswagen|vw|volks
+Mazda
+Lamborghini|lambo
+Ferrari
+Buick`},
 /* END ADDED */
 ];
 
@@ -806,6 +878,30 @@ Eggs Benedict|benedict
 Chicken and Waffles
 Croissant
 Cinnamon Roll`},
+{base:"breakfast",from:16,items:`Eggs|scrambled eggs|fried eggs
+Bacon
+Pancakes|pancake|flapjacks|hotcakes
+Waffles|waffle
+French Toast
+Cereal|cold cereal
+Omelette|omelet|omelettes
+Toast|buttered toast
+Sausage|breakfast sausage|sausage links
+Breakfast Sandwich|egg sandwich|bacon egg and cheese|bec
+Hash Browns|hashbrowns|hash brown|home fries
+Breakfast Burrito|burrito|breakfast burritos
+Fruit|fresh fruit|fruit salad
+Bagel|bagels|bagel and cream cheese
+Avocado Toast|avocado
+Donut|doughnut|donuts|doughnuts
+Oatmeal|porridge|oats
+Biscuits and Gravy|biscuit and gravy|biscuits n gravy
+Yogurt|yoghurt|parfait|yogurt parfait
+Muffin|muffins|blueberry muffin
+Pastry|pastries|croissant|danish
+Coffee
+Cereal Bar|granola bar|breakfast bar
+Smoked Salmon|lox`},
 {base:"pizza",items:`Pepperoni
 Sausage|italian sausage
 Mushrooms
@@ -1118,6 +1214,30 @@ Animal Crossing: New Horizons|animal crossing|acnh
 Marvel's Spider-Man|spider-man|spiderman
 Mass Effect 2|me2
 Wii Sports`},
+{base:"videogames",from:16,items:`Super Mario Bros.|super mario brothers|super mario bros|super mario|mario
+Minecraft
+Tetris
+Grand Theft Auto V|gta 5|gta v|gta|grand theft auto
+Mario Kart 8|mario kart|mario kart 8 deluxe
+The Legend of Zelda|zelda|legend of zelda|breath of the wild|botw|ocarina of time|ocarina|oot
+Call of Duty|cod
+Pokemon Red and Blue|pokemon|pokémon|pokemon red|pokemon blue
+Pac-Man|pacman|pac man
+Sonic the Hedgehog|sonic
+Wii Sports
+Donkey Kong
+Marvel's Spider-Man|spider-man|spiderman|spider man
+Halo
+Candy Crush Saga|candy crush
+Super Smash Bros.|smash bros|smash|super smash bros
+Red Dead Redemption 2|rdr2|red dead 2|red dead
+The Sims|sims
+Animal Crossing: New Horizons|animal crossing|acnh
+Final Fantasy VII|ff7|final fantasy 7|final fantasy
+The Elder Scrolls V: Skyrim|skyrim
+Angry Birds
+Mortal Kombat
+Crash Bandicoot`},
 {base:"cereal",items:`Cinnamon Toast Crunch|ctc
 Cheerios
 Frosted Flakes
