@@ -1,0 +1,101 @@
+{
+ "sources": [
+  {
+   "name": "YouGov Ratings: most popular rap & hip-hop music artists (US), Q2 2026",
+   "url": "https://yougov.com/en-us/ratings/rap-hiphop-artists",
+   "method": "Share with a positive opinion, top 20 only. Re-sorted to solo rappers (groups and non-rappers like Pharrell, Post Malone and Jelly Roll removed): Eminem, Ice Cube, LL, 50 Cent, Tupac, MC Hammer, Dre, Ludacris, Missy, Kendrick, Biggie, Pitbull.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Celebrity Family Feud best-rapper survey (100 people), top 8 answers: Snoop, 2Pac, Eminem, Dr. Dre, LL, Biggie, 50 Cent, Jay-Z",
+   "url": "https://hiphopdx.com/news/biggie-jay-z-nas-the-big-3-family-feud/",
+   "method": "Reused from prior file; same top 8 and order seen again in Complex and The Source search snippets (2024). The HipHopDX page itself was not re-fetched.",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Spotify most-streamed artists of all time (kworb)",
+   "url": "https://kworb.net/spotify/artists.html",
+   "method": "Rapper-only ordinals from total streams, read 2026-10-07; capped at 35. Jay-Z does not appear in this list at all (unexplained), so Spotify is excluded from his average.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Commercial composite (counted as ONE source): rapper-only order within RIAA highest-certified US artists, Billboard Greatest of All Time Billboard 200 artists, Billboard GOAT Hot 100 artists, Wikipedia worldwide certified units",
+   "url": "https://en.wikipedia.org/wiki/List_of_highest-certified_music_artists_in_the_United_States",
+   "method": "Mean of rapper-only positions (missing = list length + 5), then re-ranked among the 10 rappers present. Other URLs: https://www.billboard.com/charts/greatest-of-all-time-artists/ ; https://www.billboard.com/charts/greatest-hot-100-artists/ ; https://en.wikipedia.org/wiki/List_of_best-selling_music_artists",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov poll of US adults rating the music of Billboard's top 20 rappers (net love/like minus dislike/hate), Apr 28-May 2 2023",
+   "url": "https://datawrapper.dwcdn.net/zrqtw/1/dataset.csv",
+   "method": "Ranked by net score (Eminem and Snoop tied 25, Kendrick 24, LL 23, Ice Cube 22, Drake and Tupac 20, 50 Cent 19...). Only 20 pre-selected rappers were rated, so for rappers outside that pool this source is skipped instead of penalised (my deviation from the missing-item rule).",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "Billboard and Vibe 50 Greatest Rappers (editors, 2023), used ONLY to break ties",
+   "url": "https://en.wikipedia.org/wiki/Billboard_and_Vibe%27s_50_Greatest_Rappers_of_All_Time",
+   "method": "Tie-breaks only: Jay-Z over Kanye, Ice Cube over Dr. Dre. Ranks beyond the top 10 come from the order of images on https://www.billboard.com/lists/best-rappers-all-time/ and are not verified.",
+   "year": 2023,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Eminem|slim shady",
+  "Drake",
+  "Kendrick Lamar|kendrick",
+  "Tupac|2pac|tupac shakur|pac",
+  "50 Cent|fifty cent",
+  "Snoop Dogg|snoop",
+  "Jay-Z|jayz|hov",
+  "Kanye West|kanye|ye",
+  "Nicki Minaj|nicki",
+  "Lil Wayne|weezy|wayne",
+  "LL Cool J|ll",
+  "J. Cole|cole",
+  "Ice Cube",
+  "Dr. Dre|dre",
+  "Pitbull|mr worldwide",
+  "The Notorious B.I.G.|biggie|biggie smalls",
+  "Ludacris",
+  "Missy Elliott|missy",
+  "Nelly",
+  "André 3000|andre|andre 3000|3 stacks",
+  "Nas",
+  "Travis Scott",
+  "Future",
+  "Juice WRLD|juice"
+ ],
+ "avg_rank": [
+  2.3,
+  7.7,
+  9.2,
+  9.5,
+  9.8,
+  10.9,
+  11,
+  11,
+  11.9,
+  12.2,
+  12.4,
+  13.4,
+  14,
+  14,
+  14.25,
+  15.8,
+  16.5,
+  16.6,
+  17.75,
+  18,
+  18.7,
+  12,
+  12.75,
+  13
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Out (6): Rakim, Lauryn Hill, DMX, Method Man, KRS-One, Busta Rhymes; In (6): LL Cool J, Pitbull, Ludacris, Nelly, Future, Juice WRLD; Tupac falls from #1 to #4, Eminem rises to #1, Biggie falls from #2 to #16, Nas from #6 to #21.",
+ "confidence": "low. Data is thin and splits two ways: streaming and sales data (Spotify, RIAA, Billboard) favour Drake, Kanye, Wayne and Travis Scott, while the pick and likability polls favour Eminem, Snoop, Tupac, LL, Ice Cube and 50 Cent. I added one rule of my own: a rapper needs at least 2 people-sources to rank in positions 1-21. Without it the strict method would put Travis Scott, Future, Juice WRLD, XXXTentacion and 21 Savage (Spotify-only) into the top 15. Positions 22-24 (Travis Scott, Future, Juice WRLD) have only Spotify behind them; their averages (12.0, 12.75, 13.0) are lower than positions 16-21, so avg_rank is not monotonic there. Top 10 passes the party test, but Biggie at #16 and Nas at #21 look too low (Biggie ranks 6th in Family Feud and 11th in YouGov but 37th on Spotify and has no sales data), Pitbull at #15 looks off, and Jay-Z has no Spotify data. Only one true pick-survey exists (Family Feud, 100 people, top 8). Ranker blocked."
+}

@@ -1,0 +1,128 @@
+{
+ "topic": {
+  "name": "US Presidents",
+  "cat": "people",
+  "from": 16
+ },
+ "sources": [
+  {
+   "name": "Gallup open-ended 'greatest US president' (Feb 2011)",
+   "url": "https://pacificlegal.org/presidential-polling/",
+   "method": "Open-ended, US adults name the greatest president. Reagan 19%, Lincoln 14%, Clinton 13%, Kennedy 11%, Washington 10%, F. Roosevelt 8%, Obama 5%, T. Roosevelt 3%, Truman 3%, G.W. Bush 2%. Order of the top 5 confirmed on news.gallup.com/poll/146183 (2009 Gallup: Reagan 24, Kennedy 22, Lincoln 22).",
+   "year": 2011,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov: best president (Feb 2018)",
+   "url": "https://yougov.com/en-us/articles/20257-ranking-presidents-presidents-day",
+   "method": "US adults pick the best president. Obama, Reagan and Lincoln tied at the top, then FDR, Washington, JFK, then Clinton 5% and Trump 5%.",
+   "year": 2018,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov: best president (Jan 2020)",
+   "url": "https://yougov.com/en-us/articles/27648-americas-best-president-poll",
+   "method": "US adults pick the best president. Obama 14%, Trump 11%, Lincoln 10%, Reagan 8%, Washington 8%.",
+   "year": 2020,
+   "kind": "people"
+  },
+  {
+   "name": "Economist/YouGov: best president (Feb 2021)",
+   "url": "https://yougov.com/en-us/articles/34164-republicans-best-president-reagan-trump",
+   "method": "US adults pick the best president. Obama 18%, Lincoln 17%, Trump 13%, FDR 12%, Reagan 10%, Washington 9%.",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov: % rating each president 'great' (Jun 2020)",
+   "url": "https://yougov.com/en-us/articles/30299-greatest-president-poll",
+   "method": "Share of US adults calling each president great. Lincoln 48, Washington 40, JFK 31, FDR 31, Obama 27, Reagan 23, Trump 18, Eisenhower 18, Carter 14, Clinton 8, G.W. Bush 7.",
+   "year": 2020,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov: great-to-failure president ratings (Sep 2026)",
+   "url": "https://yougov.com/en-us/articles/55687-do-americans-agree-with-trump-that-hes-the-greatest-us-president-in-history",
+   "method": "2,175 US adults rate presidents from great to failure. % great: Lincoln 57, Washington 52, JFK 37, FDR (above TR), TR 32, Obama 31, Trump 20 (9th of 45), Carter 14, Clinton 11, Biden 10, Jackson 10. Carter and Clinton figures come from the Newsweek write-up (newsweek.com/how-trumps-ranking-of-best-presidents-compares-to-americas-12534252).",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov: favorability of all presidents (Jul 2021)",
+   "url": "https://yougov.com/en-us/articles/37200-most-and-least-popular-us-presidents-according-ame",
+   "method": "% favorable among US adults: Lincoln 80, JFK 73, Washington 70, TR 62, Jefferson 62, Eisenhower 58, FDR 58, Obama 54, Reagan 54, Truman 51, Biden 47 (11th), Trump 39 (20th).",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings: US presidents popularity (Q3 2026)",
+   "url": "https://yougov.com/en-us/ratings/US-presidents",
+   "method": "% positive opinion across all 45 presidents. Lincoln 77, JFK 75, Washington 72, TR 69, FDR 67, Jefferson 66, Obama 64, Eisenhower 63, J. Adams 62, Carter 60, Grant 58, Madison 57, Truman 55, Reagan 52, JQA 49, Jackson 48, Biden 47, Clinton 46, LBJ 45, Monroe 44, Wilson 44, Ford 44, Hoover 43, G.W. Bush 42, G.H.W. Bush 41 ... Trump 38 (30th), Nixon 33 (39th). Rows 21-45 come from the page's public API.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings: US presidents fame (Q3 2026)",
+   "url": "https://yougov.com/en-us/ratings/US-presidents",
+   "method": "Same dataset ranked by fame (% who have heard of each), ties broken by popularity. 98%: JFK, Washington, Obama, Reagan. 97%: Trump, Biden. 96%: Lincoln, Jefferson, Clinton. 95%: TR, G.W. Bush, G.H.W. Bush, Nixon. 94%: FDR, Eisenhower, J. Adams. 92%: Carter. 91%: Grant, Madison, JQA. 90%: Truman, Jackson. 88%: LBJ, Ford, Hoover. Down to Pierce at 64%.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov: worst president, open-ended pick (2018, 2020, 2021)",
+   "url": "https://yougov.com/en-us/articles/34164-republicans-best-president-reagan-trump",
+   "method": "US adults pick the worst president. Feb 2021: Trump 46%, Obama 24%, Nixon 5% (3rd). Jan 2020 (yougov.com/en-us/articles/27648-americas-best-president-poll): Trump 41, Obama 21, Nixon 3, G.W. Bush 3. Feb 2018 (yougov.com/en-us/articles/20257-ranking-presidents-presidents-day): Trump, Obama, Nixon a distant 3rd, Clinton, G.W. Bush. This measures how readily people name each president, not how much they like him.",
+   "year": 2021,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Abraham Lincoln|lincoln|abraham lincoln|abe lincoln|abe|honest abe",
+  "George Washington|washington|george washington",
+  "Barack Obama|obama|barack obama|barack|barak obama",
+  "John F. Kennedy|kennedy|jfk|john kennedy|john f kennedy|john f. kennedy|jack kennedy",
+  "Franklin D. Roosevelt|fdr|franklin roosevelt|franklin d roosevelt|franklin d. roosevelt|franklin delano roosevelt",
+  "Ronald Reagan|reagan|ronald reagan|ronnie reagan|regan",
+  "Theodore Roosevelt|teddy roosevelt|teddy|theodore roosevelt|tr|teddy rosevelt",
+  "Donald Trump|trump|donald trump|donald j trump|donald j. trump",
+  "Thomas Jefferson|jefferson|thomas jefferson",
+  "Dwight D. Eisenhower|eisenhower|ike|dwight eisenhower|dwight d eisenhower|dwight d. eisenhower|eisenhauer",
+  "Bill Clinton|clinton|bill clinton|william clinton",
+  "Joe Biden|biden|joe biden|joseph biden",
+  "Harry S. Truman|truman|harry truman|harry s truman|harry s. truman",
+  "Jimmy Carter|carter|jimmy carter",
+  "Richard Nixon|nixon|richard nixon|tricky dick|richard m nixon|richard m. nixon|dick nixon",
+  "George W. Bush|george w bush|george w. bush|w bush|w|dubya|bush 43|bush jr|george bush jr",
+  "John Adams|john adams",
+  "Ulysses S. Grant|grant|ulysses grant|ulysses s grant|ulysses s. grant",
+  "James Madison|madison|james madison",
+  "Andrew Jackson|jackson|andrew jackson|old hickory",
+  "George H. W. Bush|george h w bush|george hw bush|george h.w. bush|hw bush|h w bush|bush 41|bush sr|george bush sr",
+  "Lyndon B. Johnson|lbj|lyndon johnson|lyndon b johnson|lyndon b. johnson",
+  "Gerald Ford|ford|gerald ford|jerry ford",
+  "Woodrow Wilson|wilson|woodrow wilson"
+ ],
+ "gut_check": [
+  "Abraham Lincoln",
+  "George Washington",
+  "Franklin D. Roosevelt",
+  "John F. Kennedy",
+  "Ronald Reagan",
+  "Barack Obama",
+  "Donald Trump",
+  "Theodore Roosevelt",
+  "Thomas Jefferson",
+  "Bill Clinton",
+  "Joe Biden",
+  "Dwight D. Eisenhower"
+ ],
+ "changes_vs_current": [
+  "New topic. The ranking averages each president's position across the 9 people sources (a president missing from a source counts as that list's length + 5). All 12 gut-check picks landed in the top 12 of the raw ranking.",
+  "Donald Trump moved from #9 to #8, above Thomas Jefferson. Trump is #2-3 in every open-ended best-president poll (2020, 2021) and 97% famous, but the popularity-based sources pull him down. Jefferson is backed by only 3 sources, so the gut check and the open-ended polls win this swap.",
+  "Aliases leave out the ambiguous surnames 'roosevelt', 'bush', 'adams' and 'johnson'. Each president in those pairs gets only distinct forms (fdr / teddy / tr, dubya / w / bush 43 vs bush 41 / hw bush, john adams vs jqa / john quincy adams, lbj).",
+  "Coordinator gut check: Richard Nixon moved from #27 (raw average) to #15, just above George W. Bush. The board shows what people name, with no 'greatest' framing. Favorability ranks infamous presidents low, but that doesn't mean people name them less. Nixon is 95% famous in YouGov Ratings (13th of 45 by fame), and he is consistently the #3 open-ended pick for worst president in YouGov polls (2018 distant 3rd; 2020 3%, tied with G.W. Bush; 2021 5%), behind only Trump and Obama. Every president below him on the board is less famous.",
+  "John Quincy Adams (#20) dropped to make room. He is 91% famous but appears only in the YouGov Ratings data, never in an open-ended or great/worst poll. 'john adams' already covers most people who would type Adams."
+ ],
+ "confidence": "medium: the top 7 agree strongly across YouGov/Gallup sources, but #13-24 rest mostly on YouGov Ratings popularity and fame plus open-ended worst-president mentions, so the tail order is soft.",
+ "no_data_positions": []
+}

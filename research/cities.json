@@ -1,0 +1,154 @@
+{
+ "topic": {
+  "name": "US Cities",
+  "note": "To visit",
+  "cat": "places",
+  "from": 16
+ },
+ "sources": [
+  {
+   "name": "YouGov: What are the top domestic travel destinations for Americans in 2025",
+   "url": "https://yougov.com/en-us/articles/51497-what-are-the-top-domestic-travel-destinations-for-americans-in-2025",
+   "method": "Jan 2025 survey of US adults, share considering a visit in next 2-3 years. NYC 30%, Las Vegas 30% (Hawaii 30%, excluded as a state). Other cities only via subgroup splits, approx: Los Angeles ~21%, Nashville ~21%, Key West ~21%, San Diego ~20%, San Francisco ~19%, Seattle ~18%, Charleston ~17.5%; ordered approximately on those.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov: Top domestic vacation destinations for Americans (+ luxury/parents follow-up)",
+   "url": "https://yougov.com/en-us/articles/48891-top-domestic-vacation-destinations-for-americans",
+   "method": "Dec 2023 survey, 20-21 destinations, share considering a visit. Hawaii 35% (excluded), Las Vegas #2, NYC #3; Nashville 22.9%, Key West 21%, Miami 19%, Charleston ~18.7%, Los Angeles 18%, Sedona ~18%, Houston 11% (general-pop figures from the companion article https://yougov.com/en-us/articles/49019-where-are-luxury-travelers-and-parents-vacationing-this-year).",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Stacker / YouGov: Which 25 US cities are most popular to visit now",
+   "url": "https://www.clickorlando.com/insider/2023/04/04/which-25-us-cities-are-most-popular-to-visit-now/",
+   "method": "YouGov Q4 2022 positive-opinion score for cities. Nashville 61, Denver 60, New Orleans 59, San Diego 59, Colorado Springs 58, Boston 57, Miami 57, San Antonio 57, NYC 57, Las Vegas 56, Tampa 56, Seattle 55, SF 55, Charlotte 55, Phoenix 54, Austin 54, Tucson 53, Memphis 53, Atlanta 53, Virginia Beach 52, Dallas 52, Philadelphia 52, Portland 51, Chicago 51, Jacksonville 51.",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov: America's favorite city is Nashville (50 most populous cities, net favorability)",
+   "url": "https://yougov.com/en-us/articles/52614-americans-favorite-city-is-nashville-tennessee-poll",
+   "method": "Net favorability of 50 largest cities; only partial order published: Nashville +44, San Diego/Colorado Springs/Virginia Beach +39, Charlotte +37, Denver +36, Raleigh +35, San Antonio +34. Used only as a tiebreak/support (favorability, not visit-intent), not in the average.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Tripadvisor Travelers' Choice 2026 Top Destinations - United States (via Lodging Magazine)",
+   "url": "https://lodgingmagazine.com/tripadvisor-shares-top-2026-travel-destinations/",
+   "method": "Reviews/ratings/page views from Tripadvisor users. NYC, Las Vegas, Oahu (mapped to Honolulu), Nashville, New Orleans, Chicago, Charleston, Key West, San Francisco, Washington DC, Boston.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Tripadvisor Travelers' Choice 2025 Top Destinations - United States (via Lodging Magazine)",
+   "url": "https://lodgingmagazine.com/?p=104279",
+   "method": "Same method. NYC, Oahu (Honolulu), Las Vegas, Florida Keys (Key West), New Orleans, Nashville, San Francisco, Chicago, Charleston, Washington DC.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "International Trade Administration overseas visitors by city, 2023 (via WorldAtlas)",
+   "url": "https://www.worldatlas.com/cities/america-s-10-most-visited-cities.html",
+   "method": "Overseas visitor counts: NYC 8.89M, Miami 4.37M, Los Angeles 3.60M, Orlando 3.52M, San Francisco 2.28M, Las Vegas 2.08M, Washington DC 1.61M, Chicago 1.41M, Honolulu 1.32M, Boston 1.15M. (trade.gov confirms NYC #1 at 9.5M in 2024.)",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "Expedia 2026 Air Hacks Report: top US flight destinations (via Stacker)",
+   "url": "https://stacker.com/stories/travel/where-americans-are-headed-2026-top-and-trending-flight-destinations",
+   "method": "Millions of flight bookings/searches Dec 2024-Nov 2025: New York, Orlando, Los Angeles, Las Vegas, Miami, Atlanta, Dallas, Boston, Houston, Phoenix.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Resonance / Ipsos America's Best Cities 2025 - open-ended 'most like to live someday'",
+   "url": "https://www.floridawesteda.com/wp-content/uploads/2025/06/Best-Cities-Americas-Best-Cities-2025.pdf",
+   "method": "Ipsos survey of 2,003 US adults, open-ended top-3 cities. Live-someday top 10 (per Axios summary of the survey): NYC, Los Angeles, Miami, San Diego, Chicago, Las Vegas, then Seattle/Boston/SF/Phoenix (unordered, scored 8.5). Report confirms a parallel 'visit' question but does not publish that list.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll: cities Americans would most like to live in or near (via RISMedia)",
+   "url": "https://newsletter.rismedia.com/news/view/84193",
+   "method": "Nov 2015, 2,232 US adults: NYC, San Diego, Denver, Los Angeles, Miami, San Francisco, Honolulu, Atlanta, Seattle, Orlando.",
+   "year": 2015,
+   "kind": "people"
+  },
+  {
+   "name": "Public Policy Polling: city favorability",
+   "url": "https://www.publicpolicypolling.com/polls/seattle-tops-popularity-list-of-u-s-cities/",
+   "method": "Apr 2012, 900 voters, net favorability of 21 cities: Seattle +43, Portland +40, Boston +35, Atlanta +32, Phoenix +31, Dallas +27, NYC +26, New Orleans +23, Houston +23, Salt Lake City +23, Philadelphia +20, SF +19, Baltimore +13, Las Vegas +10, Chicago +9, Cleveland +7, DC +5, Miami +3, LA -7, Oakland -18, Detroit -27.",
+   "year": 2012,
+   "kind": "people"
+  },
+  {
+   "name": "Cloudwards Google search study: top domestic vacation destination by state (via Time Out)",
+   "url": "https://www.timeout.com/usa/news/this-is-the-top-city-u-s-travelers-want-to-visit-this-summer-052824",
+   "method": "Google search data by state, 2024: Las Vegas top in 14 states, then Boston, Chicago, Denver, Panama City Beach.",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Conde Nast Traveler Readers' Choice 2025: Best Big Cities in the US (reader vote, lower tier)",
+   "url": "https://www.fox32chicago.com/news/chicago-best-big-city-us",
+   "method": "~757k reader votes: Chicago, San Francisco, Milwaukee, Portland, New Orleans, Washington DC, San Diego, Columbus, NYC, Seattle. Read via search summary of coverage; enthusiast-skewed.",
+   "year": 2025,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "New York City|nyc|new york|ny|new york ny|the big apple|big apple|manhattan|newyork",
+  "Las Vegas|vegas|lv|sin city|las vegas nv|lasvegas",
+  "Los Angeles|la|l.a.|los angeles ca|hollywood|losangeles",
+  "San Francisco|sf|san fran|frisco|san francisco ca|sanfrancisco",
+  "Chicago|chi|chitown|chi-town|the windy city|windy city|chicago il",
+  "New Orleans|nola|the big easy|big easy|new orleans la|neworleans",
+  "Miami|miami fl|miami beach|miami florida",
+  "Nashville|nashville tn|music city|nashvegas",
+  "Boston|boston ma|beantown",
+  "Orlando|orlando fl|disney world|orlando florida",
+  "San Diego|san diego ca|sd|sandiego",
+  "Washington DC|dc|d.c.|washington d.c.|washington|the capital",
+  "Seattle|seattle wa",
+  "Honolulu|oahu|waikiki|honolulu hi",
+  "Denver|denver co|mile high city",
+  "Key West|keywest|key west fl|florida keys",
+  "Charleston|charleston sc",
+  "Atlanta|atl|atlanta ga|hotlanta",
+  "Phoenix|phoenix az|scottsdale",
+  "Portland|portland oregon|portland or|pdx",
+  "Dallas|dallas tx|big d",
+  "Houston|houston tx|h-town",
+  "Philadelphia|philly|philadelphia pa|phila",
+  "San Antonio|san antonio tx|the alamo|santonio"
+ ],
+ "gut_check": [
+  "New York City",
+  "Las Vegas",
+  "Los Angeles",
+  "San Francisco",
+  "Chicago",
+  "New Orleans",
+  "Orlando",
+  "Miami",
+  "Nashville",
+  "Washington DC",
+  "Boston",
+  "Seattle"
+ ],
+ "changes_vs_current": [
+  "New topic. Raw average-position order (12 people sources): NYC, Las Vegas, SF, Miami, Boston, New Orleans, LA, Chicago, Nashville, Seattle, San Diego, Atlanta, Phoenix, Denver, Portland, Honolulu, Key West, DC, Dallas, Orlando, Charleston, Houston.",
+  "Orlando moved up from raw #20 to #10: gut-check top 12; #1 US city by total visitors, #2 in Expedia flight bookings, #4 in overseas visitors. It ranks low only because it is absent from favorability polls, which do not rank it lower.",
+  "Washington DC moved up from raw #18 to #12: gut-check top 12; #7 in overseas visitors, top 10 in both Tripadvisor years. Only the 2012 PPP favorability poll (#17, partisan) ranks it low.",
+  "Los Angeles moved up from raw #7 to #3: gut-check #3; #2 in Ipsos open-ended, #3 in overseas visitors and Expedia flights, #3 among cities in YouGov 2025 visit intent. Partisan favorability (PPP #19) drags its average down.",
+  "Chicago moved up slightly from raw #8 to #5: gut-check #5, Conde Nast reader #1, Tripadvisor #6-#8, Ipsos #5.",
+  "Boston moved down from raw #5 to #9, and Miami from #4 to #7, to make room for the gut-check moves. Both stay in the top 10.",
+  "Honolulu stands in for Tripadvisor's 'Oahu'. Hawaii as a state is excluded per topic rules.",
+  "Key West stands in for Tripadvisor's 'Florida Keys' (2025) and YouGov's Key West.",
+  "Austin, Savannah and Colorado Springs are left off. Each has only one favorability-type source. San Antonio takes #24, backed by Stacker/YouGov (#8) and YouGov's 50-city favorability (top 8)."
+ ],
+ "confidence": "medium: the top 2 (NYC, Las Vegas) are solid across every source, but no single open-ended 'favorite city to visit' poll with a full list exists, so the order from #3 to #12 blends visit-intent, visitor counts and favorability with gut-check adjustments.",
+ "no_data_positions": []
+}
