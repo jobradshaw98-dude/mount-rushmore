@@ -2,14 +2,6 @@
   "_note": "Read and updated by the weekly topic job (aria-rushmore-topics). rerank: worst first; take the top 2 each run and remove them when shipped. suggestions_handled: suggestion-box keys already turned into a topic or declined, with why.",
   "rerank": [
     {
-      "id": "rappers",
-      "why": "Biggie #16, Jay-Z / Snoop placement unchecked against general-public polls"
-    },
-    {
-      "id": "fruit",
-      "why": "Lemons in top 5; check against favorite-fruit polls"
-    },
-    {
       "id": "superheroes",
       "why": "Jordan 10-04: Wolverine should be ~#4 (polls #3-#4), Iron Man ~#6"
     },

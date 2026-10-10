@@ -2,6 +2,15 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-10-10: US Presidents, US Cities and Sodas; Rappers and Fruits re-ranked
+
+### Added
+- Three new topics: US Presidents, US Cities (to visit) and Sodas. They show up in bonus rounds from game #16 (Oct 12) and join the daily rotation when the next cycle starts.
+
+### Changed
+- From game #16, Rappers follows what people name and know over critics: Eminem #1, then Drake, Tupac and Snoop Dogg. Biggie rises from #16 to #9 and Dr. Dre to #10. Ice Cube drops from #13 to #14 and J. Cole from #12 to #24. Cardi B, MC Hammer and Vanilla Ice join; Nas, André 3000 and Nelly leave.
+- From game #16, Fruits puts the everyday favorites first: bananas, strawberries, grapes, watermelon, apples, then oranges. Lemons drop from #5 to #15, and peaches and cherries move up. Honeydew joins; grapefruit leaves.
+
 ## 2026-10-10: new topics weekly, Video Games and Breakfast re-ranked
 
 ### Added

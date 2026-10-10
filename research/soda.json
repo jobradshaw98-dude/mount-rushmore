@@ -1,0 +1,108 @@
+{
+ "topic": {
+  "name": "Sodas",
+  "cat": "brands",
+  "from": 16
+ },
+ "sources": [
+  {
+   "name": "Beverage Digest 2024 US carbonated soft drink brand ranking (via FOX Television Stations)",
+   "url": "https://www.fox10phoenix.com/news/coca-cola-pepsi-best-selling-soda-pop-soft-drink-beverage-digest",
+   "method": "2024 US sales ranking of CSD brands, top 10: 1 Coca-Cola Classic, 2 Dr Pepper, 3 Sprite, 4 Pepsi, 5 Diet Coke, 6 Mountain Dew, 7 Coke Zero, 8 Diet Pepsi, 9 Fanta, 10 Canada Dry Ginger Ale. Adweek (same Beverage Digest data) adds Sprite 8.03% vs Pepsi 7.97% share.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings - beverages, popularity (US, all adults)",
+   "url": "https://yougov.com/en-us/ratings/beverages",
+   "method": "% of US adults with positive opinion (read via YouGov public ratings API, all ~190 beverage brands). Soda-only order: Sprite 73, Coca-Cola 73, Canada Dry 71, 7UP 70, A&W 69, Dr Pepper 69, Pepsi 68, Schweppes Ginger Ale 63, Sunkist 63, Barq's 62, Fanta 62, Mug 61, A&W Cream Soda 59, Crush 57, Mountain Dew 53, Diet Dr Pepper 52, Pepsi Wild Cherry 50, Diet Coke 47, RC Cola 46, Coke Zero 45, Starry 45, Squirt 44, Diet Pepsi 40, Fresca 40, Pepsi Zero Sugar 38, Pibb Xtra 36, Diet Mountain Dew 34, Sun Drop 31, Jones Soda 28.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings - beverages, fame (US, all adults)",
+   "url": "https://yougov.com/en-us/ratings/beverages?sortBy=fame",
+   "method": "% of US adults who have heard of each brand. Soda order: Coca-Cola 99, Sprite 99, Pepsi 98, Diet Coke 98, Mountain Dew 97, Diet Dr Pepper 97, 7UP 96, Dr Pepper 96, Fanta 96, A&W 95, Sunkist 95, Canada Dry 94, A&W Cream Soda 94, Coke Zero 94, Diet Pepsi 94, Diet Mountain Dew 94, Crush 93, Mug 91, Pepsi Zero Sugar 90, Pepsi Wild Cherry 89, Barq's 88, Schweppes 85, RC Cola 85, Squirt 79, Fresca 75, Starry 74, Pibb Xtra 70, Sun Drop 57.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov US soft drink rankings 2025 (BrandIndex purchase consideration)",
+   "url": "https://www.fooddive.com/press-release/20250715-coca-cola-gatorade-aquafina-are-americas-top-soft-drinks-yougov-report/",
+   "method": "Purchase consideration among 24,000+ Americans, May 2024-Apr 2025. Carbonated: Coca-Cola 35%, Pepsi 27%, Sprite 25%; Canada Dry #2 among Boomers+ (23%).",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Power Brands Google Trends state-by-state soda study (via Men's Journal/Yahoo)",
+   "url": "https://www.yahoo.com/news/most-popular-soda-u-revealed-234800837.html",
+   "method": "Top-searched drink by state on Google Trends: Coca-Cola 14 states, Dr Pepper 9, Sprite 6, Pepsi 5, Mountain Dew 4, Fanta 3, Canada Dry 2, A&W Root Beer 1, Orange Crush 1 (7UP also named as a single-state winner).",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Ranker 'Best Sodas of All Time' crowd vote (via Uproxx)",
+   "url": "https://uproxx.com/life/best-sodas-of-all-time/",
+   "method": "Crowd-ranked audience vote, ~282,000 votes. Top 10: Coca-Cola, Dr Pepper, Sprite, A&W Root Beer, Mountain Dew, 7-Up, Orange Crush, Cherry Coke, Sunkist, Barq's. Used mainly for tail items (Cherry Coke) with no broader data.",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "Holiday Calendar favorite soda by state survey (via FOX 26 Houston)",
+   "url": "https://www.fox26houston.com/news/texas-soda-preferences-revealed-latest-survey",
+   "method": "Survey of 3,000 Americans: Coca-Cola favorite nationally (top in 20 states), Mountain Dew 'following closely'; Texas order Coca-Cola, Dr Pepper, Pepsi, root beer, Mountain Dew. Too sparse to rank; used only as gut-check support.",
+   "year": 2024,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Coca-Cola|coke|coca cola|cocacola|coca-cola classic|coke classic|classic coke",
+  "Pepsi|pepsi cola|pepsi-cola",
+  "Dr Pepper|dr. pepper|doctor pepper|drpepper|dr pepper|dr peper",
+  "Sprite|sprite soda",
+  "Mountain Dew|mtn dew|dew|mt dew|mt. dew|mountain due|mountian dew",
+  "Diet Coke|diet coca cola|diet coca-cola|coke light",
+  "7UP|7 up|7-up|seven up|sevenup|7up",
+  "A&W Root Beer|a&w|a and w|a & w|aw|a&w rootbeer|root beer|rootbeer",
+  "Canada Dry|canada dry ginger ale|ginger ale|gingerale",
+  "Fanta|fanta orange|orange fanta",
+  "Sunkist|sunkist orange|sunkist soda",
+  "Crush|orange crush|crush soda",
+  "Diet Dr Pepper|diet dr. pepper|diet doctor pepper|diet drpepper|diet dr pepper",
+  "Barq's|barqs|barq's root beer|barqs root beer|barq",
+  "Coke Zero|coca-cola zero sugar|coca cola zero sugar|coke zero sugar|coca cola zero|coca-cola zero",
+  "A&W Cream Soda|cream soda|a&w cream|a and w cream soda",
+  "Mug Root Beer|mug|mugs|mug rootbeer",
+  "Schweppes Ginger Ale|schweppes|schweppes ginger ale|schweppes ginger",
+  "Diet Pepsi|diet pepsi cola",
+  "Cherry Coke|cherry coca-cola|cherry coca cola|coke cherry",
+  "Pepsi Wild Cherry|wild cherry pepsi|cherry pepsi|pepsi cherry",
+  "RC Cola|rc|royal crown|royal crown cola",
+  "Diet Mountain Dew|diet mtn dew|diet dew",
+  "Pepsi Zero Sugar|pepsi zero|pepsi max|pepsi zero sugar"
+ ],
+ "gut_check": [
+  "Coca-Cola",
+  "Pepsi",
+  "Dr Pepper",
+  "Sprite",
+  "Mountain Dew",
+  "Diet Coke",
+  "A&W Root Beer",
+  "Fanta",
+  "7UP",
+  "Coke Zero",
+  "Diet Pepsi",
+  "Canada Dry Ginger Ale"
+ ],
+ "changes_vs_current": [
+  "New topic. Raw average-position order (6 people sources) was Coca-Cola, Sprite, Dr Pepper, Pepsi, Mountain Dew, 7UP, A&W, Canada Dry, Fanta, Diet Coke...",
+  "Pepsi moved from #4 to #2: it is #2 in YouGov purchase consideration (27%) and #3 in YouGov fame, and is the obvious second answer; Sprite's raw #2 is inflated by YouGov's liking score. Sprite #4 and Dr Pepper #3 still match 2024 sales (#3/#2).",
+  "Coke Zero (#15) and Diet Pepsi (#19) left below #12 despite gut check: YouGov popularity puts them at 20th and 23rd of sodas (45% and 40% positive), offsetting their #7/#8 sales rank.",
+  "Diet Coke moved from #10 to #6 (7UP, A&W, Canada Dry, Fanta each shift down one) at coordinator request: it is the #5 brand by 2024 Beverage Digest sales and #4 in YouGov fame (98%), and it is a staple answer. Counter-evidence noted: YouGov popularity ranks it 18th of sodas (47%) because diet drinkers are a loyal minority, and it won no state in the Google Trends study, whereas Canada Dry, Fanta, A&W and 7UP each won at least one.",
+  "Cherry Coke moved into #20 (raw #29) on Ranker crowd vote #8; it is a very commonly typed answer and no source places it below the remaining candidates. Squirt, Starry/Sierra Mist, Fresca, Pibb Xtra, Sun Drop dropped out (raw #24-28).",
+  "Root beer and ginger ale generics assigned to the category leaders: 'root beer' -> A&W, 'ginger ale' -> Canada Dry, 'cream soda' -> A&W Cream Soda."
+ ],
+ "confidence": "medium: top 5 (Coke, Pepsi, Dr Pepper, Sprite, Mountain Dew) are solid across sales, YouGov and search data, but there is no direct national 'favorite soda' poll with full percentages, so mid-list order between 7UP/A&W/Canada Dry/Fanta/diet brands rests on YouGov liking vs sales tradeoffs.",
+ "no_data_positions": []
+}
