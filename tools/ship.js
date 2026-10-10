@@ -13,8 +13,9 @@ const run = (cmd, opts = {}) => execSync(cmd, { cwd: root, stdio: ["ignore", "pi
 const step = s => console.log("== " + s);
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "mr-ship-"));
 
-step("snapshot the live game.js (last commit)");
-fs.writeFileSync(path.join(tmp, "old.js"), run("git show HEAD:game.js"));
+step("snapshot the live game.js (what is pushed, not a local commit that may never have gone out)");
+run("git fetch -q");
+fs.writeFileSync(path.join(tmp, "old.js"), run("git show @{u}:game.js"));
 step("build lists");
 console.log(run("node tools/build-lists.js").trim());
 step("collect real crew codes");
@@ -31,7 +32,7 @@ const oldIds = new Set(require(path.join(tmp, "old.js")).ALL_TOPICS.map(t => t.i
 const newIds = g.ALL_TOPICS.map(t => t.id).filter(id => !oldIds.has(id));
 console.log("ok; topic ids new in this ship: " + (newIds.join(", ") || "none"));
 if (dry) { console.log("dry run: stopping before commit"); process.exit(0); }
-if (!run("git status --porcelain -- game.js research").trim()) { console.log("nothing changed; nothing to ship"); process.exit(0); }
+if (!run("git status --porcelain -- game.js research").trim() && !run("git log @{u}..HEAD --oneline").trim()) { console.log("nothing changed; nothing to ship"); process.exit(0); }
 step("commit + push");
 run("git add game.js research tools");
 run(`git commit -q -F -`, { input: msg + "\n", stdio: ["pipe", "pipe", "pipe"] });

@@ -17,16 +17,22 @@ for (let d = 1; d <= last; d++) {
   checks++;
   if (sig(A.topicForDay(d)) !== sig(B.topicForDay(d))) bad.push(`day ${d}: daily topic ${A.topicForDay(d).id} -> ${B.topicForDay(d).id}`);
   for (const g of crews) {
-    for (let n = 2; n <= 8; n++) {
+    // The whole bonus deck (every round a crew could reach that day), in order.
+    const deckLen = A.TOPICS.filter(t => (t.from || 1) <= d).length - 1;
+    for (let n = 2; n <= deckLen + 1; n++) {
       checks++;
       const a = A.topicForRound(g, d, n), b = B.topicForRound(g, d, n);
       if (sig(a) !== sig(b)) { bad.push(`day ${d} crew ${g} round ${n}: ${a.id} -> ${b.id}`); break; }
     }
-    for (let n = 1; n <= 3; n++) {
-      checks++;
-      const seen = [A.topicForRound(g, d, n).id];
-      const a = A.swapTopic(g, d, n, seen), b = B.swapTopic(g, d, n, seen);
-      if (sig(a) !== sig(b)) { bad.push(`day ${d} crew ${g} swap in round ${n}: ${a.id} -> ${b.id}`); break; }
+    // Chains of up to 6 "New topic" swaps in rounds 1-6.
+    for (let n = 1; n <= 6; n++) {
+      const seenA = [A.topicForRound(g, d, n).id], seenB = seenA.slice();
+      for (let s = 0; s < 6; s++) {
+        checks++;
+        const a = A.swapTopic(g, d, n, seenA), b = B.swapTopic(g, d, n, seenB);
+        if (sig(a) !== sig(b)) { bad.push(`day ${d} crew ${g} round ${n} swap ${s + 1}: ${a.id} -> ${b.id}`); break; }
+        seenA.push(a.id); seenB.push(b.id);
+      }
     }
   }
   const t = A.topicForDay(d);
