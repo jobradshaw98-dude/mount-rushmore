@@ -95,26 +95,54 @@ function spreadOut(list, prevCat){
 }
 /* Round 1 is the shared daily topic. Bonus rounds deal from a crew-and-day shuffle of the rest,
    so every phone derives the same topic for "round 3 today" with no coordination and no repeats in a day. */
-function roundDeck(g, day){
+function roundDeckV1(g, day){
   const daily = topicForDay(day), dailyBase = daily.base || daily.id;
   let rest = shuffled(TOPICS.filter(t=>t.id!==dailyBase && (t.from||1)<=day), hash(g+":"+day)).map(t=>onDay(t, day));
   if(day>=2) rest = spreadOut(rest, catOf(TOPICS.find(t=>t.id===dailyBase)));   // category spreading started on day 2
   return rest;
 }
-function topicForRound(g, day, n){
+function topicForRound(g, day, n, avoid){
   if(n<=1) return topicForDay(day);
-  const rest = roundDeck(g, day);
+  const rest = roundDeck(g, day, avoid);
   return rest[(n-2)%rest.length];
 }
 /* "New topic" in a round's lobby (the daily round too, for a crew that already played it) deals from the BACK of the same deck (rounds deal from the front),
    skipping topics already dealt today and every topic this round has shown (seen = topic ids, oldest first).
    Each round starts its swaps SWAP_GAP cards further in, so round 1's, round 2's and round 3's swaps differ. */
 const SWAP_GAP = 5;
-function swapTopic(g, day, n, seen){
-  const rest = roundDeck(g, day), used = new Set(seen);
+function swapTopicV1(g, day, n, seen){
+  const rest = roundDeckV1(g, day), used = new Set(seen);
   for(let k=2;k<=n;k++) used.add(topicForRound(g, day, k).id);
   const fresh = rest.slice().reverse().filter(t=>!used.has(t.id));
   return fresh[((n-1)*SWAP_GAP + seen.length-1) % (fresh.length||1)] || rest.find(t=>t.id!==seen[seen.length-1]) || rest[0];
+}
+
+/* From FRESH_FROM (game #16, Oct 12 2026) a crew is offered topics it hasn't seen lately (Jordan, 2026-10-10: the
+   New topic button kept offering topics played days before). `avoid` = topic ids (any version) the crew was shown in the
+   last RECENT_DAILY days, read by the page from the crew's rounds; those days' daily topics count as seen too.
+   The deck keeps its old order with the unseen topics moved to the front. Phones don't need to agree on the deck any
+   more than before: whoever creates a round or swaps records the topic in the round's log, and that log is the truth. */
+const FRESH_FROM = 16, RECENT_DAILY = 7;
+const baseOf = id => (TOPIC[id] && (TOPIC[id].base || TOPIC[id].id)) || id;
+function seenRecently(day, avoid){
+  const out = new Set((avoid||[]).map(baseOf));
+  for(let k=Math.max(1, day-RECENT_DAILY); k<day; k++){ const t=topicForDay(k); out.add(t.base||t.id); }
+  return out;
+}
+function roundDeck(g, day, avoid){
+  const deck = roundDeckV1(g, day);
+  if(day<FRESH_FROM) return deck;
+  const seen = seenRecently(day, avoid), old = t => seen.has(t.base||t.id);
+  return deck.filter(t=>!old(t)).concat(deck.filter(old));
+}
+/* A swap offers the first topic in the deck that this round hasn't shown, that today's other rounds haven't used,
+   and (from FRESH_FROM) that the crew hasn't seen lately; when everything is stale it falls back to deck order. */
+function swapTopic(g, day, n, seen, avoid){
+  if(day<FRESH_FROM) return swapTopicV1(g, day, n, seen);
+  const rest = roundDeck(g, day, avoid), used = new Set((seen||[]).map(baseOf));
+  for(let k=2;k<=n+2;k++) used.add(baseOf(rest[(k-2)%rest.length].id));
+  for(let k=2;k<=n+3;k++){ const t=topicForRound(g, day, k); used.add(t.base||t.id); }   // also the plain deck's rounds, in case history didn't load
+  return rest.find(t=>!used.has(t.base||t.id)) || rest.find(t=>t.id!==seen[seen.length-1]) || rest[0];
 }
 
 /* ---------------- scoring ---------------- */

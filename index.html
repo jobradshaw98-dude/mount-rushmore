@@ -281,6 +281,32 @@ function setName(n){ store.set("mr.name"+(SEAT?"."+SEAT:""),n); pushProfile("nam
    by time, so every phone reads the same order and folds it into the same game state.
    crewRounds/<crew>/<day>/<n> lists the rounds opened that day. Nothing expires. */
 const roundKey = (g,day,n) => `${g}-${day}-${n}`;
+/* What a crew was shown lately (every round's first topic and every "New topic" swap, last RECENT_DAILY days incl. today),
+   so new rounds and swaps offer something the crew hasn't seen. Read from the round logs; refreshed at most once a
+   minute, and right before a round is created or a topic is swapped. */
+const HIST = {g:null, at:0, ids:[], loading:null};
+function crewAvoid(){ return HIST.g===S.group ? HIST.ids.concat(S.group && S.events ? fold(S.events).seen||[] : []) : []; }
+function loadCrewHistory(g, force){
+  if(HIST.g===g && !force && Date.now()-HIST.at<60000) return Promise.resolve();
+  if(HIST.loading && HIST.loading.g===g) return HIST.loading.p;
+  const p = (async()=>{
+    const ids=[]; let ok=true;
+    try{
+      const {db}=await fb(), today=dayNumber();
+      const days=[]; for(let d=Math.max(1,today-RECENT_DAILY); d<=today; d++) days.push(d);
+      await Promise.all(days.map(async d=>{
+        const ns=Object.keys((await db.ref(`crewRounds/${g}/${d}`).get()).val()||{});
+        await Promise.all(ns.map(async n=>{
+          const ev=(await db.ref("rounds/"+roundKey(g,d,n)+"/events").orderByKey().limitToFirst(40).get()).val()||{};
+          for(const e of Object.values(ev)) if(e && (e.type==="create"||e.type==="retopic") && typeof e.topic==="string") ids.push(e.topic);
+        }));
+      }));
+    }catch{ ok=false; }
+    HIST.g=g; HIST.at=ok ? Date.now() : 0; HIST.ids=ids;   // a failed read is not cached, so the next step tries again
+  })();
+  HIST.loading={g, p}; p.finally(()=>{ if(HIST.loading && HIST.loading.p===p) HIST.loading=null; });
+  return p;
+}
 const S = {open:{}, group:null, day:0, round:0, code:null, events:[], ids:[], conn:"idle", synced:false, busy:false, err:"", draft:"", sugIdx:0, myOrder:null, lastPickCount:0, auto:{}, next:null, probing:false, unsubRound:null, unsubDay:null};
 function stopSync(){ if(S.unsubRound){ S.unsubRound(); S.unsubRound=null; } if(S.unsubDay){ S.unsubDay(); S.unsubDay=null; } }
 async function connect(n){
@@ -599,7 +625,7 @@ function roomView(){
   if(S.probing || !S.code) return head+`<div class="card"><h2 class="display" style="font-size:24px">Finding today's game…</h2></div>`;
   const s = fold(S.events), me = myPid();
   document.title = "Mount Rushmore Daily";
-  const t = topicForRound(S.group,S.day,S.round);
+  const t = topicForRound(S.group,S.day,S.round,crewAvoid());
   const title = `<div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">${crewName(S.group)?esc(crewName(S.group))+" · ":""}Mount Rushmore #${S.day} · ${roundLabel(S.round)}</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc((s.topic||t).name)}</h1></div>`;
   if(!s.created && s.unknownTopic) refreshCatalogOnce();
   if((!s.created && s.unknownTopic) || s.unknownEvent) return head+title+`<div class="card stack"><b>This round needs the latest version of the game.</b><button class="btn gold" data-act="reload">Update now</button></div>`;
@@ -1481,8 +1507,9 @@ function autoSteps(){
   const s=fold(S.events), me=myPid(), name=myName(), k=S.code;
   if(!name) return;
   if(!s.created && !s.unknownTopic && !S.auto[k+"c"]){
+    if(S.round>1 && (HIST.g!==S.group || Date.now()-HIST.at>60000)){ loadCrewHistory(S.group).then(()=>{ if(S.code===k) render(); }); return; }   // reuses a load already running for this crew
     S.auto[k+"c"]=true;
-    const t=topicForRound(S.group,S.day,S.round);
+    const t=topicForRound(S.group,S.day,S.round,crewAvoid());
     act(async()=>{ try{ await send({type:"create",topic:t.id,day:S.day,round:S.round}); }
       catch(e){ setTimeout(()=>{ if(S.code===k){ delete S.auto[k+"c"]; render(); } }, 5000); throw e; } });
     return;
@@ -1570,8 +1597,9 @@ document.addEventListener("click", e=>{
   const s=fold(S.events), me=myPid();
   if(a==="join"){ const nm=($("#jname").value||"").trim(); if(!nm){S.err="Add your name first."; render(); return;} setName(nm); store.set("mr.out."+S.code,false); delete S.auto[S.code+"j"]; render(); return; }
   if(a==="rejoin"){ store.set("mr.out."+S.code,false); delete S.auto[S.code+"j"]; render(); return; }
-  if(a==="retopic"){ const s=fold(S.events); if(s.started) return; const t=swapTopic(S.group,S.day,S.round,s.seen);
-    return act(()=>send({type:"retopic",topic:t.id,n:s.seen.length})); }
+  if(a==="retopic"){ if(fold(S.events).started) return;
+    return act(async()=>{ await loadCrewHistory(S.group, true); const s=fold(S.events); if(s.started) return;
+      const t=swapTopic(S.group,S.day,S.round,s.seen,crewAvoid()); await send({type:"retopic",topic:t.id,n:s.seen.length}); }); }
   if(a==="leave"){ store.set("mr.out."+S.code,true); return act(()=>send({type:"leave"})); }
   if(a==="start"){
     const missing = crewRecord(S.group).filter(r=>!s.players.some(p=>p.pid===r.pid));

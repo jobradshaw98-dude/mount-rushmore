@@ -2,6 +2,12 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-10-10: fewer repeated topics
+
+### Changed
+- From game #16 (Oct 12), bonus rounds and the New topic button offer topics your crew has not seen in the last 7 days first, including the daily topics you played. Before, a swap could offer a topic you played the day before.
+- The weekly topic routine now adds 5 new topics a week instead of 3.
+
 ## 2026-10-10: US Presidents, US Cities and Sodas; Rappers and Fruits re-ranked
 
 ### Added
