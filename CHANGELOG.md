@@ -2,6 +2,16 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-10-10: new topics weekly, Video Games and Breakfast re-ranked
+
+### Added
+- Three new topics from the suggestion box: Athletes (all-time, any sport), Car Brands and Summer Activities. They show up in bonus rounds from game #16 (Oct 12) and join the daily rotation when the next cycle starts.
+- A weekly job now adds about 3 topics and re-ranks 2 weak lists every Sunday, starting from a day nobody has played yet.
+
+### Changed
+- From game #16, Video Games is ranked by what most people name, not what gamers and critics rate: Super Mario Bros. #1, then Minecraft and Tetris; Pokemon, Call of Duty, Pac-Man and Halo are on the board; The Witcher 3 and Cyberpunk are off.
+- From game #16, Breakfast puts the dishes people name first: eggs, bacon, pancakes, waffles, French toast. Fruit and toast drop.
+
 ## 2026-10-07: researched lists from #13
 
 ### Changed
