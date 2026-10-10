@@ -2,3 +2,6 @@
 functions/.env*
 functions/node_modules/
 functions/game.js
+node_modules/
+package-lock.json
+*-debug.log

@@ -235,6 +235,57 @@
           ".validate": false
         }
       }
+    },
+    "catalog": {
+      ".read": true,
+      "topics": {
+        "$id": {
+          ".write": "auth != null && auth.uid === 'catalog-publisher' && !data.exists()",
+          ".validate": "$id.matches(/^[a-z0-9]{2,14}$/) && newData.hasChildren(['name','cat','from','seq']) && newData.child('from').isNumber() && newData.child('from').val() - 2 > (now - 1790492400000) / 86400000 && newData.parent().parent().child('lists').child($id).child('base').val() === $id && newData.parent().parent().child('lists').child($id).child('from').val() === newData.child('from').val()",
+          "name": {
+            ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 40"
+          },
+          "note": {
+            ".validate": "newData.isString() && newData.val().length <= 60"
+          },
+          "cat": {
+            ".validate": "newData.isString() && newData.val().matches(/^(food|sports|screen|music|play|life|places|brands|people)$/)"
+          },
+          "from": {
+            ".validate": "newData.isNumber()"
+          },
+          "seq": {
+            ".validate": "newData.isNumber()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        }
+      },
+      "lists": {
+        "$vid": {
+          ".write": "auth != null && auth.uid === 'catalog-publisher' && !data.exists()",
+          ".validate": "$vid.matches(/^[a-z0-9_]{2,20}$/) && newData.hasChildren(['base','from','items']) && newData.child('from').isNumber() && newData.child('from').val() - 2 > (now - 1790492400000) / 86400000 && newData.parent().parent().child('topics').child(newData.child('base').val()).exists() && newData.child('from').val() >= newData.parent().parent().child('topics').child(newData.child('base').val()).child('from').val()",
+          "base": {
+            ".validate": "newData.isString()"
+          },
+          "from": {
+            ".validate": "newData.isNumber()"
+          },
+          "items": {
+            ".validate": "newData.isString() && newData.val().length <= 4000"
+          },
+          "$other": {
+            ".validate": false
+          }
+        }
+      }
+    },
+    "suggestionIdeas": {
+      ".read": true,
+      "$id": {
+        ".write": false
+      }
     }
   }
 }

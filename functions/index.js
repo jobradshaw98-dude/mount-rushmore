@@ -2,8 +2,11 @@
 // 1. sendTurnAlert: a phone that just made a move writes a small request to notify/<round>/<id>; this looks up
 //    who it's for, sends a web push to each of their saved devices, then deletes the request.
 // 2. checkSoloPost: every new solo leaderboard post is re-scored here with the same game code the page uses
-//    (game.js, copied in at deploy). Posts for the wrong day or with a score that doesn't match their picks
-//    are removed; valid ones bump that day's player count, which only this function may write.
+//    (game.js, copied in at deploy) and the same topic lists (read from /catalog in the database). Posts for the
+//    wrong day or with a score that doesn't match their picks are removed; valid ones bump that day's player count,
+//    which only this function may write.
+// 3. mirrorSuggestion: copies each suggestion's text (never the name or account) to /suggestionIdeas, which anyone
+//    can read, so the weekly topic research can use the ideas without access to who sent them.
 const { onValueCreated } = require("firebase-functions/v2/database");
 const { defineSecret } = require("firebase-functions/params");
 const admin = require("firebase-admin");
@@ -73,6 +76,16 @@ exports.sendTurnAlert = onValueCreated(
   }
 );
 
+/* The topic lists, read from the database and kept for 10 minutes. Anything newly published starts at least
+   2 days out and posts are only accepted for today or yesterday, so a 10-minute-old copy is always exact. */
+let catalogAt = 0;
+async function loadCatalog() {
+  if (Date.now() - catalogAt < 10 * 60 * 1000) return;
+  const cat = (await admin.database().ref("catalog").get()).val();
+  if (!game.setCatalog(cat)) throw new Error("catalog is empty");
+  catalogAt = Date.now();
+}
+
 exports.checkSoloPost = onValueCreated(
   { ref: "/solo/{day}/{uid}", ...DB, maxInstances: 5 },
   async (event) => {
@@ -83,6 +96,7 @@ exports.checkSoloPost = onValueCreated(
       if (!(day === today || day === today - 1)) return reject("wrong day");   // yesterday allowed: a game locked just before midnight
       const labels = [0, 1, 2, 3].map(i => v.picks && v.picks[i]);
       if (labels.some(l => typeof l !== "string" || !game.key(l))) return reject("bad picks");
+      await loadCatalog();
       const t = game.topicForDay(day);
       const faces = labels.map(l => { const m = game.matchEntry(t, l); return { label: m ? m.label : l, rank: m ? m.rank : null }; });
       if (new Set(faces.map(f => f.rank ? "E" + f.rank : "W" + game.key(f.label))).size !== 4) return reject("duplicate picks");
@@ -91,5 +105,14 @@ exports.checkSoloPost = onValueCreated(
     } catch (e) {
       console.error("checkSoloPost", e);
     }
+  }
+);
+
+exports.mirrorSuggestion = onValueCreated(
+  { ref: "/suggestions/{id}", ...DB, maxInstances: 2 },
+  async (event) => {
+    const v = event.data.val() || {};
+    if (typeof v.text !== "string") return;
+    await admin.database().ref(`suggestionIdeas/${event.params.id}`).set({ text: v.text.slice(0, 80), ts: typeof v.ts === "number" ? v.ts : Date.now() });
   }
 );

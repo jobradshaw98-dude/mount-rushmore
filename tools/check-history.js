@@ -1,14 +1,29 @@
-/* Proves a game.js change leaves every day that may already be played exactly as it was.
-   Run: node tools/check-history.js <old game.js> [crews.json]
-   Compares, for day 1 through tomorrow (PT): the daily topic and its list, every crew's bonus-round deck and
-   topic swaps, and the score of a sample of picks. crews.json (optional) is a list of real crew codes; random codes are added. */
+/* Proves a catalog change leaves every day that may already be played exactly as it was.
+   Run: node tools/check-history.js <old> <new> [--crews crews.json] [--days N]
+   <old> and <new> are each a catalog .json (played with today's game.js) or a self-contained game.js
+   from before the lists moved to the database. Compares, for day 1 through tomorrow (PT) or N days:
+   the daily topic and its list, every crew's whole bonus deck, chains of "New topic" swaps, and scores.
+   Real crew codes (--crews) plus 40 random ones. */
 "use strict";
 const path = require("path"), fs = require("fs");
-const [oldPath, crewsPath] = process.argv.slice(2);
-if (!oldPath) { console.error("usage: node tools/check-history.js <old game.js> [crews.json]"); process.exit(2); }
-const A = require(path.resolve(oldPath)), B = require(path.join(__dirname, "..", "game.js"));
-const last = B.dayNumber() + 1;
-let crews = crewsPath ? JSON.parse(fs.readFileSync(crewsPath, "utf8")) : [];
+const argv = process.argv.slice(2), opt = k => { const i = argv.indexOf(k); return i < 0 ? null : argv.splice(i, 2)[1]; };
+const crewsPath = opt("--crews"), daysOpt = opt("--days");
+const [oldSrc, newSrc] = argv;
+if (!oldSrc || !newSrc) { console.error("usage: node tools/check-history.js <old catalog.json|game.js> <new catalog.json|game.js> [--crews crews.json] [--days N]"); process.exit(2); }
+const GAME = path.join(__dirname, "..", "game.js");
+/* A fresh copy of the game module per side, so the two catalogs never share state. */
+function load(src) {
+  const p = path.resolve(src);
+  if (p.endsWith(".js")) { delete require.cache[p]; return require(p); }
+  delete require.cache[require.resolve(GAME)];
+  const g = require(GAME);
+  g.setCatalog(JSON.parse(fs.readFileSync(p, "utf8")));
+  delete require.cache[require.resolve(GAME)];
+  return g;
+}
+const A = load(oldSrc), B = load(newSrc);
+const last = daysOpt ? +daysOpt : B.dayNumber() + 1;
+const crews = crewsPath ? JSON.parse(fs.readFileSync(crewsPath, "utf8")) : [];
 for (let i = 0; i < 40; i++) crews.push(Math.random().toString(36).slice(2, 8).toUpperCase());
 const sig = t => t.id + "\n" + t.items.trim();
 const bad = [];
@@ -16,9 +31,9 @@ let checks = 0;
 for (let d = 1; d <= last; d++) {
   checks++;
   if (sig(A.topicForDay(d)) !== sig(B.topicForDay(d))) bad.push(`day ${d}: daily topic ${A.topicForDay(d).id} -> ${B.topicForDay(d).id}`);
+  const deckLen = A.TOPICS.filter(t => (t.from || 1) <= d).length - 1;
   for (const g of crews) {
     // The whole bonus deck (every round a crew could reach that day), in order.
-    const deckLen = A.TOPICS.filter(t => (t.from || 1) <= d).length - 1;
     for (let n = 2; n <= deckLen + 1; n++) {
       checks++;
       const a = A.topicForRound(g, d, n), b = B.topicForRound(g, d, n);

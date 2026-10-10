@@ -1,5 +1,5 @@
 // Network first, so players always get the latest game; the cached copy only opens the app offline.
-const CACHE = "rushmore-shell-v4";
+const CACHE = "rushmore-shell-v5";
 const SHELL = ["./", "./index.html", "./game.js", "./manifest.webmanifest", "./icons/icon-192.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => {

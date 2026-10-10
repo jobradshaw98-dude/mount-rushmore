@@ -238,6 +238,32 @@ const store = {
   get(k,d=null){ try{ const v=localStorage.getItem(k); return v==null?d:JSON.parse(v);}catch{return d} },
   set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch{} }
 };
+/* ---------------- topics: loaded from the database ----------------
+   The topic lists live in the database (/catalog), not in game.js. The page fetches them on open and keeps a copy
+   with the day it was fetched. That copy is trusted only through the next day: anything published later starts at
+   least 2 days after it was published, so a copy from today or yesterday is exact for today. Until a trusted copy
+   is loaded nothing that needs a topic runs (render shows "Connecting…"), so no round can start on a wrong topic. */
+const CATALOG_URL = "https://mount-rushmore-daily-f6451-default-rtdb.firebaseio.com/catalog.json";
+const CAT = {ready:false, sig:"", day:0, loading:null, refetched:false};
+function useCatalog(data, day){
+  const sig = JSON.stringify(data);
+  if(sig!==CAT.sig){ if(!setCatalog(data)) return false; CAT.sig=sig; }
+  CAT.ready = true; CAT.day = day; return true;
+}
+// A saved old game.js (from before the lists moved) has no setCatalog: reload once to get the new one.
+if(typeof setCatalog!=="function" && !sessionStorage.getItem("mr.reloaded")){ sessionStorage.setItem("mr.reloaded","1"); location.reload(); }
+{ const c = store.get("mr.catalog", null); if(c && c.data && c.day >= dayNumber()-1) useCatalog(c.data, c.day); }
+function loadCatalog(){
+  if(CAT.loading) return CAT.loading;
+  CAT.loading = fetch(CATALOG_URL, {cache:"no-store", signal:AbortSignal.timeout(10000)}).then(r=>{ if(!r.ok) throw new Error("catalog "+r.status); return r.json(); })
+    .then(data=>{ const was=CAT.sig, wasDay=CAT.day; if(!useCatalog(data, dayNumber())) throw new Error("catalog is empty"); store.set("mr.catalog", {day:dayNumber(), data}); if(CAT.sig!==was || wasDay<dayNumber()-1) remoteRender(); })
+    .catch(()=>{ setTimeout(()=>loadCatalog(), 5000); })
+    .finally(()=>{ CAT.loading=null; });
+  return CAT.loading;
+}
+/* A crewmate's round names a topic this copy doesn't have (published since we fetched): fetch once more. */
+function refreshCatalogOnce(){ if(CAT.refetched) return; CAT.refetched=true; loadCatalog(); }
+loadCatalog();
 const params = new URLSearchParams(location.search);
 const SEAT = (params.get("seat")||"").replace(/[^a-z0-9]/gi,"").slice(0,8); // lets one browser hold several seats for testing
 function rid(n=10){ const a="abcdefghijkmnpqrstuvwxyz23456789"; let s=""; const r=crypto.getRandomValues(new Uint8Array(n)); for(const x of r) s+=a[x%a.length]; return s; }
@@ -334,13 +360,14 @@ async function watchNext(){
 /* A new day (midnight Pacific) while a crew is open: move to today's game unless you're mid-draft,
    so friends who open the crew fresh and you land in the same round. */
 function crewRollover(){
-  if(!S.group || dayNumber()===S.day) return;
+  if(!CAT.ready || !S.group || dayNumber()===S.day) return;
   const s=fold(S.events);
   if(!s.started || s.done || !s.seats.includes(myPid())) return openCrew(S.group);
   render();   // mid-game: finish first, the banner offers the jump
 }
 document.addEventListener("visibilitychange", ()=>{
   if(document.visibilityState!=="visible") return;
+  loadCatalog();
   if(S.group) crewRollover(); else { fetchCrewStatus(crewList().map(c=>c.g), true); if(!typing()) render(); }
 });
 window.addEventListener("online", ()=>{ if(S.group && (S.conn==="down" || !S.code)) openCrew(S.group); else remoteRender(); });
@@ -574,6 +601,7 @@ function roomView(){
   document.title = "Mount Rushmore Daily";
   const t = topicForRound(S.group,S.day,S.round);
   const title = `<div class="stack" style="gap:2px;margin-bottom:14px"><span class="eyebrow">${crewName(S.group)?esc(crewName(S.group))+" · ":""}Mount Rushmore #${S.day} · ${roundLabel(S.round)}</span><h1 class="display" style="font-size:clamp(28px,7vw,40px)">${esc((s.topic||t).name)}</h1></div>`;
+  if(!s.created && s.unknownTopic) refreshCatalogOnce();
   if((!s.created && s.unknownTopic) || s.unknownEvent) return head+title+`<div class="card stack"><b>This round needs the latest version of the game.</b><button class="btn gold" data-act="reload">Update now</button></div>`;
   if(!s.created){
     if(myName()) return head+title+`<div class="card"><p class="muted" style="margin:0">Setting up the round…</p><div class="err">${esc(S.err)}</div></div>`;
@@ -1048,6 +1076,7 @@ function crewName(g){ return CN.names[g] || ""; }
 const CS = {state:{}, at:0, busy:false};
 function crewMove(g){ return CS.state[g] || null; }
 async function fetchCrewStatus(list, force){
+  if(!CAT.ready) return;   // rounds can't be read without the topics
   if(!list.length){ try{ navigator.clearAppBadge && navigator.clearAppBadge().catch(()=>{}); }catch{} return; }
   if(CS.busy || (!force && Date.now()-CS.at < 15000)) return;
   CS.busy=true; CS.at=Date.now();
@@ -1507,7 +1536,7 @@ document.addEventListener("click", e=>{
   if(a==="igclose-bg") return;
   if(a==="home") return goHome();
   if(a==="reload"){ location.reload(); return; }
-  if(a==="resetlocal"){ try{ for(const k of Object.keys(localStorage)) if(k.startsWith("mr.") && !/^mr\.(name|pid\.|crews$)/.test(k)) localStorage.removeItem(k); }catch{} S.soloMem=null; goHome(); return; }
+  if(a==="resetlocal"){ try{ for(const k of Object.keys(localStorage)) if(k.startsWith("mr.") && !/^mr\.(name|pid\.|crews$|catalog$)/.test(k)) localStorage.removeItem(k); }catch{} S.soloMem=null; goHome(); return; }
   if(a==="create") return doCreate();
   if(a==="opencrew"){ setURL(b.dataset.g); return openCrew(b.dataset.g); }
   if(a==="joincode") return joinByCode(($("#joincode").value||"").toUpperCase().replace(/[^A-Z0-9]/g,""));
@@ -1611,6 +1640,11 @@ function render(){
   const ae=document.activeElement;
   if(ae && ae.tagName==="INPUT" && ae.id){ focusId=ae.id; try{ a=ae.selectionStart; b=ae.selectionEnd; }catch{} }
   if("pick" in keep) S.draft=keep.pick;
+  if(!CAT.ready || CAT.day < dayNumber()-1){
+    if(CAT.ready) loadCatalog();   // the saved copy is too old to trust for today
+    app.innerHTML = `<div class="card stack" style="margin-top:20px"><b>Connecting…</b><p class="muted" style="margin:0;font-size:13px">Loading today's topics.</p></div>`;
+    return;
+  }
   if(S.solo && S.solo.day!==dayNumber()){ const st=store.get(soloKey(S.solo.day),null);   // an untouched game moves on; a started one waits
     if(!validSolo(st) || !st.picks.length){ S.solo.day=dayNumber(); S.draft=""; S.err=""; S.soloMem=null; } }
   document.documentElement.style.overflow = (S.help||S.ig||S.pic) ? "hidden" : "";

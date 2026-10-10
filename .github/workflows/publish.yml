@@ -1,0 +1,20 @@
+# Publishes merged topic research to the database. Connects as "catalog-publisher", so the database rules
+# (write-once, future-dated rows only) apply to this job like to any user.
+name: publish topics
+on:
+  push:
+    branches: [main]
+    paths: ["research/**"]
+  workflow_dispatch:
+concurrency: { group: publish-topics, cancel-in-progress: false }
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund firebase-admin@13
+      - name: Publish new topics and list versions
+        env: { FIREBASE_SA: "${{ secrets.FIREBASE_SA }}" }
+        run: node tools/catalog.js publish
