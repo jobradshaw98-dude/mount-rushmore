@@ -113,7 +113,9 @@ async function main() {
   // Write as the publisher: the database rules decide.
   await pub.database().ref("catalog").update(rows);
   const after = await (await fetch(`${DB_URL}/catalog.json`)).json();
-  const missing = ids.filter(k => { const [a, b] = k.split("/"); return JSON.stringify(after[a][b]) !== JSON.stringify(rows[k]); });
+  // The database returns fields in alphabetical order, so compare with keys sorted.
+  const canon = o => JSON.stringify(o, Object.keys(o || {}).sort());
+  const missing = ids.filter(k => { const [a, b] = k.split("/"); return !after[a][b] || canon(after[a][b]) !== canon(rows[k]); });
   if (missing.length) throw new Error("published but not readable back: " + missing.join(", "));
   console.log(`published ${ids.length} rows; verified by reading them back`);
   await Promise.all([pub.delete(), adminApp.delete()]);
