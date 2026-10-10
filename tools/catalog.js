@@ -71,7 +71,20 @@ async function main() {
   if (errors.length) { console.error("NOT PUBLISHED:\n" + errors.join("\n")); process.exit(1); }
   const ids = Object.keys(rows);
   console.log(ids.length ? `new rows (${ids.length}): ${ids.join(", ")}` : "nothing new to publish");
-  if (!ids.length) return;
+  let adminApp = null, pub = null;
+  if (mode === "publish") {
+    const admin = require("firebase-admin");
+    const cred = admin.credential.cert(JSON.parse(process.env.FIREBASE_SA || "null") || (() => { throw new Error("FIREBASE_SA is not set"); })());
+    adminApp = admin.initializeApp({ credential: cred, databaseURL: DB_URL }, "reader");
+    pub = admin.initializeApp({ credential: cred, databaseURL: DB_URL, databaseAuthVariableOverride: { uid: "catalog-publisher" } }, "publisher");
+    // Canary: the publisher must be bound by the rules. A backdated row has to be refused, or nothing is written.
+    let refused = false;
+    try { await pub.database().ref("catalog/lists/zzcanary").set({ base: "nba", from: today, items: "canary" }); }
+    catch (e) { refused = /permission/i.test(e.message); }
+    if (!refused) { await adminApp.database().ref("catalog/lists/zzcanary").remove().catch(() => {}); throw new Error("the database ACCEPTED a backdated row from the publisher: rules are not binding it; nothing published"); }
+    console.log("canary: the database refused a backdated row from the publisher (rules bind it)");
+  }
+  if (!ids.length) { if (pub) await Promise.all([pub.delete(), adminApp.delete()]); return; }
 
   // Prove no playable day changes: live catalog vs live + new rows.
   const next = JSON.parse(JSON.stringify(live));
@@ -80,11 +93,7 @@ async function main() {
   fs.writeFileSync(path.join(tmp, "live.json"), JSON.stringify(live));
   fs.writeFileSync(path.join(tmp, "next.json"), JSON.stringify(next));
   const args = [path.join(__dirname, "check-history.js"), path.join(tmp, "live.json"), path.join(tmp, "next.json")];
-  let adminApp = null;
   if (mode === "publish") {
-    const admin = require("firebase-admin");
-    const cred = admin.credential.cert(JSON.parse(process.env.FIREBASE_SA || "null") || (() => { throw new Error("FIREBASE_SA is not set"); })());
-    adminApp = admin.initializeApp({ credential: cred, databaseURL: DB_URL }, "reader");
     const crews = Object.keys((await adminApp.database().ref("crewRounds").get()).val() || {});
     fs.writeFileSync(path.join(tmp, "crews.json"), JSON.stringify(crews));
     args.push("--crews", path.join(tmp, "crews.json"));
@@ -102,8 +111,6 @@ async function main() {
   if (mode === "plan") return;
 
   // Write as the publisher: the database rules decide.
-  const admin = require("firebase-admin");
-  const pub = admin.initializeApp({ credential: adminApp.options.credential, databaseURL: DB_URL, databaseAuthVariableOverride: { uid: "catalog-publisher" } }, "publisher");
   await pub.database().ref("catalog").update(rows);
   const after = await (await fetch(`${DB_URL}/catalog.json`)).json();
   const missing = ids.filter(k => { const [a, b] = k.split("/"); return JSON.stringify(after[a][b]) !== JSON.stringify(rows[k]); });
