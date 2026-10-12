@@ -1,0 +1,122 @@
+{
+ "topic": {
+  "name": "Pets",
+  "cat": "life",
+  "from": 17
+ },
+ "sources": [
+  {
+   "name": "APPA 2024-2025 National Pet Owners Survey (via Insurance Information Institute)",
+   "url": "https://www.iii.org/fact-statistic/facts-statistics-pet-ownership-and-insurance",
+   "method": "Millions of US households owning each pet type: dog 68.0, cat 49.0, freshwater fish 9.6, reptile 5.9, small animal 5.7, bird 5.5, horse 2.3, saltwater fish 1.9. Item positions used: Dog 1, Cat 2, Fish 3, Bird 4, Horse 5 (reptile/small animal are categories, not items).",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "The Harris Poll, The State of Pets (Oct 2024)",
+   "url": "https://theharrispoll.com/wp-content/uploads/2024/10/State-of-Pets-October-2024.pdf",
+   "method": "Online survey of 2,125 US adults, May 24-26 2024, 'which types of pets do you own' (% of all adults): dog 57, cat 42, fish 15, reptile 9, bird 9, rodent 6, rabbit 6, insect 5, ferret 4, other 5.",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Gallup Lifestyle Poll, Americans and Their Pets",
+   "url": "https://news.gallup.com/poll/25969/americans-their-pets.aspx",
+   "method": "Dec 11-14 2006 national poll, % of Americans owning: dog 44, cat 29, fish 10, bird 5, reptiles/snakes/lizards 2, hamsters and guinea pigs 2, horse 2, rabbit 1.",
+   "year": 2006,
+   "kind": "people"
+  },
+  {
+   "name": "AVMA 2012 U.S. Pet Ownership & Demographics Sourcebook, specialty pets table (via Clinician's Brief)",
+   "url": "https://www.cliniciansbrief.com/article/adding-exotic-companion-mammal-care-practice",
+   "method": "US households (thousands) owning each specialty species: fish 7,738; rabbits 1,408; turtles 1,320; poultry 1,020; hamsters 877; guinea pigs 847; lizards 725; livestock 661; snakes 555; other rodents 391; other reptiles 365; ferrets 334; gerbils 234. Ranked after dogs and cats (positions from 3).",
+   "year": 2012,
+   "kind": "people"
+  },
+  {
+   "name": "AVMA US pet ownership statistics, dogs/cats/birds/horses (copy of AVMA table)",
+   "url": "https://www.cs.oswego.edu/~jscott21/coursework/ISC250/lab1/tasks/task2.html",
+   "method": "AVMA households owning (about 2016 data): dogs 38.4% (48.3M), cats 25.4% (31.9M), birds 2.8% (3.5M), horses 0.7% (0.9M). Year not printed on the page; dog count matches AVMA 2017-18 sourcebook.",
+   "year": 2017,
+   "kind": "people"
+  },
+  {
+   "name": "AVMA 2017-2018 Pet Ownership and Demographics Sourcebook executive summary",
+   "url": "https://static1.squarespace.com/static/5b99cdfd365f02c7e5f4e27b/t/5d2d403617097700011940b6/1563246655643/AVMA-Pet-Demographics-Executive-Summary.pdf",
+   "method": "Qualitative: specialty/exotic pets (fish, ferrets, rabbits, hamsters, guinea pigs, gerbils, other rodents, turtles, snakes, lizards, poultry, livestock, amphibians) rose in ownership; poultry incidence up 23%, 15.4M pet poultry. Only used to back Frog (amphibians) at #24 and Chicken.",
+   "year": 2017,
+   "kind": "people"
+  },
+  {
+   "name": "SurveyMonkey Audience National Pet Day study",
+   "url": "https://www.surveymonkey.com/curiosity/pets-study-why-americans-love-their-animals/",
+   "method": "667 respondents, pets they have owned: dogs 87%, cats 67%, fish 60%, birds 29%, hamsters 28%, rabbits 26%, lizards 13%, snakes 11%; also named without %: goats, turtles, horses, hermit crabs, tarantulas, prairie dogs, ducks, hedgehogs, ferrets, salamanders, snails (scored as a tie at 14). Year not stated (c. 2017).",
+   "year": 2017,
+   "kind": "people"
+  },
+  {
+   "name": "All About Cats / cats.com most in-demand pets, Google Keyword Planner (via Mental Floss)",
+   "url": "https://www.mentalfloss.com/animals/pets/most-wanted-pets",
+   "method": "US search volume Jul 2020-Jul 2021 for pets people consider buying: 1 dog (2.69M), 2 axolotl (703k), 3 cat (640k), 4 ferret, 5 bearded dragon, 6 parrot, 7 rabbit, 8 turtle, 9 guinea pig, 10 snake. Also opened cats.com/in-demand-pets for the top-3 volumes.",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "USDA APHIS NAHMS Backyard Animal Keeping 2024",
+   "url": "https://www.aphis.usda.gov/news/program-update/aphis-releases-backyard-animal-keeping-2024-national-city-reports",
+   "method": "% of US adults keeping: poultry 6.7, rabbits 2.8, pigs 1.5, goats 1.3 (only these four types surveyed). Used for order among farm-type pets.",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov: willing to date someone with this pet (US)",
+   "url": "https://yougov.com/en-us/articles/32776-dog-boosts-your-dating-chances",
+   "method": "US adults, 12 animals; reported: dog 50% more willing / 9% less, cat 35/30, horse 33/16, miniature pig 15/39, snake 59% less, tarantula 59% less. Article Oct 2020 (fieldwork Nov 2019).",
+   "year": 2020,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Dog|dogs|puppy|puppies|doggy|doggie|doggo|pup|pups",
+  "Cat|cats|kitten|kittens|kitty|kitties|kitty cat",
+  "Fish|fishes|goldfish|gold fish|betta|betta fish|beta fish|beta|guppy|guppies|koi|tropical fish|aquarium fish",
+  "Bird|birds|parakeet|parakeets|budgie|budgies|parrot|parrots|cockatiel|cockatiels|canary|canaries|finch|finches|lovebird|lovebirds|macaw|cockatoo",
+  "Rabbit|rabbits|bunny|bunnies|bunny rabbit",
+  "Hamster|hamsters|hampster|hampsters|dwarf hamster",
+  "Horse|horses|pony|ponies|mini horse|miniature horse",
+  "Turtle|turtles|tortoise|tortoises|box turtle",
+  "Snake|snakes|python|ball python|corn snake",
+  "Lizard|lizards|gecko|geckos|leopard gecko|bearded dragon|bearded dragons|iguana|iguanas|chameleon|chameleons",
+  "Guinea Pig|guinea pigs|guineapig|cavy|cavies",
+  "Ferret|ferrets|ferrit",
+  "Chicken|chickens|hen|hens|rooster|roosters|chick|chicks",
+  "Pig|pigs|potbellied pig|pot bellied pig|mini pig|miniature pig|teacup pig|piglet|hog",
+  "Goat|goats|pygmy goat|pygmy goats",
+  "Tarantula|tarantulas|spider|spiders",
+  "Axolotl|axolotls|axolotol|axolot",
+  "Mouse|mice|mouses",
+  "Rat|rats|pet rat",
+  "Gerbil|gerbils",
+  "Hermit Crab|hermit crabs|crab|crabs|hermitcrab",
+  "Hedgehog|hedgehogs|hedgie",
+  "Duck|ducks|duckling|ducklings",
+  "Frog|frogs|toad|toads"
+ ],
+ "gut_check": [
+  "Dog",
+  "Cat",
+  "Fish",
+  "Bird",
+  "Hamster",
+  "Rabbit",
+  "Guinea Pig",
+  "Turtle",
+  "Snake",
+  "Lizard",
+  "Horse",
+  "Ferret"
+ ],
+ "changes_vs_current": "New topic. Raw average-position order (9 scored people sources, missing = 29): Dog, Cat, Bird, Rabbit, Fish, Horse, Snake, Lizard, Turtle, Ferret, Hamster, Guinea Pig, Chicken, Pig, Goat, Tarantula, Axolotl, Mouse, Rat, Gerbil, Duck, Hedgehog, Hermit Crab (Frog unscored, qualitative only). All 12 gut-check answers were already in the raw top 12. Moves: Fish 5 -> 3 (third in every source that measures it: APPA, Harris, Gallup, AVMA, SurveyMonkey; its raw spot only reflects absence from the dating/backyard/search lists, which did not ask about fish). Hamster 11 -> 6 (5th in Gallup with guinea pigs and 5th in SurveyMonkey; tied with reptiles and horses in Gallup at 2%; gut check; its raw spot comes from not being asked about in APPA/Harris categories, which lump it into small animal/rodent). Horse 6 -> 7, Turtle 9 -> 8 (ahead of snake and lizard in AVMA household counts, 1,320k vs 555k/725k), Snake 7 -> 9, Lizard 8 -> 10, Guinea Pig 12 -> 11 above Ferret (AVMA 847k vs 334k households; ferret is lifted by search interest and Harris 4%). Hermit Crab moved above Hedgehog and Duck (single-source tie; hermit crabs are a very common kids' pet). Frog placed #24 on AVMA naming amphibians among rising specialty pets (no figure). Granularity: parrots/parakeets/budgies folded into Bird; goldfish/betta into Fish; geckos/bearded dragons/iguanas into Lizard; tortoise into Turtle; rooster/hen into Chicken; spider into Tarantula, so no two items share an animal. Left out for lack of data: chinchilla, sugar glider, cow.",
+ "confidence": "medium. Dog, Cat, Fish, Bird are solid across every ownership source (APPA 2025, Harris 2024, Gallup, AVMA). Positions 5-12 (rabbit, hamster, horse, reptiles, guinea pig, ferret) are all well supported as the next tier but their exact order shifts between sources and several sources only report lumped categories (small animal, reptile, rodent). The tail (13-24) leans on one or two sources each (AVMA 2012 specialty table, USDA backyard study, SurveyMonkey mentions, 2021 search data); Frog at #24 has only qualitative AVMA support, and no source found for chinchilla.",
+ "no_data_positions": []
+}

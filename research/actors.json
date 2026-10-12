@@ -1,0 +1,151 @@
+{
+ "topic": {
+  "name": "Actors",
+  "note": "All-time",
+  "cat": "people",
+  "from": 17
+ },
+ "sources": [
+  {
+   "name": "Harris Poll 'America's Favorite Movie Star' (annual, US adults online, open-ended favorite) - survey Dec 2004",
+   "url": "https://www.cbsnews.com/news/poll-america-loves-tom-hanks",
+   "method": "Top 10: 1 Tom Hanks, 2 Mel Gibson, 3 Julia Roberts, 4 Johnny Depp, 5 Harrison Ford, 6 Denzel Washington, 7 John Wayne, 8 Clint Eastwood, 9 Sean Connery, 10 George Clooney.",
+   "year": 2005,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll 'America's Favorite Movie Star' (annual, US adults online, open-ended favorite) - survey Dec 2006 (Time)",
+   "url": "https://time.com/archive/6908101/john-wayne-still-tops/",
+   "method": "1,147 US adults. 1 Denzel Washington, 2 Tom Hanks, 3 John Wayne, 4 Clint Eastwood, =5 Will Smith/Julia Roberts, =7 Johnny Depp/Mel Gibson, 9 George Clooney, 10 Harrison Ford.",
+   "year": 2007,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll 'America's Favorite Movie Star' (annual, US adults online, open-ended favorite) - survey Dec 2011 (Christian Post)",
+   "url": "https://www.christianpost.com/trends/americas-favorite-movie-star-chosen.html",
+   "method": "2,237 adults. 1 Johnny Depp, =2 Denzel Washington/Clint Eastwood, 4 Tom Hanks, 5 John Wayne, 6 George Clooney, 7 Sandra Bullock, 8 Harrison Ford, 9 Will Smith, 10 Adam Sandler.",
+   "year": 2012,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll 'America's Favorite Movie Star' (annual, US adults online, open-ended favorite) - survey Dec 2012 (2luxury2)",
+   "url": "https://www.2luxury2.com/?p=38946",
+   "method": "1 Denzel Washington, 2 Clint Eastwood, 3 Tom Hanks, =4 Johnny Depp/Brad Pitt, 6 John Wayne, 7 George Clooney, 8 Harrison Ford, 9 Meryl Streep, 10 Matt Damon.",
+   "year": 2013,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll 'America's Favorite Movie Star' (annual, US adults online, open-ended favorite) - survey Dec 2013 (2luxury2)",
+   "url": "https://www.2luxury2.com/favorite-movie-stars-of-the-year/",
+   "method": "1 Tom Hanks, 2 Denzel Washington, 3 Jennifer Lawrence, 4 Julia Roberts, 5 Sandra Bullock, 6 Johnny Depp, 7 John Wayne, 8 Clint Eastwood, =9 Brad Pitt/Meryl Streep.",
+   "year": 2014,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll 'America's Favorite Movie Star' (annual, US adults online, open-ended favorite) - survey Dec 2014 (FinChannel)",
+   "url": "https://finchannel.com/?p=40301",
+   "method": "1 Denzel Washington, 2 John Wayne, 3 Brad Pitt, 4 Johnny Depp, 5 Tom Hanks, 6 Clint Eastwood, =7 Jennifer Lawrence/Meryl Streep, 9 Harrison Ford, 10 Angelina Jolie.",
+   "year": 2015,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll 'America's Favorite Movie Star' (annual, US adults online, open-ended favorite) - survey Dec 2015 (/Film)",
+   "url": "https://www.slashfilm.com/542386/americas-favorite-movie-stars",
+   "method": "2,252 US adults, Dec 9-14 2015. 1 Tom Hanks, 2 Johnny Depp, 3 Denzel Washington, 4 John Wayne, 5 Harrison Ford, 6 Sandra Bullock, 7 Jennifer Lawrence, 8 Clint Eastwood, =9 Brad Pitt/Julia Roberts. Latest edition found; no later Harris editions located.",
+   "year": 2016,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings - all-time actors & actresses, popularity (US, Q3 2026)",
+   "url": "https://yougov.com/en-us/ratings/all-time-actors-actresses",
+   "method": "% of US adults with positive opinion (page + YouGov public ratings API, top 420). Morgan Freeman 83, Keanu Reeves 82, Betty White 80, Robin Williams 80, Denzel Washington 80, Sandra Bullock 79, Bruce Willis 78, Samuel L. Jackson 78, Jackie Chan 78, Danny DeVito 77, Bruce Lee 77, Harrison Ford 76, Michael J. Fox 76, James Earl Jones 75, Tom Hanks 74 (#15), Jim Carrey 74, Eddie Murphy 74, Jennifer Lawrence 72 (#20), Brad Pitt 72 (#21), Marilyn Monroe 70 (#35), Dwayne Johnson 69 (#41), Al Pacino 69 (#42), Meryl Streep 68 (#50), Johnny Depp 67 (#57), Julia Roberts 67 (#62), Robert De Niro 67 (#63), Jack Nicholson 67 (#64), Leonardo DiCaprio 66 (#78), Clint Eastwood 64 (#106), George Clooney 61 (#162), Marlon Brando 60 (#188), Tom Cruise 59 (#195), John Wayne 58 (#222), Will Smith 57 (#243), Humphrey Bogart 56 (#281). Liking score favors universally inoffensive and TV figures; skews against older legends.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings - all-time actors & actresses, fame (US, Q3 2026)",
+   "url": "https://yougov.com/en-us/ratings/all-time-actors-actresses?sortBy=fame",
+   "method": "% of US adults who have heard of each (via public ratings API). Will Smith 97, Brad Pitt 97, Johnny Depp 97, Leonardo DiCaprio 96, Eddie Murphy 96, Adam Sandler 96, Marilyn Monroe 96, Tom Cruise 96, Jim Carrey 96, Sandra Bullock 96, Dwayne Johnson 95 (#14), Keanu Reeves 95, Morgan Freeman 95 (#20), Tom Hanks 94 (#22), Robert De Niro 94 (#23), Robin Williams 94, Clint Eastwood 93 (#34), Julia Roberts 93, Harrison Ford 92, Meryl Streep 92, Denzel Washington 92, George Clooney 92, Al Pacino 90 (#74), Jack Nicholson 90 (#82), John Wayne 85, Marlon Brando 84 (#188).",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Public Policy Polling actor favorability (US registered voters)",
+   "url": "https://www.publicpolicypolling.com/polls/hanks-streep-denzel-receive-top-favorability-ratings/",
+   "method": "803 voters, Aug 26-28 2013, fav/unfav of 20 actors: Tom Hanks 79/6, Denzel Washington 76/8, Morgan Freeman 75/8, Clint Eastwood 74/14, Meryl Streep 72/11, Will Smith 71/5, Halle Berry 63/12, George Clooney 62/17, Jack Nicholson 62/16, Leonardo DiCaprio 58/17, Anne Hathaway 57/8, Johnny Depp 55/21, Mel Gibson 50/30, Ben Affleck 45/19, Jennifer Lawrence 41/10 ... Tom Cruise 34/43.",
+   "year": 2013,
+   "kind": "people"
+  },
+  {
+   "name": "24/7 Tempo 'Most well-liked actors in America of all time' (YouGov data, mostly male actors)",
+   "url": "https://247wallst.com/special-report/2023/04/08/most-well-liked-actors-in-america-of-all-time/",
+   "method": "YouGov liking of 886 actors (1,200+ US respondents), >=70% liked: Morgan Freeman 83, Robin Williams 82, Denzel Washington 80, Michael J. Fox 77, Keanu Reeves 77, Danny DeVito 77, Tom Hanks 76, Harrison Ford 76, Samuel L. Jackson 75, Anthony Hopkins 75, James Earl Jones 75, Jack Nicholson 73 (#12), Dwayne Johnson 73 (#13), Bruce Willis 73, Al Pacino 73 (#15), ... Clint Eastwood 70 (#28). Same underlying YouGov data as the ratings source and men only, so used only as tie-break support.",
+   "year": 2023,
+   "kind": "critic"
+  },
+  {
+   "name": "Stacker 'America's 50 favorite actors who are men' (YouGov data, June 2024, via Mediabistro)",
+   "url": "https://www.mediabistro.com/entertainment/the-50-greatest-actors-in-movie-history-according-to-fans/",
+   "method": "Ranked by % who like: 1 Morgan Freeman 85, 2 Samuel L. Jackson 81, 3 Robin Williams 80, 4 Denzel Washington 80, 5 Harrison Ford 78, 6 Keanu Reeves 77, ... 15 Tom Hanks 74, 18 Paul Newman 73, 20 Jack Nicholson 72, 23 Clint Eastwood 71, 24 Brad Pitt 71, 27 Eddie Murphy 71, 29 Al Pacino 71. Same YouGov data and men only, so tie-break support only.",
+   "year": 2024,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Tom Hanks|hanks",
+  "Denzel Washington|denzel|washington",
+  "Morgan Freeman|freeman",
+  "Clint Eastwood|eastwood|clint",
+  "John Wayne|wayne|the duke|duke",
+  "Brad Pitt|pitt|brad",
+  "Harrison Ford|ford|harrison",
+  "Johnny Depp|depp|johnny",
+  "Sandra Bullock|bullock|sandra",
+  "Meryl Streep|streep|meryl",
+  "Julia Roberts|roberts|julia",
+  "Leonardo DiCaprio|dicaprio|di caprio|decaprio|leo|leonardo|leo dicaprio",
+  "Will Smith|smith",
+  "Keanu Reeves|keanu|reeves|keanu reaves",
+  "George Clooney|clooney",
+  "Robin Williams|williams|robin",
+  "Marilyn Monroe|monroe|marilyn",
+  "Robert De Niro|de niro|deniro|robert deniro|niro",
+  "Tom Cruise|cruise",
+  "Eddie Murphy|murphy|eddie",
+  "Jack Nicholson|nicholson|nicholsen|jack nicholsen",
+  "Al Pacino|pacino|al paccino",
+  "Jim Carrey|carrey|jim carey|carey",
+  "Samuel L. Jackson|samuel jackson|sam jackson|samuel l jackson|jackson|sam l jackson"
+ ],
+ "gut_check": [
+  "Tom Hanks",
+  "Denzel Washington",
+  "Meryl Streep",
+  "Leonardo DiCaprio",
+  "Tom Cruise",
+  "John Wayne",
+  "Clint Eastwood",
+  "Morgan Freeman",
+  "Brad Pitt",
+  "Julia Roberts",
+  "Harrison Ford",
+  "Robert De Niro"
+ ],
+ "changes_vs_current": [
+  "New topic. Raw average-position order (7 Harris years + YouGov popularity + YouGov fame + PPP; YouGov positions re-ranked within the ~70-name candidate pool) was: Tom Hanks, Denzel Washington, Johnny Depp, Brad Pitt, Sandra Bullock, Clint Eastwood, Morgan Freeman, Harrison Ford, Jennifer Lawrence, Keanu Reeves, Eddie Murphy, Jackie Chan, Jim Carrey, Will Smith, Bruce Lee, Robin Williams, Adam Sandler, Danny DeVito, Matt Damon, Samuel L. Jackson, Leonardo DiCaprio, Betty White, Marilyn Monroe, Robert Downey Jr., Michael J. Fox, Julia Roberts (26), Meryl Streep (27), ... John Wayne (30), George Clooney (34), Tom Cruise (36), Robert De Niro (~41).",
+  "John Wayne moved from raw #30 to #5: in the Harris top 10 in all 7 editions read (avg ~4.9, #2 in 2014); his raw rank is dragged down only by YouGov liking (#222), which skews young. Gut check had him top 12.",
+  "Meryl Streep moved from #27 to #10 and Julia Roberts from #26 to #11: Harris top 10 in 4 and 5 of 7 editions respectively, Streep #5 in PPP favorability; YouGov liking (#50, #62) is the only source lower. Both gut-check picks.",
+  "Morgan Freeman raised from #7 to #3: YouGov liking #1, PPP #3 (75% fav), gut check; Johnny Depp lowered from #3 to #8 because all his Harris strength predates 2016 and his current YouGov liking is #57 (67%).",
+  "Clint Eastwood moved up #6 -> #4 (Harris top 10 in all 7 editions, PPP #4).",
+  "Leonardo DiCaprio (gut check) placed #12 (raw #21): YouGov fame #4 and PPP 58% fav, but never in a Harris top 10 and YouGov liking #78, so kept at the edge of the top 12 rather than higher.",
+  "Tom Cruise (gut check) left at #18 (raw #36): PPP has him last of actors (34% fav / 43% unfav) and YouGov liking #195, though fame #8. Robert De Niro (gut check) at #20: no Harris appearance, YouGov liking #63, fame #23.",
+  "George Clooney moved up from raw #34 to #16 (Harris top 10 in 5 of 7 editions, PPP 62%). Will Smith kept around raw spot (#13): Harris twice, PPP #6, YouGov fame #1, but liking now #243.",
+  "Dropped despite raw top-24 spots, because their raw rank rests only on YouGov liking (no favorite-star poll mentions) and they are better known for TV/comedy or martial arts than as 'all-time greatest' picks: Jackie Chan (#12), Bruce Lee, Adam Sandler, Danny DeVito, Matt Damon, Betty White (TV), Robert Downey Jr., Michael J. Fox. Jackie Chan is the first out.",
+  "Alias notes: only one Hepburn would be eligible so 'hepburn' is unused (neither Hepburn made the 24); 'tom' and 'jennifer' deliberately not aliased (two Toms).",
+  "Review pass (coordinator gut check: Al Pacino, Jack Nicholson in top 12; De Niro/Monroe buried). Checked YouGov all-time actors & actresses Q3 2026: Pacino popularity #42 (69%) / fame #74 (90%); Nicholson popularity #64 (67%) / fame #82 (90%); De Niro popularity #63 (67%) / fame #23 (94%); Monroe popularity #35 (70%) / fame #7 (96%). Other liking data: 24/7 Tempo (YouGov) Nicholson #12, Pacino #15 of men; Stacker June 2024 (YouGov) Nicholson #20, Pacino #29 of men; PPP 2013 Nicholson 62% fav, behind 7 others. No public 'greatest actor of all time' poll (YouGov, Gallup, Talker) was found; the Ranker crowd vote 'Best Actors of All Time' could not be opened (HTTP 401), so it is not used.",
+  "Result: Pacino (#22) and Nicholson (#21) added, since their YouGov liking and fame put them in range of the tail. They are not in the top 12, because sources put them lower: neither appears in any of the 7 Harris favorite-star top 10s (2004-2015), YouGov fame has them at #74/#82, and PPP has Nicholson behind Hanks, Denzel, Freeman, Eastwood, Streep, Will Smith and Halle Berry. Marilyn Monroe moved #22 -> #17 (YouGov fame #7, liking #35) and Robert De Niro #20 -> #18 (fame #23): all-time framing; both still below Will Smith, Keanu, Clooney and Robin Williams on the data.",
+  "Dropped to make room: Jennifer Lawrence (was #15; Harris top 10 2013-15 and YouGov liking #20, but PPP only 41% fav and her Harris showings are a short current-star run, a poor fit for 'all-time') and Dwayne Johnson (was #23; YouGov liking #41 and fame #14 but no favorite-star poll mention). Samuel L. Jackson kept (YouGov liking #8, Stacker #2, 24/7 Tempo #9). The 'the rock'/'rock' aliases leave with Dwayne Johnson."
+ ],
+ "confidence": "medium. The top 11 are well supported: Harris favorite-star polls (7 editions 2004-2015) and PPP favorability agree on Hanks, Denzel, Eastwood, Wayne, Pitt, Ford, Depp, Bullock, Streep, Roberts, and YouGov 2026 confirms Hanks/Denzel/Freeman. Doubts: the Harris series stopped after the 2015 survey so the open-ended 'favorite' data is 10+ years old (Depp and Will Smith have since lost favor; Wayne may be fading with younger adults); YouGov liking overrates TV/comedy figures; the 13-24 tail (Will Smith, Keanu, Clooney, Robin Williams, Monroe, De Niro, Cruise, Murphy, Nicholson, Pacino, Carrey, Samuel L. Jackson) is a judgement blend of YouGov fame/liking with no direct favorite poll. Brando, Bogart and Audrey Hepburn stay out (YouGov liking #188, #281, #47, never in a Harris top 10). There is no 'greatest actor' poll, so how well-regarded actors like Pacino and Nicholson are is only inferred.",
+ "no_data_positions": []
+}
