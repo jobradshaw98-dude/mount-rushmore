@@ -1,83 +1,118 @@
 {
+ "from": 17,
  "sources": [
   {
-   "name": "IGN Top 100 Comic Book Heroes (all 100 ranks read from archived per-entry pages)",
-   "url": "https://web.archive.org/web/20131215033648/http://www.ign.com/top/comic-book-heroes",
-   "method": "IGN editorial staff list; Flash scored as Wally West (#8; Barry Allen is #49), 'Captain Marvel' #50 is the Shazam/Billy Batson character (Whiz Comics #2), so it counts for Shazam; Carol Danvers is not on it and IGN was excluded from her average",
-   "year": 2011
+   "name": "OnePoll for Visit Anaheim, 2,000 Americans, favorite superheroes (top 10)",
+   "url": "https://www.supermanhomepage.com/survey-says-superman-is-americas-favorite-superhero/ (date, method, full top 10); percentages from https://talker.news/2022/07/22/americans-chose-their-favorite-superhero-hint-it-isnt-captain-america/",
+   "method": "US general-public poll. 1 Superman 47%, 2 Spider-Man 46%, 3 Batman 45%, 4 Captain America 42%, 5 Iron Man 41%, 6 Wonder Woman, 7 Aquaman, 8 Captain Marvel, 9 Black Panther, 10 Wolverine (no % published for 6-10). Missing = 15.",
+   "year": 2020,
+   "kind": "people"
   },
   {
-   "name": "Vue Cinemas UK poll of 2,000 adults, Top 20 Best Superheroes (via The Scotsman)",
-   "url": "https://www.scotsman.com/read-this/batman-is-the-nations-all-time-favourite-superhero-but-superman-would-win-in-a-fight-298226",
-   "method": "public poll; year inferred as 2018 from 'Deadpool returns on 15th May' (article text gives no year); Flash Gordon and other non-listed characters kept in their published positions; Captain Marvel excluded (predates film)",
-   "year": 2018
+   "name": "Casino.org survey of 2,000 US residents, favorite comic book heroes (top 5)",
+   "url": "https://www.casino.org/blog/national-comic-book-day/",
+   "method": "US online survey, fieldwork Sept 2023, published Apr 2024. Batman 23.1%, Spider-Man 15.8%, Wonder Woman 5.7%, Superman 5.7%, Wolverine 5.7% (last three tied, scored 4). Sample skews young/male (avg age 37.4, 52% male). Missing = 10.",
+   "year": 2023,
+   "kind": "people"
   },
   {
-   "name": "OnePoll for Visit Anaheim, 2,000 Americans, top 10 favorite superheroes",
-   "url": "https://comicbook.com/irl/news/superman-spider-man-favorite-hero-new-poll/ (method and 2020-03-24 date); full top 10 from https://wegotthiscovered.com/movies/superman-tops-poll-find-americas-favorite-superhero/",
-   "method": "public poll",
-   "year": 2020
+   "name": "YouGov Omnibus: favorite character created by Stan Lee (US adults, via Statista; top 5 confirmed in YouGov article)",
+   "url": "https://www.statista.com/statistics/943160/favorite-stan-lee-characters-us/ ; https://yougov.com/en-us/articles/21916-stan-lee-marvel-dc-comics-characters-spiderman",
+   "method": "1,227 US adults, Nov 13-14 2018, closed list of Marvel characters. Spider-Man 22%, Wolverine 10%, Iron Man 9%, Hulk 8%, Thor 7%, Black Panther 6%, Doctor Strange 3%, Daredevil 2%, then 1% each (tied, scored 12.5): Mystique, Storm, Hawkeye, Scarlet Witch, Professor X, Black Widow, Nick Fury, Ant-Man. Marvel-only list: characters not offered (all DC, Captain America, Deadpool...) are skipped, not penalised.",
+   "year": 2018,
+   "kind": "people"
   },
   {
-   "name": "Opinium for GOSH Charity, 2,000 UK adults, favorite childhood superhero (top 3 only)",
+   "name": "Morning Consult: MCU characters by net favorability, all US adults",
+   "url": "https://intel.morningconsult.com/mc-content/trend-setters/marvel-movies-characters-rankings (chart data read from its Everviz embed, https://app.everviz.com/inject/QNxyUhoWn/)",
+   "method": "2,200 US adults, Nov 19-22 2021, net favorability. Spider-Man 66, Iron Man 62, Captain America 61, Thor 61, Hulk 60, Black Panther 53, Captain Marvel 52, Black Widow 45, Ant-Man 42, Doctor Strange 41, Falcon 38, Blade 35, Hawkeye 33, Loki 33, Bucky 32, Nick Fury 32, Star-Lord 28, Vision 27, Scarlet Witch 26, Shang-Chi 26. MCU-only: non-MCU characters skipped, not penalised.",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "Wisevoter favorite superhero by state (via CBR and Eastern Eye)",
+   "url": "https://www.cbr.com/spider-man-batman-america-favorite-superhero-marvel-dc/ ; https://www.easterneye.biz/spider-man-named-the-most-popular-superhero-in-the-us-find-out-who-bags-the-second-spot/",
+   "method": "State-by-state survey, method not published, Sept 2022. #1 in states: Spider-Man 25, Batman 10, Superman 4, Wonder Woman/Aquaman/Captain Marvel/Wolverine 2 each, Iron Man/Captain America/Black Panther 1. Top-5 appearances: Batman 50, Spider-Man 48, Iron Man 44, Superman 37, Captain America 22, Black Panther 16. Scored 1 Spider-Man, 2 Batman, 3 Superman, 4 Iron Man, the other six tied at 7.5. Missing = 15.",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Vue Cinemas UK poll of 2,000 adults, Top 20 Best Superheroes of All Time",
+   "url": "https://www.icenimagazine.co.uk/batman-nations-favourite-superhero/ (Scotsman/Yorkshire Post copies now return 403)",
+   "method": "UK public poll (2018, tied to Deadpool 2 release). 1 Batman, 2 Superman, 3 Spider-Man, 4 Wonder Woman, 5 Hulk, 6 Iron Man, 7 Wolverine, 8 Thor, 9 Flash Gordon, 10 Captain America, 11 Deadpool, 12 Guardians of the Galaxy, 13 Robin, 14 TMNT, 15 The Flash, 16 Batwoman, 17 Black Panther, 18 Batgirl, 19 Hellboy, 20 Ghost Rider. Non-listed characters kept in published positions. Missing = 25.",
+   "year": 2018,
+   "kind": "people"
+  },
+  {
+   "name": "Opinium for GOSH Charity, 2,000 UK adults, favourite childhood superhero (top 3)",
    "url": "https://www.gosh.org/media-centre/is-it-a-bird-is-it-a-plane-superman-reigns-supreme-as-nations-favourite-superhero/",
-   "method": "public poll, fieldwork 8-12 Dec 2023, weighted nationally representative; only Superman 18%, Batman 16%, Spider-Man 15% published",
-   "year": 2024
+   "method": "UK weighted poll, fieldwork 8-12 Dec 2023. Superman 18%, Batman 16%, Spider-Man 15% (Gen Z: Spider-Man 34%, Iron Man 20%; not scored). Missing = 8.",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "Box Office Mojo franchise totals, US domestic gross of each hero's title films",
+   "url": "https://www.boxofficemojo.com/franchise/ ; single films from https://www.boxofficemojo.com/chart/top_lifetime_gross/",
+   "method": "Popularity data. Domestic gross of films titled after the hero (team films excluded): Spider-Man $4.66B, Batman $2.78B, Superman $1.49B, Deadpool $1.32B, Wolverine $1.18B ($539M Wolverine franchise + $637M Deadpool & Wolverine, which has him in the title), Black Panther $1.15B, Thor $1.046B, Captain America $1.045B, Iron Man $1.040B, Doctor Strange $644M, Ant-Man $611M, Venom $567M, Captain Marvel $511M, Wonder Woman $460M, Aquaman $460M, Hulk $267M (Hulk 2003 + Incredible Hulk 2008), Blade $205M, Shazam $198M, Black Widow $184M, Hellboy $158M, Green Lantern $117M, The Flash $108M, Daredevil $103M. No solo film = missing (28).",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Wikipedia pageviews, 12 months (Oct 2025 - Sep 2026), English Wikipedia",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Spider-Man/monthly/2025100100/2026093000 (same endpoint per article)",
+   "method": "Search/attention proxy, user views summed over comic + MCU character articles. Spider-Man 2.31M, Jean Grey 1.57M, Batman 1.14M, Superman 971k, Iron Man 901k, Punisher 817k, Hulk 811k, Captain America 795k, Robin (+Dick Grayson) 671k, Wolverine 665k, Black Widow 610k, Deadpool 574k, Wonder Woman 570k, Green Lantern 569k, Doctor Strange 509k, Ghost Rider 505k, Cyclops 483k, Scarlet Witch 470k, Daredevil 405k, Black Panther 400k, Silver Surfer 391k, Martian Manhunter 391k, Thor 375k, Captain Marvel 373k, The Flash 350k, Storm 333k, Hellboy 331k, Hawkeye 288k, Blade 283k, Professor X 265k, Shazam 238k, Aquaman 225k, Green Arrow 197k, Supergirl 180k, Ant-Man 147k, Star-Lord 147k. Global readers, news-driven spikes (Jean Grey, Punisher, Green Lantern), so it is noisy.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "IGN Top 100 Comic Book Heroes",
+   "url": "https://web.archive.org/web/20131215033648/http://www.ign.com/top/comic-book-heroes",
+   "method": "Editorial staff list, kept from the previous pass. Critic source: used only to break exact ties, and no tie needed it, so it is not in the averages.",
+   "year": 2011,
+   "kind": "critic"
   }
  ],
  "list": [
-  "Superman",
-  "Batman",
-  "Spider-Man|spiderman|spidey",
-  "Wonder Woman",
-  "Captain America|cap",
-  "Wolverine|logan",
+  "Spider-Man|spiderman|spidey|peter parker",
+  "Batman|bruce wayne|the batman",
+  "Superman|clark kent|man of steel",
   "Iron Man|ironman|tony stark",
-  "Captain Marvel",
-  "The Hulk|hulk",
+  "Wolverine|logan",
+  "Captain America|cap|steve rogers",
+  "Wonder Woman|wonderwoman|diana prince",
+  "The Hulk|hulk|incredible hulk|bruce banner",
+  "Black Panther|tchalla|t'challa",
+  "Deadpool|dead pool",
   "Thor",
-  "The Flash|flash",
+  "Doctor Strange|dr strange|dr. strange|stephen strange",
+  "Captain Marvel|carol danvers",
+  "Black Widow|natasha romanoff",
   "Robin|nightwing|dick grayson",
-  "Green Lantern",
-  "Daredevil",
-  "Deadpool",
-  "Hellboy",
-  "Green Arrow",
+  "Jean Grey|jean gray|phoenix",
+  "Aquaman|aqua man",
+  "The Punisher|punisher|frank castle",
+  "Green Lantern|hal jordan",
+  "Daredevil|dare devil|matt murdock",
+  "The Flash|flash|barry allen",
+  "Ghost Rider|ghostrider",
+  "Ant-Man|antman|ant man|scott lang",
+  "Hellboy|hell boy"
+ ],
+ "gut_check": [
+  "Spider-Man",
+  "Batman",
+  "Superman",
+  "Wonder Woman",
+  "Iron Man",
+  "Wolverine",
+  "Captain America",
+  "Hulk",
+  "Thor",
   "Black Panther",
-  "Doctor Strange|dr strange",
-  "Cyclops",
-  "Storm",
-  "Aquaman",
-  "Hawkeye",
-  "Shazam"
+  "Deadpool",
+  "The Flash"
  ],
- "avg_rank": [
-  1.25,
-  2,
-  2.75,
-  5.75,
-  7,
-  7.25,
-  7.75,
-  8,
-  9.25,
-  11.25,
-  11.5,
-  11.75,
-  13.75,
-  14.5,
-  16.25,
-  16.75,
-  19.5,
-  21.25,
-  21.5,
-  21.75,
-  22.5,
-  23,
-  23,
-  24.5
- ],
- "no_data_positions": [],
- "changes_vs_current": "Superman moves to #1 and Batman #2 (Spider-Man #3, all three in the top 3 of every source that lists them); Captain Marvel jumps to #8 on one source (OnePoll #8); Robin/Nightwing and Hellboy enter; Black Panther falls from #10 to #18 (IGN #51 drags it down against OnePoll #9 and Vue #17) and Ant-Man and Black Widow drop out (IGN-only, #67 and #74); Wonder Woman stays #4, Iron Man #7. Rule applied: new entrants needed 2+ sources, so Jean Grey, The Thing, Professor X, Punisher and Nick Fury (IGN-only, avg 15-20) were not added.",
- "confidence": "low. Only 4 sources and three are short lists (20, 10, 3 names), so positions 13-24 rest mainly on IGN's 2011 editorial list, which predates the MCU and over-rates comics-only characters while under-rating Black Panther, Doctor Strange, Black Widow, Ant-Man and Hawkeye. Ranks 1-7 are solid. Hellboy and Robin are included only because the Vue poll and IGN counted them as heroes; swap in Black Widow or Ant-Man if you prefer. Wisevoter 2024 state-by-state survey, read via CBR (cbr.com/spider-man-batman-america-favorite-superhero-marvel-dc), gives Spider-Man #1 in 25 states, Batman 10, Superman 4, and Iron Man in the top five in 44 states, which is consistent with this order but not in the math. YouGov (2013) names Batman, Spider-Man, Superman and Wonder Woman in its top five favorite comic characters (with Archie), also consistent. Search-interest studies (Game/Looper 2021) were skipped as not polls."
+ "changes_vs_current": "Re-ranked on 9 people sources (was 4 with IGN in the math). IGN 2011 is now kind 'critic' (tie-break only; no tie needed it). New people sources: Casino.org 2023 US survey, YouGov 2018 Stan Lee characters (Marvel-only, so absent DC heroes are skipped, not penalised), Morning Consult 2021 MCU character favorability (MCU-only, skipped the same way), Wisevoter 2022, Box Office Mojo domestic gross of solo films, and Wikipedia pageviews. Moves: Superman #1->#3 and Spider-Man #3->#1 (Spider-Man is #1-3 in all 9 sources and #1 in 5; Superman #1 in only 2). Batman stays #2. Iron Man #7->#4 (OnePoll 5, YouGov 3, MC 2, Wisevoter 4, Vue 6, pageviews 5). Wolverine #6->#5 (YouGov #2 at 10%, Casino tied #3-5, Vue 7, box office 5 once Deadpool & Wolverine counts). It averages 6.69, behind Iron Man at 5.78, so the data do not support Jordan's #4 for Wolverine and #6 for Iron Man: Iron Man is higher in OnePoll, Wisevoter, Vue, MC and pageviews. Captain America #5->#6, Wonder Woman #4->#7 (weak box office 14 and pageviews 13; WW is still #4-6 in the polls). Hulk #9->#8. Black Panther #18->#9 (MC 6, YouGov 6, OnePoll 9, box office 6; the old rank came from IGN's #51). Deadpool #15->#10 (box office 4). Thor #10->#11. Doctor Strange #19->#12. Captain Marvel #8->#13 (only OnePoll #8 is strong; pageviews 26, box office 13). Black Widow enters at #14 (MC 8, pageviews 11). Robin #12->#15. Jean Grey enters at #16 and The Punisher at #18, each on pageviews alone. Aquaman #22->#17. Green Lantern #13->#19. Daredevil #14->#20. The Flash #11->#21. Ghost Rider enters at #22 (Vue 20, pageviews 16). Ant-Man enters at #23 (MC 9, box office 11, YouGov 1%). Hellboy #16->#24. Out: Green Arrow (#35 in pageviews only), Cyclops (#28 avg, pageviews only), Storm (#31), Hawkeye (#29: MC 13th of 20, YouGov 1%, pageviews 30th, no solo film), Shazam (#32: box office 18, pageviews 33). Venom (#17 avg) and Catwoman were left out as mainly villains. Gut check: 11 of my 12 are in the top 11. The Flash (gut top 12) lands at #21, but the sources put him lower: Vue UK #15, box office 22nd of 23, pageviews 27th, and he is absent from OnePoll, Casino and Wisevoter. So he was not moved. Tie at 16.0: The Flash (3 sources) ahead of Ghost Rider (2).",
+ "confidence": "medium. Top 3 is solid: every source puts Spider-Man, Batman and Superman in its top 4. Ranks 4-11 are backed by 3-7 people sources each, but the gaps are small: Wolverine 6.69, Captain America 7.38, Wonder Woman 8.07. The only US polls that name a full top 10 (OnePoll 2020, Wisevoter 2022) are older, and Wisevoter's method is unpublished. No YouGov Ratings category for superheroes or comic characters exists: I checked all 177 YouGov US ratings groups. Ranks 15-24 lean on Wikipedia pageviews, which are global and news-driven. Jean Grey (#16) and The Punisher (#18) rest on pageviews alone and could be swapped for Hawkeye or Green Arrow if they look odd. The Flash at #21 is lower than gut. Consulted but not scored: YouGov 2013 favorite comic character (open-ended; only the top 5 is published, unordered: Archie, Batman, Spider-Man, Superman ~10%, Wonder Woman); Wilson Research 2002 US voters (Superman 27, Spider-Man 15, Batman 14, Wonder Woman 11, Hulk 7), which is too old and pre-MCU; Morning Consult 2018 (partial: Spider-Man ~75% fav, Hulk 71, Captain America/Iron Man 69); YouGov Ratings MCU/DC/X-Men movie popularity (film titles, not characters).",
+ "no_data_positions": []
 }

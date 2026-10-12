@@ -1,0 +1,118 @@
+{
+ "topic": {
+  "name": "Card Games",
+  "cat": "play",
+  "from": 17
+ },
+ "sources": [
+  {
+   "name": "YouGov 'How Americans feel about 30 card games' - ever played (crosstabs PDF)",
+   "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/crosstabs_Card_Games.pdf",
+   "method": "Poll of 1,000 US adult citizens, May 10-12 2023 (article: https://yougov.com/en-us/articles/45795-how-americans-feel-about-30-card-games). % who have ever played: Solitaire 83, Go Fish 79, Blackjack 70, Old Maid 66, War 62, Poker 60, Crazy Eights 56, Hearts 56, Gin Rummy 52, Spades 50, Texas Hold'em 41, Seven Card Stud 37, Bullsh*t 29, Canasta 24, Spoons 22, Pinochle 21, Pyramid 21, Cribbage 20, Euchre 19, Bridge 18, Spit/Speed 18, Kings in the Corner 17, Thirty-one 14, Omaha 11, Pitty Pat 11, Hand and Foot 10, Pitch 10, Whist 9, Kemps 7, Zwickern 4. Branded games (Uno etc.) and plain Rummy were NOT asked, so they score as missing here (structural). Poker variants merged into Poker.",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov 30 card games - 'love it' share of all adults (same crosstabs, Q5 x Q4)",
+   "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/crosstabs_Card_Games.pdf",
+   "method": "% ever played x % of players who 'love it' = share of all adults who love the game. Solitaire 28.2 (83x34%), Blackjack 18.2, Spades 15.0, Poker 13.2, Gin Rummy 12.5, War 12.4, Hearts 11.2, Go Fish 11.1, Bullsh*t 9.0, Crazy Eights 7.8, Old Maid 7.3, Pinochle 7.1, Speed 6.8, Spoons 6.2, Euchre 5.7, Cribbage 5.2, Canasta 4.8, Pyramid 4.6, Bridge 3.4, Kings in the Corner 2.5. Same blind spot for Uno/branded games.",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "Researchscape newsmaker survey: card games played last year (via Troy Press, full chart image)",
+   "url": "https://troypress.com/most-played-board-games-and-card-games/",
+   "method": "1,059 US adults, Jan 3-5 2025, 'What card games, if any, did you play last year?' (in real life). Solitaire 32, Uno 29, Blackjack 25, (None 21), Poker 20, Go Fish 18, Spades 18, Rummy 16, Cards Against Humanity 14, Hearts 11, Apples to Apples 11, Phase 10 10, War 10, Texas Holdem 9 (merged into Poker), Bridge 7, Cribbage 6, Skip Bo 5, Euchre 5, Old Maid 5, Canasta 5, Speed 5, King(s in the Corner) 4, Spoons 3, Magic: The Gathering 2, Pitch 2, Rook 1. Crazy Eights and Gin Rummy not offered.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov 'Games of luck or skill' poll - familiarity (crosstabs PDF)",
+   "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/Games-of-Luck-or-Skill-Poll-Results.pdf",
+   "method": "1,226 US adults, May 22-26 2020; familiarity = 100% minus 'not familiar with this game': Poker 90, Blackjack 88, Go Fish 88, Uno 87, Rummy 75, Bridge/Euchre 60 (combined item, not scored), Cribbage 53, Cards Against Humanity 48. Only 8 card games asked.",
+   "year": 2020,
+   "kind": "people"
+  },
+  {
+   "name": "CNN via KRDO: Uno sales (Mattel, Circana)",
+   "url": "https://krdo.com/news/2024/06/03/the-card-game-uno-has-been-around-for-52-years-it-may-be-more-popular-than-ever/",
+   "method": "Mattel: almost one Uno set sold in the US every second in 2023 (up from 17/minute in 2021); Circana: Uno #1 in traditional games category, 3 years running in the US. Single-item sales fact, used for the gut-check move of Uno.",
+   "year": 2024,
+   "kind": "critic"
+  },
+  {
+   "name": "Casinos.com Google Trends card game study",
+   "url": "https://www.casinos.com/us/news/most-popular-card-games",
+   "method": "Average monthly Google Trends interest for 12 card games by state; states won: Poker 19, Blackjack 12, Solitaire 11, Spades 4, Hearts 3; Bridge bottom in 38 states, Old Maid bottom in 8. Uno not among the 12. Sparse, used only as tie/gut-check support.",
+   "year": 2026,
+   "kind": "critic"
+  },
+  {
+   "name": "Spilsbury Google search study (via KROC)",
+   "url": "https://krocnews.com/what-is-the-most-popular-card-game-in-minnesota/",
+   "method": "Google Trends for 26 card games, Nov 2020-Nov 2021, states won: Spades 11, Texas Hold'em 5, then Old Maid and War; regional: Spoons Midwest, Bridge Minnesota. Sparse; support only.",
+   "year": 2022,
+   "kind": "critic"
+  },
+  {
+   "name": "English Wikipedia pageviews 2025 (Wikimedia REST API)",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Uno_(card_game)/monthly/2025010100/2025123100",
+   "method": "Total 2025 user pageviews (global English, so skewed toward games looked up for rules and non-US games): Texas hold'em 704k, Blackjack 648k, Uno 524k, Poker 465k, Rummy 361k, Contract bridge 351k, Gin rummy 316k, Cribbage 256k, Canasta 226k, Klondike 226k, Crazy Eights 218k, Spades 179k, CAH 165k, Go Fish 158k, Pinochle 158k, Hearts 130k, Phase 10 122k, Exploding Kittens 116k, War 106k, Kings in the Corner 99k, Old Maid 91k, Speed 76k, Skip-Bo 70k, Apples to Apples 67k. Tie-breaker only.",
+   "year": 2025,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Poker|texas holdem|texas hold em|texas hold'em|holdem|hold em|hold'em|seven card stud|7 card stud|omaha|stud poker|five card draw|5 card draw",
+  "Uno|uno flip|uno no mercy|show em no mercy|uno cards",
+  "Solitaire|klondike|solitare|solataire|spider solitaire|freecell|free cell|pyramid solitaire|pyramid|patience",
+  "Blackjack|21|twenty-one|twenty one|black jack|vingt-et-un",
+  "Go Fish|gofish|go fish!",
+  "Spades|spade",
+  "Rummy|rummy 500|500 rummy|rummie|rumy",
+  "War|war card game",
+  "Hearts|heart",
+  "Old Maid|oldmaid|old maids",
+  "Crazy Eights|crazy 8s|crazy 8|crazy eight|crazy 8's|crazy eights",
+  "Gin Rummy|gin|gin rumy",
+  "Cards Against Humanity|cah|cards against humanities",
+  "Cribbage|crib|cribage",
+  "Bridge|contract bridge|duplicate bridge",
+  "Euchre|uker|euker|eucher",
+  "Canasta|canasta card game",
+  "Phase 10|phase ten|phase10",
+  "Apples to Apples|apples 2 apples|apple to apple",
+  "Speed|spit|spit or speed",
+  "Spoons|spoon",
+  "BS|bullshit|bullsh*t|b.s.|cheat|i doubt it",
+  "Pinochle|pinocle|pinockle|penuckle",
+  "Skip-Bo|skip bo|skipbo"
+ ],
+ "gut_check": [
+  "Poker",
+  "Uno",
+  "Solitaire",
+  "Go Fish",
+  "Blackjack",
+  "Spades",
+  "Rummy",
+  "War",
+  "Crazy Eights",
+  "Hearts",
+  "Old Maid",
+  "Gin Rummy"
+ ],
+ "changes_vs_current": [
+  "New topic. Gut check written before ranking (above). Raw average position over the 4 people sources: 1 Blackjack, 2 Poker, 3 Solitaire, 4 Go Fish, 5 Spades, 6 War, 7 Hearts, 8 Old Maid, 9 Cribbage, 10 Gin Rummy, 11 Canasta, 12 Crazy Eights, 13 Spoons, 14 Speed, 15 Euchre, 16 BS, 17 Bridge, 18 Pinochle, 19 Uno, 20 Pyramid, 21 Rummy, 22 Kings in the Corner, 23 Pitch, 24 Cards Against Humanity, then Hand and Foot, Thirty-one, Apples to Apples, Pitty Pat, Phase 10, Whist, Kemps, Skip-Bo.",
+  "Uno moved from raw #19 to #2: the 2023 YouGov poll (two of the four sources) never asked about Uno, so it was scored as missing there. Where it was asked it is #2 (Researchscape, 29% played last year) and #4 (YouGov familiarity 87%), and Circana ranks it the #1 traditional game in the US. Gut check #2.",
+  "Rummy moved from raw #21 to #7 for the same reason: YouGov 2023 asked only Gin Rummy. Rummy is #5 in YouGov familiarity (75%) and #7 in Researchscape (16%, above Hearts and War). Gut check #7.",
+  "Poker put #1 over Blackjack (raw 2.62 vs 3.75): Poker (with Texas Hold'em/stud merged in) is #1 in YouGov familiarity (90%) and wins 19 states in the Casinos.com Google Trends study (Blackjack wins 12). It is also the stock first answer. Blackjack #4 and Solitaire #3 sit in the raw top 4.",
+  "Crazy Eights moved from raw #12 to #11 and Gin Rummy kept at #12 (raw #10): both are gut-check items, and neither was offered in Researchscape, which scores them 29 there. Old Maid (raw #8) moved to #10 so that Rummy and Uno fit; War and Hearts are next to their raw spots.",
+  "Cribbage moved from raw #9 to #14: its 'ever played' is only 20% (#18 of 30 in YouGov) and 6% in Researchscape. Its raw rank came from being 1 of only 7 scored games in the small YouGov 2020 familiarity list.",
+  "Branded party games put at #13 (Cards Against Humanity), #18 (Phase 10), #19 (Apples to Apples) and #24 (Skip-Bo), all from raw #24-32. They were absent from YouGov 2023, which inflated their missing-penalty. In Researchscape, CAH (14%), Apples to Apples (11%) and Phase 10 (10%) all beat Bridge (7%), Cribbage (6%), Euchre/Canasta/Speed (5%) and Spoons (3%).",
+  "Pyramid folded into Solitaire as an alias (it is a solitaire variant). Pitch, Hand and Foot, Thirty-one, Pitty Pat, Whist and Kemps dropped: they are regional games with 7-14% ever played. Kings in the Corner (raw #22, 17% ever played, 4% last year) dropped for Skip-Bo, which the brief named and which has 5% last year and 70k Wikipedia views. Exploding Kittens left out: no US people source measured it (116k Wikipedia views only).",
+  "Alias choices: 'rummy' sits only on Rummy and 'gin' on Gin Rummy; 'spit' goes on Speed; 'cheat'/'i doubt it' go on BS; 'pyramid', 'klondike', 'spider solitaire' and 'freecell' go on Solitaire; 'texas holdem', 'seven card stud' and 'omaha' go on Poker."
+ ],
+ "confidence": "medium. The top 6 (Poker, Uno, Solitaire, Blackjack, Go Fish, Spades) are consistent across two independent national polls and search data. But the main poll (YouGov 2023) omitted Uno, plain Rummy and every branded game, so their spots rest on the gut check plus Researchscape 2025 and YouGov 2020 familiarity. Crazy Eights and Gin Rummy rest on one poll only (two measures). The tail order (#14-24) among regional classics vs branded party games is soft.",
+ "no_data_positions": []
+}

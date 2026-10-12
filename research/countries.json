@@ -1,0 +1,151 @@
+{
+ "topic": {
+  "name": "Countries to Visit",
+  "note": "Outside the US",
+  "cat": "places",
+  "from": 17
+ },
+ "sources": [
+  {
+   "name": "Monmouth University Poll: bucket-list travel destination (Q36, with 1974 Gallup comparison)",
+   "url": "https://www.monmouth.edu/polling-institute/wp-json/wp/v2/poll/40802257450",
+   "method": "Feb 2024 national poll of US adults, open-ended 'place you would most like to visit', multiple mentions. Italy 13%, UK (Britain/England/Scotland) 10%, Ireland 8%, Australia 8%, Japan 8%, France 6%, Spain 6%, Germany 5%, Greece 4%, New Zealand 4%, Switzerland 3%, Mexico 3%, Iceland 2%, Thailand 2%, Israel 2%, Egypt 2%, Canada 2%, Caribbean 2%, Netherlands 1%, China 1% (USA 6% excluded).",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings: most popular countries in America (popularity order)",
+   "url": "https://yougov.com/en-us/ratings/countries",
+   "method": "Q3 2026, % of US adults with positive opinion (page top 20, rest of order via the page's public-data API). Canada 74, Italy 72, Japan 72, (USA 72 excluded), Sweden 71, Australia 70, Ireland 70, Finland 68, Netherlands 68, Norway 67, New Zealand 67, Iceland 66, Switzerland 66, Bahamas 66, Greece 66, UK 65, Denmark 62, France 62, Mexico 61, Spain 60; then Belgium, Portugal, Germany, Austria, Poland, Jamaica, Philippines, South Korea, Ukraine, Brazil, Costa Rica, Fiji, Thailand, Chile, Dominican Republic... Egypt 40th. Measures liking, not travel intent.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Lake.com: Dream destinations Americans want to travel to (Google Keyword Planner)",
+   "url": "https://www.lake.com/company/reports/dream-destinations-americans-want-to-travel-to-revealed/",
+   "method": "US search volume for travel terms (flights to, hotels, best time to visit) across 40 top tourism countries, 12-month average, Oct 2025. Mexico 255,489; Japan 156,723; Italy 151,960; Greece 118,095; Canada 113,146; UK 104,575; Costa Rica 96,050; Spain 90,423; France 87,327; Thailand 78,549; Ireland 72,388; Indonesia 71,083; Portugal 66,060; Dominican Republic 60,736; Australia 54,642.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "NTTO (trade.gov): U.S. Outbound Travelers Characteristics 2024",
+   "url": "https://www.trade.gov/feature-article/us-outbound-travelers-characteristics-2024",
+   "method": "Actual US resident visits, CY2024 (107.7M trips): Mexico 39.9M, Canada 14.1M, UK 6.0M, Italy 4.2M, France 4.1M, Dominican Republic 3.7M, Spain 3.1M.",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Airalo Summer 2025 travel trends (via Mental Floss)",
+   "url": "https://www.mentalfloss.com/geography/wanderlust/top-travel-destinations-summer-2025",
+   "method": "eSIM purchases by US/Canadian travelers May 1-Aug 15 2025, top 10: Japan, Italy, UK, France, Spain, Canada, Mexico, Portugal, South Korea, Germany.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll 2010: dream vacation country outside the US (via RISMedia)",
+   "url": "https://ace.rismedia.com/2010/07/29/48262/",
+   "method": "2,227 US adults, June 2010, 'any country outside the US, cost no object'. Italy, Australia, Ireland, Great Britain, France, Greece=Germany (6), Japan, Spain, New Zealand, Israel, Canada, Mexico, Netherlands, Switzerland.",
+   "year": 2010,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll 2011: dream vacation country (via TravelMole)",
+   "url": "https://www.travelmole.com/news/italy-si-say-americans",
+   "method": "Same Harris question, July 2011, top 9: Italy, Great Britain, Australia, Ireland, France, Greece, Spain, Germany, Japan.",
+   "year": 2011,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll 2008: Americans' top 15 dream vacation destinations (via ESLPod)",
+   "url": "https://eslpod.com/eslpod_blog/?p=668",
+   "method": "2,500 US adults, June 2008: Italy, Australia, Great Britain, France, Ireland, Greece, Japan, Germany, Canada, Spain, New Zealand, Switzerland, Mexico, Bahamas, Jamaica.",
+   "year": 2008,
+   "kind": "people"
+  },
+  {
+   "name": "Vrbo / Ipsos 'time and money no object' survey (via AFAR)",
+   "url": "https://www.afar.com/magazine/where-us-travelers-would-go-if-time-and-money-were-no-object",
+   "method": "1,067 US adult leisure travelers, Jan 2019, order only: Australia, Italy, (USA excluded), UK, Japan = Ireland.",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "Provision Living America's bucket list survey (via 401k Specialist)",
+   "url": "https://401kspecialistmag.com/americas-bucket-list-heavy-on-travel-but-financial-goals-a-priority-too/",
+   "method": "US survey, Jan 2019 (sample not stated), top bucket-list countries: Australia, Italy, Ireland, Japan, UK, France, Greece, Bahamas, Egypt, Germany.",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov DestinationIndex: Americans' overseas travel intent (support only, not averaged)",
+   "url": "https://yougov.com/en-us/articles/53233-partisan-divides-in-americans-travel-intent-widen-across-key-markets",
+   "method": "Oct 2025, share of US adults considering a visit, four most-considered overseas markets only: Italy 24.1%, Canada 23.8%, UK 19.8%, France 16.9%. Too short to average; used for top-10 evidence and the Canada/France placement.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "TripIt bucket-list Europe survey (tiebreak only)",
+   "url": "https://www.tripit.com/web/blog/news-culture/europe-italy-top-americans-bucket-list-trips",
+   "method": "1,800+ US TripIt users, May-June 2022, Europe only: Italy, France, UK, Spain, Greece, Germany, Ireland, Portugal, Iceland, Croatia.",
+   "year": 2022,
+   "kind": "critic"
+  },
+  {
+   "name": "Fly.com 2013 travel wish list (tiebreak only)",
+   "url": "https://www.upi.com/Business_News/2012/12/31/Italy-tops-US-2013-travel-wish-list/60791356930411/",
+   "method": "875 US Travelzoo/Fly.com users, Dec 2012: Italy, Australia, New Zealand, Britain, France, then US, Ireland, Spain, Fiji, South Africa.",
+   "year": 2012,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Italy|itlay|italia|italy",
+  "United Kingdom|uk|u.k.|england|britain|great britain|scotland|wales|northern ireland|united kingdom|the uk",
+  "Japan|japan|nippon",
+  "Australia|aus|oz|austrailia|australlia",
+  "Ireland|republic of ireland|eire|irland|ireland",
+  "France|france|frace",
+  "Greece|grece|greece",
+  "Spain|espana|spain",
+  "Canada|canada",
+  "Mexico|mexico|méxico",
+  "Germany|germany|deutschland",
+  "New Zealand|nz|new zeland|newzealand",
+  "Switzerland|swiss|swizerland|switzerland",
+  "Netherlands|the netherlands|holland|netherland",
+  "Bahamas|the bahamas|bahama",
+  "Iceland|iceland",
+  "Portugal|portugal",
+  "Thailand|thiland|thailand",
+  "Costa Rica|costarica|costa rica",
+  "Jamaica|jamaica",
+  "Norway|norway",
+  "South Korea|korea|s korea|s. korea|republic of korea",
+  "Dominican Republic|dr|dominican rep|the dominican republic|dominican",
+  "Egypt|egypt"
+ ],
+ "gut_check": [
+  "Italy",
+  "France",
+  "Japan",
+  "Ireland",
+  "United Kingdom",
+  "Greece",
+  "Australia",
+  "Spain",
+  "Mexico",
+  "Canada",
+  "Germany",
+  "Switzerland"
+ ],
+ "changes_vs_current": [
+  "New topic. Raw average-position order (10 averaged people sources): Italy, UK, Japan, Australia, Ireland, France, Canada, Greece, Spain, Mexico, Germany, New Zealand, Switzerland, Netherlands, Bahamas, Iceland, Sweden, Portugal, Finland, Norway, Thailand, Denmark, Costa Rica, Jamaica.",
+  "Gut check agreed closely: all 12 gut answers land in the raw top 13. Switzerland (raw #13) left there: New Zealand edges it in Monmouth (4% vs 3%), YouGov popularity (#10 vs #12) and Harris 2008/2010.",
+  "Canada moved from #7 to #9 (Greece, Spain up one): its raw rank is lifted by trips actually taken (#2 NTTO), searches and liking, but as a dream destination it is weak: 2% in Monmouth 2024 (15th) and 9th-12th in the Harris polls. YouGov DestinationIndex (Canada 23.8%, #2) keeps it in the top 10.",
+  "Sweden (raw #17), Finland (#19) and Denmark (#22) dropped: each rests only on YouGov favorability (liking a country, not wanting to go) and appears in no travel-intent, search or visit source. Norway kept at #21 as the one Scandinavian answer (YouGov #9 of foreign countries).",
+  "South Korea (raw #26: Airalo #9, YouGov #27), Dominican Republic (raw #27: NTTO #6 with 3.7M US visits, Lake #14, YouGov #34) and Egypt (raw #30: Monmouth 2%, Provision Living #9, a stock bucket-list answer for the pyramids) added at #22-24 because they have travel-intent, search or visit data.",
+  "Label choice: one 'United Kingdom' item takes england/britain/scotland/wales/northern ireland as aliases (Monmouth and Harris also group them), so no separate Scotland or England item. USA excluded by design."
+ ],
+ "confidence": "medium. The top 6 (Italy, UK, Japan, Australia, Ireland, France) hold across a 2024 national poll, three Harris polls, searches and actual trips, and Italy is #1 almost everywhere. But the best recent open-ended poll (Monmouth 2024) has small percentages and stops at about 19 countries, the Harris dream-vacation polls are 2008-2011 (Australia was stronger then, Japan weaker than it is now), and the tail (#14-24) leans on YouGov liking scores, search volume and eSIM data rather than a 'want to visit' question.",
+ "no_data_positions": []
+}

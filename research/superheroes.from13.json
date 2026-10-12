@@ -1,0 +1,83 @@
+{
+ "sources": [
+  {
+   "name": "IGN Top 100 Comic Book Heroes (all 100 ranks read from archived per-entry pages)",
+   "url": "https://web.archive.org/web/20131215033648/http://www.ign.com/top/comic-book-heroes",
+   "method": "IGN editorial staff list; Flash scored as Wally West (#8; Barry Allen is #49), 'Captain Marvel' #50 is the Shazam/Billy Batson character (Whiz Comics #2), so it counts for Shazam; Carol Danvers is not on it and IGN was excluded from her average",
+   "year": 2011
+  },
+  {
+   "name": "Vue Cinemas UK poll of 2,000 adults, Top 20 Best Superheroes (via The Scotsman)",
+   "url": "https://www.scotsman.com/read-this/batman-is-the-nations-all-time-favourite-superhero-but-superman-would-win-in-a-fight-298226",
+   "method": "public poll; year inferred as 2018 from 'Deadpool returns on 15th May' (article text gives no year); Flash Gordon and other non-listed characters kept in their published positions; Captain Marvel excluded (predates film)",
+   "year": 2018
+  },
+  {
+   "name": "OnePoll for Visit Anaheim, 2,000 Americans, top 10 favorite superheroes",
+   "url": "https://comicbook.com/irl/news/superman-spider-man-favorite-hero-new-poll/ (method and 2020-03-24 date); full top 10 from https://wegotthiscovered.com/movies/superman-tops-poll-find-americas-favorite-superhero/",
+   "method": "public poll",
+   "year": 2020
+  },
+  {
+   "name": "Opinium for GOSH Charity, 2,000 UK adults, favorite childhood superhero (top 3 only)",
+   "url": "https://www.gosh.org/media-centre/is-it-a-bird-is-it-a-plane-superman-reigns-supreme-as-nations-favourite-superhero/",
+   "method": "public poll, fieldwork 8-12 Dec 2023, weighted nationally representative; only Superman 18%, Batman 16%, Spider-Man 15% published",
+   "year": 2024
+  }
+ ],
+ "list": [
+  "Superman",
+  "Batman",
+  "Spider-Man|spiderman|spidey",
+  "Wonder Woman",
+  "Captain America|cap",
+  "Wolverine|logan",
+  "Iron Man|ironman|tony stark",
+  "Captain Marvel",
+  "The Hulk|hulk",
+  "Thor",
+  "The Flash|flash",
+  "Robin|nightwing|dick grayson",
+  "Green Lantern",
+  "Daredevil",
+  "Deadpool",
+  "Hellboy",
+  "Green Arrow",
+  "Black Panther",
+  "Doctor Strange|dr strange",
+  "Cyclops",
+  "Storm",
+  "Aquaman",
+  "Hawkeye",
+  "Shazam"
+ ],
+ "avg_rank": [
+  1.25,
+  2,
+  2.75,
+  5.75,
+  7,
+  7.25,
+  7.75,
+  8,
+  9.25,
+  11.25,
+  11.5,
+  11.75,
+  13.75,
+  14.5,
+  16.25,
+  16.75,
+  19.5,
+  21.25,
+  21.5,
+  21.75,
+  22.5,
+  23,
+  23,
+  24.5
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "Superman moves to #1 and Batman #2 (Spider-Man #3, all three in the top 3 of every source that lists them); Captain Marvel jumps to #8 on one source (OnePoll #8); Robin/Nightwing and Hellboy enter; Black Panther falls from #10 to #18 (IGN #51 drags it down against OnePoll #9 and Vue #17) and Ant-Man and Black Widow drop out (IGN-only, #67 and #74); Wonder Woman stays #4, Iron Man #7. Rule applied: new entrants needed 2+ sources, so Jean Grey, The Thing, Professor X, Punisher and Nick Fury (IGN-only, avg 15-20) were not added.",
+ "confidence": "low. Only 4 sources and three are short lists (20, 10, 3 names), so positions 13-24 rest mainly on IGN's 2011 editorial list, which predates the MCU and over-rates comics-only characters while under-rating Black Panther, Doctor Strange, Black Widow, Ant-Man and Hawkeye. Ranks 1-7 are solid. Hellboy and Robin are included only because the Vue poll and IGN counted them as heroes; swap in Black Widow or Ant-Man if you prefer. Wisevoter 2024 state-by-state survey, read via CBR (cbr.com/spider-man-batman-america-favorite-superhero-marvel-dc), gives Spider-Man #1 in 25 states, Batman 10, Superman 4, and Iron Man in the top five in 44 states, which is consistent with this order but not in the math. YouGov (2013) names Batman, Spider-Man, Superman and Wonder Woman in its top five favorite comic characters (with Archie), also consistent. Search-interest studies (Game/Looper 2021) were skipped as not polls."
+}

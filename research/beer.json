@@ -1,0 +1,108 @@
+{
+ "topic": {
+  "name": "Beer Brands",
+  "cat": "brands",
+  "from": 17
+ },
+ "sources": [
+  {
+   "name": "YouGov Ratings - beers, popularity (US, all adults)",
+   "url": "https://yougov.com/en-us/ratings/beers",
+   "method": "% of US adults with a positive opinion, all 77 beer brands read via YouGov's public ratings API (group 1327d294...). Order: Corona 60, Guinness 56, Budweiser 54, Samuel Adams 49, Heineken 49, Modelo 48, Coors 47, Miller 47, Stella Artois 46, Corona Extra 44, Miller Lite 43, Blue Moon 43, Dos Equis 43, Corona Light 42, Modelo Especial 42, Busch 42, Miller High Life 41, Bud Light 41, Pabst Blue Ribbon 40, Coors Light 39, Michelob Light 39, Miller Genuine Draft 38, Heineken Light 37, Coors Banquet 37, Michelob Ultra 36, ... Yuengling Lager 35, Natural Light 31, Busch Light 29, Keystone 28. Generic 'Coors'/'Miller' credited to Coors Light/Miller Lite, Corona Extra to Corona, Modelo Especial to Modelo (best position used).",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings - beers, fame (US, all adults)",
+   "url": "https://yougov.com/en-us/ratings/beers?sortBy=fame",
+   "method": "% of US adults who have heard of the brand (same API data). Bud Light 95, Budweiser 95, Corona 92, Heineken 92, Coors 92, Miller Lite 92, Coors Light 91, Corona Light 91, Heineken Light 90, Modelo 88, Miller 88, Busch Light 88, Guinness 87, Miller High Life 87, Busch 85, Pabst Blue Ribbon 85, Corona Extra 85, Samuel Adams 84, Michelob Ultra 84, Michelob Light 82, Stella Artois 81, Blue Moon 81, Dos Equis 76, Natural Light 73, Keystone Light 72, Coors Banquet 70, Yuengling 65.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Statista Consumer Insights - beer brand profiles, United States",
+   "url": "https://www.statista.com/insights/consumer/brand-profiles/2/10/beer/united-states/",
+   "method": "Survey of US consumers (Statista Consumer Insights/Global Consumer Survey; fieldwork dates not shown on page). Liking % (awareness %, past-year usage %): Bud Light 33 (83, 29), Budweiser 31 (82, 28), Blue Moon 27 (69, 22), Corona Extra 25 (82, 21), Heineken 25 (80, 18), Modelo 21 (75, 16), Coors 19 (76, 16), Guinness 18, Samuel Adams 17, Busch 16, Dos Equis 16, Michelob Ultra 16, Brooklyn Brewery 15, Beck's 14, Miller 14, Stella Artois 14, Natural Light 13, Yuengling 11. Ranked by liking.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov 2026 US Alcoholic Beverage Rankings - beer (BrandIndex consideration)",
+   "url": "https://yougov.com/en-us/articles/55578-us-alcoholic-beverage-rankings-2026",
+   "method": "Share of US adults 21+ (n>13,190, Sep 1 2025-Aug 31 2026) who would consider the brand next purchase. Top 10: Heineken 18.4, Guinness 16.7, Budweiser 15.4, Modelo 14.9, Blue Moon 14.5, Samuel Adams 14.0, Bud Light 13.8, Coors Light 13.0, Michelob Ultra 12.7 (biggest beer improver, +1.5), Corona Extra 12.4.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Beer Marketer's Insights shipments, 31 biggest beer brands (via 24/7 Wall St)",
+   "url": "https://247wallst.com/special-report/2019/05/17/31-biggest-beer-brands-in-america/",
+   "method": "2018 US domestic shipment volume. Order: Bud Light, Coors Light, Miller Lite, Budweiser, Michelob Ultra, Corona Extra, Modelo Especial, Natural Light, Busch Light, Busch, Heineken, Keystone Light, Miller High Life, Stella Artois, Bud Ice, Natural Ice, Yuengling Lager, Pabst Blue Ribbon, Blue Moon, Dos Equis, Steel Reserve, Coors Banquet, Icehouse (1.28M bbl), Corona Light (1.125M bbl), Guinness, Milwaukee's Best Ice, Bud Light Platinum, Bud Light Lime, Tecate, Miller Genuine Draft, Milwaukee's Best Light. Old (2018) but the only full brand-level volume list that could be opened; recent order corrected with Circana below.",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "Coffeeness state-by-state beer study, YouGov + Google Trends (via Mental Floss)",
+   "url": "https://www.mentalfloss.com/geography/maps/most-popular-beer-in-each-state-map",
+   "method": "Search interest/YouGov by state: Miller won 30 states, Coors 8, Guinness 3, Heineken 2. National order: Miller, Coors, Guinness, Heineken, Busch, Budweiser, Bud Light, Blue Moon, Corona. Generic Miller/Coors credited to Miller Lite/Coors Light.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Circana retail data via CNN (ABC11)",
+   "url": "https://abc11.com/post/america-has-new-top-selling-beer-michelob-ultra/17871641/",
+   "method": "YTD to Sep 14 2025, US retail: Michelob Ultra #1 by volume, ahead of Bud Light and Modelo Especial; Modelo Especial #1 in dollar sales, Michelob Ultra #2; Michelob Ultra also passed Bud Light in draft share in 2024. Only three brands, so not averaged; used to move Michelob Ultra up and to support Bud Light/Modelo.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Sixstoreys 'Top 20 best-selling beers in America' (aggregator citing BMI/Circana)",
+   "url": "https://sixstoreys.com/?p=160125",
+   "method": "Order: Michelob Ultra, Modelo Especial, Bud Light, Coors Light, Miller Lite, Corona Extra, Natural Light, Busch Light, Heineken, Guinness, Corona Light, Stella Artois, Mich Ultra Seltzer, Budweiser, Pacifico, Miller High Life, PBR, Modelo Chelada, Busch, Yuengling. No figures per brand and some placements implausible (Guinness above Budweiser), so tie-break only.",
+   "year": 2026,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Bud Light|budlight|bud lite|budlite",
+  "Budweiser|bud|budwiser|budweisser|king of beers",
+  "Coors Light|coors|coors lite|coorslight",
+  "Heineken|heiniken|heinekin|heineken lager",
+  "Corona|corona extra|corona beer",
+  "Modelo|modelo especial|modelo beer",
+  "Miller Lite|miller|miller light|millerlite",
+  "Michelob Ultra|mich ultra|michelob|ultra|michelob ultra light|mic ultra",
+  "Guinness|guiness|guinness draught|guinness stout|guinnes",
+  "Blue Moon|bluemoon|blue moon belgian white",
+  "Busch|busch beer|busch lager",
+  "Samuel Adams|sam adams|samuel adams boston lager|sam adams boston lager|boston lager",
+  "Stella Artois|stella|stella artios|stella artoise",
+  "Miller High Life|high life|champagne of beers|millerhighlife",
+  "Dos Equis|dos xx|xx|2 equis|dos equis lager",
+  "Corona Light|corona lite",
+  "PBR|pabst|pabst blue ribbon|pabst blue ribbon beer",
+  "Busch Light|busch lite|buschlight|busch latte",
+  "Natural Light|natty light|natty|natural lite|natty lite|natural",
+  "Heineken Light|heineken lite",
+  "Yuengling|yuengling lager|yuengling traditional lager|yeungling|yuengling beer",
+  "Coors Banquet|banquet|coors original|coors banquet beer",
+  "Miller Genuine Draft|mgd|genuine draft",
+  "Keystone Light|keystone|keystone lite|stones"
+ ],
+ "gut_check": [
+  "Bud Light",
+  "Budweiser",
+  "Coors Light",
+  "Miller Lite",
+  "Corona",
+  "Modelo",
+  "Michelob Ultra",
+  "Heineken",
+  "Busch",
+  "Blue Moon",
+  "Stella Artois",
+  "PBR"
+ ],
+ "changes_vs_current": "New topic. Raw average-position order over 6 people sources (YouGov popularity, YouGov fame, Statista liking, YouGov 2026 consideration, BMI shipments, Coffeeness search): Budweiser, Heineken, Coors Light, Bud Light, Corona, Modelo, Miller Lite, Guinness, Blue Moon, Busch, Michelob Ultra, Samuel Adams, Stella Artois, Miller High Life, Dos Equis, Corona Light, PBR, Busch Light, Natural Light, Heineken Light, Yuengling, Coors Banquet, Miller Genuine Draft, Michelob Light, Keystone Light. Gut check vs raw: 10 of 12 inside the top 12. Moves: (1) Bud Light #4 -> #1: #1 in Statista liking and usage (33%/29%), #2 in YouGov fame (95%), #1 in BMI shipments, still top-3 by Circana 2025 volume; its raw score is dragged only by YouGov popularity (#15, polarized after 2023 boycott). Budweiser, Coors Light shift down one. (2) Michelob Ultra #11 -> #8: Circana 2025 has it #1 in volume and #2 in dollars and YouGov names it the only top-10 beer improver; the raw score leans on 2018 shipments (#5) and a low YouGov liking score. Guinness, Blue Moon, Busch shift down one. (3) Stella Artois (#13) and PBR (#17) left below #12 despite gut check: YouGov popularity (#9/#16 of items), fame (#18/#14), BMI shipments (#14/#18) and Statista (#16/absent) all place them below the leading group. (4) Keystone Light (raw #25) replaces Michelob Light (raw #24, 20.2 vs 21.5): Michelob Light is a near-discontinued brand whose rank rests only on YouGov ratings, while Keystone Light was #12 in BMI shipments and has 72% fame. Pacifico considered but has no YouGov/Statista data (only the critic aggregator), so left out. Brand family calls: Bud Light and Budweiser separate ('bud' alias on Budweiser); 'coors' alias on Coors Light (Coors Banquet takes 'banquet'/'coors original'); 'miller' on Miller Lite (High Life takes 'high life'); 'michelob' on Michelob Ultra; Corona Extra merged into Corona, Corona Light separate.",
+ "confidence": "medium. Top 8 (Bud Light, Budweiser, Coors Light, Heineken, Corona, Modelo, Miller Lite, Michelob Ultra) are backed by all or nearly all sources, but no direct 'favorite beer' poll with percentages was found, the only full volume ranking available was 2018 BMI shipments (current 2024-25 Circana brand tables are paywalled/Cloudflare-blocked), and YouGov liking scores favor imports/craft (Guinness, Samuel Adams) over the mass light lagers people drink most. Tail order (Corona Light, Heineken Light, MGD, Coors Banquet, Keystone Light) is soft.",
+ "no_data_positions": []
+}

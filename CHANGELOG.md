@@ -2,6 +2,15 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-10-11: Countries, Actors, Beer, Pets and Card Games; Superheroes and Pasta re-ranked
+
+### Added
+- Five new topics: Countries to Visit (outside the US), Actors (all-time), Beer Brands, Pets and Card Games. They show up in bonus rounds from game #17 (Oct 13) and join the daily rotation when the next cycle starts.
+
+### Changed
+- From game #17, Superheroes follows public polls, box office and search interest instead of IGN's 2011 critic list: Spider-Man #1, then Batman and Superman. Iron Man rises from #7 to #4 and Wolverine from #6 to #5. Black Panther jumps from #18 to #9, Deadpool from #15 to #10 and Doctor Strange from #19 to #12. The Flash drops from #11 to #21. Black Widow, Jean Grey, The Punisher, Ghost Rider and Ant-Man join; Green Arrow, Cyclops, Storm, Hawkeye and Shazam leave.
+- From game #17, Pasta Shapes has data behind every spot (search interest fills the tail): Penne rises from #5 to #2 and Farfalle from #10 to #7, Fettuccine drops from #2 to #5. Gnocchi rises from #18 to #13 and Orzo from #21 to #14; Manicotti drops from #11 to #15 and Orecchiette from #16 to #24.
+
 ## 2026-10-10: fewer repeated topics
 
 ### Changed
