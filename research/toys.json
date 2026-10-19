@@ -1,0 +1,116 @@
+{
+ "topic": {
+  "name": "Toys",
+  "note": "All-time",
+  "cat": "play",
+  "from": 24
+ },
+ "sources": [
+  {
+   "name": "YouGov 'favorite classic toys' (pick up to 4 of 20 listed): LEGOs 36%, Etch A Sketch 30%, Coloring book 27%, Lincoln Logs 26%, Play-Doh 25%, Slinky 22%, Yo-yo 21%, Erector set 18%, Green Army men 15%, Barbie 14%, Sled/Easy Bake Oven/Hula hoops 13%, Mr. Potato Head/Building blocks 12%, Magic 8 Ball 10%, Baby doll/Cabbage Patch 8%, See 'N Say/Raggedy Ann 4%. Hot Wheels, Rubik's Cube, G.I. Joe, teddy bear, Nerf were NOT offered (they score as missing = 25)",
+   "url": "https://ygo-assets-websites-editorial-emea.yougov.net/documents/tabs_OPI_toys_20140213202.pdf",
+   "method": "online panel poll of 1,000 US adults, Feb 11-12 2014 (tabs PDF; article https://yougov.com/en-us/articles/8609-Americans-not-letting-go-lego); tied % share averaged rank",
+   "year": 2014,
+   "kind": "people"
+  },
+  {
+   "name": "OnePoll for Mr. Potato Head (Hasbro): 'Top toys loved by adults when they were kids', re-ranked with board games removed (23 toys): 1 Mr. Potato Head, 2 Trolls, 3 Play-Doh, 4 My Little Pony, 5 Toy phones, 6 Furby, 7 Puzzles, 8 Building blocks, 9 Yo-yo, 10 Bicycles, 11 Bop It, 12 Teddy bears ... 22 G.I. Joe, 23 Super Soakers. Sponsor-skewed toward Hasbro/Playskool; LEGO, Barbie, Hot Wheels absent",
+   "url": "https://www.goodnewsnetwork.org/kids-still-play-with-their-parents-favorite-childhood-toys/",
+   "method": "survey of 2,000 American parents, 2019",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "Children's Museum of Indianapolis public vote, top 20 of 100 iconic toys (24,000+ online votes per Indianapolis Monthly), re-ranked with Monopoly, Candy Land, Little Golden Books removed (17): 1 G.I. Joe, 2 Transformers, 3 LEGO, 4 Barbie, 5 View-Master, 6 Bicycle, 7 Cabbage Patch Kids, 8 Crayons, 9 Play-Doh, 10 Raggedy Ann, 11 Spirograph, 12 Etch A Sketch, 13 Hot Wheels, 14 Lincoln Logs, 15 Roller skates, 16 Silly Putty, 17 Mr. Potato Head",
+   "url": "https://proof.csmonitor.com/Business/Saving-Money/2012/0930/The-top-20-toys-of-all-time",
+   "method": "large audience vote (museum visitors and online fans)",
+   "year": 2012,
+   "kind": "people"
+  },
+  {
+   "name": "BacktoBasicsToys.com internet survey of best-loved playthings of the century, top 20: 1 Barbie, 2 Easy-Bake Oven, 3 Log cabin set (Lincoln Logs), 4 Tinkertoys, 5 Etch A Sketch, 6 Spirograph, 7 Slinky, 8 Play-Doh, 9 Hula hoop, 10 Colorforms, 11 Silly Putty, 12 Raggedy Ann, 13 Doll house, 14 Mr. Potato Head, 15 Train set, 16 Erector set, 17 Flexible Flyer sled, 18 Pogo stick, 19 Chatty Cathy, 20 Magic 8 Ball",
+   "url": "https://csmonitor.com/1999/1208/p13s3.html",
+   "method": "online audience vote (sample not stated), via Christian Science Monitor",
+   "year": 1999,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Interactive for The Vermont Country Store, favorite childhood toy by category: doll or stuffed animal 29%, trains 9%, building blocks 8% (categories only, not used in averaging; supports teddy bear/stuffed animal)",
+   "url": "https://vermontbiz.com/node/191982",
+   "method": "online survey of 2,104 US adults, Nov 18-22 2010",
+   "year": 2010,
+   "kind": "people"
+  },
+  {
+   "name": "English Wikipedia pageviews, Oct 2024-Sep 2025, 65 toy articles ranked: LEGO 871,679; Barbie 641,274; Rubik's Cube 536,020; Tamagotchi 453,061; My Little Pony 398,762; Sea-Monkeys 316,857; Hot Wheels 299,671; Care Bears 293,414; G.I. Joe 273,304; Magic 8 Ball 264,600; Raggedy Ann 263,223; Teddy bear 252,593; Beanie Babies 250,356; Furby 219,469; ... Play-Doh 161,124 (#17); Yo-yo 152,551 (#20); Mr. Potato Head 147,934 (#21); Slinky 93,154 (#33); Etch A Sketch 87,704 (#36); Nerf 85,863 (#38); Lincoln Logs 77,655 (#42). Franchise articles (My Little Pony, Care Bears) inflated by TV/film; Raggedy Ann by Annabelle-doll curiosity",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Lego/monthly/2024100100/2025093000",
+   "method": "Wikimedia REST API, user agent, monthly views summed over 12 months (same URL pattern per article)",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Spilsbury most popular retro toy by state (Google Trends, 12 months): Barbie #1 nationally (13 states), Hot Wheels #2 (9 states), PlayStation #3 (6 states, console, excluded); rest of list not published",
+   "url": "https://globaltoynews.com/2022/04/04/the-most-popular-retro-toy-in-every-state/",
+   "method": "Google Trends search interest by state",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "PlayFame (via Yahoo) most nostalgic toys by US monthly searches: Barbie 10,520; Beanie Babies 7,200; Hot Wheels 2,520; Polly Pocket 1,960; Strawberry Shortcake 1,840; My Little Pony 1,630; American Girl 1,580; (Nintendo DS 1,430 excluded); Troll Dolls 1,350",
+   "url": "https://www.yahoo.com/lifestyle/articles/vintage-toys-rank-highest-most-183446694.html",
+   "method": "US search-volume analysis of iconic toys by decade (nostalgia keywords)",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "The Strong National Toy Hall of Fame inductees (tie-breaks/plausibility only): 1998-99 Barbie, Crayola, Erector Set, Etch A Sketch, Frisbee, Hula hoop, LEGO, Lincoln Logs, Marbles, Play-Doh, Radio Flyer, Roller skates, Teddy bear, Tinkertoy, View-Master, Yo-yo; 2000 Mr. Potato Head, Slinky; 2002 Raggedy Ann; 2004 G.I. Joe; 2006 Easy-Bake Oven; 2011 Hot Wheels; 2014 Rubik's Cube; 2018 Magic 8 Ball; 2023 Cabbage Patch Kids, Nerf; 2024 My Little Pony",
+   "url": "https://en.wikipedia.org/wiki/National_Toy_Hall_of_Fame",
+   "method": "curator/committee inductions",
+   "year": 2025,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "LEGO|legos|lego bricks|lego blocks",
+  "Barbie|barbies|barbie doll|barbie dolls",
+  "Play-Doh|playdoh|play doh|play dough",
+  "Hot Wheels|hotwheels|hot wheels cars",
+  "Etch A Sketch|etchasketch|etch a sketches",
+  "Mr. Potato Head|mr potato head|potato head|mrs potato head",
+  "G.I. Joe|gi joe|gi joes",
+  "Slinky|slinkies|slinkys",
+  "Yo-yo|yoyo|yo-yos|yoyos",
+  "Teddy bear|teddy|teddy bears|stuffed animal|stuffed animals|plush|plushie",
+  "Rubik's Cube|rubiks cube|rubix cube|rubiks|rubik cube|rubics cube",
+  "Lincoln Logs|lincoln log",
+  "My Little Pony|my little ponies|mlp",
+  "Cabbage Patch Kids|cabbage patch|cabbage patch doll|cabbage patch kid",
+  "Furby|furbies|furbys",
+  "Magic 8 Ball|magic eight ball|magic 8ball|8 ball",
+  "Troll doll|trolls|troll dolls|troll",
+  "Beanie Babies|beanie baby|beanie babys",
+  "Nerf|nerf gun|nerf guns|nerf blaster",
+  "Tamagotchi|tamagotchis|virtual pet",
+  "Bop It|bopit",
+  "Raggedy Ann|raggedy ann and andy|raggedy ann doll",
+  "Easy-Bake Oven|easy bake oven|easy bake",
+  "Hula hoop|hula hoops|hoola hoop|hulahoop"
+ ],
+ "gut_check": [
+  "LEGO",
+  "Barbie",
+  "Hot Wheels",
+  "Teddy bear",
+  "Slinky",
+  "Rubik's Cube",
+  "Play-Doh",
+  "Etch A Sketch",
+  "Yo-yo",
+  "G.I. Joe",
+  "Mr. Potato Head",
+  "Nerf"
+ ],
+ "changes_vs_current": "New topic. Raw order (7 people sources, missing = list length + 5, ties by source count): 1 Barbie 6.71, 2 Play-Doh 8.86, 3 LEGO 11.14, 4 Mr. Potato Head 12.50, 5 My Little Pony 13.43, 6 Raggedy Ann 14.36, 7 G.I. Joe 14.57, 8 Etch A Sketch 14.71, 9 Hot Wheels 14.71, 10 Yo-yo 14.71, 11 Lincoln Logs 15.86, 12 Furby 16.00, 13 Cabbage Patch Kids 16.21, 14 Magic 8 Ball 16.57, 15 Slinky 16.57, 16 Teddy bear 16.57, 17 Troll doll 17.00, 18 Beanie Babies 17.43, 19 Rubik's Cube 17.57, 20 Tamagotchi 17.71, 21 Bop It 18.00, 22 Sea-Monkeys 18.00, 23 Easy-Bake Oven 18.29, 24 Hula hoop 18.29 (25 Care Bears 18.29 with 1 source, 26 Spirograph, 27 Crayons, 28 Bratz, 29 American Girl ... ~47 Nerf). Moves: LEGO 3->1 (#1 in the only probability-panel poll, YouGov 36%, and #1 in pageviews; its raw deficit is only absence from the Hasbro-sponsored OnePoll list, the 1999 survey and the two short search lists; gut check #1). Barbie 1->2. Play-Doh 2->3. Hot Wheels 9->4 (gut check top 3; #2 Spilsbury Google Trends, #3 PlayFame, #7 pageviews; not offered in YouGov). Etch A Sketch 8->5 (YouGov #2 at 30%, 1999 #5). Mr. Potato Head 4->6. G.I. Joe 7->7. Slinky 15->8 (gut check; YouGov #6 at 22%, 1999 #7; low raw only from pageviews #33 and lists that never offered it). Yo-yo 10->9. Teddy bear 16->10 (gut check; OnePoll #12, pageviews #12; Harris 2010 'doll or stuffed animal' 29% is the top childhood-favorite category; not offered by YouGov). Rubik's Cube 19->11 (gut check; pageviews #3 of 65; not offered by YouGov or the votes; held at #11 rather than top 10 because only 1 people source covers it - evidence floor). Lincoln Logs 11->12. My Little Pony 5->13 (raw lift from franchise-level pageviews, the Hasbro-sponsored OnePoll and nostalgia-search PlayFame; not a gut-check pick). Raggedy Ann 6->22 (strength is 1999/2012 older-audience votes and Annabelle-related pageviews; YouGov 2014 puts it last of 20 at 4%, a source supporting lower). Nerf ~47->19 (gut check; its only people source is pageviews #38, a weak measure for a brand name, which supports keeping it out of the top 12; Hall of Fame 2023 and NBC/LiveScience '300 million Nerf balls sold' support a tail spot). Sea-Monkeys removed (raw 22; pageviews-only curiosity, a novelty pet rather than a toy people name). Others keep raw order: Cabbage Patch 14, Furby 15, Magic 8 Ball 16, Troll doll 17, Beanie Babies 18, Tamagotchi 20, Bop It 21, Easy-Bake Oven 23, Hula hoop 24. First out: Care Bears (raw 25, pageviews only), Spirograph, Crayons, Silly Putty, Erector Set, Transformers, Matchbox, Tonka, View-Master, Polly Pocket, American Girl, Squishmallows.",
+ "confidence": "medium-low: the top ~11 match the gut check and are backed by 2-6 people sources each, but there is no recent US favorite-toy poll that offers all major toys (YouGov 2014 omitted Hot Wheels, Rubik's Cube, G.I. Joe, teddy bear and Nerf); two sources are audience votes (1999, 2012), OnePoll is sponsor-skewed, and the search sources are tiny; order within 2-11 and the whole tail (12-24) is soft.",
+ "no_data_positions": []
+}

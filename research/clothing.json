@@ -1,0 +1,94 @@
+{
+ "topic": {
+  "name": "Clothing Brands",
+  "cat": "brands",
+  "from": 24
+ },
+ "sources": [
+  {
+   "name": "YouGov Ratings - most popular clothing & footwear brands (US), popularity = % positive opinion. After dropping non-apparel (RayBan, Dr. Scholl's, Samsonite, Wilson, Coach, watches/jewelry, Men's Wearhouse, GapBody) and merging Polo Ralph Lauren into Ralph Lauren: Levi's 76%, Adidas 75%, Fruit of the Loom 74%, Converse 68%, Hanes 67%, Nike 67%, Skechers 67%, Reebok 66%, New Balance 65%, Wrangler 65%, Under Armour 64%, The North Face 64%, Victoria's Secret 63%, Lee 63%, Puma 63%, Old Navy 61%, Columbia 60%, Polo Ralph Lauren 59%, Champion 59%, Vans 58%, Gap 57%, Calvin Klein 56%, Tommy Hilfiger 51% (#33 filtered), American Eagle 51% (#32), H&M 49% (#34), Gucci 48% (#38)",
+   "url": "https://yougov.com/en-us/ratings/clothing-footwear-brands",
+   "method": "YouGov Ratings popularity ranking, top 80 read from the page and its public-data API (sort_by=popularity, offsets 0-60), re-ranked after filtering to apparel/footwear brands",
+   "year": "2026 (Q3)",
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings - clothing & footwear brands by fame (% who have heard of it, US): Adidas 99, Victoria's Secret 98, Levi's 98, Nike 97, Fruit of the Loom 97, Old Navy 96, Under Armour 96, Calvin Klein 96, Puma 96, Skechers 96, Gucci 95, Reebok 95, Hanes 95, Crocs 94, Tommy Hilfiger 94, Converse 94, New Balance 93, Louis Vuitton 92, Gap 92, Ralph Lauren 91, Wrangler 91, American Eagle 91, Abercrombie 91 ... H&M 86",
+   "url": "https://yougov.com/en-us/ratings/clothing-footwear-brands",
+   "method": "Same YouGov Ratings dataset sorted by fame (sort_by=fame, top 80), filtered as above; used as the awareness/fame signal",
+   "year": "2026 (Q3)",
+   "kind": "people"
+  },
+  {
+   "name": "YouGov BrandIndex US fashion rankings 2024 - consideration among US adults: 1 Nike 37.1%, 2 Levi's 35.0%, 3 Skechers 33.3%, 4 Old Navy 32.3%, 5 adidas 31.5%, 6 Hanes, 7 New Balance, 8 Fruit of the Loom, 9 Under Armour, 10 Wrangler",
+   "url": "https://yougov.com/en-us/reports/50999-us-fashion-rankings-2024",
+   "method": "Purchase consideration among US adults, YouGov BrandIndex, top 10 (missing = 15)",
+   "year": "2024",
+   "kind": "people"
+  },
+  {
+   "name": "YouGov BrandIndex US fashion consideration 2025: Nike 36.3, Skechers 35.5, Levi's 35.5, Old Navy 32.8, New Balance 30.2, Hanes 30.2, then adidas, Fruit of the Loom, Under Armour, Wrangler",
+   "url": "https://yougov.com/en-us/articles/54374-nike-leads-us-fashion-brand-consideration-as-skechers-gains-ground",
+   "method": "Purchase consideration among 32,600+ US adults Feb 2025-Jan 2026, top 10 (ties share rank; missing = 15). Also confirmed via Retail Dive press release (retaildive.com/press-release/20260311-...)",
+   "year": "2026",
+   "kind": "people"
+  },
+  {
+   "name": "Revenue (TTM) of clothing companies, mapped to their flagship brands: LVMH/Louis Vuitton $94.9B, Nike $46.4B, Inditex/Zara $45.8B, Adidas $30.2B, H&M $23.7B, Fast Retailing/Uniqlo $20.7B, Hermes $18.8B, Kering/Gucci $17.2B, Gap Inc (Gap/Old Navy/Banana Republic) $15.3B, Lululemon $11.1B, VF (North Face/Vans) $9.5B, Skechers $9.41B, PVH (Calvin Klein/Tommy Hilfiger) $8.9B, Ralph Lauren $8.35B, Puma $7.84B, Victoria's Secret $6.91B, Levi's $6.61B, Urban Outfitters $6.47B, American Eagle $5.74B, Abercrombie $5.34B, Prada $5.07B, Under Armour $4.93B, Gildan $4.73B, Hanesbrands $3.43B, Columbia $3.40B, Burberry $3.2B, Fila $3.19B, Kontoor (Wrangler/Lee) $3.06B",
+   "url": "https://companiesmarketcap.com/clothing/largest-clothing-companies-by-revenue/",
+   "method": "Sales source: company TTM revenue, pure retailers (TJX, Ross, Burlington, JD, Zalando, Next, Cintas etc.) dropped, brands of one company share its rank; Skechers and Hanesbrands added from companiesmarketcap.com/skechers/revenue and /hanesbrands/revenue (not in clothing category). Private/subsidiary brands (New Balance, Fruit of the Loom, Converse, Reebok, Champion) absent = 34",
+   "year": "2025-2026 (TTM)",
+   "kind": "people"
+  },
+  {
+   "name": "Piper Sandler Taking Stock With Teens, Fall 2025: clothing brands for upper-income teens 1 Nike, 2 Hollister, 3 Brandy Melville",
+   "url": "https://www.pipersandler.com/news/piper-sandler-completes-50th-semi-annual-teen-survey",
+   "method": "Teens, not adults; read but not scored, used only as a tie-break check (confirms Nike #1)",
+   "year": "2025",
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Nike|nikes|nike inc",
+  "Adidas|addidas|adidas originals",
+  "Levi's|levis|levi|levi strauss|levi jeans",
+  "Old Navy|oldnavy",
+  "Under Armour|under armor|underarmour|ua",
+  "Hanes|hanes underwear|hanesbrands",
+  "Gap|the gap|gap inc",
+  "Ralph Lauren|polo|polo ralph lauren|ralph loren|ralph lauren polo",
+  "Calvin Klein|ck|calvin klien|calvin",
+  "Skechers|sketchers|skecher",
+  "Fruit of the Loom|fruit of loom|fotl",
+  "Tommy Hilfiger|tommy|hilfiger|tommy hilfinger|tommy hilfigger",
+  "American Eagle|ae|american eagle outfitters|aeo|american eagles",
+  "Puma|pumas",
+  "H&M|h and m|h & m|hm|hennes and mauritz|hennes & mauritz",
+  "New Balance|nb|new balances",
+  "Wrangler|wranglers|wrangler jeans",
+  "Victoria's Secret|victorias secret|victoria secret|vs",
+  "The North Face|north face|tnf|northface",
+  "Gucci|guchi",
+  "Louis Vuitton|lv|louis vitton|louis vuiton",
+  "Converse|chuck taylor|chucks|converse all star",
+  "Reebok|reeboks|rebok",
+  "Banana Republic|banana"
+ ],
+ "gut_check": [
+  "Nike",
+  "Adidas",
+  "Levi's",
+  "Gap",
+  "Old Navy",
+  "Under Armour",
+  "Ralph Lauren",
+  "Calvin Klein",
+  "Tommy Hilfiger",
+  "American Eagle",
+  "H&M",
+  "Hanes"
+ ],
+ "changes_vs_current": "New topic. Raw order by average position over 5 people sources (YouGov Ratings popularity, YouGov Ratings fame, YouGov BrandIndex consideration 2024, same 2025, company revenue): 1 Nike 2.8, 2 Adidas 3.8, 3 Levi's 5.0, 4 Skechers 6.8, 5 Old Navy 7.8, 6 Hanes 10.6, 7 Under Armour 11.6, 8 Fruit of the Loom 11.6, 9 Victoria's Secret 12.2, 10 Puma 13.8, 11 New Balance 14.4, 12 Calvin Klein 14.8, 13 Louis Vuitton 15.4, 14 Wrangler 15.8, 15 Gap 15.8, 16 The North Face 15.8, 17 Ralph Lauren 16.4, 18 Converse 16.8, 19 Reebok 16.8, 20 Gucci 17.4, 21 Tommy Hilfiger 18.2, 22 Banana Republic 19.2, 23 Vans 19.6, 24 Lee 19.8, 25 American Eagle 20.6, 26 Crocs 20.6, 27 H&M 20.8. Gut-check moves (sources are opinion/consideration/awareness/sales, none is free recall of 'clothing brands', and none puts these gut picks low on recall grounds): Gap 15->7 (revenue #9 with Old Navy, fame 92%; quintessential clothing brand); Ralph Lauren 17->8 (Polo RL 59% popularity, revenue #14; 'Polo' is a top recall answer); Calvin Klein 12->9 (fame 96%, revenue #13); Tommy Hilfiger 21->12 (fame 94%, revenue #13 via PVH); American Eagle 25->13 (fame 91%, revenue #19; top jeans search brand); H&M 27->15 (revenue #5, largest store-brand by sales in the US set). Judgment moves down for non-clothing-first brands: Skechers 4->10 (footwear-first; its high spot comes from purchase-consideration polls, still kept top 10 on 4 sources); Victoria's Secret 9->18 (lingerie/beauty, people asked for clothing brands rarely start there); Louis Vuitton 13->21 (luxury leather goods first). Others shift by one or two from these moves. Dropped from raw top 24: Vans (raw 23) and Lee (raw 24), displaced by American Eagle and H&M.",
+ "confidence": "medium - Top 6 (Nike, Adidas, Levi's, Old Navy, Under Armour, Hanes) are backed by all 5 sources and very solid. No free-recall poll for 'name a clothing brand' exists, so the middle (Gap, Ralph Lauren, Calvin Klein, Tommy Hilfiger, American Eagle, H&M) was placed by gut check backed by fame and revenue; YouGov opinion data alone would rank them lower. Tail (Louis Vuitton, Converse, Reebok, Banana Republic vs Vans/Lee/Champion/Zara/Lululemon) is close and interchangeable. All three survey-type sources come from YouGov.",
+ "no_data_positions": []
+}

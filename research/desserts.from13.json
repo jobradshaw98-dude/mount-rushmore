@@ -1,0 +1,102 @@
+{
+ "sources": [
+  {
+   "name": "Datassential Most Loved Desserts: Ice Cream 90%, Chocolate Chip Cookie 86%, Ice Cream Sandwich 83%, Soft Serve 81%, Ice Cream Cake 76% (top 5)",
+   "url": "https://www.frozenfoodeurope.com/?p=9001",
+   "method": "Datassential, 2,531 US consumers (published 2019)",
+   "year": 2019
+  },
+  {
+   "name": "YouGov Ratings Q2 2026, desserts within 'dishes' and 'American dishes' lists: Chocolate Chip Cookies 90% (#1 of all dishes), Apple Pie 78%. Only 20 rows per page are visible, so other desserts may exist deeper",
+   "url": "https://yougov.com/en-us/ratings/dishes",
+   "method": "YouGov Ratings % positive opinion, continuous tracking (also https://yougov.com/en-us/ratings/american-dishes)",
+   "year": 2026
+  },
+  {
+   "name": "Grubhub top-ordered desserts: Tiramisu, Baklava, Cookies, Cheesecake, Brownie, Churros, Cannoli, Carrot Cake, Chocolate Cake, Flan",
+   "url": "https://www.fox10phoenix.com/news/most-ordered-takeout-foods-2022-us-grubhub-report",
+   "method": "Grubhub delivery order data (restaurant delivery skews to restaurant desserts)",
+   "year": 2022
+  },
+  {
+   "name": "Uber Eats Cravings Report: Apple Pie the most-ordered dessert (nearly 2M orders); no other desserts ranked",
+   "url": "https://www.uber.com/us/en/newsroom/2023-uber-eats-cravings-report/",
+   "method": "Uber Eats order data",
+   "year": 2023
+  },
+  {
+   "name": "Verasight 'true American dessert': Apple Pie 79.2, Ice Cream 10.3, Chocolate Cake 3.6, Pecan Pie 3.5, Key Lime Pie 2.0, Vanilla Cake 1.3",
+   "url": "https://data.verasight.io/culture/apple-pie-tops-the-list-of-most-american-desserts",
+   "method": "Poll of 1,000 US adults, Jun 25-30 2025; measures 'most American', not favorite",
+   "year": 2025
+  }
+ ],
+ "list": [
+  "Chocolate Chip Cookies|cookies|chocolate chip cookie",
+  "Apple Pie",
+  "Ice Cream",
+  "Chocolate Cake",
+  "Tiramisu",
+  "Cheesecake",
+  "Brownies",
+  "Churros",
+  "Cannoli",
+  "Carrot Cake",
+  "Pecan Pie",
+  "Key Lime Pie",
+  "Crème Brûlée",
+  "Banana Pudding",
+  "Cinnamon Rolls|cinnamon roll",
+  "Red Velvet Cake|red velvet",
+  "Pumpkin Pie",
+  "Peach Cobbler|cobbler",
+  "Strawberry Shortcake",
+  "Lava Cake|molten lava cake",
+  "Donuts|doughnuts",
+  "Macarons",
+  "S'mores",
+  "Bread Pudding"
+ ],
+ "avg_rank": [
+  4.6,
+  5.8,
+  6.2,
+  7,
+  7,
+  7.6,
+  7.8,
+  8,
+  8.2,
+  8.4,
+  8.4,
+  8.6,
+  9.8,
+  9.8,
+  9.8,
+  9.8,
+  9.8,
+  9.8,
+  9.8,
+  9.8,
+  9.8,
+  9.8,
+  9.8,
+  9.8
+ ],
+ "no_data_positions": [
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24
+ ],
+ "changes_vs_current": "Cookies 1 (same), Apple Pie 6 to 2, Ice Cream 3 to 3, Chocolate Cake 7 to 4, Tiramisu 5 to 5, Cheesecake 2 to 6, Brownies 4 to 7, Churros/Cannoli/Carrot Cake move up; Pecan Pie added at 11; Milkshake dropped; ranks 13-24 have no evidence and keep current order.",
+ "confidence": "low. There is no full-list US favorites poll for desserts: the evidence is a top-5 poll, a 2-item YouGov Ratings subset, restaurant-delivery orders, one apple-pie-only data point and a 'most American' poll. Two artifacts: Ice Cream is missing from YouGov/Grubhub/Uber lists, so it lands at 3, but Datassential (90%, #1), Verasight (#2) and the Yahoo 2015 poll (41% name ice cream favorite dessert, vs 20% cake, 11% pie/cookies) support Ice Cream at #1-2; Tiramisu at 5 rests only on Grubhub delivery data. Apple Pie at 2 is helped by 'most American' and Uber Eats data. Use ranks 1-12 as indicative only. Tried: Ranker (blocked), YouGov US pie polls (Pumpkin favorite Thanksgiving pie 23-35%, Apple highest 'like' at 82%; pie-only so not aggregated to avoid the pie bias)."
+}

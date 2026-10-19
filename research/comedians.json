@@ -1,0 +1,109 @@
+{
+ "topic": {
+  "name": "Comedians",
+  "note": "All-time",
+  "cat": "people",
+  "from": 24
+ },
+ "sources": [
+  {
+   "name": "YouGov Ratings US - popularity (% positive opinion), per-entity scores, comedian pool of 86 (late-night hosts and pure screen actors excluded). Key: Robin Williams 80, Eddie Murphy 74, Jim Carrey 74, Bill Murray 72, Steve Martin 72, Adam Sandler 71, Lucille Ball 69, Steve Harvey 68, Carol Burnett 68, Tina Fey 67, Will Ferrell 66, Kevin Hart 63, Tim Allen 62, Richard Pryor 61, Chris Rock 59, Bernie Mac 59, George Carlin 58, Dave Chappelle 57, Jerry Seinfeld 55, Bill Cosby 37",
+   "url": "https://yougov.com/en-us/topics/actor/Robin_Williams (data via https://api-test.yougov.com/public-data/v5/us/search/entity/<Name>/rating_data/scores/)",
+   "method": "Pulled current-quarter US YouGov Ratings popularity for ~120 candidate comedians (about 1,500-1,800 interviews each) and ranked within the pool; ties broken by fame. YouGov has no US comedians category page (404), so per-person scores were used.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings US - fame (% heard of), same pool. Key: Eddie Murphy 96, Jim Carrey 96, Adam Sandler 96, Whoopi Goldberg 96, Ellen DeGeneres 96, Steve Harvey 95, Bill Cosby 95, Robin Williams 94, Kevin Hart 94, Will Ferrell 93, Bill Murray 91, Tim Allen 91, Chris Rock 91, Tina Fey 90, Dave Chappelle 89, Jerry Seinfeld 89, Steve Martin 87, Richard Pryor 83, George Carlin 76",
+   "url": "https://api-test.yougov.com/public-data/v5/us/search/entity/Kevin_Hart/rating_data/scores/",
+   "method": "Same per-entity YouGov US pull, ranked by fame; ties broken by popularity.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Wikipedia (English) pageviews, median monthly views Oct 2024-Sep 2026 (search-interest proxy). Key: Robin Williams 389k, Adam Sandler 273k, Jim Carrey 255k, Bill Cosby 185k, Steve Martin 177k, Eddie Murphy 167k, Bill Murray 152k, Will Ferrell 147k, Kevin Hart 130k, Richard Pryor 127k, Jerry Seinfeld 115k, George Carlin 105k, Dave Chappelle 89k, Chris Rock 85k",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Robin_Williams/monthly/2024100100/2026093000",
+   "method": "Wikimedia REST API, user agent, monthly; median used to damp death/news spikes; ranked within the same pool (105 with data). Global, and tilted toward people currently in the news (Theo Von, Shane Gillis, Pete Davidson).",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Ranker 'funniest person of all time' poll, 452,000+ voters (reported by Unilad/Highland Radio): 1 Robin Williams, 2 Will Ferrell, 3 Bill Murray, 4 George Carlin, 5 Eddie Murphy, 6 Jim Carrey, 7 Steve Martin, 8 Richard Pryor, 9 Steve Carell, 10 Leslie Nielsen",
+   "url": "https://www.highlandradio.com/2017/12/07/robin-williams-voted-greatest-comedy-actor-ever/",
+   "method": "Large audience vote, top 10 only. Carell and Nielsen dropped as screen actors outside the pool, so it counts as an 8-item list (missing = 13).",
+   "year": 2017,
+   "kind": "people"
+  },
+  {
+   "name": "OnBuy study: 2,722 people picked favorite American comedians; the top 20 favorites were then ordered by laughter time from 120 viewers: 1 Robin Williams, 2 Eddie Murphy, 3 Redd Foxx, 4 Jim Carrey, 5 Bernie Mac, 6 Joan Rivers, 7 Dave Chappelle, 8 Bill Hicks, 9 Don Rickles, 10 Richard Pryor, 11 Kevin Hart, 12 Steven Wright, 13 Lewis Black, 14 Jim Gaffigan, 15 Chris Rock, 16 Tig Notaro, 17 Mitch Hedberg, 18 Tiffany Haddish, 19 Bill Burr, 20 Sebastian Maniscalco",
+   "url": "https://www.mentalfloss.com/entertainment/funniest-stand-up-comedians",
+   "method": "Membership comes from a people poll; the order is a laughter measurement. Missing = 25. Weak (UK retailer, small viewing panel).",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "Pollstar top comedy tours, Aug 2023-Jul 2024 (ticket sales): 1 Nate Bargatze $79.9M/1.10M tix, 2 Dave Chappelle $44.2M, 3 Jerry Seinfeld $43.7M, 4 Gabriel Iglesias $40.6M, 5 Matt Rife $35.4M, 6 Bert Kreischer 452,701 tix",
+   "url": "https://news.pollstar.com/2024/08/29/boxoffice-insider-a-comedy-golden-age-continues-for-top-25-comedy-tours/",
+   "method": "Only the top 6 were readable (missing = 11). Measures current touring, so it is skewed against deceased and retired comedians.",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Rolling Stone 50 Best Stand-Up Comics of All Time (top 10 via Chortle): 1 Pryor, 2 Carlin, 3 Lenny Bruce, 4 Louis C.K., 5 Chris Rock, 6 Joan Rivers, 7 Seinfeld, 8 Cosby, 9 Chappelle, 10 Mort Sahl",
+   "url": "https://chortle.co.uk/news/2017/02/15/26878/best_stand-up_ever",
+   "method": "Editorial list; used only to break ties and to support the gut-check moves.",
+   "year": 2017,
+   "kind": "critic"
+  },
+  {
+   "name": "Comedy Central 100 Greatest Stand-Ups (top 10 via Calgary Herald reprint): 1 Pryor, 2 Carlin, 3 Lenny Bruce, 4 Woody Allen, 5 Chris Rock, 6 Steve Martin, 7 Rodney Dangerfield, 8 Bill Cosby, 9 Roseanne Barr, 10 Eddie Murphy",
+   "url": "https://thecomicscomic.com/2008/01/15/calgary-heralds/",
+   "method": "Editorial/panel list; used only to break ties and to support the gut-check moves.",
+   "year": 2004,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Robin Williams|williams|robin william",
+  "Jim Carrey|carrey|jim carey|carey",
+  "Eddie Murphy|murphy|eddie murphey",
+  "Adam Sandler|sandler",
+  "Steve Martin|martin",
+  "Will Ferrell|ferrell|will farrell|farrell",
+  "Kevin Hart|hart",
+  "Dave Chappelle|chappelle|dave chapelle|chapelle|dave chappell",
+  "Jerry Seinfeld|seinfeld|jerry seinfield|seinfield",
+  "Richard Pryor|pryor|richard prior|prior",
+  "George Carlin|carlin|george carlen",
+  "Chris Rock|rock",
+  "Bill Murray|murray",
+  "Tim Allen|allen",
+  "Steve Harvey|harvey",
+  "Lucille Ball|ball|lucy|lucy ball|lucile ball",
+  "Carol Burnett|burnett|carol burnet",
+  "Tina Fey|fey",
+  "Whoopi Goldberg|whoopi|goldberg|whoopie goldberg",
+  "Bernie Mac|bernie mack|mac",
+  "John Candy|candy",
+  "Mike Myers|myers|mike meyers",
+  "Chris Farley|farley",
+  "Dan Aykroyd|aykroyd|dan akroyd|akroyd"
+ ],
+ "gut_check": [
+  "Robin Williams",
+  "Eddie Murphy",
+  "Kevin Hart",
+  "Dave Chappelle",
+  "Jerry Seinfeld",
+  "Richard Pryor",
+  "George Carlin",
+  "Adam Sandler",
+  "Jim Carrey",
+  "Chris Rock",
+  "Steve Martin",
+  "Will Ferrell"
+ ],
+ "changes_vs_current": "New topic. Scope: comedians and comedic performers. Excluded: primary late-night/talk hosts (Fallon, Kimmel, Carson, Leno, Letterman, Colbert, Stewart, Conan, Noah) and pure screen actors (DeVito, Jack Black, Jamie Foxx, Seth Rogen, Chaplin, Leslie Nielsen, Steve Carell). Raw order by average position across the 6 people sources: 1 Robin Williams, 2 Jim Carrey, 3 Eddie Murphy, 4 Adam Sandler, 5 Bill Murray, 6 Steve Martin, 7 Will Ferrell, 8 Kevin Hart, 9 Tim Allen, 10 Steve Harvey, 11 Lucille Ball, 12 Richard Pryor, 13 Carol Burnett, 14 Dave Chappelle, 15 Tina Fey, 16 Whoopi Goldberg, 17 Chris Rock, 18 Jerry Seinfeld, 19 Bernie Mac, 20 John Candy, 21 Bill Cosby, 22 Mike Myers, 23 Chris Farley, 24 Dan Aykroyd (25 Chevy Chase, ... 34 George Carlin). Gut-check moves (the general-fame sources favor broad celebrity over 'comedian' recall, and none of them measures comedian naming lower): Dave Chappelle 14->8 (Pollstar #2, OnBuy #7, RS #9; YouGov fame 89%); Jerry Seinfeld 18->9 (Pollstar #3, RS #7; fame 89%); Richard Pryor 12->10 (Ranker #8, OnBuy #10, #1 on both critic lists); George Carlin 34->11 (Ranker #4 of 452k votes, #2 on both critic lists; his low YouGov fame of 76% reflects his era, not recall); Chris Rock 17->12 (OnBuy #15, YouGov fame 91%, #5 on both critic lists). Knock-on effects: Bill Murray 5->13 (pushed out of the top 12 by the gut-check items; still Ranker #3 and YouGov popularity #4); Steve Martin 6->5, Will Ferrell 7->6, Kevin Hart 8->7; Tim Allen/Steve Harvey/Lucille Ball/Carol Burnett/Tina Fey/Whoopi/Bernie Mac/John Candy/Bill Cosby/Mike Myers/Chris Farley each drop 4-6 places to 14-24; Dan Aykroyd (raw 24) drops off. Editorial: Bill Cosby (data #22) left off the public board; Mike Myers and Chris Farley move up to 22-23 and Dan Aykroyd (next in the data, raw #24) takes #24.",
+ "confidence": "medium: the top 12 is well supported (YouGov popularity and fame plus Ranker, OnBuy, Pollstar and critic lists all agree), but no US poll asks 'name a comedian'. Positions 13-24 rest mainly on YouGov and Wikipedia general-fame data, which favors sitcom and film comedic actors (Tim Allen, Lucille Ball, John Candy, Mike Myers, Chris Farley) over stand-ups people may type (Martin Lawrence, Joan Rivers, Rodney Dangerfield, Ellen DeGeneres, Jeff Foxworthy, Gabriel Iglesias).",
+ "no_data_positions": []
+}

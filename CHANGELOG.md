@@ -2,6 +2,15 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-10-19: National Parks, Clothing Brands, Comedians, Flowers and Toys; Desserts and Sandwiches re-ranked
+
+### Added
+- Five new topics: National Parks, Clothing Brands, Comedians (all-time), Flowers and Toys (all-time). They show up in bonus rounds from game #24 (Oct 21) and join the daily rotation when the next cycle starts.
+
+### Changed
+- From game #24, Desserts has data behind every spot: Ice Cream moves up to #1, then Chocolate Chip Cookies and Brownies. Donuts rise from #21 to #5; Apple Pie drops from #2 to #6 and Chocolate Cake from #4 to #10. "Cake" and "Pie" are now answers of their own, and Cupcakes, Fudge, Milkshake, Ice Cream Sandwich and Funnel Cake join; Tiramisu, Churros, Cannoli, Crème Brûlée and Macarons leave.
+- From game #24, Sandwiches has data behind every spot: Grilled Cheese stays #1 and Turkey #2. Philly Cheesesteak rises from #13 to #6, Tuna from #7 to #3 and Pulled Pork from #8 to #5; Roast Beef drops from #4 to #9 and Reuben from #14 to #17. Bacon Egg and Cheese, Bologna and Fluffernutter join; Egg Salad, French Dip, Chicken Parm and Gyro leave.
+
 ## 2026-10-11: Countries, Actors, Beer, Pets and Card Games; Superheroes and Pasta re-ranked
 
 ### Added
