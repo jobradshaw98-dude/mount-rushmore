@@ -1,0 +1,115 @@
+{
+ "topic": {
+  "name": "Flowers",
+  "cat": "life",
+  "from": 24
+ },
+ "sources": [
+  {
+   "name": "Castro, Curley & Hertzog (2021) category norms, US adults, category 'A flower' (proportion of 246 US adults aged 18-80+ listing each): rose .89, tulip .53, daisy .50, lily .30, sunflower .26, daffodil .22, carnation .22, petunia .15, orchid .14, dandelion .12, pansy .11, violet .11, iris .08, lilac .08, peony .08, gardenia .07, marigold .07, mum .06, geranium .05, hydrangea .05; subgroup-only (>=5% in one age group): baby's breath .06, dahlia .06, poppy .06, aster .05, hyacinth .05",
+   "url": "https://static-content.springer.com/esm/art%3A10.3758%2Fs13428-020-01454-9/MediaObjects/13428_2020_1454_MOESM1_ESM.docx",
+   "method": "Free-listing category production (Behavior Research Methods, doi 10.3758/s13428-020-01454-9); supplementary appendix table 14 downloaded and read. Ranked by overall proportion (20 items), subgroup-only items appended as 21-25; list length 25, missing = 30.",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "Battig & Montague (1969) category norms, 'flower' (count of ~440 US students naming it): rose 421, tulip 209, carnation 183, daisy 176, violet 147, orchid 135, chrysanthemum 124, lily 108, pansy 108, petunia 101, gardenia 89, daffodil 87, dandelion 75, iris 53, lilac 45, geranium 38, peony 38, sunflower 36, azalea 33, gladiola 32, lily-of-the-valley 29, snapdragon 26, poppy 22, black-eyed susan 21, zinnia 21 ... marigold 17, hyacinth 11",
+   "url": "https://cran.r-project.org/web/packages/WordPools/index.html",
+   "method": "Free-listing category norms; read from the Battig dataset in the CRAN WordPools 1.2.0 package (catname 'flower'). Top 45 ranks used (jonquil folded into daffodil); missing = 50. Old (1969) sample, used to stabilize ranks with Castro.",
+   "year": 1969,
+   "kind": "people"
+  },
+  {
+   "name": "Spring Hill Nurseries 50-state + DC survey: flower planted most often, from 20 options; states won: rose 19, sunflower 6, daffodil 4, hydrangea 4, peony 4, lavender 3, marigold 2, pansy 2, tulip/lilac/geranium/daylily/orchid/lily/iris 1 each; gerbera, petunia, gardenia, dahlia, violet 0",
+   "url": "https://www.floraldaily.com/article/9331367/us-survey-reveals-the-most-popular-flowers-grown-in-each-state/",
+   "method": "Ranked by states won, ties averaged (0-state options = 18); list length 20, missing = 25 (daisy and carnation were not offered as options). Corroborated by CBS Minnesota (rose 19, sunflower 6).",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "YDAFT Google Trends analysis of 85 flowers, most-searched flower by state (via Lily's Florist 50-state table): rose 10, marigold 5, hydrangea 4, alstroemeria 3, sunflower 3, daisy/hyacinth/lily/poppy/ranunculus/snapdragon/tulip 2 each, aster/azalea/daffodil/dahlia/geranium/iris/lavender/orchid/peony/waxflower/zinnia 1 each",
+   "url": "https://lilysflorist.com/blog/what-are-our-most-searched-flowers-state-by-state/",
+   "method": "Search-interest state wins ranked with ties averaged (23 items); missing = 28. Cross-checked with AOL/Reader's Digest write-up (rose, marigold 5, hydrangea 4, sunflower 3, tulip 2).",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "AllAboutGardening Instagram hashtag counts (June 2022): rose 79.6M, tulip 11.4M, sunflower 9.7M, orchid 8.9M, peony 7.7M, daisy 7.6M, poppy 5.5M, hydrangea 4.6M, dahlia 2.8M, hibiscus 2.7M",
+   "url": "https://sacdigsgardening.californialocal.com/article/11687-most-instagrammable-flower-you-guessed-it/",
+   "method": "Social-media popularity; re-sorted by count (article's own ordering swapped tulip/sunflower). Global, top 10; missing = 15.",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Tellwut online poll 'What is your favourite flower?' (2,101 votes): rose 25%, orchid 12%, sunflowers 10%, lilies 8% (178), tulips 8% (176), daisies 7%; write-ins lilacs 1.4%, carnations 1.1%",
+   "url": "https://www.tellwut.com/surveys/trivia/182255-favourite-flower.html",
+   "method": "Large self-selected audience vote (only direct 'favorite' poll with a full breakdown found); 8 items ranked; missing = 13.",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Gardening Chores Google-search study via Brit+Co, top 10 most popular flowers: lavender (69,430 searches/yr), sunflower, rose (41,030), peony, hydrangea, dahlia (27,090), tulip, sweet pea, poppy (17,360), clematis (16,180)",
+   "url": "https://www.brit.co/most-popular-flowers/",
+   "method": "Search-interest ranking (garden-leaning query set); 10 items, missing = 15.",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "Talker Research for BloomsyBox, 2,000 US adults (Aug 2025): Gen Z favorites tulip 21%, sunflower 11%; millennials sunflower 12%, lily 7%; roses 'remain a top pick' for older generations",
+   "url": "https://talkerresearch.com/nearly-20-of-americans-have-never-receive-flowers-from-their-partner/",
+   "method": "Partial generational favorites only, no full ranking; used as a check on rose/tulip/sunflower/lily at the top, not in the average.",
+   "year": 2025,
+   "kind": "critic"
+  },
+  {
+   "name": "BalconyGardenWeb 'most popular flowers according to Google' (unsourced global monthly estimates): rose 2.2M, lily 1.8M, sunflower 1.5M, orchid 1.2M, tulip 1M, daisy 900k, peony 800k, hydrangea 700k, daffodil 600k, iris 500k, chrysanthemum, gerbera",
+   "url": "https://balconygardenweb.com/most-popular-flowers-in-the-world-according-to-googl/",
+   "method": "Editorial list with unsourced numbers; tie-break/sanity check only.",
+   "year": 2024,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Rose|roses|red rose|red roses|rosa",
+  "Sunflower|sunflowers|sun flower|sun flowers",
+  "Tulip|tulips|tullip",
+  "Orchid|orchids|orkid",
+  "Lily|lilies|lilly|lillies|lilys|stargazer lily|calla lily|tiger lily|easter lily",
+  "Daisy|daisies|daisys|gerbera|gerbera daisy|shasta daisy",
+  "Peony|peonies|peonie|peonys|piony",
+  "Daffodil|daffodils|daffodill|jonquil|jonquils|narcissus",
+  "Carnation|carnations|carnaton",
+  "Marigold|marigolds|marygold",
+  "Pansy|pansies|pansey",
+  "Iris|irises|iris flower",
+  "Hydrangea|hydrangeas|hydrangia|hydranga|hydrangeia",
+  "Lilac|lilacs|lylac",
+  "Violet|violets|african violet",
+  "Petunia|petunias",
+  "Geranium|geraniums",
+  "Poppy|poppies|poppie|california poppy",
+  "Gardenia|gardenias",
+  "Dandelion|dandelions|dandylion",
+  "Chrysanthemum|chrysanthemums|mum|mums|crysanthemum|chrysanthemem",
+  "Snapdragon|snapdragons|snap dragon",
+  "Lavender|lavendar|lavendor",
+  "Hyacinth|hyacinths|hiacinth|hyacynth"
+ ],
+ "gut_check": [
+  "Rose",
+  "Tulip",
+  "Sunflower",
+  "Daisy",
+  "Lily",
+  "Orchid",
+  "Carnation",
+  "Daffodil",
+  "Peony",
+  "Lilac",
+  "Hydrangea",
+  "Lavender"
+ ],
+ "changes_vs_current": "New topic. Raw average-position order across 7 people sources (missing = list length + 5, ties by source count): 1 rose 1.29, 2 sunflower 5.36, 3 tulip 5.57, 4 orchid 9.43, 5 lily 9.57, 6 daisy 9.71, 7 peony 10.86, 8 daffodil 11.86, 9 marigold 13.93, 10 pansy 14.07, 11 iris 14.29, 12 carnation 14.43, 13 hydrangea 14.71, 14 lilac 15.14, 15 violet 15.14, 16 petunia 15.29, 17 geranium 15.43, 18 poppy 15.57, 19 gardenia 16.57, 20 dandelion 17.0, 21 chrysanthemum 17.29, 22 snapdragon 18.43, 23 lavender 19.0, 24 hyacinth 19.29 (next: azalea 19.29 with fewer sources, dahlia 19.43, zinnia 20.14, aster 20.29). Moves: (1) Carnation 12 -> 9 (above marigold, pansy, iris): gut-check item; both free-listing sources put it high (Castro #7, Battig #3) and Tellwut lists it; its low average comes only from Spring Hill (carnation was not one of the 20 options) and search-based state wins. Not being offered is not evidence it ranks lower. Gut-check items left below #12 because a source puts them there: Hydrangea #13 (Castro #20 at 5%, absent from Battig 1969, though Spring Hill #4, YDAFT #3, Instagram #8 and Gardening Chores #5 rate it higher); Lilac #14 (Castro #14, Battig #15, Spring Hill tied #12); Lavender #23 (under 5% in Castro, absent from Battig, YDAFT tied #18, although Gardening Chores has it #1 and Spring Hill #6). Merges: mum + chrysanthemum, jonquil + daffodil.",
+ "confidence": "medium: the top 8 (rose, sunflower, tulip, orchid, lily, daisy, peony, daffodil) are consistent across sources, and the US free-listing norms (Castro 2021) directly measure what adults name. But no large probability-sample US 'favorite flower' poll exists. Sources mix free listing, planting, search and hashtags, and #9-#24 are separated by small margins (14-19 average), so the order of the middle and tail is soft.",
+ "no_data_positions": []
+}

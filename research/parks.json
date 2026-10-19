@@ -1,0 +1,115 @@
+{
+ "topic": {
+  "name": "National Parks",
+  "cat": "places",
+  "from": 24
+ },
+ "sources": [
+  {
+   "name": "NPS 2025 recreation visits, National Parks only (via More Than Just Parks, citing irma.nps.gov): 1 Great Smoky Mountains 11.53M, 2 Zion 4.98M, 3 Yellowstone 4.76M, 4 Grand Canyon 4.43M, 5 Yosemite 4.28M, 6 Rocky Mountain 4.17M, 7 Acadia 4.08M, 8 Grand Teton 3.80M, 9 Olympic 3.58M, 10 Glacier 3.14M, 11 Cuyahoga Valley 3.03M, 12 Joshua Tree 2.93M, 13 Indiana Dunes, 14 Hot Springs, 15 Gateway Arch, 16 Bryce Canyon 1.97M, ... 21 Arches 1.51M, 23 Sequoia, 24 Death Valley, 25 Redwood, 26 Badlands, 31 Everglades 0.78M, 34 Mammoth Cave, 35 White Sands, 36 Crater Lake (all 63 ranked)",
+   "url": "https://www.morethanjustparks.com/most-visited-national-parks/",
+   "method": "Rank by 2025 recreation visits, all 63 parks (cross-checked top 10 vs Newsweek/NPS release)",
+   "year": "2025",
+   "kind": "people"
+  },
+  {
+   "name": "English Wikipedia pageviews 2025 (user agent, full year) for each of the 63 park articles: Yellowstone 959k, Yosemite 682k, Joshua Tree 263k, Mammoth Cave 256k, Zion 213k, Bryce Canyon 210k, Grand Teton 194k, Sequoia 193k, Acadia 184k, Glacier 179k, Grand Canyon NP 158k (main 'Grand Canyon' article absorbs traffic), Arches 155k, Olympic 153k, Great Smoky Mountains NP 141k, Mesa Verde 134k, Badlands 133k, Death Valley 127k ... Rocky Mountain 72k (#30)",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Yellowstone_National_Park/monthly/20250101/20251231",
+   "method": "Wikimedia REST pageviews API, monthly sums Jan-Dec 2025, 62 of 63 articles retrieved (Wrangell-St. Elias failed); ranked by views; used as search-interest/fame proxy",
+   "year": "2025",
+   "kind": "people"
+  },
+  {
+   "name": "YouGov poll: % of US adults who have visited each park (25 parks): Great Smoky Mountains 28.2, Grand Canyon 26.3, Everglades 20.1, Redwood 19.9, Yosemite 18.2, Yellowstone 17.0, Sequoia 16.7, Death Valley 16.3, Rocky Mountain 16.1, Gateway Arch 15.2, Petrified Forest 14.8, Joshua Tree 14.4, Shenandoah 14.3, Mammoth Cave 13.7, Badlands 12.3, Saguaro 12.2, Zion 11.8, Grand Teton 11.6, Mount Rainier 11.4, Carlsbad 10.9, Bryce 10.4, Mesa Verde 10.0, White Sands 10.0, Hot Springs 9.7, Hawaii Volcanoes 9.5",
+   "url": "https://yougov.com/en-us/articles/45027-best-national-parks-visit-united-states-poll",
+   "method": "Article plus its Datawrapper dataset (qzjWf); ranked by % visited, 25 parks",
+   "year": "2022",
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings popularity of US tourist attractions (% positive opinion), national parks only: Grand Canyon 80, Yellowstone 80, Yosemite 75, Rocky Mountain 70, Great Smoky Mountains 70, Glacier 67, Sequoia 66, Redwood 66, Everglades 62, Grand Teton 61",
+   "url": "https://247wallst.com/special-report/2023/08/15/americas-most-popular-tourist-attractions-according-to-data/",
+   "method": "24/7 Wall St summary of YouGov 2023 'most popular tourist attractions' ratings; filtered to National Parks; ties share rank; 10 parks",
+   "year": "2023",
+   "kind": "people"
+  },
+  {
+   "name": "OnePoll for Sixt, 2,000 Americans, bucket-list road-trip destinations (NPs only): Grand Canyon 44%, Yosemite 32%, Yellowstone 32%, Great Smoky Mountains 24%, Glacier 23%, Zion 21%, Mount Rainier 21%, Bryce Canyon 20%, Death Valley 20%, Crater Lake 20%, Great Sand Dunes 18%, Carlsbad Caverns 18%, Mammoth Cave 17%, White Sands 16%, Theodore Roosevelt 13%",
+   "url": "https://www.goodnewsnetwork.org/top-30-destinations-americans-are-want-to-visit-on-road-trip/",
+   "method": "Filtered the top-30 list to National Parks (15); ties share rank",
+   "year": "2019",
+   "kind": "people"
+  },
+  {
+   "name": "Talker Research for Mountain House, 2,000 US adults (May 2024): must-see parks among those planning a park visit: Yellowstone 39%, Grand Canyon 38%, Great Smoky Mountains 28%",
+   "url": "https://talkerresearch.com/whats-stopping-americans-from-being-more-adventurous/",
+   "method": "Top 3 as reported",
+   "year": "2024",
+   "kind": "people"
+  },
+  {
+   "name": "AAA phone poll, 1,012 US adults (June 2016): parks topping bucket lists: Yellowstone 33%, Yosemite 17%, Grand Canyon 12%",
+   "url": "https://info.oregon.aaa.com/aaa-national-parks-attract-the-most-visitors-in-a-year/",
+   "method": "Top 3 as reported",
+   "year": "2016",
+   "kind": "people"
+  },
+  {
+   "name": "Google Trends most-searched national park by state (Jan 2004-Aug 2025): Yellowstone 33 states, Acadia 3, Grand Canyon 2, Shenandoah 2, then 1 each: Denali, Yosemite, Rocky Mountain, Haleakala, White Sands, Crater Lake, Badlands, Zion, Mount Rainier, New River Gorge",
+   "url": "https://www.mentalfloss.com/geography/maps/most-searched-national-parks-map",
+   "method": "Ranked by number of states won; ties share rank; 14 parks",
+   "year": "2025",
+   "kind": "people"
+  },
+  {
+   "name": "The Dyrt 2025 Camping Report: parks campers most excited to visit: 1 Yellowstone, 2 Glacier, 3 Great Smoky Mountains, 4 Acadia, 5 Yosemite",
+   "url": "https://thedyrt.com/press/four-out-of-5-campers-plan-to-camp-in-a-national-park-in-2025/",
+   "method": "Enthusiast (camper) audience; not averaged, tie-break/sanity only",
+   "year": "2024",
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Yellowstone|yellowstone national park|yellowstone park|yellow stone|yellowstone np",
+  "Grand Canyon|grand canyon national park|the grand canyon|grand canyon park",
+  "Yosemite|yosemite national park|yosemite park|yosemity|yosemite valley",
+  "Great Smoky Mountains|great smoky mountains national park|smoky mountains|the smokies|smokies|great smokey mountains|smokey mountains|great smokies",
+  "Zion|zion national park|zion park|zion canyon|zions",
+  "Rocky Mountain|rocky mountain national park|rocky mountain park|rocky mountains national park|rmnp",
+  "Glacier|glacier national park|glacier park|glacier national park montana",
+  "Joshua Tree|joshua tree national park|joshua tree park",
+  "Grand Teton|grand teton national park|grand tetons|tetons|the tetons|grand teton park",
+  "Acadia|acadia national park|acadia park|acadia national park maine",
+  "Arches|arches national park|arches park|arches utah",
+  "Bryce Canyon|bryce canyon national park|bryce|bryce canyon park|bryce national park",
+  "Everglades|everglades national park|the everglades|everglades park",
+  "Sequoia|sequoia national park|sequoia park|sequoia and kings canyon|sequoia kings canyon|sequoias",
+  "Death Valley|death valley national park|death valley park",
+  "Redwood|redwood national park|redwoods|redwood national and state parks|the redwoods|redwood park",
+  "Shenandoah|shenandoah national park|shenandoah park|shenandoah national park virginia",
+  "Mammoth Cave|mammoth cave national park|mammoth caves|mammoth cave park",
+  "Badlands|badlands national park|the badlands|badlands park",
+  "Olympic|olympic national park|olympic park|olympic peninsula",
+  "Mount Rainier|mount rainier national park|mt rainier|mt. rainier|rainier|mount rainer|mt rainier national park",
+  "Gateway Arch|gateway arch national park|st louis arch|st. louis arch|gateway arch park",
+  "White Sands|white sands national park|white sands park",
+  "Crater Lake|crater lake national park|crater lake park"
+ ],
+ "gut_check": [
+  "Yellowstone",
+  "Grand Canyon",
+  "Yosemite",
+  "Zion",
+  "Great Smoky Mountains",
+  "Glacier",
+  "Rocky Mountain",
+  "Grand Teton",
+  "Arches",
+  "Everglades",
+  "Acadia",
+  "Bryce Canyon"
+ ],
+ "changes_vs_current": "New topic. Raw order by average position across 8 people sources (missing = list length + 5): 1 Yellowstone 2.12, 2 Grand Canyon 3.50, 3 Yosemite 4.62, 4 Great Smoky Mountains 6.81, 5 Zion 8.88, 6 Rocky Mountain 11.88, 7 Glacier 12.00, 8 Joshua Tree 12.12, 9 Grand Teton 12.25, 10 Acadia 12.38, 11 Sequoia 12.56, 12 Bryce Canyon 12.75, 13 Death Valley 13.50, 14 Redwood 14.19, 15 Shenandoah 14.19, 16 Mammoth Cave 14.38, 17 Badlands 14.69, 18 Everglades 15.25, 19 Olympic 15.25, 20 Mount Rainier 16.25, 21 Gateway Arch 16.25, 22 White Sands 16.56, 23 Arches 16.62, 24 Crater Lake 17.94 (next: Cuyahoga Valley 18.12, Carlsbad Caverns 18.19, Denali 18.56). Gut-check moves: Arches 23 -> 11 (gut-check top 12; Wikipedia pageviews #12; its NPS visits rank #21 is held down by the timed-entry reservation system, not by low fame; no poll puts it low, it simply is missing from the short polls). Bryce Canyon 12 -> 12 (kept at 12 so the gut-check item stays in the top 12). Everglades 18 -> 13 (gut-check top 12; YouGov visited #3 and YouGov Ratings #9 support higher; NPS 2025 visits #31 and Wikipedia #24 do put it lower, so it stops at 13 rather than inside the top 12). Knock-on: Sequoia 11 -> 14, Death Valley 13 -> 15, Redwood 14 -> 16, Shenandoah 15 -> 17, Mammoth Cave 16 -> 18, Badlands 17 -> 19, Olympic 19 -> 20, Mount Rainier/Gateway Arch/White Sands/Crater Lake unchanged at 21-24.",
+ "confidence": "medium: top 5 (Yellowstone, Grand Canyon, Yosemite, Smokies, Zion) are solid across visitation, YouGov Ratings, YouGov visited and three polls; positions 6-24 rest mostly on NPS visitation and Wikipedia pageviews plus short, older polls (OnePoll 2019, AAA 2016), and no general-public 'name a national park' recall poll exists, so the mid/tail order (Joshua Tree, Mammoth Cave, Gateway Arch, Olympic) is less certain.",
+ "no_data_positions": []
+}

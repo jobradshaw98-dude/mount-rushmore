@@ -1,87 +1,111 @@
 {
+ "from": 24,
  "sources": [
   {
-   "name": "YouGov America's favorite sandwich, 15 sandwiches by % like (Grilled cheese 79, grilled chicken 75, turkey 75, roast beef 71, ham 69, BLT 69, club 68, bacon 67, PB&J 66, pulled pork 65, tuna 64, egg salad 58, meatball 56, Reuben 48, French dip 46)",
-   "url": "https://www.eatthis.com/most-popular-sandwiches-america/",
-   "method": "YouGov online survey, 1,223 US adults, Jul 12-15 2019",
-   "year": 2019
+   "name": "YouGov: What's America's favorite sandwich (% like/somewhat like): Grilled cheese 79, grilled chicken 75, turkey 75, roast beef 71, ham 69, BLT 69, club 68, bacon 67, PB&J 66, pulled pork 65, tuna 64, egg salad 58, meatball 56, Reuben 48, French dip 46; Cuban below; lobster roll 35",
+   "url": "https://yougov.com/en-us/articles/24609-whats-americas-favorite-sandwich",
+   "method": "YouGov online survey, 1,223 US adults, Jul 12-15 2019, weighted. Full percentage list read on iHeart's reprint https://pyx106.iheart.com/featured/dana-mckenzie/content/2019-08-16-americas-favorite-sandwiches-others-from-around-the-world/ ; Cuban placement from https://reviewed.com/cooking/features/the-most-popular-sandwiches-in-the-us",
+   "year": 2019,
+   "kind": "people"
   },
   {
    "name": "Talker Research for Buddig: favorite sandwiches (grilled cheese 42, chicken 40, turkey 30, ham 27, tuna 24, egg 21, PB&J 21, meatball 19)",
-   "url": "https://1015thefox.com/the-latest/survey-reveals-americas-favorite-sandwiches/",
-   "method": "Talker Research, 2,000 Americans, Sep 25-30 2024 (also https://talkerresearch.com/average-american-eats-6-sandwiches-a-week/). 'Egg' not mapped to Egg Salad (ambiguous)",
-   "year": 2024
+   "url": "https://talkerresearch.com/average-american-eats-6-sandwiches-a-week/",
+   "method": "Talker Research online survey, 2,000 Americans, Sep 25-30 2024. 'Egg' not mapped (ambiguous: egg salad vs fried egg/BEC)",
+   "year": 2024,
+   "kind": "people"
   },
   {
-   "name": "YouGov Ratings Q2 2026, sandwiches seen in the 'American dishes' and 'dishes' top-20 pages: Grilled Cheese 85, Roast Beef 76, Philly Cheesesteak 75, Turkey Sandwich 74, Pulled Pork Sandwich 69. Tasting Table (Sep 2026) confirms Grilled Cheese as America's most popular sandwich",
+   "name": "YouGov Ratings Q3 2026, sandwich dishes by popularity (% positive): Grilled Cheese 83, Philly Cheesesteak 74, Turkey Sandwich 73, Roast Beef 72, Pulled Pork Sandwich 71, Sloppy Joes 66, Tuna Sandwich 62, Po' boy 53 (Cheeseburger/Hamburgers/Hot dogs excluded as non-sandwiches)",
    "url": "https://yougov.com/en-us/ratings/american-dishes",
-   "method": "YouGov Ratings % positive opinion, continuous tracking; only 20 rows per page visible (also https://yougov.com/en-us/ratings/dishes)",
-   "year": 2026
+   "method": "YouGov Ratings continuous tracking, % positive opinion; read the 'american dishes' (23 dishes) and 'dishes' (40 dishes, https://yougov.com/en-us/ratings/dishes) pages plus their public-data API for rows beyond the top 20; no other sandwiches are tracked",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "French's Mustard / OnePoll National Sandwich Day poll: cheesesteak #1, then hamburger (excluded), BBQ pulled pork, Italian, Reuben",
+   "url": "https://www.insidehook.com/food/cheesesteak-americas-favorite-sandwich",
+   "method": "OnePoll for French's, ~2,000 Americans, Oct 2021; ranks only, no percentages",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "Coventry Direct most-searched sandwich by state (states won): turkey 7, grilled cheese 7, pastrami on rye 4, tuna melt 2, brisket 2, ice cream sandwich 2 (excluded), 1 each: Philly cheesesteak, Cuban, crab cake, lobster roll, po' boy, PB&J",
+   "url": "https://www.mentalfloss.com/geography/maps/most-popular-sandwich-by-state-map",
+   "method": "Google Trends search interest by state, Nov 2024-Nov 2025 (dates per https://www.yahoo.com/lifestyle/articles/delawares-most-searched-sandwich-not-093821836.html); ranked by states won; text covers ~30 states",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Google Trends most popular sandwich by state (states won): chicken 6, tuna 6, barbecue 5 (mapped to Pulled Pork), 2 each: bacon egg & cheese, bologna, fluffernutter, patty melt (excluded, hamburger-type), banh mi; 1 each: chicken salad, fried egg, cheesesteak, Cuban, po boy, lobster roll, Italian beef",
+   "url": "https://www.audacy.com/y98/blogs/tim-convy/national-sandwich-day",
+   "method": "Google Trends state-by-state study reported Nov 3 2020; ranked by states won",
+   "year": 2020,
+   "kind": "people"
+  },
+  {
+   "name": "Datassential MenuTrends sandwich keynote: turkey most popular / most recently eaten (14%); ham, PB&J, BLT also top 10",
+   "url": "https://abc7ny.com/post/happy-nationalsandwichday-here-are-the-most-popular-sandwiches-in-the-country/378819/",
+   "method": "Datassential consumer survey of people who ate a sandwich in past two weeks ('last sandwich eaten'), 2014; partial ranks (ham/PB&J/BLT treated as tied 3rd)",
+   "year": 2014,
+   "kind": "people"
+  },
+  {
+   "name": "Talker Research for Tillamook: 61% say grilled cheese is their favorite sandwich",
+   "url": "https://www.prnewswire.com/news-releases/americas-favorite-sandwich-is-officially-the-grilled-cheese-but-most-of-us-havent-nailed-it-yet-302590786.html",
+   "method": "Talker Research online, 5,000 Americans (100 per state), Sep 20-25 2025; single-item, used only to support Grilled Cheese at #1, not in the average",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "TasteAtlas best sandwiches in the world (via Statista): Banh mi tied 2nd, lobster roll 6, Cuban 11, Reuben 20, Philly cheesesteak 21, pastrami on rye 24",
+   "url": "https://www.statista.com/chart/29423/best-sandwiches",
+   "method": "TasteAtlas critic/user ratings, Mar 2023; tie-break only",
+   "year": 2023,
+   "kind": "critic"
   }
  ],
  "list": [
   "Grilled Cheese",
   "Turkey|turkey sandwich",
+  "Tuna Sandwich|tuna melt|tuna salad|tuna",
   "Chicken Sandwich|grilled chicken|fried chicken sandwich|chicken",
-  "Roast Beef",
-  "Ham|ham sandwich",
+  "Pulled Pork|bbq sandwich|barbecue sandwich|pulled pork sandwich",
+  "Philly Cheesesteak|cheesesteak|philly cheese steak|philly",
   "Peanut Butter and Jelly|pbj|pb and j",
-  "Tuna Sandwich|tuna melt|tuna salad",
-  "Pulled Pork",
-  "BLT",
+  "Ham|ham sandwich|ham and cheese",
+  "Roast Beef|roast beef sandwich",
+  "BLT|bacon lettuce tomato",
   "Club Sandwich|club|turkey club",
-  "Meatball Sub|meatball",
-  "Egg Salad",
-  "Philly Cheesesteak|cheesesteak|philly cheese steak",
-  "Reuben",
-  "French Dip",
   "Italian Sub|italian hoagie|italian",
   "Cuban|cubano",
-  "Banh Mi",
-  "Pastrami on Rye|pastrami",
-  "Chicken Parm|chicken parmesan",
-  "Po' Boy|poboy",
   "Lobster Roll",
-  "Muffuletta",
-  "Gyro"
+  "Po' Boy|poboy|po boy",
+  "Meatball Sub|meatball",
+  "Reuben",
+  "Banh Mi",
+  "Bacon Sandwich|bacon",
+  "Bacon Egg and Cheese|bec|bacon egg cheese|breakfast sandwich",
+  "Bologna|bologna sandwich|baloney",
+  "Fluffernutter",
+  "Pastrami on Rye|pastrami",
+  "Brisket Sandwich|brisket"
  ],
- "avg_rank": [
-  1,
-  3.17,
-  4.83,
-  6.33,
-  6.5,
-  8.5,
-  8.67,
-  9.33,
-  9.5,
-  10,
-  10.33,
-  11.67,
-  12,
-  12.33,
-  12.67,
-  14.33,
-  14.33,
-  14.33,
-  14.33,
-  14.33,
-  14.33,
-  14.33,
-  14.33,
-  14.33
+ "gut_check": [
+  "Grilled Cheese",
+  "BLT",
+  "Turkey",
+  "Peanut Butter and Jelly",
+  "Philly Cheesesteak",
+  "Ham",
+  "Club Sandwich",
+  "Chicken Sandwich",
+  "Tuna Sandwich",
+  "Reuben",
+  "Meatball Sub",
+  "Italian Sub"
  ],
- "no_data_positions": [
-  16,
-  17,
-  18,
-  19,
-  20,
-  21,
-  22,
-  23,
-  24
- ],
- "changes_vs_current": "Now 3 sources (was 2): Grilled Cheese up to 1 (was 3), generic types (Turkey, Chicken Sandwich, Roast Beef, Ham, PB&J, Tuna, Pulled Pork) lead; Philly Cheesesteak 1 to 13 (it is the only named specialty with 2026 YouGov support, 75%); BLT 2 to 9; Reuben 4 to 14; Egg Salad added at 12; Patty Melt, Monte Cristo, Sloppy Joe, Caprese dropped; 16-24 (Italian Sub onward) have no evidence and keep current order.",
- "confidence": "low-medium. Top 3 (Grilled Cheese, Turkey, Chicken) is consistent across all 3 sources; ranks 4-15 are driven by two polls on generic sandwich types plus a partial YouGov 2026 view. Artifact: BLT (69% in YouGov 2019, tied #5) falls to 9 because it is absent from the Talker 2024 list and the 2026 top-20 pages; Philly Cheesesteak may be underrated for the same reason in the older polls. The 2026 YouGov data shows only the top 20 per page, so deeper items are unknown. Not found: Morning Consult/Harris sandwich polls, delivery-app sandwich rankings (Grubhub 2022 listed only fried chicken sandwich and cheeseburger)."
+ "changes_vs_current": "Sources grew from 3 to 7 averaged people sources (added YouGov Ratings Q3 2026 with full API rows, French's/OnePoll 2021, Coventry Direct 2025 and 2020 Google Trends state studies, Datassential 2014). Method order was Turkey, Grilled Cheese, Tuna, Chicken, Pulled Pork, Cheesesteak, PB&J, Ham, Roast Beef, BLT, Cuban, Lobster Roll, Po' Boy, Club, Meatball... Moves: Grilled Cheese kept #1 over Turkey (gut check; #1 in YouGov 2019, Talker 2024, YouGov Ratings 2026 and Tillamook 2025; Turkey's 0.4 lead came only from the partial Datassential list). Tuna 7->3 and Pulled Pork 8->5 (YouGov Ratings 2026, state search data, French's has BBQ pulled pork #2). Philly Cheesesteak 13->6 (YouGov Ratings 2026 #2 sandwich at 74%, French's #1, state search wins) - note said underrated, confirmed. Chicken 3->4, PB&J 6->7, Ham 5->8, Roast Beef 4->9. BLT stays in top 10 (9->10, YouGov 2019 tied #5, Datassential top 10). Club 10->11 (gut-check move up from method #14; YouGov 2019 68%, no source puts it lower). Italian Sub 16->12 (gut-check move up from method #33; French's/OnePoll #3, no source puts it lower). Cuban 17->13, Lobster Roll 22->14, Po' Boy 21->15 (now backed by 3 sources each: YouGov 2019/YouGov Ratings plus both state search studies). Meatball Sub 11->16 (YouGov 2019 #13 of 17 and Talker last of 8 put it lower). Reuben 14->17 (gut-check move up from method #22; YouGov 2019 #14 at 48% puts it lower than the gut, French's #4). Banh Mi 18 stays (2020 state search, TasteAtlas tie-break). Pastrami on Rye 19->23 (Coventry 4 states). New: Bacon Sandwich 19 (YouGov 2019 67%), Bacon Egg and Cheese 20, Bologna 21, Fluffernutter 22 (2020 state search), Brisket Sandwich 24 (Coventry 2 states). Dropped for lack of any data: Egg Salad (only YouGov 2019 58%, averaged below the tail), French Dip (only YouGov 2019 46%), Chicken Parm, Muffuletta, Gyro (no source). Patty Melt excluded as hamburger-type; Sloppy Joe (YouGov Ratings 66%) averaged just outside 24. Aliases 'tuna', 'philly', 'ham and cheese', 'bacon lettuce tomato', 'po boy', 'pulled pork sandwich', 'bbq sandwich' added.",
+ "confidence": "medium. Top 10 each have 2-5 people sources and the top 3 are steady across polls. Tuna's #3 and Cuban/Lobster Roll/Po' Boy at 13-15 are pushed up by state-by-state search studies that reward regional favorites. Ranks 17-24 mostly rest on one source each (a 2020 Google Trends state map) and a near-tie at the bottom, so Sloppy Joe, Egg Salad and French Dip could fairly swap in. No national US search-volume or delivery-app sandwich ranking could be read (Google Trends returned 429; Grubhub/DoorDash/Uber Eats reports name no sandwich lists).",
+ "no_data_positions": []
 }
