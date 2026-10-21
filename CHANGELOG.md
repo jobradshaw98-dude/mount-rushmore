@@ -2,6 +2,11 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-10-21: join after the start
+
+### Changed
+- Missed the Start? You can still take a seat until the first pick is made. Late joiners go to the end of the pick order. Four players max, as before.
+
 ## 2026-10-19: National Parks, Clothing Brands, Comedians, Flowers and Toys; Desserts and Sandwiches re-ranked
 
 ### Added

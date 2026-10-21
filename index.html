@@ -435,6 +435,11 @@ function fold(events){
         if(ex){ if(!s.started) ex.name=name; }
         else if(!s.started && s.players.length<4) s.players.push({pid:e.pid,name});
         break; }
+      case "latejoin": {
+        // Someone who missed the Start can still take a seat until the first pick. They go to the end of the order.
+        if(!s.started || s.picks.length || s.seats.length>=4 || s.seats.includes(e.pid) || typeof e.name!=="string") break;
+        s.players.push({pid:e.pid, name:e.name.trim().slice(0,18) || "Player"}); s.seats.push(e.pid);
+        break; }
       case "leave":
         if(!s.started) s.players = s.players.filter(p=>p.pid!==e.pid);
         break;
@@ -635,6 +640,12 @@ function roomView(){
   }
   const member = s.players.some(p=>p.pid===me);
   if(!s.started) return head+title+lobbyView(s,me,member);
+  if(!s.seats.includes(me) && lateSeat(s)){
+    const box = !myName() ? nameBox("Join this round","No one has picked yet. Enter your name to take a seat.")
+      : store.get("mr.out."+S.code,false) ? `<div class="card row" style="justify-content:space-between;margin-bottom:14px"><span>You're sitting this one out.</span><button class="btn gold small" data-act="rejoin">Deal me in</button></div>`
+      : `<div class="card" style="margin-bottom:14px"><p class="muted" style="margin:0">Taking a seat…</p><div class="err">${esc(S.err)}</div></div>`;
+    return head+title+box+spectatorClaim(s)+draftView(s,me,false);
+  }
   if(!s.seats.includes(me)) return head+title+spectatorClaim(s)+(s.done?resultsView(s,me):draftView(s,me,false));
   if(s.done) return head+title+resultsView(s,me);
   if(s.draftDone) return head+title+orderView(s,me);
@@ -1519,7 +1530,13 @@ function autoSteps(){
     act(async()=>{ try{ await send({type:"join",name}); }
       catch(e){ setTimeout(()=>{ if(S.code===k){ delete S.auto[k+"j"]; render(); } }, 5000); throw e; } });
   }
+  if(lateSeat(s) && !s.seats.includes(me) && !S.auto[k+"j"] && !store.get("mr.out."+k,false)){
+    S.auto[k+"j"]=true;
+    act(async()=>{ try{ await send({type:"latejoin",name}); }
+      catch(e){ setTimeout(()=>{ if(S.code===k){ delete S.auto[k+"j"]; render(); } }, 5000); throw e; } });
+  }
 }
+const lateSeat = s => s.started && !s.picks.length && s.seats.length<4;
 
 /* A typed code must match a crew that exists, or a typo would quietly start a new empty crew. */
 async function joinByCode(c){
