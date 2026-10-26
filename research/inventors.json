@@ -1,0 +1,95 @@
+{
+ "topic": {
+  "name": "Inventors",
+  "note": "All-time",
+  "cat": "people",
+  "from": 31
+ },
+ "sources": [
+  {
+   "name": "Lemelson-MIT Invention Index 2012, 'greatest innovator of all time': Edison 52-54%, Steve Jobs 24%, Alexander Graham Bell 10%, then Marie Curie, Mark Zuckerberg (then Amelia Earhart, Temple Grandin)",
+   "url": "https://www.cbsnews.com/news/edison-tops-jobs-as-worlds-greatest-innovator/",
+   "method": "Survey of ~1,010 US residents aged 16-25, Dec 9-15 2011, published Jan 26 2012 (also read at nbcnews.com/news/amp/wbna46151988); 7 named options treated as a 7-item list",
+   "year": 2012,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings (US) fame % / popularity %: Benjamin Franklin 97/74, Albert Einstein 97/82, Elon Musk 96/37, Bill Gates 95/38, Mark Zuckerberg 95/29, Henry Ford 94/60, Isaac Newton 93/74, Leonardo da Vinci 92/78, Thomas Edison 91/65, John Deere 91/60, Alexander Graham Bell 90/70, Nikola Tesla 82/57, Marie Curie 80/61, Alfred Nobel 80/50, Archimedes 71/45. No ratings page for Steve Jobs, Wright Brothers, Gutenberg, Whitney, Carver, Morse and most other inventors",
+   "url": "https://yougov.com/en-us/topics/public_figure/Thomas_Edison",
+   "method": "YouGov Ratings public_figure pages read one by one (same URL pattern per person), nationally representative US panel, current quarter as of Oct 2026; ranked by fame %",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "English Wikipedia pageviews, Oct 2025-Sep 2026 (user agents): Musk 8.46M, Einstein 4.57M, Steve Jobs 4.49M, Gates 2.51M, Newton 2.47M, Tesla 2.35M, Franklin 2.14M, Curie 2.11M, da Vinci 2.07M, Hedy Lamarr 1.40M, Edison 1.28M, Ford 1.06M, Galileo 1.05M, Wozniak 1.02M, Wright brothers 0.94M, Berners-Lee 0.83M, Bell 0.79M, Nobel 0.72M, Archimedes 0.66M, Carver 0.59M, Madam C.J. Walker 0.56M, Pasteur 0.49M, Babbage 0.43M, Gutenberg 0.39M, John Deere 0.32M, Salk 0.30M, Dyson 0.29M, Marconi 0.29M, Morse 0.18M, Eli Whitney 0.17M",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Thomas_Edison/monthly/2025100100/2026093000",
+   "method": "Wikimedia REST pageviews API, 12 monthly totals summed per article across a 46-name inventor candidate pool; same URL pattern per article",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Sporcle 'Famous Inventors' type-in quiz, % of 141,955 plays naming the inventor from the invention: Bell 87.4, Wright Brothers 77.8, Franklin 75.6, Edison 71.1, Eli Whitney 66.6, Gutenberg 60.3, Rubik 57.0, Samuel Colt 56.9, Nobel 55.7, Morse 41.5, Salk 41.4, Fleming 29.3, Pasteur 25.4, Karl Benz 25.1",
+   "url": "https://www.sporcle.com/games/g/inventors/results",
+   "method": "Aggregate answer stats for a fixed 20-item quiz (recall when prompted by the invention); does not include Tesla, Ford, Jobs, da Vinci or Einstein",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Sporcle 'Inventors - First Names' quiz (25,014 plays), tie-break only: Einstein 94.9, Edison 93.2, Bell 89.8, Franklin 88.6, Ford 88.4, John Deere 86.1, Nobel 84.9, Pasteur 84.8, Newton 83.5, Tesla 82.6, Wright brothers 77.6, Whitney 70.6, Gutenberg 63.9, Morse 62.3, Berners-Lee 48.6",
+   "url": "https://www.sporcle.com/games/LTH/eureka/results",
+   "method": "Aggregate answer stats; first-name recall given invention (and probably surname), so used only to break ties",
+   "year": 2026,
+   "kind": "critic"
+  },
+  {
+   "name": "Pantheon (MIT) inventor occupation by Historical Popularity Index, tie-break only: da Vinci 96.8, Tesla 91.9, Edison 91.7, Gutenberg 90.6, Watt 88.5, Benz 88.1, Musk 86.8, Bell 85.3, Marconi 83.4, Ford 82.3",
+   "url": "https://pantheon.world/profile/occupation/inventor",
+   "method": "Global Wikipedia-derived fame index; leaves out people Pantheon files under other occupations (Franklin, Jobs, Wright brothers, Einstein)",
+   "year": 2026,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Thomas Edison|edison|thomas alva edison|tom edison",
+  "Benjamin Franklin|ben franklin|franklin|benjamin franklyn",
+  "Alexander Graham Bell|bell|graham bell|alexander bell|a.g. bell",
+  "Wright Brothers|the wright brothers|orville wright|wilbur wright|wright|orville and wilbur wright|wright bros",
+  "Nikola Tesla|tesla|nicola tesla",
+  "Henry Ford|ford",
+  "Steve Jobs|jobs|steven jobs",
+  "Leonardo da Vinci|da vinci|leonardo|davinci|leonardo davinci",
+  "Albert Einstein|einstein",
+  "Johannes Gutenberg|gutenberg|johann gutenberg|guttenberg",
+  "Eli Whitney|whitney",
+  "George Washington Carver|carver|george carver|g.w. carver",
+  "Elon Musk|musk",
+  "Bill Gates|gates",
+  "Isaac Newton|newton|sir isaac newton",
+  "Alfred Nobel|nobel",
+  "Marie Curie|curie|madame curie",
+  "Samuel Morse|morse|samuel f.b. morse|samuel f. b. morse",
+  "Steve Wozniak|wozniak|woz",
+  "Tim Berners-Lee|berners-lee|tim berners lee|berners lee",
+  "Hedy Lamarr|lamarr|hedy lamar",
+  "Galileo Galilei|galileo",
+  "Louis Pasteur|pasteur",
+  "Archimedes"
+ ],
+ "gut_check": [
+  "Thomas Edison",
+  "Benjamin Franklin",
+  "Wright Brothers",
+  "Alexander Graham Bell",
+  "Nikola Tesla",
+  "Henry Ford",
+  "Steve Jobs",
+  "Leonardo da Vinci",
+  "Albert Einstein",
+  "Johannes Gutenberg",
+  "Eli Whitney",
+  "George Washington Carver"
+ ],
+ "changes_vs_current": "New topic, no current list. Computed order (average position across the 4 people sources; missing = list length + 5): 1 Franklin 5.75, 2 Edison 6.25, 3 Bell 8.0, 4 Einstein 10.0, 5 Musk 10.25, 6 Gates 11.25, 7 Newton 12.25, 8 Wright Brothers 12.25, 9 Curie 12.5, 10 Jobs 12.5, 11 Nobel 13.0, 12 da Vinci 13.5, 13 Ford 13.75, 14 Tesla 13.75, 15 Gutenberg 15.5, 16 Pasteur 16.75, 17 Hedy Lamarr 16.75, 18 Salk 17.25, 19 Galileo 17.5, 20 Archimedes 17.75, 21 John Deere 17.75, 22 Eli Whitney 17.75, 23 Wozniak 17.75, 24 Berners-Lee 18.25, 25 Morse 18.75 ... 28 Carver 19.25. This order is skewed. The two fame sources (YouGov fame, pageviews) reward general celebrity: Musk, Gates, Newton, Curie and Nobel are famous for things other than invention. The two naming sources (Lemelson, Sporcle) each cover a fixed short set, so Tesla, Ford, Jobs, da Vinci and Einstein take a missing-item penalty in Sporcle, and Wright/Gutenberg/Whitney/Carver take one in YouGov, which has no ratings page for them. Gut-check moves: Edison 2->1 (Lemelson #1 by a wide margin, top 11 in every source, and the TIME/Qualcomm 2013 naming poll is widely reported with Edison first, though that page could not be opened, so it is not counted); Franklin 1->2; Bell stays 3; Wright Brothers 8->4 (Sporcle #2, its YouGov penalty is only a missing page); Tesla 14->5 (pageviews #6 and fame 82%; its penalties are fixed-set gaps; Pantheon #2); Ford 13->6 (YouGov fame 94%, pageviews #12, Sporcle First Names 88%); Jobs 10->7 (Lemelson #2, pageviews #3); da Vinci 12->8 (pageviews #9, fame 92%, Pantheon #1); Einstein 4->9 (he tops the fame data, but he is a physicist, so held just below the core inventors); Gutenberg 15->10; Eli Whitney 22->11 (Sporcle #5, a staple of US schooling, low pageviews); George Washington Carver 28->12 (gut check; pageviews #20, ahead of Gutenberg and Whitney; only 1 source covers him). Moved down because of these moves: Musk 5->13, Gates 6->14, Newton 7->15, Nobel 11->16, Curie 9->17. Tail: Morse 25->18 (Sporcle #10, a classic 'inventor of the telegraph'); Wozniak 23->19; Berners-Lee 24->20; Lamarr 17->21; Galileo 19->22; Pasteur 16->23; Archimedes 20->24. Dropped from the computed top 24: Jonas Salk (18; vaccine developer, rarely called an inventor) and John Deere (21; YouGov fame mostly reflects the brand).",
+ "confidence": "Medium-high for 1-8 (Edison, Franklin, Bell, Wright Brothers, Tesla, Ford, Jobs and da Vinci are clearly the core, though their exact order is judgment). Medium for 9-12. Low-medium for 13-24, which lean on fame data and could equally include Zuckerberg, Salk, John Deere, Karl Benz, Erno Rubik, Samuel Colt, James Watt, Marconi or Madam C.J. Walker. Caveat: no US poll that asks adults to freely name inventors could be opened (TIME/Qualcomm 2013 unaided naming, Edison 27% > Einstein 9% > Bell 5% > da Vinci 4% > Jobs 3%, was blocked), so the order above #12 relies on the gut-check moves.",
+ "no_data_positions": []
+}

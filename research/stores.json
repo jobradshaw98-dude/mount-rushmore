@@ -1,0 +1,95 @@
+{
+ "topic": {
+  "name": "Stores",
+  "note": "Places to shop",
+  "cat": "brands",
+  "from": 31
+ },
+ "sources": [
+  {
+   "name": "NRF Top 100 Retailers 2026 (2025 US retail sales, Kantar): 1 Walmart $576B, 2 Amazon $294B, 3 Costco $199B, 4 Kroger, 5 Home Depot, 6 CVS, 7 Walgreens, 8 Target $103B, 9 Lowe's, 10 Albertsons, 11 Apple Stores, 12 Publix, 14 Aldi, 15 TJX (TJ Maxx/Marshalls), 17 Dollar General, 18 Best Buy, 19 Ace, 20 7-Eleven, 22 Ross, 25 Macy's, 27 Dick's, 29 Dollar Tree, 34 Kohl's (non-storefront entries like AT&T/Verizon/Ahold dropped when computing positions; Trader Joe's and Sam's Club not in top 50)",
+   "url": "https://nrf.com/research-insights/top-retailers/top-100-retailers/top-100-retailers-2026-list",
+   "method": "Sales ranking of US retail companies by 2025 domestic retail sales; used as a popularity/sales proxy",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings Q3 2026 popularity (% positive opinion), merged across Department stores, Grocery stores and Speciality retail top-20 pages (toy/product brands removed): Costco 74, Lowe's 73, Home Depot 72, Barnes & Noble 72, Ace 72, 7-Eleven 70, Dollar Tree 68, Trader Joe's 68, Walmart 66, Sam's Club 66, Aldi 66, Marshalls 65, Kroger 65, Best Buy 65, TJ Maxx 64, Target 64, Dick's 64, Macy's 62, Kohl's 62, Ross 58, Dollar General 57 (Amazon not covered by any YouGov retail category)",
+   "url": "https://yougov.com/en-us/ratings/department-stores",
+   "method": "YouGov Ratings continuous US adult panel, Q3 2026; popularity = share with a positive opinion. Also read https://yougov.com/en-us/ratings/grocery-stores and https://yougov.com/en-us/ratings/speciality-retail-stores",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Smarty / Propeller Research retailer survey: best shopping experience - Amazon 51%, Walmart 48%, Target 37%, Best Buy 23%, Home Depot 20%, Costco 20%, Macy's 19% (Kohl's 15-19% on price-match/returns questions)",
+   "url": "https://www.retailcustomerexperience.com/news/walmart-amazon-target-tops-with-us-consumers/",
+   "method": "Online survey of 1,024 US adults, Oct 2021, multi-select retailer choice",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "Morning Consult Most Loved Brands 2019 (retailers among all brands): Amazon #1, Home Depot #5, Lowe's #11, Target #15, Walmart #18",
+   "url": "https://hardwareretailing.com/home-improvement-brands-among-most-loved",
+   "method": "400,000+ US respondents; index of favorability, trust, community impact, NPS; April 2019",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "GOBankingRates retailer survey: store shopped most (summer) - Walmart 36%, Costco 12.6%, Amazon 12.1%, local grocers 11.1%, Sam's Club 8.2%, Target 7.3%, Aldi 4.5%, Dollar Tree 3.2%, BJ's 2.7%, Trader Joe's 1.6%",
+   "url": "https://www.gobankingrates.com/saving-money/shopping/walmart-or-costco-survey-reveals-the-top-retailer-for-summertime-deals/",
+   "method": "999 US women 18+, May 3-7 2024, single choice 'which retailer do you shop at most for summertime needs'",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Similarweb top ecommerce & shopping websites, US, Sept 2026: 1 amazon.com, 2 walmart.com, 3 ebay.com, 4 temu.com, 5 etsy.com",
+   "url": "https://www.similarweb.com/top-websites/united-states/e-commerce-and-shopping/",
+   "method": "Web traffic panel ranking, US, September 2026 (top 5 visible)",
+   "year": 2026,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Walmart|wal-mart|wal mart|walmart supercenter",
+  "Target|target store|tarjay",
+  "Amazon|amazon.com|amazon prime",
+  "Costco|costco wholesale|costcos",
+  "Home Depot|the home depot|homedepot",
+  "Lowe's|lowes|lowe",
+  "Best Buy|bestbuy",
+  "Aldi|aldi's|aldis",
+  "Kroger|krogers|kroger's",
+  "Trader Joe's|trader joes|trader joe",
+  "TJ Maxx|tjmaxx|t.j. maxx|tj max|t j maxx",
+  "Macy's|macys|macy",
+  "Kohl's|kohls|kohl",
+  "Dollar Tree|dollartree",
+  "Marshalls|marshall's|marshall",
+  "Sam's Club|sams club|sam's|sams",
+  "Dollar General|dg|dollar general store",
+  "Ace Hardware|ace",
+  "7-Eleven|7-11|7 eleven|seven eleven|7/11|711",
+  "Dick's Sporting Goods|dicks|dick's|dicks sporting goods",
+  "Ross|ross dress for less",
+  "CVS|cvs pharmacy",
+  "Walgreens|walgreen|walgreen's",
+  "Barnes & Noble|barnes and noble|barnes & nobles|barnes"
+ ],
+ "gut_check": [
+  "Target",
+  "Walmart",
+  "Amazon",
+  "Costco",
+  "Trader Joe's",
+  "Home Depot",
+  "Lowe's",
+  "Kohl's",
+  "Best Buy",
+  "TJ Maxx",
+  "Macy's",
+  "Kroger"
+ ],
+ "changes_vs_current": "New topic. Computed order (average position over 6 people sources, missing = list length + 5): 1 Walmart 3.8, 2 Costco 5.3, 3 Home Depot 6.5, 4 Lowe's 8.3, 5 Target 8.7, 6 Amazon 9.3, 7 Aldi 10.8, 8 Kroger 11.2, 9 Ace Hardware 11.5, 10 7-Eleven 11.8, 11 Dollar Tree 12.3, 12 Best Buy 12.5, 13 Marshalls 12.7, 14 TJ Maxx 13.5, 15 Macy's 14.7, 16 Dick's 15.7, 17 Dollar General 15.8, 18 Albertsons 16.0, 19 Ross 16.3, 20 Sam's Club 16.3, 21 Barnes & Noble 16.5, 22 Trader Joe's 16.7, 23 CVS 16.7, 24 Publix 16.8, 25 Walgreens 16.8, ... 27 Kohl's 17.2. Gut-check moves: Amazon 6->3 (its average is dragged down only because YouGov Ratings has no online-retailer category and it got the 48 penalty; it is #1 in Smarty, Morning Consult and Similarweb and #2-3 in NRF/GOBankingRates). Target 5->2 (in 5 of 6 sources, top-5 in four; YouGov liking is the only weak spot; gut #1). Costco 2->4 and Home Depot/Lowe's 3/4->5/6 shift down only to make room for Amazon/Target. Best Buy 12->7 (in 3 sources incl. Smarty #4; gut top-10). Trader Joe's 22->10 (YouGov grocery popularity 68% = top-10 store overall, GOBankingRates top-10; its low computed spot comes from NRF top-50 sales and the small multi-store polls omitting it; gut top-5, so placed where gut and YouGov agree rather than at #5). TJ Maxx 14->11, Macy's 15->12 (Smarty #7), Kohl's 27->13 (gut top-10; Smarty lists Kohl's 15-19% on price-match/returns, YouGov 62%; NRF #34 by sales and YouGov liking keep it out of top 12). Kroger 8->9 (gut #12, NRF #4). Ace Hardware 9->18 and 7-Eleven 10->19 moved down: their high computed spots rest on YouGov liking scores plus NRF sales and they were not on the gut list as a 'favorite store' answer. Albertsons (18) and Publix (24) dropped: Albertsons is a parent company whose NRF sales cover Safeway/Vons etc., and both are regional; replaced by Walgreens/Barnes & Noble which have national name recognition (Walgreens NRF #7, B&N YouGov 72%).",
+ "confidence": "high for 1-6 (Walmart, Target, Amazon, Costco, Home Depot, Lowe's are in nearly every source), medium for 7-14, low-medium for 15-24. Caveats: no fetched open-ended 'favorite store' poll covering all retail categories exists; YouGov Ratings measures liking, not naming, and has no online-retailer category (Amazon penalized); Smarty (2021) and Morning Consult (2019) are older; GOBankingRates sample was women only. ACSI/critic data not used.",
+ "no_data_positions": []
+}

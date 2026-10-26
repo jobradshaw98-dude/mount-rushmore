@@ -1,0 +1,115 @@
+{
+ "topic": {
+  "name": "Zoo Animals",
+  "cat": "life",
+  "from": 31
+ },
+ "sources": [
+  {
+   "name": "AYTM Zoos & Aquariums survey - must-visit zoo animals: Monkeys 53%, Dolphins 50%, Penguins 46%, Lions 40%, Giraffes 38%, Elephants 35%, Otters 29%, Bears 25%, Sharks 22%, Other (zebras, birds, hippos) 14%",
+   "url": "https://aytm.com/post/zoos-and-aquariums-survey",
+   "method": "AYTM online US consumer panel, multi-select must-see zoo animals, fielded June 2015 (sample size not stated)",
+   "year": 2015,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov 'animal archive' popularity scores (0-10): Tiger 9; Elephant 8; Dolphin/Penguin/Gorilla/Leopard/Lion 7; Whale/Otter/Panda/Meerkat/Giraffe/Jaguar/Koala/Cheetah/Polar Bear 6; Snow Leopard/Wolf/Red Panda/Seal/Zebra 5; Bear/Sea Lion/Turtle/Monkey/Lemur 4; Sloth/Flamingo/Wallaby/Hippo/Rhino/Shark 3; Snake/Camel/Komodo 2; Crocodile/Alligator/Hyena 1 (pets/farm animals filtered out)",
+   "url": "https://yougov.com/en-gb/articles/11632-animals",
+   "method": "YouGov Ratings, 190,000+ UK members rating animals; tiers ranked with ties averaged; March 2015",
+   "year": 2015,
+   "kind": "people"
+  },
+  {
+   "name": "Animal Planet world's favourite animal poll (via Grist): Tiger 21%, Dog 20%, Dolphin 13%, Horse 10%, Lion 9%, Snake 8%, Elephant 6%, Chimpanzee 5%, Orangutan 4.5%, Whale 3.5% (dog/horse filtered out)",
+   "url": "https://grist.org/article/burning-bright",
+   "method": "Animal Planet viewer vote, 50,000+ people in 73 countries, Dec 2004",
+   "year": 2004,
+   "kind": "people"
+  },
+  {
+   "name": "Public Policy Polling - exotic animal you'd most like as a pet: Tiger 26%, Giraffe 20%, Dinosaur 18%, Elephant 16%, Polar bear 14%, Alligator 6%",
+   "url": "https://www.publicpolicypolling.com/polls/americans-on-their-pets",
+   "method": "PPP national poll, 603 US registered voters, June 11-13 2013, single choice",
+   "year": 2013,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov - which animal would you keep if dog-sized: Tiger 14%, Elephant 10%, Polar bear 6%, Lion 5%, Cheetah 4%, Giraffe 4%, Leopard 3%, Hippo/Zebra/Crocodile/Tortoise 1%, Rhino 0%",
+   "url": "https://yougov.com/en-gb/articles/3941-day-tiger-came-tea",
+   "method": "YouGov GB online poll, single choice, July 2012",
+   "year": 2012,
+   "kind": "people"
+  },
+  {
+   "name": "Explore Worldwide Google search data - animals people most want to see (countries where #1): Tiger 44, Hippo 28, Dolphin 17, Whale 16, Gorilla 8, Seal 6, Penguin 6, Elk 5, Elephant 4, Lion 4; in the US Tiger tops 39 of 50 states, Lion 2nd in 20+",
+   "url": "https://thenationalnews.com/lifestyle/2023/03/29/the-10-animals-the-world-wants-to-see-most",
+   "method": "Google search volumes for 170 species across 180+ countries (Explore Worldwide analysis), 2023; US state detail from exploreworldwide.com/blog/wildlife-online-trends-report",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "Explore 'new Big Five' survey - wild animals travellers most want to see: Giant panda 41%, Elephant 32%, Kangaroo 32%, Koala 30%, Whale 29%",
+   "url": "https://www.euronews.com/2026/07/19/wildlife-holiday-bucket-list-the-new-big-five-animals-that-travellers-want-to-see",
+   "method": "Explore survey of 2,400 people in 12 countries, July 2026",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Ipsos France favourite animals (partial list, wild only): Dolphin 25%, Tiger 9%, Panda 9%, Lion 8.5%, Turtle 6.5%, Whale, Snake 2.5%",
+   "url": "https://www.ipsos.com/fr-fr/node/263306",
+   "method": "Ipsos France poll, Feb 11-15 2004; page lists only some ranks",
+   "year": 2004,
+   "kind": "people"
+  },
+  {
+   "name": "Buffalo Museum of Science Popular Opinion Wildlife Survey - favorite animal: Cats 36%, Dogs 25%, Monkeys 14%, Lions 13%, Fish 11% (used only as support for Monkey's gut-check move)",
+   "url": "https://christyrupp.com/exhibition-views/popular-opinion-wildlife-survey/survey-results/",
+   "method": "550 museum visitor surveys, Buffalo NY, 2024-25 exhibition; skews young; not in the computed average",
+   "year": 2025,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Tiger|tigers|bengal tiger|siberian tiger|white tiger",
+  "Elephant|elephants|african elephant|asian elephant",
+  "Lion|lions|african lion|lioness",
+  "Giraffe|giraffes|girafe|giraff",
+  "Monkey|monkeys|monkies|spider monkey|capuchin",
+  "Penguin|penguins|emperor penguin|pengiun",
+  "Panda|pandas|giant panda|giant pandas|panda bear",
+  "Polar Bear|polar bears|polarbear",
+  "Gorilla|gorillas|gorrilla|silverback",
+  "Zebra|zebras",
+  "Cheetah|cheetahs|cheeta",
+  "Bear|bears|grizzly bear|grizzly|brown bear|black bear",
+  "Hippo|hippos|hippopotamus|hippopotamuses",
+  "Leopard|leopards|snow leopard",
+  "Kangaroo|kangaroos|roo",
+  "Dolphin|dolphins|bottlenose dolphin",
+  "Koala|koalas|koala bear",
+  "Otter|otters|sea otter|river otter",
+  "Sea Lion|sea lions|seal|seals",
+  "Meerkat|meerkats",
+  "Rhino|rhinos|rhinoceros|rhinoceroses",
+  "Turtle|turtles|tortoise|tortoises|sea turtle",
+  "Jaguar|jaguars",
+  "Red Panda|red pandas"
+ ],
+ "gut_check": [
+  "Lion",
+  "Elephant",
+  "Giraffe",
+  "Tiger",
+  "Panda",
+  "Penguin",
+  "Monkey",
+  "Gorilla",
+  "Zebra",
+  "Polar Bear",
+  "Bear",
+  "Cheetah"
+ ],
+ "changes_vs_current": "Computed order (mean position over 8 people sources; a missing item scores that list's length +5): 1 Tiger, 2 Elephant, 3 Lion, 4 Dolphin, 5 Giraffe, 6 Whale, 7 Penguin, 8 Polar Bear, 9 Panda, 10 Gorilla, 11 Leopard, 12 Cheetah, 13 Otter, 14 Koala, 15 Turtle, 16 Hippo, 17 Seal, 18 Monkey, 19 Zebra, 20 Jaguar, 21 Meerkat, 22 Bear, 23 Red Panda, 24 Snow Leopard, then Wolf, Kangaroo, Snake, Lemur, Parrot, Sea Lion, Rhino, Shark. Topic edits: Whale (#6) dropped because it is not a zoo animal (the board is zoo animals). Dolphin moved from #4 to #16: it is an aquarium/marine animal, and its high marks come from general favorite-animal polls, not zoo polls; it stays on the board because AYTM's zoos-and-aquariums survey has it #2. Seal and Sea Lion merged into one item (Sea Lion, alias seal), placed #19. Snow Leopard is folded into Leopard as an alias instead of being its own item. Gut-check moves: Monkey moved from #18 to #5. It is #1 in the only US zoo must-see poll (AYTM 53%) and 14% in the Buffalo museum survey; its low spot comes from the UK YouGov rating (4/10). Zebra moved from #19 to #10, because it is a classic zoo answer and appears in two sources (YouGov 5, pet-size poll) that never put it low. Bear moved from #22 to #12: AYTM has it 25% (#8) and it is a gut-check item. Kangaroo moved from #26 to #15 because of Explore 2026 (32%, tied with elephant). Hippo moved from #16 to #13 because of Explore search (#2 worldwide). Rhino moved from #31 to #21 as a standard zoo animal (YouGov 3). Leopard (#11 to #14), Koala, Otter, Turtle, Jaguar and Red Panda moved down to make room. Meerkat stays at about #20. Chimpanzee, Wolf, Snake, Snow Leopard (now a Leopard alias), Flamingo and Alligator/Crocodile are the first ones left off.",
+ "confidence": "medium-high for 1-12 (Tiger/Elephant/Lion/Giraffe are consistent across sources; Monkey, Zebra and Bear rest partly on the gut check); low-medium for 13-24. Caveats: no recent US 'favorite zoo animal' poll with a long list exists. Sources mix US, UK and global, and several are old (2004-2015). Ranker and Wikipedia pageview data could not be fetched (401/429).",
+ "no_data_positions": []
+}

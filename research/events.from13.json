@@ -1,0 +1,96 @@
+{
+ "sources": [
+  {
+   "name": "YouGov Ratings, most popular sport events Q2 2026 (positive opinion), top 20: Olympics 67, Paralympics 60, Super Bowl 57, Kentucky Derby 48, NBA Finals 43, Wimbledon 43, Tour de France 38, March Madness 38, FIFA World Cup 37, Indy 500 36, US Open tennis 36, Women's World Cup 34, French Open 32, Masters 31 (leagues NFL/MLB/NHL/NWSL removed; generic 'Olympics' credited to Summer and Winter)",
+   "url": "https://yougov.com/en-us/ratings/sport-events",
+   "method": "YouGov national panel",
+   "year": 2026
+  },
+  {
+   "name": "SponsorLink/Repucom 'can't miss' events, 1,000 US adults (top 10: Super Bowl 73.9, Summer Olympics 62.5, Winter Olympics 62.1, World Series 57.8, CFB championship 54.7 / playoff 53.9, Daytona 500 53.5, NBA Finals 53.2, March Madness 52.2, Kentucky Derby 52.2)",
+   "url": "https://www.nbcsports.com/nascar/news/daytona-500-ranks-among-top-cant-miss-sporting-events-in-survey-of-u-s-sports-fans",
+   "method": "poll of 1,000 US adults, published April 2015",
+   "year": 2015
+  },
+  {
+   "name": "YouGov RealTime excitement poll, 11 US events, 5 published (Super Bowl 29, NBA Finals 19, Final Four 18, Kentucky Derby 15, MLB All-Star Game 14). Masters, Stanley Cup, NFL Draft treated as ranks 6-11",
+   "url": "https://yougov.com/en-us/articles/22770-march-madness-final-four-exciting-event",
+   "method": "YouGov survey",
+   "year": 2019
+  },
+  {
+   "name": "Numerator, plan-to-watch 2026 (Super Bowl 69%, Winter Olympics 58%, FIFA World Cup 26%), only these three events asked",
+   "url": "https://www.numerator.com/press/major-sporting-event-planned-viewership-trending-up-in-2026-69-of-u-s-consumers-plan-to-watch-super-bowl-lx-58-olympic-winter-games-26-fifa-world-cup-numerator-reports/",
+   "method": "survey of 6,971 US consumers, Jan 22 2026",
+   "year": 2026
+  },
+  {
+   "name": "Context only: Nielsen-style 2025 telecasts (PhillyVoice): World Series finale was the 5th most-watched US telecast of 2025; Super Bowl LIX 126.7M; Cricket/Rugby World Cup and other global-reach picks from the first pass are not US preference",
+   "url": "https://www.phillyvoice.com/most-watched-telecasts-2025-super-bowl-eagles-games/",
+   "method": "US viewership",
+   "year": 2025
+  }
+ ],
+ "list": [
+  "Super Bowl",
+  "Summer Olympics|olympics",
+  "Winter Olympics",
+  "NBA Finals",
+  "Kentucky Derby",
+  "March Madness|ncaa tournament",
+  "World Cup Final|world cup|fifa world cup",
+  "Wimbledon",
+  "Tour de France",
+  "Indianapolis 500|indy 500",
+  "World Series",
+  "US Open Tennis|us open",
+  "The Masters",
+  "College Football Playoff|cfp",
+  "Women's World Cup|womens world cup",
+  "Daytona 500",
+  "Stanley Cup Final|stanley cup",
+  "NFL Draft",
+  "Champions League Final|ucl final",
+  "Ryder Cup",
+  "The Open Championship|british open|the open",
+  "Home Run Derby",
+  "Rose Bowl",
+  "Army-Navy Game|army navy"
+ ],
+ "avg_rank": [
+  1.5,
+  1.5,
+  2,
+  4.67,
+  5.5,
+  6.5,
+  8.67,
+  10,
+  10.5,
+  12,
+  12.5,
+  12.5,
+  12.83,
+  13,
+  13,
+  13.5,
+  14.5,
+  14.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5,
+  17.5
+ ],
+ "no_data_positions": [
+  19,
+  20,
+  21,
+  22,
+  23,
+  24
+ ],
+ "changes_vs_current": "Cricket World Cup, Rugby World Cup, Le Mans, Grand National, Polo at Palermo (first pass) removed; Super Bowl/Olympics/Winter Olympics top 3, then NBA Finals, Kentucky Derby, March Madness, World Cup; Masters falls from 4th to 13th, World Series from 6th to 11th, Stanley Cup/NFL Draft stay around 17-18; positions 19-24 are the current-list events with no readable evidence.",
+ "confidence": "low. Only 4 partial US polls (YouGov 2026 top 20, Repucom 2015 top 10, YouGov 2019 top 5, Numerator 3 events); the best viewership compilations (Sportico top 100, Sports Media Watch) were paywalled/unreachable, so no sales/viewership source is in the math. World Series (12.5) is almost certainly understated: YouGov's list does not seem to track it as an item, Repucom has it 4th and it was #5 US telecast of 2025, so a human could slot it around 5th-6th. Wimbledon/Tour de France are inflated by YouGov's fame-heavy positive-opinion measure. Summer Olympics and Super Bowl tie at 1.5 (Super Bowl has 4 sources vs 2). Positions 19-24 are placeholders."
+}

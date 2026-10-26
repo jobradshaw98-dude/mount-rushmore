@@ -1,0 +1,108 @@
+{
+ "topic": {
+  "name": "Theme Parks",
+  "cat": "places",
+  "from": 31
+ },
+ "sources": [
+  {
+   "name": "YouGov Ratings - Tourist Attractions, US, Q3 2026 (fame/popularity). Theme-park entries by fame: Disneyland 98%/60%, Disney World 97%/63%, Magic Kingdom 96%/65%, Sea World 94%/59%, Universal Studios Hollywood 94%/62%, Universal Studios Florida 94%/63%, Six Flags Great Adventure 91%/61%, Hollywood Studios 89%, SeaWorld Orlando 89%, Epcot 88%/58%, Busch Gardens 86%/56%, Animal Kingdom 86%/60%, Six Flags Magic Mountain 86%, Disney California Adventure 86%/50%, Disneyland Paris 78%, Knott's Berry Farm 76%/50%, Legoland California 76%, Hersheypark 72%, Hong Kong Disneyland 69%, Cedar Point 68%/48%, Islands of Adventure 65%, Universal Studios Japan 64%, Tokyo DisneySea 58%, Kings Island 54%, Knoebels 42%, Everland 42%, Lotte World 39% (Dollywood and Silver Dollar City not in the list). Supplemented by YouGov 'amusement, cruise & travel brands' Q3 2026: Universal Studios 96%/66%, Six Flags 94%/62%. Merged item rank (by fame): Disneyland 1, Disney World 2, Universal 3, Six Flags 4, SeaWorld 5, Hollywood Studios 6, Epcot 7, Animal Kingdom 8, Busch Gardens 9, California Adventure 10, Disneyland Paris 11, Knott's 12, Legoland 13, Hersheypark 14, HK Disneyland 15, Cedar Point 16, Islands of Adventure 17, USJ 18, Tokyo Disney 19, Kings Island 20 (23 items).",
+   "url": "https://yougov.com/en-us/ratings/tourist-attractions?sortBy=fame",
+   "method": "YouGov Ratings: continuous online US adult panel, fame = % who have heard of it, popularity = % positive; quarterly average, Q3 2026. All 218 entries read via YouGov's public-data API behind the page; brand list from https://yougov.com/en-us/ratings/amusement-cruise-travel-brands",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "TEA/AECOM Global Experience Index 2024 attendance. North America top 20: Magic Kingdom 17.8M, Disneyland 17.3M, Epcot 12.1M, Hollywood Studios 10.3M, DCA 10.1M, Universal Studios Florida 9.5M, Islands of Adventure 9.5M, Animal Kingdom 8.8M, Universal Studios Hollywood 8.7M, Knott's 4.5M, SeaWorld Orlando 4.4M, SeaWorld San Diego 4.0M, Busch Gardens Tampa 4.0M, Cedar Point 3.8M, Kings Island 3.5M, Six Flags Magic Mountain 3.3M, Canada's Wonderland 3.3M, Dollywood 3.1M, Six Flags Great America 3.1M, Hersheypark 3.0M. Worldwide adds Universal Studios Japan 16.0M, Tokyo Disneyland 15.1M, Shanghai Disneyland 14.7M, Chimelong Ocean Kingdom 12.6M, Tokyo DisneySea 12.4M, Disneyland Paris 10.2M, Universal Beijing 9.8M, Hong Kong Disneyland 7.9M, Europa-Park 6.2M, Efteling 5.6M, Everland 5.6M, Lotte World 5.3M. Merged by item's top park (28 items).",
+   "url": "https://mickeyvisit.com/disney-most-attended-theme-parks-annual-report-october-23-2025/",
+   "method": "Annual estimated gate attendance per park, TEA/AECOM report released Oct 2025 for calendar 2024; NA top 20 from mickeyvisit, worldwide top 25 cross-read at https://en.wikipedia.org/wiki/List_of_amusement_park_rankings and https://parklore.com/vault/peek-extras/attendance-2024/",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Sudoku Bliss 'most popular US theme parks' index (reported by Attractions Magazine, July 2026): 1 Disneyland 95.93 (>1M monthly US searches, 34.8M Instagram hashtags), 2 Magic Kingdom 91.87, 3 Universal Studios Hollywood 91.71 (1.02M monthly searches), 4 Epcot 89.84, 5 Animal Kingdom 88.67, 6 Universal Studios Florida, 7 SeaWorld Orlando, 8 Dollywood 85.78, 9 Hollywood Studios, 10 Cedar Point, 12 Islands of Adventure, 14 Knott's, 15 Silver Dollar City, 16 Busch Gardens Tampa, 18 Legoland California, 19 Six Flags Magic Mountain, 21 Kings Island, 22 Hersheypark, 23 Carowinds, 25 Holiday World, 27 DCA ... Merged item order used (26 items).",
+   "url": "https://attractionsmagazine.com/most-popular-theme-parks-america-ranking-california-tops-florida/",
+   "method": "Index of US parks: 30% average monthly US Google search volume, 25% Instagram hashtags, 40% five-star TripAdvisor reviews, 5% total reviews; min-max normalized. Marketing study, US parks only.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov BrandIndex Buzz among US parents (July 2011): Disneyland/Disney World 28.8, SeaWorld 21.5, Six Flags 21.4, Universal Studios 19.4, Busch Gardens 12.",
+   "url": "https://yougov.com/en-us/articles/1920-amusement-parks-most-buzz",
+   "method": "YouGov BrandIndex daily online panel, parents of children under 18, net 'heard anything positive/negative in last two weeks' Buzz score, July 2011. Old and narrow; used as a light 4th source.",
+   "year": 2011,
+   "kind": "people"
+  },
+  {
+   "name": "AirportParkingReservations.com 2023 theme park index: 1 Walt Disney World, 2 Universal Studios Hollywood, 3 Carowinds, 4 Kings Dominion, 5 Dollywood, 6 Six Flags America, 7 Busch Gardens Williamsburg, 8 Disneyland Resort, 9 Knott's, 10 Cedar Point; 11-20 mostly Six Flags parks.",
+   "url": "https://www.lewistownsentinel.com/life/lifestyles/2023/05/ranking-americas-most-loved-theme-parks-see-who-made-the-list/",
+   "method": "Top 50 most-Googled US parks in 2022, then 10-factor index mixing search/YouTube/Instagram with ticket price, coaster count, capacity. Half park stats, so tie-break only.",
+   "year": 2023,
+   "kind": "critic"
+  },
+  {
+   "name": "NAPHA member survey: favorite theme park 2021 data = three-way tie Busch Gardens Williamsburg / Disneyland / Dollywood; 2023-24 Dollywood first, Disney World second, Disneyland third.",
+   "url": "https://digital-release.newsnationnow.com/?p=1913881",
+   "method": "Annual survey of National Amusement Park Historical Association members (enthusiasts).",
+   "year": 2022,
+   "kind": "critic"
+  },
+  {
+   "name": "Quartz ranking via Men's Journal (July 2025): 1 Walt Disney World, 2 Universal Orlando, 3 Cedar Point, 4 Hersheypark, 5 Knott's, 6 Busch Gardens Tampa, 7 Dollywood, 8 SeaWorld Orlando, 9 Silver Dollar City, 10 Legoland California.",
+   "url": "https://www.yahoo.com/lifestyle/articles/study-reveals-most-beloved-theme-130700741.html",
+   "method": "Editorial composite of guest ratings, attendance, ride quality, storytelling.",
+   "year": 2025,
+   "kind": "critic"
+  },
+  {
+   "name": "Westgate Palace Hotel index (2024): 1 Islands of Adventure 91.1, 2 Magic Kingdom 90.4, 3 DCA 84.2, 4 Cedar Point (355k monthly searches), 5 Silver Dollar City, 6 Animal Kingdom, 7 Universal Studios Hollywood, 8 Disneyland, 9 Dollywood, 10 Typhoon Lagoon.",
+   "url": "https://traveltalkmedia.com.au/new-study-reveals-the-most-popular-us-theme-parks-to-visit-in-2024%C2%A6-or-does-it/",
+   "method": "Hashtags + search volume + TripAdvisor % excellent, TripAdvisor weighted most; commissioned by a hotel at Universal Orlando. Tie-break only.",
+   "year": 2024,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Disney World|walt disney world|disneyworld|wdw|magic kingdom|disney's magic kingdom|walt disney world resort|disney world orlando|disney world florida",
+  "Disneyland|disneyland resort|disneyland california|disneyland anaheim|disney land|disneyland park",
+  "Universal Studios|universal|universal orlando|universal orlando resort|universal studios orlando|universal studios florida|universal studios hollywood|universal studio",
+  "Six Flags|6 flags|sixflags|six flags magic mountain|magic mountain|six flags great adventure|great adventure|six flags over texas|six flags over georgia|six flags great america|six flags fiesta texas",
+  "Epcot|epcot center",
+  "SeaWorld|sea world|seaworld orlando|seaworld san diego|seaworld san antonio",
+  "Busch Gardens|busch garden|busch gardens tampa|busch gardens tampa bay|busch gardens williamsburg",
+  "Cedar Point|cedarpoint|cedar point ohio",
+  "Knott's Berry Farm|knotts berry farm|knott's|knotts|knott’s berry farm|knots berry farm",
+  "Dollywood|dolly wood",
+  "Hersheypark|hershey park|hershey's park|hersheys park|hershey",
+  "Legoland|lego land|legoland california|legoland florida",
+  "Hollywood Studios|disney's hollywood studios|disney hollywood studios|mgm studios|disney-mgm studios|disney mgm studios",
+  "Animal Kingdom|disney's animal kingdom|disney animal kingdom",
+  "Islands of Adventure|universal's islands of adventure|universal islands of adventure|island of adventure|ioa",
+  "California Adventure|disney california adventure|disney's california adventure|dca",
+  "Disneyland Paris|euro disney|euro disneyland|paris disneyland|disneyland paris resort|disney paris",
+  "Universal Studios Japan|usj|universal japan|universal studios osaka",
+  "Tokyo Disney|tokyo disneyland|tokyo disneysea|tokyo disney sea|tokyo disney resort|disneyland tokyo",
+  "Kings Island|king's island|kings islands",
+  "Hong Kong Disneyland|disneyland hong kong|hong kong disney|hk disneyland",
+  "Shanghai Disneyland|shanghai disney|shanghai disney resort|disneyland shanghai",
+  "Silver Dollar City|silver dollar city branson",
+  "Everland|everland resort"
+ ],
+ "gut_check": [
+  "Disney World",
+  "Disneyland",
+  "Universal Studios",
+  "Six Flags",
+  "Cedar Point",
+  "Busch Gardens",
+  "SeaWorld",
+  "Knott's Berry Farm",
+  "Epcot",
+  "Dollywood",
+  "Hersheypark",
+  "Kings Island"
+ ],
+ "changes_vs_current": "Scope decision: answers are what players type, mostly resort/brand level. 'Disney World' covers Walt Disney World and Magic Kingdom (alias); Epcot, Hollywood Studios, Animal Kingdom, California Adventure and Islands of Adventure stay separate items. 'Universal Studios' covers Universal Hollywood/Orlando/Florida; Universal Studios Japan is its own item. Chains (Six Flags, SeaWorld, Busch Gardens, Legoland) are one item with park names as aliases. No bare 'disney' alias; aliases checked for collisions. Computed order (avg position over 4 people sources, missing = list length+5): 1 Disneyland 1.38, 2 Disney World 1.62, 3 Universal Studios 5.75, 4 Epcot 7.25, 5 Hollywood Studios 8.25, 6 SeaWorld 8.75, 7 Animal Kingdom 9.5, 8 Six Flags 12.0, 9 Busch Gardens 12.5, 10 Islands of Adventure 12.75, 11 California Adventure 13.0, 12 Knott's 13.5, 13 Cedar Point 14.75, 14 Disneyland Paris 15.5, 15 Universal Studios Japan 15.75, 16 Tokyo Disney 16.25, 17 Hersheypark 17.5, 18 Kings Island 17.75, 19 Legoland 17.75, 20 Hong Kong Disneyland 18.0, 21 Dollywood 18.25, 22 Shanghai Disneyland 18.75, 23 Chimelong Ocean Kingdom 19.0, 24 Universal Studios Beijing 20.25, 25 Everland 20.5, 27 Silver Dollar City 21.0. Revision 2, after the coordinator's gut check (Disney World, Disneyland, Universal Studios, Six Flags, Cedar Point, SeaWorld, Busch Gardens, Knott's, Dollywood, Hersheypark, Legoland, Epcot). Question checked: does any naming/favorite measure (not fame or attendance) put Cedar Point, Busch Gardens, Knott's or Dollywood below Hollywood Studios, Animal Kingdom, Islands of Adventure and California Adventure? No. None of the sources read is a general-public naming/favorite poll. The sub-parks are lifted only by YouGov fame, TEA per-park attendance and the Sudoku search/hashtag/TripAdvisor index (Animal Kingdom 5, Hollywood Studios 9 vs Cedar Point 10, Islands of Adventure 12, Knott's 14, Busch 16, which is search interest, not naming). The favorite-type sources rate the regional parks high and leave out the sub-parks: NAPHA's favorite park is Dollywood (Busch Gardens Williamsburg tied first in 2021), and Quartz 2025 ranks resorts first, then Cedar Point 3, Hersheypark 4, Knott's 5, Busch 6, Dollywood 7, SeaWorld 8, Legoland 10. So the gut-check rule applies. Moves: (1) Disney World and Disneyland flip to 1 and 2. Disney World has the largest attendance (Magic Kingdom #1 worldwide, plus Epcot/HS/AK under the same resort name), is better liked on YouGov (popularity 63% vs 60%, Magic Kingdom 65%) and is #1 on both gut checks. Disneyland leads only on fame (98 vs 97) and the search index. (2) Six Flags 8 -> 4: both YouGov sources put it 4th (brand fame 94%). Attendance and search sources count only Magic Mountain, which splits a 40-park chain. (3) SeaWorld 6, Busch Gardens 7, Cedar Point 8, Knott's 9, Dollywood 10 (from 6, 9, 13, 12, 21) are moved ahead of the four sub-parks per the gut check; no naming source contradicts it. Cedar Point is above Knott's: both gut checks put it there, and it ranks above Knott's in Sudoku (10 vs 14), Quartz (3 vs 5) and Westgate. Knott's leads only on fame/attendance. (4) Hersheypark 17 -> 11 and Legoland 19 -> 12: both are in the coordinator's gut-check 12. The only sources that place them lower are fame/attendance measures, and Quartz has them at 4 and 10. (5) Hollywood Studios 5 -> 13, Animal Kingdom 7 -> 14, Islands of Adventure 10 -> 15, California Adventure 11 -> 16: kept as separate items but placed after the parks people name on their own, because most people fold them into 'Disney World'/'Universal'/'Disneyland'. Epcot stays at 5 (it is in both gut checks and named on its own). (6) Overseas Disney/Universal parks and Kings Island keep their relative order at 17-21 (Disneyland Paris, USJ, Tokyo Disney, Kings Island, HK Disneyland). Kings Island stays below the top 12 because YouGov fame is 54% and it is TEA NA #15 and Sudoku #21. (7) Chimelong Ocean Kingdom and Universal Studios Beijing are left off: they have attendance data only and are absent from YouGov's 218-entry US attraction list, which does include Everland, Lotte World and Ocean Park. Silver Dollar City (Sudoku #15, Quartz #9, Westgate #5) is #23 and Everland (2 sources) #24. Epic Universe is left off for lack of data. USA Today 10Best could not be fetched and is not cited.",
+ "confidence": "High for 1-4. Medium for 5-12: the order of SeaWorld/Busch/Cedar Point/Knott's/Dollywood/Hersheypark/Legoland follows the gut check plus the critic sources, because no general-public favorite poll exists. Medium-low for 13-24: sub-parks placed by judgment that people fold them into the resort name; overseas parks rank on attendance alone. Caveats: YouGov Buzz source is from 2011; Wikipedia pageviews/Google Trends were rate-limited and not used.",
+ "no_data_positions": []
+}

@@ -1,96 +1,104 @@
 {
+ "from": 31,
  "sources": [
   {
-   "name": "YouGov Ratings, most popular sport events Q2 2026 (positive opinion), top 20: Olympics 67, Paralympics 60, Super Bowl 57, Kentucky Derby 48, NBA Finals 43, Wimbledon 43, Tour de France 38, March Madness 38, FIFA World Cup 37, Indy 500 36, US Open tennis 36, Women's World Cup 34, French Open 32, Masters 31 (leagues NFL/MLB/NHL/NWSL removed; generic 'Olympics' credited to Summer and Winter)",
+   "name": "YouGov Ratings, sport events, Q2 2026 (positive opinion %, from YouGov's public ratings API, 63 entries). Events only (leagues NFL/MLB/NHL/NWSL/UFC/PGA Tour removed), ranks: 1 Olympics 70 (credited to Summer and Winter), 2 Super Bowl 66, 3 Paralympics 59, 4 NBA Finals 55, 5 FIFA World Cup 55, 6 Kentucky Derby 52, 7 College Football Playoff 50, 8 Women's World Cup 48, 9 March Madness 47, 10 US Open tennis 46, 11 Wimbledon 46, 12 Winter X Games 43, 13 Indy 500 43, 14 The Masters 41, 15 Tour de France 40, 16 PGA Championship 40, 17 US Open golf 37, 18 French Open 37, 19 Open Championship 35, 20 Ryder Cup 32, 21 Champions League 30. World Series, Stanley Cup Final, Daytona 500, NFL Draft, Rose Bowl, Army-Navy, All-Star Game and Home Run Derby are not tracked at all.",
    "url": "https://yougov.com/en-us/ratings/sport-events",
-   "method": "YouGov national panel",
-   "year": 2026
+   "method": "YouGov US national panel, rolling quarterly ratings (updated 1 Jul 2026); list cut at 21 events with popularity >= 30%",
+   "year": 2026,
+   "kind": "people"
   },
   {
-   "name": "SponsorLink/Repucom 'can't miss' events, 1,000 US adults (top 10: Super Bowl 73.9, Summer Olympics 62.5, Winter Olympics 62.1, World Series 57.8, CFB championship 54.7 / playoff 53.9, Daytona 500 53.5, NBA Finals 53.2, March Madness 52.2, Kentucky Derby 52.2)",
+   "name": "US TV audience, latest edition (Nielsen averages, compiled from the linked pages): Super Bowl LIX 126.7M (PhillyVoice; LX 125.6M); 2026 World Cup final 62.8M Fox+Telemundo (NBC Sports/PFT); Paris Olympics 30.6M avg (NBCU); CFP title game 30.1M (Wikipedia 2026 CFP NC); Rose Bowl 23.9M (Wikipedia 2026 Rose Bowl); Milan Cortina Winter Olympics 23.5M (WTOP/AP); men's NCAA title game 18.1M (CBS Sports); Kentucky Derby 17.7M (Wikipedia/StreamingMediaBlog); World Series 15.5M series avg (Wikipedia World Series ratings); NFL Draft round 1 13.6M (WBAY/AP); Masters final round 12.7M (Golf.com); NBA Finals 10.27M (Wikipedia NBA Finals ratings); Army-Navy 7.84M (armynavygame.com); Daytona 500 7.49M (Wikipedia 2026 Daytona 500); MLB All-Star Game 7.2M, Indy 500 7.05M, Home Run Derby 5.73M (StreamingMediaBlog); Open Championship final round 4.1M (2025; 4.3M 2026, Front Office Sports); US Open tennis men's final 3.3M (Sports Media Watch); Wimbledon men's final 3.2M (Sports Media Watch); Stanley Cup Final 2.55M (Wikipedia SCF ratings); Women's World Cup 2023 final 2.2M (StreamingMediaBlog; 2019 US final 15.5M).; Ryder Cup Sunday 3.22M (Australian Golf Digest). Rank order 1-23 by viewers.",
+   "url": "https://www.phillyvoice.com/most-watched-telecasts-2025-super-bowl-eagles-games/ ; https://en.wikipedia.org/wiki/World_Series_television_ratings ; https://en.wikipedia.org/wiki/NBA_Finals_television_ratings ; https://en.wikipedia.org/wiki/Stanley_Cup_Final_television_ratings ; https://en.wikipedia.org/wiki/2026_Daytona_500 ; https://en.wikipedia.org/wiki/2025_Kentucky_Derby ; https://en.wikipedia.org/wiki/2025_Indianapolis_500 ; https://en.wikipedia.org/wiki/2026_College_Football_Playoff_National_Championship ; https://en.wikipedia.org/wiki/2026_Rose_Bowl ; https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/more-than-62-million-u-s-viewers-watched-2026-world-cup-final ; https://www.nbcuniversal.com/article/nbcuniversals-presentation-spectacular-paris-olympics-dominates-media-landscape-across-all-platforms ; https://wtop.com/olympics/2026/02/milan-cortina-olympics-were-most-watched-winter-games-since-2014-with-96-more-viewers-than-beijing/ ; https://www.cbssports.com/college-basketball/news/2025-ncaa-tournament-florida-vs-houston-was-most-watched-national-championship-since-2019/ ; https://golf.com/news/rory-masters-win-record-tv-ratings-globe/ ; https://www.wbay.com/2025/04/26/nfl-draft-first-round-averages-136-million-viewers-television-digital-platforms ; https://armynavygame.com/news/2025/12/17/2025-army-navy-game-averaged-784-million-viewers ; https://www.streamingmediablog.com/2025/07/sports-viewing-stats.html ; https://frontofficesports.com/open-championship-final-round-averaged-4-3m-viewers-on-nbc/ ; https://www.sportsmediawatch.com/2025/09/us-open-viewership-most-watched-three-years/ ; https://www.sportsmediawatch.com/2025/07/wimbledon-viewership-highest-six-years-espn/ ; https://streamingmediablog.com/2024/12/fifa-womens-viewership.html ; https://www.australiangolfdigest.com.au/ryder-cup-sunday-tv-ratings-lowest-us-hosted-event-this-century-nbc-but-theres-a-twist/",
+   "method": "Nielsen US average audience for the most recent edition (2025 or 2026); series events use series average, golf uses final round, tennis uses men's final; ranked by viewers",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "SponsorLink/Repucom 'can't miss' events: 1 Super Bowl 73.9%, 2 Summer Olympics 62.5, 3 Winter Olympics 62.1, 4 World Series 57.8, 5 CFP championship 54.7 (playoffs 53.9), 7 Daytona 500 53.5, 8 NBA Finals 53.2, 9-10 March Madness 52.2 / Kentucky Derby 52.2",
    "url": "https://www.nbcsports.com/nascar/news/daytona-500-ranks-among-top-cant-miss-sporting-events-in-survey-of-u-s-sports-fans",
-   "method": "poll of 1,000 US adults, published April 2015",
-   "year": 2015
+   "method": "1,000 US adults 18+, SponsorLink monthly tracker, published Apr 6 2015; top 10 only",
+   "year": 2015,
+   "kind": "people"
   },
   {
-   "name": "YouGov RealTime excitement poll, 11 US events, 5 published (Super Bowl 29, NBA Finals 19, Final Four 18, Kentucky Derby 15, MLB All-Star Game 14). Masters, Stanley Cup, NFL Draft treated as ranks 6-11",
+   "name": "Gallup: event you would most like tickets to, national adults: Super Bowl 34%, World Series 20%, men's college basketball finals 11%, NBA Finals 11%, college football national title game 10%, Stanley Cup Finals 7%",
+   "url": "https://news.gallup.com/poll/2071/super-bowl-ticket-most-coveted-sports-fans.aspx",
+   "method": "CNN/USA Today/Gallup, 1,055 US adults, Jan 15-16 2001; 6 events offered",
+   "year": 2001,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov excitement poll (share of aware adults rating 9-10): Super Bowl 29%, NBA Finals 19%, Final Four 18%, Kentucky Derby 15%, MLB All-Star Game 14% (only top 5 of 11 published)",
    "url": "https://yougov.com/en-us/articles/22770-march-madness-final-four-exciting-event",
-   "method": "YouGov survey",
-   "year": 2019
+   "method": "YouGov RealTime/Omnibus, US adults, published Apr 1 2019",
+   "year": 2019,
+   "kind": "people"
   },
   {
-   "name": "Numerator, plan-to-watch 2026 (Super Bowl 69%, Winter Olympics 58%, FIFA World Cup 26%), only these three events asked",
+   "name": "Deadspin Sports Fans Bucket List Study: 1 Super Bowl, 2 FIFA World Cup, 3 World Series, 4 Olympics, 5 CFP National Championship",
+   "url": "https://deadspin.com/betting/sports-fans-bucket-list",
+   "method": "online survey of 2,000 US sports fans, May 15-17 2025 (fans, not all adults; top 5 published)",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Numerator plan-to-watch 2026: Super Bowl LX 69%, Winter Olympics 58%, FIFA World Cup 26% (only these three asked)",
    "url": "https://www.numerator.com/press/major-sporting-event-planned-viewership-trending-up-in-2026-69-of-u-s-consumers-plan-to-watch-super-bowl-lx-58-olympic-winter-games-26-fifa-world-cup-numerator-reports/",
-   "method": "survey of 6,971 US consumers, Jan 22 2026",
-   "year": 2026
+   "method": "6,971 US consumers (Verified Voices), fielded Jan 22 2026",
+   "year": 2026,
+   "kind": "people"
   },
   {
-   "name": "Context only: Nielsen-style 2025 telecasts (PhillyVoice): World Series finale was the 5th most-watched US telecast of 2025; Super Bowl LIX 126.7M; Cricket/Rugby World Cup and other global-reach picks from the first pass are not US preference",
-   "url": "https://www.phillyvoice.com/most-watched-telecasts-2025-super-bowl-eagles-games/",
-   "method": "US viewership",
-   "year": 2025
+   "name": "Harris Interactive for CouponCabin: best major sporting event: Super Bowl 37%, World Series 9%, NCAA March Madness championship 7%",
+   "url": "https://www.cbsnews.com/detroit/news/survey-1-in-5-adults-would-miss-wedding-funeral-to-attend-super-bowl/",
+   "method": "2,625 US adults, Jan 9-11 2012; only top 3 published",
+   "year": 2012,
+   "kind": "people"
   }
  ],
  "list": [
+  "Super Bowl|superbowl|the super bowl",
+  "Summer Olympics|olympics|the olympics|olympic games|summer games",
+  "World Series|the world series|fall classic|mlb world series",
+  "March Madness|ncaa tournament|final four|ncaa march madness|ncaa basketball tournament",
+  "NBA Finals|nba final|nba championship",
+  "College Football Playoff|cfp|cfp championship|college football national championship|college football championship",
+  "World Cup|fifa world cup|world cup final|men's world cup|mens world cup",
+  "Winter Olympics|winter games|winter olympic games",
+  "Kentucky Derby|the kentucky derby",
+  "The Masters|masters|masters tournament",
+  "Indianapolis 500|indy 500|indy|the indy 500",
+  "Daytona 500|the daytona 500|daytona",
+  "US Open Tennis|us open|u.s. open",
+  "Wimbledon",
+  "Stanley Cup Final|stanley cup|stanley cup finals|nhl finals",
+  "Rose Bowl|the rose bowl|rose bowl game",
+  "Women's World Cup|womens world cup|fifa women's world cup|women's world cup final",
+  "NFL Draft|the nfl draft",
+  "MLB All-Star Game|all-star game|all star game|mlb all star game",
+  "The Open Championship|british open|the open|open championship",
+  "Army-Navy Game|army navy|army-navy|army vs navy|army navy game",
+  "Ryder Cup|the ryder cup",
+  "Home Run Derby|hr derby|the home run derby",
+  "Tour de France|the tour de france"
+ ],
+ "gut_check": [
   "Super Bowl",
-  "Summer Olympics|olympics",
-  "Winter Olympics",
+  "World Series",
+  "March Madness",
+  "Summer Olympics",
   "NBA Finals",
   "Kentucky Derby",
-  "March Madness|ncaa tournament",
-  "World Cup Final|world cup|fifa world cup",
-  "Wimbledon",
-  "Tour de France",
-  "Indianapolis 500|indy 500",
-  "World Series",
-  "US Open Tennis|us open",
-  "The Masters",
-  "College Football Playoff|cfp",
-  "Women's World Cup|womens world cup",
+  "World Cup",
+  "Winter Olympics",
+  "Stanley Cup Final",
   "Daytona 500",
-  "Stanley Cup Final|stanley cup",
-  "NFL Draft",
-  "Champions League Final|ucl final",
-  "Ryder Cup",
-  "The Open Championship|british open|the open",
-  "Home Run Derby",
-  "Rose Bowl",
-  "Army-Navy Game|army navy"
+  "The Masters",
+  "Indianapolis 500"
  ],
- "avg_rank": [
-  1.5,
-  1.5,
-  2,
-  4.67,
-  5.5,
-  6.5,
-  8.67,
-  10,
-  10.5,
-  12,
-  12.5,
-  12.5,
-  12.83,
-  13,
-  13,
-  13.5,
-  14.5,
-  14.5,
-  17.5,
-  17.5,
-  17.5,
-  17.5,
-  17.5,
-  17.5
- ],
- "no_data_positions": [
-  19,
-  20,
-  21,
-  22,
-  23,
-  24
- ],
- "changes_vs_current": "Cricket World Cup, Rugby World Cup, Le Mans, Grand National, Polo at Palermo (first pass) removed; Super Bowl/Olympics/Winter Olympics top 3, then NBA Finals, Kentucky Derby, March Madness, World Cup; Masters falls from 4th to 13th, World Series from 6th to 11th, Stanley Cup/NFL Draft stay around 17-18; positions 19-24 are the current-list events with no readable evidence.",
- "confidence": "low. Only 4 partial US polls (YouGov 2026 top 20, Repucom 2015 top 10, YouGov 2019 top 5, Numerator 3 events); the best viewership compilations (Sportico top 100, Sports Media Watch) were paywalled/unreachable, so no sales/viewership source is in the math. World Series (12.5) is almost certainly understated: YouGov's list does not seem to track it as an item, Repucom has it 4th and it was #5 US telecast of 2025, so a human could slot it around 5th-6th. Wimbledon/Tour de France are inflated by YouGov's fame-heavy positive-opinion measure. Summer Olympics and Super Bowl tie at 1.5 (Super Bowl has 4 sources vs 2). Positions 19-24 are placeholders."
+ "changes_vs_current": "Computed order (average rank over 8 people sources; missing = that source's list length + 5): 1 Super Bowl 1.12, 2 Winter Olympics 5.62, 3 Summer Olympics 5.88, 4 College Football Playoff 6.50, 5 March Madness 6.62, 6 NBA Finals 6.94, 7 World Cup 7.00, 8 World Series 8.00, 9 Kentucky Derby 8.06, 10 Masters 10.88, 11 Indy 500 11.38, 12 US Open tennis 11.38, 13 Women's World Cup 11.62, 14 Rose Bowl 11.62, 15 Daytona 500 11.75, 16 Wimbledon 11.75, 17 MLB All-Star Game 12.25, 18 NFL Draft 12.25, 19 Open Championship 12.38, 20 Army-Navy 12.62, 21 Ryder Cup 12.75, 22 Stanley Cup Final 13.12, 23 Home Run Derby 13.12, 24 Tour de France 13.12; next out: PGA Championship 13.25, US Open golf 13.38, French Open 13.5, Champions League Final 13.88. Gut-check / judgment moves on that order: (a) World Series 8 -> 3: gut #2; Gallup 2001 #2, Harris 2012 #2, Deadspin 2025 #3, Repucom #4, TV #9 (15.5M series avg, Game 7 ~26M, #5 US telecast of 2025); its average is dragged only because YouGov Ratings does not track it at all (penalty 26). Without that untracked penalty it averages ~5.4. (b) Winter Olympics 2 -> 8: its #2 comes from Numerator, a 3-event poll fielded two weeks before Milan Cortina, and from YouGov's generic 'Olympics' entry credited to both Games; a typical adult names 'the Olympics' once (alias on Summer Olympics), so Winter is a second-tier answer; still top 10 (23.5M viewers, Repucom #3). (c) College Football Playoff 4 -> 6 and World Cup 7 -> 7, March Madness 5 -> 4, NBA Finals 6 -> 5: small reshuffle to make room for World Series; CFP is not in the gut 12 but has 5 sources (30.1M title game), so it stays top 6. (d) Daytona 500 15 -> 12: gut #10, Repucom #7 can't-miss, 7.5M viewers; no source puts it below 14. (e) Stanley Cup Final 22 -> 15: gut #9 as one of the four major-league finals; Gallup lists it (6th of 6, 7%) and TV is weak (2.55M, 22nd), so it is only lifted to the middle, not to its gut slot; YouGov does not track it. (f) US Open tennis 12 -> 13, Wimbledon 16 -> 14, Rose Bowl 14 -> 16, Women's World Cup 13 -> 17, MLB All-Star 17 -> 19, Open Championship 19 -> 20, Army-Navy 20 -> 21, Ryder Cup 21 -> 22: one-to-four-spot shifts to absorb the moves above (Women's World Cup drops because its last final drew 2.2M US viewers without the USWNT). Moves vs the current list: Super Bowl 1 = 1. Summer Olympics 2 = 2 (generic 'olympics' alias kept here). World Series 11 -> 3 (see a). March Madness 6 -> 4 (YouGov 2019 #3, Gallup #3, Harris #3, 18.1M title game, YouGov Ratings #9). NBA Finals 4 -> 5 (fell behind World Series; 10.3M viewers in 2025). College Football Playoff 14 -> 6 (new evidence: YouGov Ratings now lists it #7 event at 50%, 30.1M title-game viewers, Repucom #5, Gallup #5, Deadspin #5). World Cup Final 7 -> 7, relabelled 'World Cup' (people say 'the World Cup'; 'world cup final' kept as alias; 2026 final drew 62.8M US viewers, YouGov #5). Winter Olympics 3 -> 8 (see b). Kentucky Derby 5 -> 9 (still strong: 17.7M viewers, YouGov #6, but behind the events above on average). The Masters 13 -> 10 (12.7M final round, YouGov #14). Indianapolis 500 10 -> 11. Daytona 500 16 -> 12 (see d). US Open Tennis 12 -> 13. Wimbledon 8 -> 14 (the old #8 rested on YouGov fame; US audience only 3.2M for the men's final). Stanley Cup Final 17 -> 15 (see e). Rose Bowl 23 -> 16 (now has data: 23.9M as a CFP quarterfinal). Women's World Cup 15 -> 17. NFL Draft 18 -> 18 (13.6M round-1 viewers). MLB All-Star Game NEW at 19 (YouGov 2019 excitement #5 at 14%, 7.2M viewers); it replaces Champions League Final (was 19), which has no US people source above YouGov's #21 slot and computes 28th. The Open Championship 21 -> 20 (4.1M final round, YouGov #19). Army-Navy Game 24 -> 21 (7.84M viewers). Ryder Cup 20 -> 22. Home Run Derby 22 -> 23 (5.73M viewers). Tour de France 9 -> 24 (YouGov popularity 40% only; no measurable US audience, fame-driven). Aliases: 'us open' stays only with tennis (no US Open golf entry on the board); 'world cup' is the men's label and the women's entry uses only 'women's/womens' forms; 'olympics' only on Summer Olympics; dropped 'ucl final' with Champions League; no bare 'derby', 'finals' or 'national championship' aliases because they would match several items.",
+ "confidence": "High for 1-9 (Super Bowl, Olympics, World Series, March Madness, NBA Finals, CFP, World Cup, Winter Olympics, Kentucky Derby: each has 4-8 people sources). Medium for 10-16. Low-medium for 17-24, which mostly rest on two sources (YouGov Ratings + US TV audience) and are close together (averages 11.6-13.1), so their exact order is soft. Caveats: no source asks adults to name events unprompted; the polls are partial (several publish only top 3-10) and three are old (2001, 2012, 2015); YouGov Ratings does not track World Series, Stanley Cup, Daytona 500, NFL Draft, Rose Bowl, Army-Navy or the All-Star events, which biases the raw average against them; Google search interest could not be fetched. The World Series move to #3 and the Winter Olympics drop to #8 are judgment calls supported by the polls but not by the raw average.",
+ "no_data_positions": []
 }
