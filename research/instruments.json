@@ -1,0 +1,101 @@
+{
+ "topic": {
+  "name": "Musical Instruments",
+  "cat": "music",
+  "from": 31
+ },
+ "sources": [
+  {
+   "name": "YouGov US 'Musical Instrument Experiences' Q1 - instruments ever learned to play: Piano 29%, Guitar 18%, Drums 10%, Recorder 10%, Electric piano 9%, Flute 9%, Clarinet 9%, Electric guitar 8%, Violin 8%, Trumpet 7%, Harmonica 6%, Saxophone 5%, Electric bass 4% (+Bass 3%), Ukulele 4%, Viola 3%, Trombone 3%, Cello 2%, Banjo 2%, Harp 1%",
+   "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/toplines_Musical_Instrument_Experiences.pdf",
+   "method": "YouGov opt-in online panel, 3,000 US adult citizens, June 2 - July 4 2022; multi-select of 20 instruments (toplines PDF linked from yougov.com/en-us/articles/43514). Electric bass+bass merged into Bass Guitar; electric piano mapped to Keyboard.",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov US same survey Q7 - instrument most wish they knew how to play (non-players who wish they had): Piano 47%, Guitar 22%, Drums 8%, Electric guitar 7%, Violin 2%, Saxophone 2%, Banjo 2%, Bass+Electric bass 2%; 1% each: electric piano, flute, trumpet, harmonica, ukulele, harp, cello; 0%: viola, clarinet, trombone, recorder",
+   "url": "https://yougov.com/en-us/articles/43512-young-americans-increasingly-exposed-music",
+   "method": "Same 3,000-adult YouGov 2022 survey; single choice asked of the 17% who never learned but wish they had. Figures read from the toplines PDF and the article (47/22/8).",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "OnePoll for Guitar Center - most popular instruments to play: Piano/Keyboard 27%, Acoustic guitar 20%, Violin 19%, Electric guitar 18%, Drums 18%, (Voice 18%), Saxophone 17%, (DJ equipment 16%), Trumpet 16%, Bass 16%",
+   "url": "https://spokesman-recorder.com/2022/06/22/note-worthy-a-poll-has-revealed-the-top-ten-most-popular-instruments-to-play/",
+   "method": "OnePoll online survey of 2,000 Americans (1,200 who have played an instrument), June 2022; top 10 reported. Voice and DJ equipment dropped as non-instruments.",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "OnePoll for Guitar Center - instruments parents want kids to learn: Piano 18%, Drums 17%, Violin 16%, Electric guitar 15%, Acoustic guitar 14%, Trumpet 14%, Flute 13%, (Percussion 13%, Vocals 13%), Saxophone 13%",
+   "url": "https://spokesman-recorder.com/2022/06/22/note-worthy-a-poll-has-revealed-the-top-ten-most-popular-instruments-to-play/",
+   "method": "Same OnePoll 2,000-American sample, current and would-be parents; top 10 reported (corroborated by Guitar Center release at clynemedia.com: piano 18, drums 17, violin 16, kids want electric guitar 22%).",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "60 Minutes/Vanity Fair poll - sexiest instrument to play: Guitar 26%, Saxophone 25%, Piano 21%, Violin 14%, Drums 7%, Flute 5%",
+   "url": "https://www.cbsnews.com/news/whats-the-sexiest-instrument-to-play",
+   "method": "CBS News 60 Minutes/Vanity Fair national phone poll of ~1,017 US adults, 2014; single choice from 6 instruments.",
+   "year": 2014,
+   "kind": "people"
+  },
+  {
+   "name": "US search volume for instruments (Ronald Sachs Violin analysis via Hypebot): Guitar 246K, Piano 246K, Saxophone 110K, Ukulele 110K, Violin 110K, Trumpet 90.5K, Harp 74K, Flute 60.5K, Accordion 60.5K, Drums 40.5K",
+   "url": "https://www.hypebot.com/most-popular-music-instruments-to-learn-in-the-us/",
+   "method": "Keyword search-volume ranking of instruments in the US, published July 2024; methodology/tool not stated (drums likely undercounted vs 'drum set' queries).",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "English Wikipedia 2025 pageviews (user agents, full year): Piano 448K, Guitar 402K, Ukulele 382K, Saxophone 340K, Drums (Drum kit+Drum) 296K, Mandolin 296K, Violin 292K, Accordion 284K, Banjo 272K, Cello 263K, Flute 246K, Electric guitar 240K, Trumpet 234K, Bagpipes 232K, Bass guitar 228K, Clarinet 202K, Recorder 182K, Viola 180K, Harmonica 178K, Trombone 168K, Harp 166K, Tuba 159K, Xylophone 152K, Organ 129K, Keyboard (Electronic keyboard) 36K; curiosity items like Theremin 575K, Double bass 321K, Didgeridoo 239K, Harpsichord 237K also high",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Piano/monthly/2025010100/2025123100",
+   "method": "Wikimedia REST pageviews API, per-article monthly totals Jan-Dec 2025, ~50 instrument articles queried; global English readership, a fame/curiosity proxy, used mainly for the tail.",
+   "year": 2025,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Piano|pianos|grand piano|acoustic piano|pianoforte|paino",
+  "Guitar|guitars|acoustic guitar|acoustic|guiter|gitar",
+  "Drums|drum|drum set|drum kit|drumset|drumkit|snare drum",
+  "Violin|violins|fiddle|violen",
+  "Saxophone|sax|saxophones|saxaphone|alto sax|tenor sax|alto saxophone",
+  "Electric Guitar|electric guitars|electric|e-guitar|elecric guitar",
+  "Flute|flutes|piccolo",
+  "Trumpet|trumpets|trumpit|cornet",
+  "Ukulele|uke|ukelele|ukuleles|ukalele",
+  "Bass Guitar|bass|electric bass|bass guitars|upright bass|double bass|base guitar",
+  "Banjo|banjos",
+  "Cello|cellos|violoncello|chello",
+  "Clarinet|clarinets|clarinette",
+  "Harmonica|harmonicas|mouth organ",
+  "Harp|harps",
+  "Trombone|trombones",
+  "Recorder|recorders",
+  "Accordion|accordian|accordions|squeezebox",
+  "Keyboard|keyboards|electric piano|digital piano|keys|synthesizer|synth",
+  "Tuba|tubas|sousaphone",
+  "Viola|violas",
+  "Mandolin|mandolins|mandoline",
+  "Xylophone|xylophones|zylophone|xilophone",
+  "Bagpipes|bagpipe|bag pipes"
+ ],
+ "gut_check": [
+  "Guitar",
+  "Piano",
+  "Drums",
+  "Violin",
+  "Saxophone",
+  "Trumpet",
+  "Flute",
+  "Bass Guitar",
+  "Cello",
+  "Clarinet",
+  "Harmonica",
+  "Ukulele"
+ ],
+ "changes_vs_current": "New list. Computed order = average rank across 7 people sources (missing = list length + 5): Piano 1.50, Guitar 2.43, Drums 5.14, Violin 5.43, Saxophone 6.29, Electric Guitar 8.86, Flute 9.43, Trumpet 10.07, Ukulele 10.14, Bass Guitar 11.93, Banjo 12.43, Cello 13.36, Clarinet 14.36, then Theremin 14.43 (Wikipedia-only), Recorder 14.57, Accordion 14.79, Double Bass 15.14 (Wiki-only), Mandolin 15.29 (Wiki-only), Harmonica 15.43, Harp 15.57, Synthesizer 16.29, Viola 16.57, Didgeridoo/Harpsichord ~16.6 (Wiki-only), Keyboard 16.86, Trombone 16.86, Bagpipes 17.0, ... Tuba 19.43, Xylophone 19.57. Piano stays #1 over Guitar: it leads 4 of 7 sources (YouGov learned 29% vs 18%, YouGov wish 47% vs 22%, both OnePoll lists); acoustic and electric guitar kept separate because YouGov and OnePoll measure them separately (alias 'guitar' only on Guitar, 'electric' only on Electric Guitar, 'bass' only on Bass Guitar). Gut-check moves: Harmonica computed #19 -> #14 (YouGov learned 6% ranks it #12 and wish 1% ties it with ukulele/cello; only Wikipedia pageviews put it low; it is a classic free-recall instrument). Clarinet stays #13 (just below the gut 12; YouGov wish 0% and Wikipedia put it lower). All other gut-check items land in the top 12. Tail judgments: Wikipedia-only curiosity items (Theremin, Didgeridoo, Harpsichord, Lute, Sitar, Synthesizer) dropped; global reading curiosity is not what a typical US adult names, and none appears in any poll; synth folded into Keyboard as alias, double/upright bass folded into Bass Guitar as aliases (YouGov 'Bass' 3% was merged too). Harp moved to #15 (4 sources incl. search 74K). Trombone #26 -> #16 and Keyboard #25 -> #19 (each in 3 sources: YouGov learned 3% / 9% electric piano; famous band/home instruments). Recorder #17, Accordion #18 per data. Tuba (#37 -> #20) and Xylophone (#38 -> #23) brought in over Wiki-only Double Bass/Mandolin on gut recall (school band/children's instruments), each backed by Wikipedia pageviews (159K, 152K). Viola #21, Mandolin #22 (296K pageviews, Wiki-only), Bagpipes #24 (232K pageviews, Wiki-only).",
+ "confidence": "High for 1-5 (Piano, Guitar, Drums, Violin, Saxophone backed by 7 sources); medium for 6-14; low-medium for 15-24, where ordering leans on YouGov's ever-learned list plus Wikipedia pageviews and judgment. Caveats: Piano vs Guitar at #1 is close in spirit (guitar wins sexiest and ties search); polls 2014-2022; no Ranker data (blocked); Wikipedia is global and curiosity-skewed so it was not followed strictly in the tail.",
+ "no_data_positions": []
+}

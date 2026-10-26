@@ -1,91 +1,97 @@
 {
+ "from": 31,
  "sources": [
   {
-   "name": "YouGov favorite-day-of-the-year poll, 21 holidays ranked by % naming each favorite (via Visual Capitalist)",
-   "url": "https://www.visualcapitalist.com/ranked-americas-favorite-holidays/",
-   "method": "YouGov, 1,000 US adults, Feb 2-6 2024 (poll page: https://yougov.com/en-us/articles/48626-which-holidays-do-americans-enjoy-most-and-least)",
-   "year": 2024
+   "name": "YouGov 'favorite day of the year' poll, 21 holidays (co-favorites allowed): Christmas 36, Thanksgiving 23, Halloween 15, Easter 13, Mother's Day 13, New Year's Day 12, New Year's Eve 12, Fourth of July 12, Valentine's 8, Father's Day 8, Memorial Day 7, Veterans Day 6, Super Bowl Sunday 6, Labor Day 5, MLK Day 4, Election Day 4, Earth Day 4, Juneteenth 3, St Patrick's 3, Columbus/Indigenous Peoples' 3, Presidents' Day 3",
+   "url": "https://mindfullyamerican.com/americas-21-most-beloved-and-detested-holidays/",
+   "method": "YouGov, 1,000 US adult citizens, Feb 2-6 2024 (original write-up https://yougov.com/en-us/articles/48626-which-holidays-do-americans-enjoy-most-and-least; same figures also on nchstats.com and YouGov's X post). Ranked by % naming favorite, ties averaged; NYE and NYD merged into one item.",
+   "year": 2024,
+   "kind": "people"
   },
   {
-   "name": "YouGov tracking poll, % who like each holiday (14 usable holidays incl. Easter 65, St Patrick's 59, Valentine's 54, Hanukkah 51; July 4 not in the table as reported)",
-   "url": "https://research.lifeway.com/2021/12/17/christmas-no-longer-tops-americans-nice-list-for-holidays/",
-   "method": "YouGov tracking poll as reported by Lifeway Research, Dec 2021 (no sample size published)",
-   "year": 2021
+   "name": "YouGov Ratings, national & religious events, popularity (% positive opinion) / fame: Thanksgiving 81, Mother's Day 80, Veterans Day 77, Christmas 77, Memorial Day 75, Halloween 72, New Year's Eve 72, Father's Day 71, Independence Day 70, MLK Day 69, Easter 69, St Patrick's 67, Labor Day 66, Cinco de Mayo 65, Presidents' Day 59, Valentine's 58, Juneteenth 57, Good Friday 57, April Fools' 55, Mardi Gras 54, Hanukkah 52, Passover 49, Rosh Hashanah/Yom Kippur 41, Ramadan 36, Diwali 32 (fame 58), Eid al-Adha 21",
+   "url": "https://yougov.com/en-us/ratings/national-religious-events",
+   "method": "YouGov Ratings continuous daily survey of US adults, Q3 2026 averages; all 30 entries read from the page and its public-data API; Black History Month, Black Friday, Cyber Monday and D-Day excluded as non-holidays. Fixes the July 4 gap of the old like% table (Independence Day 70%, rank 9).",
+   "year": 2026,
+   "kind": "people"
   },
   {
-   "name": "Harris Poll favorite holiday: Christmas 46, Thanksgiving 19, Halloween 9, Fourth of July 5, Easter 3 (top 5)",
+   "name": "Harris Poll favorite holiday: Christmas 46, Thanksgiving 19, Halloween 9, Independence Day 5, Easter 3, New Year's 2",
    "url": "https://kpel965.com/americas-favorite-holiday",
-   "method": "Harris poll of US adults, favorite holiday, top 5 only",
-   "year": 2015
+   "method": "Harris Poll of US adults, reported Nov 25 2015; only the top 6 published",
+   "year": 2015,
+   "kind": "people"
   },
   {
-   "name": "NRF / Prosper Insights share of Americans celebrating each holiday (9 holidays; Thanksgiving was not in the table)",
+   "name": "NRF / Prosper Insights share of Americans celebrating: Christmas 93.4, 4th of July 87.2, Mother's Day 83.8, Easter 80.7, Super Bowl 76.9, Father's Day 75.3, Halloween 73.1, St Patrick's 61.9, Valentine's 52.0 (no Thanksgiving); Thanksgiving gap filled with YouGov Nov 2025: 86% plan to celebrate Thanksgiving -> slotted 3rd",
    "url": "https://spiegel.medill.northwestern.edu/what-moms-and-shoppers-want-in-2025/",
-   "method": "Participation rate (Christmas 93.4, July 4 87.2, Mother's Day 83.8, Easter 80.7, Super Bowl 76.9, Father's Day 75.3, Halloween 73.1, St Patrick's 61.9, Valentine's 52.0). Measures celebrating, not loving.",
-   "year": 2025
+   "method": "Prosper Insights & Analytics monthly online survey, April 2025, n=7,948 (participation, not love). Thanksgiving figure from YouGov, 1,120 US adult citizens, Nov 14-17 2025 (https://yougov.com/en-us/articles/53469-thanksgiving-2025-what-americans-will-cook-eat-and-debate-at-the-table-this-year); cross-survey imputation.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "English Wikipedia pageviews 2025 (search-interest proxy): Juneteenth 3.76M, Super Bowl 2.67M, Diwali 2.54M, Valentine's 1.93M, Ramadan 1.81M, Halloween 1.78M, St Patrick's 1.71M, Memorial Day 1.50M, Mother's Day 1.39M, Easter 1.39M, Christmas 1.34M, Independence Day 1.34M, Good Friday 1.31M, Labor Day 1.26M, Mardi Gras 1.15M, Hanukkah 1.15M, New Year's Eve+Day 1.14M, Cinco de Mayo 1.14M, Father's Day 1.09M, Chinese New Year 1.08M, April Fools' 1.06M, Kwanzaa 1.03M, Thanksgiving 0.84M, MLK Day 0.83M, Passover 0.80M, Columbus Day 0.73M, Groundhog Day 0.73M, Veterans Day 0.62M, Earth Day 0.51M, Presidents' Day 0.46M, Election Day 0.19M",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Kwanzaa/monthly/2025010100/2025123100",
+   "method": "Wikimedia REST pageviews API, user agents, all access, Jan-Dec 2025, one article per holiday (URL shown for Kwanzaa; same pattern for each). Global English readers; measures lookups, so it under-counts holidays nobody needs to look up (Christmas, Thanksgiving) and over-counts Diwali/Ramadan/Juneteenth. Used in the average, but it is the main reason for gut-check moves.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov like% tracker via Lifeway (Thanksgiving 80, Christmas 77, Memorial 76, Mother's 76, Veterans 75, MLK 70, Father's 70, Halloween 69, Labor 68, Easter 68, St Patrick's 65, Valentine's 57, Hanukkah 53; no July 4). Not averaged: same YouGov Ratings instrument as the 2026 source, older",
+   "url": "https://research.lifeway.com/2023/12/12/christmas-no-longer-most-popular-holiday-in-america/",
+   "method": "YouGov Ratings tracker as reported by Lifeway Research, Dec 2023",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "Monmouth holiday celebration: Christmas 94, Hanukkah 6, Kwanzaa 3. Tie-break context for the December holidays only",
+   "url": "https://www.monmouth.edu/polling-institute/reports/monmouthpoll_us_121715/",
+   "method": "Monmouth University phone poll, 1,006 US adults, Dec 10-13 2015",
+   "year": 2015,
+   "kind": "people"
   }
  ],
  "list": [
-  "Christmas|xmas",
-  "Thanksgiving",
-  "Mother's Day",
-  "Halloween",
-  "Easter",
-  "Fourth of July|july 4th|4th of july|independence day",
-  "Father's Day",
+  "Christmas|xmas|christmas day",
+  "Thanksgiving|thanksgiving day|turkey day",
+  "Halloween|hallowe'en",
+  "Fourth of July|july 4th|4th of july|independence day|july 4|july fourth",
+  "Easter|easter sunday",
+  "Mother's Day|mothers day|mother day",
+  "New Year's Eve|nye|new years|new year's|new years eve|new year's day|new years day|new year",
+  "Valentine's Day|valentines|valentines day|valentine's|valentine day",
+  "Father's Day|fathers day|father day",
   "Memorial Day",
-  "New Year's Eve|nye|new years",
-  "Valentine's Day|valentines",
-  "Veterans Day",
-  "Labor Day",
-  "MLK Day|martin luther king day",
+  "St. Patrick's Day|saint patricks day|st paddys|st patricks day|saint patrick's day|st paddy's day|st patty's day|st pattys day|st. patrick's",
+  "Labor Day|labour day",
+  "Veterans Day|veteran's day|veterans' day",
   "Super Bowl Sunday|super bowl",
-  "St. Patrick's Day|saint patricks day|st paddys",
+  "MLK Day|martin luther king day|martin luther king jr day|mlk",
   "Juneteenth",
-  "Hanukkah|chanukah",
-  "Lunar New Year|chinese new year",
-  "Diwali",
   "Cinco de Mayo",
-  "Mardi Gras",
-  "Kwanzaa",
-  "April Fools' Day|april fools",
-  "Groundhog Day"
+  "Hanukkah|chanukah|hanukah",
+  "Mardi Gras|fat tuesday",
+  "Presidents' Day|presidents day|president's day|washington's birthday",
+  "April Fools' Day|april fools|april fools day|april fool's day",
+  "Passover|pesach",
+  "Diwali|deepavali",
+  "Earth Day"
  ],
- "avg_rank": [
-  1.25,
-  4.75,
-  5.5,
-  5.75,
-  6,
-  8.25,
-  8.5,
-  9.5,
-  9.75,
-  10.25,
-  10.25,
-  11.25,
-  11.25,
-  11.75,
-  12.25,
-  15.25,
-  16,
-  17.25,
-  17.25,
-  17.25,
-  17.25,
-  17.25,
-  17.25,
-  17.25
+ "gut_check": [
+  "Christmas",
+  "Thanksgiving",
+  "Halloween",
+  "Fourth of July",
+  "Easter",
+  "New Year's Eve",
+  "Valentine's Day",
+  "St. Patrick's Day",
+  "Mother's Day",
+  "Memorial Day",
+  "Labor Day",
+  "Father's Day"
  ],
- "no_data_positions": [
-  18,
-  19,
-  20,
-  21,
-  22,
-  23,
-  24
- ],
- "changes_vs_current": "Mother's Day 11 to 3, Halloween stays 3 to 4, Fourth of July 4 to 6 (was dropped to 10 in first pass; now 6 after adding a source that includes it), Easter 6 to 5, Father's Day 14 to 7, Memorial Day 12 to 8, Valentine's 7 to 10, Veterans Day 21 to 11 (no longer above July 4), MLK 22 to 13, Super Bowl 9 to 14, St Patrick's 8 to 15, Juneteenth 19 to 16, Hanukkah 10 to 17; Lunar New Year onward (18-24) have no evidence and keep the current order.",
- "confidence": "medium for 1-15, low for 16-17, none for 18-24. Top 5 is stable across all 4 sources. Caveats: (1) YouGov 'like %' favors civic/family holidays (Memorial, Veterans, MLK, Labor) and omitted July 4 and Thanksgiving's counterpart gaps are penalized mechanically; Fourth of July is 2nd in participation and 8th in the 2024 'favorite' poll and 4th in Harris, so rank 6 is probably fair, could be 4-6. (2) The NRF source measures participation and lacks Thanksgiving (penalized 14, so Thanksgiving could be 1-2 points better). (3) Harris 2015 is old. Mother's Day at 3 comes mostly from the YouGov like% and NRF measures; in the pure 'favorite' polls (YouGov 2024, Harris) Halloween and Easter are ahead of it."
+ "changes_vs_current": "COMPUTED ORDER (average position over 5 people sources: YouGov favorite-day 2024, YouGov Ratings Q3 2026, Harris 2015, NRF/Prosper 2025 participation with Thanksgiving imputed 3rd from YouGov's 86%, Wikipedia pageviews 2025; missing = list length + 5): Christmas 3.5, Halloween 5.1, Mother's Day 5.9, Thanksgiving 6.2, Fourth of July 6.7, Easter 6.8, Memorial Day 9.6, Valentine's 9.7, New Year's 10.0, Father's Day 10.5, St Patrick's 11.3, Super Bowl 12.1, Juneteenth 12.4, Labor Day 13.0, Veterans Day 13.6, MLK 14.9, Diwali 15.6, Ramadan 15.8, Good Friday 16.1, Cinco de Mayo 16.4, Mardi Gras 17.0, Hanukkah 17.4, Presidents' Day 17.7, April Fools' 18.0, Passover 19.4, Earth Day 20.0, Columbus Day 20.1, Lunar New Year 20.2, Election Day 20.4, Kwanzaa 20.6, Groundhog Day 21.6. Polls-only average (without pageviews): Christmas 1.6, Thanksgiving 4.8, Halloween 4.9, Mother's Day 5.1, July 4 5.4, Easter 6.0, New Year's 8.3, Father's 8.4, Memorial 10.0, Veterans 10.0, Valentine's 11.1, St Patrick's 12.4, MLK 12.6, Labor 12.8, Super Bowl 14.6, Presidents' 14.6, Juneteenth 15.3, Cinco 16.0. EXCLUSIONS: Good Friday (part of Easter weekend; people name Easter), Ramadan (month-long fast; ranks high only from global Wikipedia lookups; YouGov US popularity 36%), Election Day (not a celebration; among YouGov's most-disliked days), Black Friday/Cyber Monday/Black History Month/D-Day (not holidays). No birthday-style items. New Year's Eve and New Year's Day merged into one item (YouGov 2024 tied them at 12%; players type 'new years'). GUT-CHECK MOVES: Thanksgiving 4->2 (#2 in both favorite polls, #1 in YouGov Ratings; it trails only because pageviews under-count holidays nobody looks up). Fourth of July 5->4 (gut check; #4 Harris, #2 NRF participation, polls-only 5.4 is close to Mother's Day's 5.1). Mother's Day 3->6 (its strength is like%/participation; in the two pure favorite polls it is 4.5th and absent from Harris's top 6, behind Halloween, Easter and July 4). Easter stays 5. New Year's 9->7 (gut check; polls-only 7th; pulled down by pageviews and by missing from NRF). Valentine's 8 kept. Father's Day 10->9 and Memorial Day 7->10 (polls-only order). St Patrick's 11 kept (gut check). Labor Day 14->12 (gut check; ahead of Super Bowl and Juneteenth in YouGov Ratings and YouGov 2024; Juneteenth's lead is only pageviews). Veterans Day 15->13 (YouGov Ratings 77% popularity, 6% favorite). Super Bowl 12->14 (not a holiday in YouGov Ratings; strong on NRF and pageviews). MLK 16->15, Juneteenth 13->16 (pageviews reflect 'what is Juneteenth' lookups; 3% favorite, 57% popularity). Diwali 17->23 (US fame only 58%, popularity 32%; the computed rank comes from global Wikipedia readers). TAIL: Cinco de Mayo 17, Hanukkah 18, Mardi Gras 19, Presidents' Day 20, April Fools' 21, Passover 22, Diwali 23, Earth Day 24, per computed order. Hanukkah is ahead of Mardi Gras because Monmouth 2015 shows 6% celebrate it and it sits in the Christmas season trio. MOVES VS CURRENT LIST: Christmas 1=1. Thanksgiving 2=2. Halloween 4->3 (#3 in both favorite polls). Fourth of July 6->4 (old like% table omitted it; now found in YouGov Ratings at 70% and in YouGov 2024 at 12%). Easter 5=5. Mother's Day 3->6 (see above). New Year's Eve 9->7 (now also takes New Year's Day aliases). Valentine's 10->8 (YouGov 2024 8%, NRF 52%, 4th in pageviews). Father's Day 7->9 (8% favorite, tied with Valentine's; lower YouGov Ratings rank than before). Memorial Day 8->10 (7% favorite; absent from Harris and NRF). St Patrick's 15->11 (YouGov Ratings 67%, NRF 61.9%, 7th in pageviews; gut check). Labor Day 12=12. Veterans Day 11->13 (6% favorite; lowest pageviews of the federal holidays). Super Bowl 14=14. MLK 13->15 (4% favorite). Juneteenth 16=16. Hanukkah 17->18 and Cinco de Mayo 20->17 (Cinco 65% vs Hanukkah 52% YouGov popularity). Mardi Gras 21->19 (54% popularity). April Fools' 23->21 (55% popularity). Diwali 19->23. NEW: Presidents' Day 20 (YouGov 2024 3% favorite, ties Juneteenth/St Patrick's; 59% YouGov popularity), Passover 22 (49% YouGov popularity, 0.80M pageviews), Earth Day 24 (4% favorite in YouGov 2024, same as MLK). DROPPED: Lunar New Year (computed 28th: pageviews only, not in any US poll), Kwanzaa (computed 30th: pageviews only; 3% celebrate per Monmouth), Groundhog Day (computed 31st: pageviews only). Columbus Day (27th) missed the cut too.",
+ "confidence": "High for 1-5 (Christmas, Thanksgiving, Halloween, July 4 and Easter make up the top 5 of every favorite poll). Medium for 6-16, where order depends on metric: like%/participation favor Mother's Day, Veterans and Memorial Day, and favorite polls favor New Year's and Valentine's. Low-medium for 17-24, which rest on YouGov Ratings popularity plus pageviews; slots 17-24 are close to tied (computed 16.4-20.0). Caveats: the newest favorite-holiday poll is YouGov Feb 2024 (no 2025/26 favorite poll was found); Harris is from 2015 and lists only 6; NRF's Thanksgiving slot is imputed from a different YouGov survey; Wikipedia pageviews are global and skewed, so several moves override them. Talker/OnePoll, Gallup and Visual Capitalist (403) gave no usable favorite-holiday ranking.",
+ "no_data_positions": []
 }

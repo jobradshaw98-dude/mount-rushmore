@@ -2,20 +2,24 @@
  "_note": "Read and updated by the weekly topic job (aria-rushmore-topics). rerank: worst first; take the top 2 each run and remove them when shipped. suggestions_handled: suggestion-box keys already turned into a topic or declined, with why.",
  "rerank": [
   {
-   "id": "holidays",
-   "why": "7 of 24 spots have no data"
-  },
-  {
-   "id": "events",
-   "why": "6 of 24 spots have no data"
-  },
-  {
    "id": "villains",
    "why": "4 of 24 spots have no data"
   },
   {
    "id": "dogs",
    "why": "French Bulldog dropped though it is the #1 AKC registration breed"
+  },
+  {
+   "id": "golf",
+   "why": "pre-method list (Oct 7): only 3 sources, none tagged people/critic, no gut check"
+  },
+  {
+   "id": "soccer",
+   "why": "pre-method list (Oct 7): only 3 sources, none tagged people/critic, no gut check"
+  },
+  {
+   "id": "chips",
+   "why": "pre-method list (Oct 7): only 3 sources, none tagged people/critic, no gut check"
   }
  ],
  "suggestions_handled": {

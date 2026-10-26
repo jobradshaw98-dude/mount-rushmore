@@ -2,6 +2,15 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-10-26: Theme Parks, Stores, Inventors, Zoo Animals and Musical Instruments; Holidays and Sporting Events re-ranked
+
+### Added
+- Five new topics: Theme Parks, Stores (places to shop), Inventors (all-time), Zoo Animals and Musical Instruments. They show up in bonus rounds from game #31 (Oct 28) and join the daily rotation when the next cycle starts.
+
+### Changed
+- From game #31, Holidays has data behind every spot: Christmas and Thanksgiving stay #1 and #2, Halloween rises to #3 and the Fourth of July from #6 to #4. Mother's Day drops from #3 to #6. New Year's rises from #9 to #7 and St. Patrick's Day from #15 to #11. Presidents' Day, Passover and Earth Day join; Lunar New Year, Kwanzaa and Groundhog Day leave.
+- From game #31, Sporting Events has data behind every spot: the Super Bowl stays #1, the World Series jumps from #11 to #3 and the College Football Playoff from #14 to #6. The Winter Olympics drop from #3 to #8, Wimbledon from #8 to #14 and the Tour de France from #9 to #24. The MLB All-Star Game joins; the Champions League Final leaves.
+
 ## 2026-10-21: join after the start
 
 ### Changed
