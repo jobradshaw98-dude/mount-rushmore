@@ -1,0 +1,108 @@
+{
+ "topic": {
+  "name": "Airlines",
+  "cat": "brands",
+  "from": 38
+ },
+ "sources": [
+  {
+   "name": "YouGov Ratings - Airlines, US, Q3 2026 (fame/popularity). Ranking list (fame%/popularity%): American Airlines 98/56, Delta 94/57, Southwest 89/50, United 86/50, JetBlue 85/43, Alaska 84/45, British Airways 82/40, Frontier 82/37, Air Canada 79/45, Air France 75/34, Qatar 71/33, Hawaiian 70/39, American Eagle 68/39, Virgin Atlantic 67/33, Allegiant 67/36, Lufthansa 66/35, Korean Air 62/30, Emirates 62/33, Qantas 61/32, Japan Airlines 59/33, Norwegian 58/34. Individual YouGov topic pages (same current data; Southwest page matches 89/50): Spirit Airlines 89/28 (dropped from the ranking list after its May 2026 shutdown), Singapore Airlines 59/31, Turkish Airlines 59/26, KLM 49/27, Sun Country 43/29, Etihad 42/26, Cathay Pacific 40/22, Virgin America 71/33. Ryanair, Pan Am, TWA, US Airways, Aer Lingus have no US YouGov page (404). Item rank by fame, ties averaged (27 items).",
+   "url": "https://yougov.com/en-us/ratings/airlines?sortBy=fame",
+   "method": "YouGov Ratings: continuous online US adult panel; fame = % who have heard of it, popularity = % positive; Q3 2026 quarterly figures. Top-20 lists read sorted by fame and by popularity; further airlines read from https://yougov.com/en-us/topics/airline/<Name> pages.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "BTS TranStats airline domestic market share, Aug 2025 - Jul 2026: Delta 17.9%, American 17.7%, United 17.2%, Southwest 17.1%, Alaska 7.1% (includes Hawaiian after the 2025 single-certificate merger), JetBlue 4.6%, Frontier 3.9%, SkyWest 2.6% (regional, not a candidate), Spirit 2.0%, Envoy 1.2% (regional), other 8.7%. Candidate order: Delta 1, American 2, United 3, Southwest 4, Alaska 5, JetBlue 6, Frontier 7, Spirit 8 (8 items).",
+   "url": "https://www.transtats.bts.gov/",
+   "method": "US DOT Bureau of Transportation Statistics rolling 12-month domestic market share chart on the TranStats home page (usage data).",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Statista Consumer Insights (Aug 2026 chart): share of US respondents who booked a flight with each airline in the past 12 months: American 37%, Delta 34%, United 28%, Southwest 24%; Alaska, JetBlue, Air Canada and Spirit also in the top 8 (order not given, scored 6.5 each).",
+   "url": "https://www.statista.com/chart/amp/32047/share-of-us-respondents-who-booked-a-flight-in-the-past-12-months-with-the-following-airlines",
+   "method": "Statista Consumer Insights online survey of US adults who booked a flight, fielded 2025-2026; chart article by Katharina Buchholz, Aug 14 2026. 2023 wave (AA 41, Delta 33, United 30, Southwest 24) cross-read at https://www.voronoiapp.com/business/American-Delta--United-Are-the-Trinity-of-US-Air-Travel-986",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov US Airline Rankings 2026, future consideration (would consider booking in next 12 months): Delta 49.5%, American 49.2%, United 47.5%, Southwest 36.2% (only top 4 published).",
+   "url": "https://www.islands.com/2187419/delta-americans-considered-airline-flights-most-2026/",
+   "method": "YouGov BrandIndex/Profiles always-on data, 23,000+ US adults, report published May 21 2026 (https://yougov.com/en-us/articles/54793-us-airline-rankings-report-2026; figures as reported by Islands). Also read: Islands on YouGov Ratings Q1 2026, Delta 96% fame/48% popularity, Spirit 81%/22% (https://www.islands.com/2150715/delta-not-southwest-united-america-most-popular-airline-2026-so-far/).",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "English Wikipedia pageviews (users, all access), Jul 2025 - Mar 2026 total (before Spirit's shutdown spike): United 816k, Delta 759k, Emirates 715k, Ryanair 655k, American 648k, Lufthansa 549k, Cathay Pacific 515k, Etihad 502k, Pan Am 469k, British Airways 459k, Qatar 429k, Alaska 423k, Air Canada 417k, Southwest 407k, Singapore 392k, Qantas 361k, KLM 345k, JetBlue 345k, Turkish 335k, Spirit 326k, Virgin Atlantic 317k, Korean Air 287k, Frontier 284k, TWA 283k, Breeze 282k, Hawaiian 267k, Japan Airlines 257k, Air France 256k, Allegiant 247k, Sun Country 171k, Norwegian 123k (31 items).",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Delta_Air_Lines/monthly/2025070100/2026033100",
+   "method": "Wikimedia REST pageviews API, monthly per article (same URL pattern for each article title). Search-interest proxy; global English-language readership, so it overweights carriers with big audiences in India, the Gulf, Asia and Europe.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "J.D. Power 2026 North America Airline Satisfaction Study: overall Southwest 1, Delta 2 (3 points behind), Frontier last; first/business JetBlue, Delta, Alaska, United, American, Air Canada; premium economy Delta, Alaska, JetBlue, United, American, WestJet, Air Canada.",
+   "url": "https://www.fox29.com/news/best-worst-airlines-customer-service-2026-jd-power",
+   "method": "Survey of 10,914 passengers, Mar 2025 - Mar 2026. Measures satisfaction, not naming, and no full ranking was published in what I could read, so not averaged; used only as context/tie-break.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Public Policy Polling (July 2013) 'best airline': Southwest 43%, Delta 11%, United 9%, JetBlue 9%, American 6%, US Airways 5%, something else 18%.",
+   "url": "https://www.publicpolicypolling.com/polls/americans-on-their-favorite-airline-and-other-travel-issues/",
+   "method": "Automated phone poll, 800 US registered voters, closed list of 6 options; 13 years old, so tie-break only, not averaged.",
+   "year": 2013,
+   "kind": "people"
+  },
+  {
+   "name": "AirlineRatings.com Flyers' Choice Awards 2026: USA & Canada preferred airline Delta, United, American; Singapore Airlines 4 awards, Qatar best business class, Emirates best premium economy.",
+   "url": "https://www.timeout.com/usa/news/americas-favorite-airline-for-2026-has-been-revealed-heres-which-flyer-held-onto-the-top-spot-081326",
+   "method": "Self-selected global passenger vote (~40,000 votes), not scientific; tie-break only.",
+   "year": 2026,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Delta|delta air lines|delta airlines|delta airline",
+  "American Airlines|american|american airline|aa|american air",
+  "United|united airlines|united air lines|united airline",
+  "Southwest|southwest airlines|south west|southwest airline|south west airlines",
+  "Alaska Airlines|alaska|alaska air|alaska airline",
+  "JetBlue|jet blue|jetblue airways|jet blue airways|jetblue airlines",
+  "Spirit|spirit airlines|spirit air|spirit airline",
+  "Frontier|frontier airlines|frontier airline|frontier air",
+  "Air Canada|aircanada",
+  "British Airways|ba|british air|british airway|british airlines",
+  "Hawaiian Airlines|hawaiian|hawaiian air|hawaiian airline|hawaii airlines",
+  "Allegiant|allegiant air|allegiant airlines|allegient|allegiant airline",
+  "Emirates|fly emirates|emirates airline|emirates airlines|emirate",
+  "Lufthansa|lufthansa airlines|lufthanza|luftansa",
+  "Qatar Airways|qatar|qatar airlines|qatar air",
+  "Air France|airfrance",
+  "Virgin Atlantic|virgin|virgin airlines|virgin atlantic airways",
+  "Singapore Airlines|singapore air|singapore airline|sia",
+  "Qantas|quantas|qantas airways",
+  "Korean Air|korean airlines|korean air lines|korean",
+  "KLM|klm royal dutch airlines|royal dutch airlines|klm airlines",
+  "Turkish Airlines|turkish|turkish air|thy",
+  "Etihad|etihad airways|ethihad|etihad airlines",
+  "Cathay Pacific|cathay|cathay pacific airways|cathay airlines"
+ ],
+ "gut_check": [
+  "Delta",
+  "American Airlines",
+  "United",
+  "Southwest",
+  "JetBlue",
+  "Alaska Airlines",
+  "Spirit",
+  "Frontier",
+  "Hawaiian Airlines",
+  "Allegiant",
+  "British Airways",
+  "Emirates"
+ ],
+ "changes_vs_current": "New topic. Scope: one item per airline brand. American Eagle (YouGov fame 68%) is left out because it is American's regional brand and people fold it into 'American'. Defunct airlines are kept only with data. Spirit stays: it shut down May 2, 2026, but YouGov still shows 89% fame and it was in the BTS and Statista data until then. Virgin America (YouGov page 71%, defunct since 2018), Pan Am (Wikipedia #9 only), TWA, Ryanair (no US YouGov page; global Wikipedia #4 only), Breeze, Sun Country (fame 43%), Japan Airlines (59%) and Norwegian (58%) are left off. Computed order: average position over 5 people sources (YouGov fame, BTS share, Statista bookings, YouGov consideration, Wikipedia pageviews), missing = list length + 5. Result: 1 Delta 1.6, 2 American 2.2, 3 United 3.0, 4 Southwest 5.9, 5 Alaska 7.9, 6 JetBlue 9.1, 7 Spirit 9.4, 8 Air Canada 10.3, 9 British Airways 10.7, 10 Emirates 11.1, 11 Lufthansa 11.4, 12 Qatar 11.6, 13 Frontier 12.1, 14 Etihad 13.8, 15 Cathay 13.8, 16 Qantas 14.0, 17 Virgin Atlantic 14.1, 18 Singapore 14.2, 19 Ryanair 14.2, 20 Air France 14.8, 21 Hawaiian 14.8, 22 Korean 14.9, 23 Turkish 15.0, 24 KLM 15.2, 25 Pan Am 15.2, 26 Allegiant 15.7, 27 JAL 16.6. Gut-check moves: (1) Frontier 13 -> 8. It is #7 in BTS domestic share and 82% YouGov fame (tied with British Airways for 8th). Only the global Wikipedia count puts it low (#23). (2) Hawaiian 21 -> 11. YouGov US popularity puts it 9th (39%), above every overseas carrier except British Airways and Air Canada, and its fame (70%) is above Virgin Atlantic, Lufthansa and Emirates. It drops out of BTS only because its traffic is now reported under Alaska after the merger, and its low Wikipedia count is global readership. (3) Allegiant 26 -> 12. YouGov fame 67% beats Lufthansa 66% and Emirates 62%, and its popularity (36%) beats every overseas carrier except British Airways and Air Canada. Again only global Wikipedia puts it low. (4) Emirates 10 -> 13, with Lufthansa 14 and Qatar 15. Emirates is in the gut check, but US YouGov puts it below Allegiant on both fame (62 vs 67) and popularity (33 vs 36). Its 10th place came from Wikipedia (#3), where Gulf, Indian and European readership inflates it. (5) Air Canada stays above British Airways (9 vs 10) as computed: it is in Statista's US top 8 booked and has higher popularity (45 vs 40). British Airways has higher fame (82 vs 79). (6) Tail 16-24: Etihad and Cathay (computed 14-15) move to 23-24. Their US YouGov fame is the lowest of any candidate (42%, 40%), and only global Wikipedia lifts them. Air France (75% US fame, 11th) moves up to 16 because its low English-Wikipedia count (#28) reflects French readers using French Wikipedia. The rest keep the computed order with US fame breaking ties: Virgin Atlantic 17, Singapore 18, Qantas 19, Korean Air 20, KLM 21, Turkish 22. Alaska is above JetBlue as computed (BTS 7.1% vs 4.6%, Wikipedia 12 vs 18). JetBlue leads only on fame (85 vs 84).",
+ "confidence": "High for 1-4 (every source agrees, with Delta/American/United in some order, then Southwest). Medium-high for 5-8 (Alaska, JetBlue, Spirit and Frontier are the obvious next tier; Spirit's defunct status may lower how often people name it). Medium for 9-15: the order of overseas carriers versus Hawaiian and Allegiant rests on YouGov US fame and popularity plus the gut check, because no US 'name an airline' poll exists. Medium-low for 16-24: these rest mainly on YouGov fame and global Wikipedia pageviews. Caveats: the only open-recall poll found (PPP 2013) is old and used a closed list. J.D. Power gives satisfaction, not salience. The YouGov consideration report's full data is behind a download (only the top 4 were read, via Islands). Google Trends was not accessible.",
+ "no_data_positions": []
+}

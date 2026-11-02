@@ -2,6 +2,15 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-11-02: Famous Landmarks, Authors, Hobbies, Christmas Songs and Airlines; Movie Villains and Dog Breeds re-ranked
+
+### Added
+- Five new topics: Famous Landmarks (around the world), Authors (all-time), Hobbies, Christmas Songs and Airlines. They show up in bonus rounds from game #38 (Nov 4) and join the daily rotation when the next cycle starts.
+
+### Changed
+- From game #38, Movie Villains has data behind every spot: Darth Vader, the Joker and Hannibal Lecter stay #1-3. Freddy Krueger rises from #6 to #4, Norman Bates from #13 to #8 and Pennywise from #15 to #10. Hans Gruber drops from #5 to #14. Chucky (#9) and Jason Voorhees (#13) join, with Amon Goeth, Maleficent and Jack Torrance; Loki, Agent Smith, Anton Chigurh, Nurse Ratched and Sauron leave.
+- From game #38, Dog Breeds follows ownership, insurance and search data as well as AKC registrations: Labrador stays #1, French Bulldog comes back at #4, and Chihuahua (#5), Pit Bull (#6) and Siberian Husky (#13) join. The Australian Shepherd drops from #4 to #12. Pug, Pomeranian, Great Dane and Goldendoodle also join; Border Collie, German Shorthaired Pointer, Shetland Sheepdog, Miniature American Shepherd, Alaskan Malamute and Entlebucher leave.
+
 ## 2026-10-26: Theme Parks, Stores, Inventors, Zoo Animals and Musical Instruments; Holidays and Sporting Events re-ranked
 
 ### Added

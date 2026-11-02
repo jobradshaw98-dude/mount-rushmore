@@ -1,82 +1,104 @@
 {
+ "from": 38,
  "sources": [
   {
-   "name": "AKC Most Popular Dog Breeds 2025 (top 30 used)",
+   "name": "AKC Most Popular Dog Breeds of 2025 (released Mar 2026, page updated Aug 2026), top 50 used: 1 French Bulldog, 2 Labrador, 3 Golden, 4 German Shepherd, 5 Dachshund, 6 Poodle, 7 Beagle, 8 Rottweiler, 9 GSP, 10 Bulldog, 11 Cane Corso, 12 Cavalier, 13 Yorkie, 14 Aussie, 15 Doberman, 16 Pembroke Corgi, 17 Mini Schnauzer, 18 Boxer, 19 Pomeranian, 20 Bernese, 21 Shih Tzu, 22 Great Dane, 23 Boston Terrier, 24 Chihuahua, 30 Siberian Husky, 37 Maltese, 38 Pug, 50 Dalmatian; AmStaff 97; Pit Bull and doodles not registrable (scored missing = 55)",
    "url": "https://www.akc.org/expert-advice/dog-breeds/most-popular-dog-breeds-2025/",
-   "method": "AKC registration statistics",
-   "year": 2025
+   "method": "AKC registration statistics for calendar 2025",
+   "year": 2025,
+   "kind": "people"
   },
   {
-   "name": "YouGov America's favorite dogs (head-to-head win %, 193 breeds; only top 10 plus Beagle 15, German Shepherd 19, French Bulldog 80 published; unlisted breeds scored as rank 24)",
-   "url": "https://yougov.com/en-us/articles/36600-ranked-americas-favorite-dogs",
-   "method": "poll of 2,541 US adults, 10 head-to-head matchups each",
-   "year": 2021
+   "name": "Rover 2025 Top Pet Breeds report, top 20 (mixed excluded, re-ranked 1-19): Labrador 1, Golden 2, Goldendoodle 3, German Shepherd 4, Chihuahua 5, French Bulldog 6, Dachshund 7, Shih Tzu 8, Yorkie 9, Aussie 10, American Pit Bull Terrier 11, Siberian Husky 12, Labradoodle 13, Bernedoodle 14, Poodle 15, Maltese 16, Boxer 17, Beagle 18, Mini Schnauzer 19",
+   "url": "https://www.audacy.com/wccoradio/news/national/most-popular-dog-breed-in-2025-revealed",
+   "method": "Rover survey of 1,000 US pet owners plus Rover.com breed data, Aug 2025 (top 15 cross-read at https://www.yahoo.com/news/articles/mixed-breeds-most-popular-dog-173855348.html). Rover 2026 report page returned 403 and is not used.",
+   "year": 2025,
+   "kind": "people"
   },
   {
-   "name": "Rover annual pet-parent survey (mixed breed excluded)",
-   "url": "https://www.fox13news.com/news/national-dog-pay-popular-breeds-america-rover",
-   "method": "survey of 1,000 pet parents plus platform data; 7 breeds shown on fetched page",
-   "year": 2024
+   "name": "Embrace Pet Insurance 2025 top insured dog breeds (mixed excluded): Golden 1, Labrador 2, Goldendoodle 3, French Bulldog 4, German Shepherd 5, Yorkie 6, Chihuahua 7, Shih Tzu 8, American Pit Bull Terrier 9",
+   "url": "https://www.embracepetinsurance.com/about-us/press-media/press-release-detail/2026/01/15/embrace-pet-insurances-2025-recap-what-luna-mochi-and-modern-pet-trends-tell",
+   "method": "Policy counts by breed, US insurer, 2025 (ownership data)",
+   "year": 2025,
+   "kind": "people"
   },
   {
-   "name": "Forbes Advisor favorite breeds survey (read via AOL syndication; top 10)",
+   "name": "Insurify/Fletch most commonly insured dog breeds: Chihuahua 1 (5.9%), Pit Bull 2 (4.9%), German Shepherd 3, Shih Tzu 4, Labrador 5= , Yorkie 5=, French Bulldog 7, Golden 8, Dachshund 9, Pomeranian 10",
+   "url": "https://insurify.com/pet-insurance/insights/most-popular-dog-breeds/",
+   "method": "Share of insured/quoted dogs by breed from insurance partner Fletch, published Dec 2024",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Forbes Advisor favorite dog breed survey (read via AOL syndication), top 10: Aussie 1, German Shepherd 2, Bulldog 3, Labrador 4, Bernese 5, Beagle 6, Golden 7, Boston Terrier 8, Boxer 9, Shih Tzu 10 ('no breed in particular' 13% excluded)",
    "url": "https://aol.com/survey-reveals-americas-favorite-dog-162000513.html",
-   "method": "survey of ~10,000 US dog parents",
-   "year": 2024
+   "method": "Survey of 10,000 US dog owners choosing a favorite from the AKC top 25 breeds (so excludes Pit Bull and doodles), Aug 2024",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "MetLife Pet Insurance most-searched dog breeds in the US (Nov 2024-Nov 2025), top 10: Cane Corso 1, Greyhound 2, Golden 3, Aussie 4, Boxer 5, Chihuahua 6, Belgian Malinois 7, German Shepherd 8, Dachshund 9, French Bulldog 10",
+   "url": "https://www.metlifepetinsurance.com/americas-favorite-pet-breeds/",
+   "method": "Google Trends search interest for 100+ breeds by state, normalized vs mean; published Jan 2026. Labrador absent (likely 'lab' query ambiguity), noted as a weakness",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "English Wikipedia pageviews Oct 2025-Sep 2026 (user agents, global): Cane Corso 1.25M, Dachshund 1.06M, Pit Bull + APBT 0.80M, German Shepherd 0.79M, Golden 0.78M, Rottweiler 0.74M, Labrador 0.72M, Chihuahua 0.66M, Shiba 0.60M, Shih Tzu 0.58M, Bernese 0.54M, Border Collie 0.51M, Pomeranian 0.51M, Beagle 0.45M, Poodle 0.44M, Great Dane 0.44M, Welsh+Pembroke Corgi 0.43M, Doberman 0.43M, Aussie 0.42M, Cavalier 0.39M, Pug 0.38M, French Bulldog 0.38M, Bulldog 0.36M, Siberian Husky 0.31M, Goldendoodle 0.27M, Yorkie 0.27M, Boston 0.23M, Mini Schnauzer 0.23M, Boxer 0.19M, GSP 0.19M. Used only to break near-ties in ranks 13-24, not in the average (global, not US).",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Cane_Corso/monthly/2025100100/2026093000",
+   "method": "Wikimedia REST pageviews API, 12 monthly totals per article after resolving redirects",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov America's favorite dogs (head-to-head win %, 193 breeds): Labrador 1 (83%), Golden 2 (78%), Alaskan Malamute 3, Entlebucher 4, Sheltie 5, Border Collie 6, Mini American Shepherd 7, Samoyed 8, Aussie 9, Icelandic Sheepdog 10, Beagle 15, German Shepherd 19, French Bulldog 80 (53%); other ranks unpublished. Used only as a tie-break (Lab vs Golden) because the unpublished 183 ranks make the missing penalty meaningless and it measures liking a photo, not naming.",
+   "url": "https://yougov.com/en-us/articles/36600-ranked-americas-favorite-dogs",
+   "method": "Poll of 2,541 US adults, 10 photo head-to-head matchups each, May 2021",
+   "year": 2021,
+   "kind": "people"
   }
  ],
  "list": [
-  "Labrador Retriever|lab|labrador",
-  "Golden Retriever|golden",
+  "Labrador Retriever|lab|labrador|labs|lab retriever|labrador retreiver|black lab|yellow lab|chocolate lab",
+  "Golden Retriever|golden|goldens|golden retreiver|goldie",
+  "German Shepherd|german shepherd dog|gsd|german shephard|german sheperd|alsatian",
+  "French Bulldog|frenchie|frenchy|french bull dog|frenchies",
+  "Chihuahua|chiwawa|chihuahuas|chihauhau|chiuaua",
+  "Pit Bull|pitbull|pit|pitty|pittie|american pit bull terrier|pit bull terrier|apbt|amstaff|american staffordshire terrier",
+  "Dachshund|wiener dog|sausage dog|weiner dog|doxie|dachsund|daschund|doxen",
+  "Beagle|beagles",
+  "Poodle|poodles|toy poodle|miniature poodle|standard poodle|mini poodle",
+  "English Bulldog|bulldog|british bulldog|english bull dog|bull dog",
+  "Rottweiler|rottie|rotty|rottweiller|rotweiler",
+  "Australian Shepherd|aussie|australian sheperd|australian shephard|aussie shepherd",
+  "Siberian Husky|husky|huskie|huskies|siberian huskie",
+  "Yorkshire Terrier|yorkie|yorkies|yorkshire",
+  "Shih Tzu|shitzu|shih-tzu|shihtzu|shi tzu",
+  "Boxer|boxer dog|boxers",
+  "Cane Corso|corso|italian mastiff|cane corsos",
+  "Pug|pugs",
+  "Bernese Mountain Dog|berner|bernese|bernese mountain",
+  "Pomeranian|pom|pomeranians|pomeranian dog",
+  "Doberman|doberman pinscher|dobermann|dobie|doberman pincher|dobermans",
+  "Corgi|pembroke welsh corgi|pembroke|welsh corgi|cardigan welsh corgi|corgis",
+  "Great Dane|great danes",
+  "Goldendoodle|golden doodle|goldendoodles|groodle"
+ ],
+ "gut_check": [
+  "Labrador Retriever",
+  "Golden Retriever",
   "German Shepherd",
-  "Australian Shepherd|aussie",
-  "Beagle",
-  "English Bulldog|bulldog",
-  "Dachshund|wiener dog|sausage dog",
   "Poodle",
-  "Border Collie",
-  "Rottweiler|rottie",
-  "German Shorthaired Pointer|gsp",
-  "Bernese Mountain Dog|berner|bernese",
-  "Shetland Sheepdog|sheltie",
-  "Miniature American Shepherd|mini aussie",
-  "Cane Corso|corso",
-  "Boxer",
-  "Cavalier King Charles Spaniel|cavalier",
-  "Yorkshire Terrier|yorkie",
-  "Alaskan Malamute|malamute",
-  "Doberman",
-  "Entlebucher Mountain Dog|entlebucher|entle",
-  "Boston Terrier|boston",
-  "Shih Tzu",
-  "Corgi|pembroke welsh corgi|pembroke"
+  "Pit Bull",
+  "Chihuahua",
+  "Beagle",
+  "Bulldog",
+  "Siberian Husky",
+  "Rottweiler",
+  "Dachshund",
+  "Pug"
  ],
- "avg_rank": [
-  2,
-  3.75,
-  7.25,
-  9,
-  10,
-  12.25,
-  12.75,
-  14.25,
-  14.75,
-  14.75,
-  15,
-  15.25,
-  15.25,
-  15.5,
-  15.5,
-  15.75,
-  15.75,
-  16,
-  16.25,
-  16.5,
-  16.5,
-  16.75,
-  16.75,
-  16.75
- ],
- "changes_vs_current": "Lab and Golden now 1-2 (Golden was 1). French Bulldog falls out (was 5; AKC #1 but YouGov ranks it 80th and it is absent from Forbes top 10), plus Husky, Great Dane, Chihuahua, Goldendoodle, Pit Bull, Shiba, Pug, Dalmatian, Siberian Husky dropped. Added English Bulldog already existed; newly added: German Shorthaired Pointer, Shetland Sheepdog, Miniature American Shepherd, Cane Corso, Yorkshire Terrier, Alaskan Malamute, Entlebucher, Boston Terrier, Shih Tzu. Ranks 8-24 are separated by under 3 points (near-ties).",
- "confidence": "medium-low. 4 real sources but they measure different things (registrations vs cuteness head-to-head vs owner favorites) and disagree sharply on French Bulldog, Goldendoodle and Husky. YouGov full 193-breed table is not published on the page, so its missing-rank penalty is an assumption. Entlebucher and Malamute are YouGov head-to-head artifacts and may be too obscure for a typing game; Frenchie arguably should be kept (AKC #1 four years running, Rover #6). Ranker not fetchable."
+ "changes_vs_current": "Computed order (average position over 6 people sources: AKC 2025 top 50, Rover 2025 top 19, Embrace 2025 top 9, Insurify top 10, Forbes Advisor top 10, MetLife search top 10; missing = list length + 5): 1 Golden 4.00, 2 German Shepherd 4.33, 3 Labrador 4.92, 4 French Bulldog 7.17, 5 Chihuahua 9.67 (5 sources), 6 Australian Shepherd 9.67, 7 Dachshund 9.83, 8 Yorkie 10.58, 9 Shih Tzu 11.0, 10 Beagle 12.5, 11 Boxer 13.0, 12 Cane Corso 13.33, 13 Poodle 13.33, 14 Bulldog 13.5, 15 Rottweiler 15.17, 16 GSP 15.33, 17 Bernese 15.5, 18 Mini Schnauzer 15.83, 19 Cavalier 15.83, 20 Pomeranian 16.17, 21 Doberman 16.33, 22 Boston Terrier 16.5, 23 Corgi 16.5, 24 Siberian Husky 16.83, 25 Great Dane 17.5, 26 Goldendoodle 17.67, 27 Pit Bull 17.83, 28 Belgian Malinois 17.83, 40 Pug 20.17. Gut-check moves: (a) Labrador 3 -> 1: gut #1, #1 in Rover and YouGov, above Golden in AKC (2 vs 3) and Embrace is the only ownership source with Golden ahead; Lab trails only because MetLife's normalized search top 10 omits it (likely 'lab' query ambiguity). Golden 2, German Shepherd 3. (b) Pit Bull 27 -> 6: AKC cannot register it (structural 55 penalty, not unpopularity); ownership data has it Insurify #2, Embrace #9, Rover #11, and Pit Bull + APBT Wikipedia pages total 0.80M views (top 3). No source puts it low on popularity. (c) Poodle 13 -> 9, Bulldog 14 -> 10, Rottweiler 15 -> 11: gut-check items; AKC has them 6, 10, 8 and Forbes has Bulldog 3; no source ranks them lower except by omission from short top-10 lists. Rottweiler at 11 is above the top-10 evidence floor (AKC only plus 0.74M Wikipedia views). (d) Dachshund 7 and Beagle 10 -> 7 and 8, Chihuahua stays 5. (e) Siberian Husky 24 -> 13: gut check; Rover #12 agrees, but AKC #30 puts it lower, so it sits just outside the top 12. (f) Pug 40 -> 18: gut check, but AKC #38 and absence from all ownership top 10-20 lists put it lower, so it stays below the top 12; kept on the board because it is widely named (0.38M Wikipedia views). Knock-on moves: Australian Shepherd 6 -> 12, Yorkie 8 -> 14, Shih Tzu 9 -> 15, Boxer 11 -> 16, Cane Corso 12 -> 17. Tail 19-24 by computed order with Wikipedia views breaking near-ties: Bernese 19, Pomeranian 20, Doberman 21, Corgi 22, Great Dane 23 (0.44M views, AKC 22), Goldendoodle 24 (Rover #3 and Embrace #3 owned breed; AKC structural penalty). Left off vs computed: GSP (16; 0.19M views, rarely named by non-owners), Mini Schnauzer (18; 0.23M), Cavalier (19), Boston Terrier (22; 0.23M), Malinois. Vs current list: French Bulldog returns at 4 (was dropped; AKC #1 four years, Rover 6, Embrace 4, Insurify 7, MetLife 10; the old drop relied on YouGov's photo poll rank 80). Pit Bull (new, 6), Chihuahua (new, 5), Siberian Husky (new, 13), Pug (new, 18), Pomeranian (new, 20), Great Dane (new, 23), Goldendoodle (new, 24) added. Removed: German Shorthaired Pointer (was 11), Shetland Sheepdog (13), Miniature American Shepherd (14), Alaskan Malamute (19), Entlebucher (21), Cavalier (17), Border Collie (9), Boston Terrier (22): they were lifted by the YouGov photo poll or registrations only and appear in no 2024-2026 ownership or search top list except AKC. Kept and moved: Labrador 1 (same), Golden 2 (same), German Shepherd 3 (same), Australian Shepherd 4 -> 12, Beagle 5 -> 8, English Bulldog 6 -> 10, Dachshund 7 (same), Poodle 8 -> 9, Rottweiler 10 -> 11, Bernese 12 -> 19, Cane Corso 15 -> 17, Boxer 16 (same), Yorkie 18 -> 14, Doberman 20 -> 21, Shih Tzu 23 -> 15, Corgi 24 -> 22. Aliases kept from the current list; added frenchie, husky, pitbull/pittie/apbt, doxie, chiwawa, pom, dobie and misspellings; checked no alias repeats or equals another label.",
+ "confidence": "Medium-high for 1-10 (each backed by 2+ people sources; Lab/Golden/GSD/Frenchie/Chihuahua agree across ownership data). Medium for 11-17 (gut-check placements of Rottweiler, Husky and Pug against registration-only data). Medium-low for 18-24 (single-source AKC ranks plus global Wikipedia views as tie-break). No general-public 'name a dog breed' poll exists; the YouGov poll is 2021 and only partly published; Rover 2026 and the Pet Insurance Deals search study could not be fetched (403/429) and are not cited. Pit Bull placement relies on ownership/insurance data because AKC does not register it.",
+ "no_data_positions": []
 }
