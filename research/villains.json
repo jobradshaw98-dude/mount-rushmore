@@ -1,94 +1,167 @@
 {
+ "from": 38,
  "sources": [
   {
-   "name": "Fandango fan poll, Best Movie Villains Ever (top 15 shown; 'thousands of Fandango movie fans', no n given)",
+   "name": "Fandango fan poll, Best Movie Villains Ever (top 15): 1 Darth Vader, 2 Hannibal Lecter, 3 Joker, 4 Voldemort, 5 Freddy Krueger, 6 Thanos, 7 Michael Myers, 8 Terminator, 9 Wicked Witch of the West, 10 Hans Gruber, 11 Norman Bates, 12 Pennywise, 13 Agent Smith, 14 Nurse Ratched, 15 Sauron",
    "url": "https://www.fandango.com/movie-news/best-movie-villains-ever-755199",
-   "method": "fan vote, US moviegoers",
-   "year": 2024
+   "method": "Fan vote of 'thousands of Fandango movie fans' (US moviegoers); no n or tally method given",
+   "year": 2024,
+   "kind": "people"
   },
   {
-   "name": "Empire readers' vote, Greatest Movie Villains (top 10; fan-voted, readers not journalists; international readership, no n given)",
+   "name": "Empire readers' vote, Greatest Movie Villains (top 10 of 20 readable): 1 Vader, 2 Joker, 3 Loki, 4 Gruber, 5 Hannibal, 6 Landa, 7 Kylo Ren, 8 Chigurh, 9 Voldemort, 10 Alien",
    "url": "https://screenrant.com/darth-vader-joker-best-movie-villains-empire/",
-   "method": "fan vote",
-   "year": 2018
+   "method": "Reader vote (international readership), reported Jan 2018; no n given",
+   "year": 2018,
+   "kind": "people"
   },
   {
-   "name": "Shane Co. Google Trends study, most popular villain by US state (live-action: Joker 9 states, Hannibal 6, Bane 4; Disney: Scar 7, Queen of Hearts 6, Cruella/Maleficent 3). Used ONLY to fill positions 21-24",
-   "url": "https://theloupe.wpengine.com/articles-and-news/most-popular-movie-villains-across-america/",
-   "method": "US search interest by state, 87 pre-selected villains",
-   "year": 2022
+   "name": "TheJournal.ie reader poll, greatest movie villain (15,217 votes): Hannibal 6,759, Joker 2,097, Vader 1,958, someone else 1,617, Chigurh 1,541, Gruber 859, Evil Queen 386",
+   "url": "https://www.thejournal.ie/article.php?id=5282553",
+   "method": "Online reader poll, 6 preset options + other, Ireland, Nov 2020",
+   "year": 2020,
+   "kind": "people"
   },
   {
-   "name": "Context only, not in the math: Hollywood Reporter survey of 1,000 industry pros, top 5 = Vader, Hannibal, Wicked Witch, Joker, Ratched",
-   "url": "https://mentalfloss.com/article/551834/favorite-movie-villains",
-   "method": "industry survey",
-   "year": 2018
+   "name": "Best Offers Bingo survey of 2,000 UK adults (votes): Hannibal 416, Joker 260, Vader 248, Terminator 244, Norman Bates 171, Nurse Ratched 137, Tommy DeVito 123, Amon Goeth 105, Jack Torrance 70, Lord Summerisle 68",
+   "url": "https://www.top10films.co.uk/29981-the-nations-favourite-movie-villain/",
+   "method": "Market-research survey of 2,000 UK adults, favorite movie villain, Aug 2015",
+   "year": 2015,
+   "kind": "people"
   },
   {
-   "name": "Context only: global search-data ranking (Thanos, Vader, Joker, Voldemort, Kylo Ren, Hannibal, Terminator, Palpatine, Alien, Farquaad)",
+   "name": "Toppcasinobonus global search-data ranking: 1 Thanos (81.05), 2 Vader, 3 Joker, 4 Voldemort, 5 Kylo Ren, 6 Hannibal, 7 Terminator, 8 Palpatine, 9 Xenomorph, 10 Lord Farquaad",
    "url": "https://flicks.com.au/features/the-worlds-top-10-movie-villains-according-to-an-exhaustive-online-poll",
-   "method": "search data, global",
-   "year": 2020
+   "method": "Combined Google, Wikipedia and Rotten Tomatoes search interest per villain, global, May 2020 (fame, not approval)",
+   "year": 2020,
+   "kind": "people"
+  },
+  {
+   "name": "Shane Co. US Google Trends study, states won (5 yrs of search). Live-action map: Joker 9, Hannibal 6, Bane 4, Tyler Durden/Hans Landa/Alonzo Harris/Calvin Candie 3, Amon Goeth/Doc Ock/HAL 9000/Thanos 2, Vader/Kylo Ren/Mr. Potter/Voldemort/Norman Bates 1. Disney map: Scar 7, Queen of Hearts 6, Cruella 3, Maleficent 3. Both maps merged by state count (each covers 50 states): Joker 1, Scar 2, Hannibal/Queen of Hearts 3.5, Bane 5, 3-state group 8.5, 2-state group 13.5, 1-state group 18 (20 items)",
+   "url": "https://theloupe.wpengine.com/articles-and-news/most-popular-movie-villains-across-america/",
+   "method": "US Google Trends search volume by state over 5 years, 87 pre-selected villains (37 live-action, 45 Disney/Pixar), Oct 2022; live-action counts cross-read at https://www.deseret.com/2022/12/17/23500236/movie-villains-most-popular-the-joker-hannibal-lecter-bane",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Only-movies.com web poll of 17,000+ film fans: 1 Hannibal, then Vader and Norman Bates (order not given, scored 2.5 each), 4 Sheriff of Nottingham (Rickman), 5 Annie Wilkes",
+   "url": "https://abcnews.com/Entertainment/story?id=102975",
+   "method": "Internet poll, Aug 2001 (also at theglobeandmail.com/technology/hannibal-lecter-tops-web-poll/article1184746); only top 5 used",
+   "year": 2001,
+   "kind": "people"
+  },
+  {
+   "name": "Morning Consult, US adults who find each horror villain scary: Freddy Krueger 65%, Hannibal Lecter 60%, Michael Myers 60%, Chucky 54% (only these four reported)",
+   "url": "https://intel.morningconsult.com/mc-content/instant-intel/horror-movies-character-ranking",
+   "method": "Representative online survey of 2,210 US adults, Oct 18 2022 (horror characters only)",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Plex/OnePoll, most iconic horror villain among 2,000 Americans: Freddy Krueger 54%, Chucky 39%, Ghostface 34%, Jack Torrance 31%",
+   "url": "https://studyfinds.com/horror-movie-characters/",
+   "method": "OnePoll survey of 2,000 US streaming subscribers, Aug 16-18 2023 (horror only); same numbers at https://www.wdbo.com/news/freddy-krueger-said-be-most-iconic-horror-film-villain/L6T3F5XPJBGGNM6MYTU6K6C4XA",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "Valencia Theatre Seating, most-tweeted horror villain by US state: Jason Voorhees 10, Michael Myers 10, Pennywise 10, Freddy Krueger 7, Chucky 3, Hannibal Lecter 3, Leatherface 1, Candyman 1, Babadook 1",
+   "url": "https://www.fox19.com/2020/10/28/map-shows-kentuckys-ohios-indianas-favorite-horror-movie-villains/",
+   "method": "Geotagged Twitter hashtag counts by state, Oct 2020 (horror only)",
+   "year": 2020,
+   "kind": "people"
+  },
+  {
+   "name": "Frontier Communications, most-Googled horror villain by US state: Norman Bates 13 states, Chucky 11, then Frankenstein's monster, Xenomorph, Jack Torrance",
+   "url": "https://www.wmbfnews.com/2018/10/26/spooky-google-reveals-each-states-most-searched-horror-movie-villain",
+   "method": "US Google search data by state, Oct 2018 (horror only)",
+   "year": 2018,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov GB, scariest horror villains (pick 3 of 18): Hannibal 19%, Pennywise 19%, Freddy Krueger 17%, Chucky 12%, Damien 11%, Leatherface 10%, Jigsaw 9%, Samara 9%, Michael Myers 8%",
+   "url": "https://yougov.com/en-gb/articles/39098-britains-scariest-halloween-horror-villains",
+   "method": "YouGov online panel, GB adults, Oct 2021 (horror only)",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "Mental Floss / Google Trends, most-searched Disney villain in the US Apr 2024-Apr 2025: 1 Scar (national favorite by a wide margin), 2 Oogie Boogie, 3 Ursula",
+   "url": "https://www.mentalfloss.com/geography/maps/popular-disney-villains-mapped",
+   "method": "Google Trends top-searched queries by US state, Apr 2024-Apr 2025 (Disney only)",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Tie-break/context only, not in the math: NBC 'Not-So-Sweet Sixteen' movie villain bracket - Darth Vader beat Hannibal Lecter in the final by 20 votes; Jason Voorhees, Michael Myers, Thanos, Norman Bates, Voldemort, Jaws shark eliminated earlier",
+   "url": "https://www.nbcsandiego.com/news/national-international/not-so-sweet-sixteen-movie-villains-bracket/81588",
+   "method": "Online reader bracket vote, US, Mar-Apr 2019; only 8 of 16 entrants and rounds not given",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "Tie-break only: JoBlo reader poll, favorite Disney/Pixar villain (775 votes): Scar 15.5%, Hades 8.0%, Maleficent 7.7%, Jafar 7.2%, Ursula 6.8% ... Cruella 2.7%, Queen of Hearts 1.0%",
+   "url": "https://www.joblo.com/disney-pixar-villain-favorite-poll/amp/",
+   "method": "Enthusiast site reader poll, ~2021",
+   "year": 2021,
+   "kind": "critic"
+  },
+  {
+   "name": "Context only: Hollywood Reporter survey of 1,000 industry pros, top 5 = Vader, Hannibal, Wicked Witch, Joker, Ratched",
+   "url": "https://www.mentalfloss.com/article/551834/favorite-movie-villains",
+   "method": "Industry survey",
+   "year": 2018,
+   "kind": "critic"
+  },
+  {
+   "name": "Context only: All Home Connections heart-rate study (990 viewers), scariest: 1 Michael Myers, 2 Jason Voorhees, 3 Freddy Krueger, 4 Pinhead, 5 Chucky, 6 Samara",
+   "url": "https://www.cbsnews.com/minnesota/news/which-horror-movie-villain-ranks-as-the-scariest/",
+   "method": "Biometric measurement while watching, Oct 2021 (not a naming measure)",
+   "year": 2021,
+   "kind": "critic"
   }
  ],
  "list": [
-  "Darth Vader|vader",
+  "Darth Vader|vader|darth vadar|anakin skywalker",
   "The Joker|joker",
-  "Hannibal Lecter|hannibal",
-  "Voldemort|lord voldemort",
-  "Hans Gruber|gruber",
-  "Freddy Krueger|freddy",
+  "Hannibal Lecter|hannibal|hannibal lector|lecter|dr lecter",
+  "Freddy Krueger|freddy|freddy kruger|freddie krueger",
+  "Voldemort|lord voldemort|voldermort|he who must not be named",
   "Thanos",
-  "Michael Myers",
-  "The Terminator|t 800",
-  "Loki",
+  "Michael Myers|michael meyers|myers",
+  "Norman Bates|bates",
+  "Chucky|chuckie|charles lee ray",
+  "Pennywise|pennywise the clown",
+  "The Terminator|t 800|t-800|terminator",
   "The Wicked Witch of the West|wicked witch|wicked witch of the west",
-  "Hans Landa|colonel landa|landa",
-  "Norman Bates",
-  "Kylo Ren|kylo",
-  "Pennywise",
-  "Agent Smith",
-  "Anton Chigurh|chigurh",
-  "Nurse Ratched|ratched",
-  "Sauron",
-  "The Alien|alien|xenomorph",
+  "Jason Voorhees|jason|jason vorhees|jason voorhies",
+  "Hans Gruber|gruber",
   "Scar",
-  "Queen of Hearts",
+  "Hans Landa|colonel landa|landa",
+  "Kylo Ren|kylo|ben solo",
   "Bane",
-  "Cruella de Vil|cruella|cruella deville"
+  "Queen of Hearts|the queen of hearts",
+  "Amon Goeth|goeth|amon göth|amon goth",
+  "The Alien|alien|xenomorph",
+  "Cruella de Vil|cruella|cruella deville|cruella de ville",
+  "Maleficent|malificent|maleficient",
+  "Jack Torrance|torrance|jack torrence"
  ],
- "avg_rank": [
-  1,
-  2.5,
-  3.5,
-  6.5,
-  7,
-  10,
-  10.5,
-  11,
-  11.5,
-  11.5,
-  12,
-  13,
-  13,
-  13.5,
-  13.5,
-  14,
-  14,
-  14.5,
-  15,
-  15,
-  null,
-  null,
-  null,
-  null
+ "gut_check": [
+  "Darth Vader",
+  "The Joker",
+  "Hannibal Lecter",
+  "Freddy Krueger",
+  "Voldemort",
+  "Michael Myers",
+  "Jason Voorhees",
+  "Thanos",
+  "The Wicked Witch of the West",
+  "Scar",
+  "Pennywise",
+  "Norman Bates"
  ],
- "no_data_positions": [
-  21,
-  22,
-  23,
-  24
- ],
- "changes_vs_current": "Vader/Joker/Hannibal restored to the top 3, Voldemort and Gruber 4-5; critic picks (Harry Powell, Amon Goeth, Cody Jarrett, Alex Forrest etc.) gone; Chigurh, Landa, Bates, Ratched, Wicked Witch, Sauron kept; Palpatine, Ursula, Maleficent, Jaws, Gollum, Cruella-tier Disney villains drop except Scar/Cruella/Queen of Hearts at 21-24; added Loki, Kylo Ren, Bane, Queen of Hearts.",
- "confidence": "low-medium. Only two usable fan votes with different audiences (Fandango = US moviegoers; Empire readers = international), 15 and 10 items long, so positions 11-20 are mostly single-source and tie-heavy. Positions 21-24 rest on one weak source (US Google Trends state-win counts from a pre-selected list) and are flagged no-data. Ranker (129K votes) and IMDb polls were unreadable (blocked), and the two sources agree strongly on Vader/Joker/Hannibal, the 2018 THR industry poll agrees with them too. Kylo Ren and Loki are Empire-reader artifacts and are the first to cut if it feels off."
+ "changes_vs_current": "Method: 13 people sources (7 general villain polls/search studies + 5 horror-only + 1 Disney-only), average position with missing = list length + 5, ties by source count. Computed order: 1 Hannibal 4.31 (10 sources), 2 Joker 6.69, 3 Vader 7.27, 4 Freddy 9.46, 5 Bates 10.19, 6 Voldemort 10.38, 7 Thanos 10.42, 8 Chucky 10.50, 9 Michael Myers 10.65, 10 Pennywise 10.96, 11 Terminator 11.08, 12 Scar 11.15, 13 Gruber 11.38, 14 Landa 11.50, 15 Kylo Ren 11.54, 16 Queen of Hearts 11.81, 17 Bane 11.92, 18 Amon Goeth 12.04, 19 Alien 12.15, 20-24 Cruella/Maleficent/Tyler Durden/Alonzo Harris/Calvin Candie 12.19 (1 source each), 25 Jack Torrance 12.23 (3 sources), 26 Ratched 12.31, 27 Chigurh 12.38, 28 Leatherface 12.38, 29 Loki 12.54, 30 Jason 12.54, 33 Wicked Witch 12.62. (General sources alone give Hannibal, Joker, Vader, Voldemort, Thanos, Bates, Terminator, Gruber, Landa, Kylo.) Judgment moves: (1) Vader 3 -> 1, Hannibal 1 -> 3: Hannibal's lead comes from UK/Irish polls and horror 'scary' surveys that Vader isn't eligible for. The US sources put Vader first: Fandango US fan vote #1, NBC bracket champion over Hannibal, THR industry #1, plus Empire readers #1. Joker stays 2. (2) Voldemort, Thanos and Michael Myers go ahead of Bates and Chucky (5-9 are within 0.5 of each other). Bates's lift comes from a 2001 web poll and a 2018 state-count study; the gut check has Voldemort/Myers/Thanos. (3) Wicked Witch 33 -> 13 (gut check): Fandango US #9, THR industry #3, Ipsos Canada 2012 most-cited villain. It stays just outside the top 12 because the UK, Empire and global-search top 10s leave it out. (4) Jason Voorhees 30 -> 14 (gut check): tied #1 on US Twitter state counts, #2 in the heart-rate study, made the NBC bracket. Not higher, because Fandango's US top 15 leaves him out while Freddy and Myers make it. (5) Gruber 13 -> 15, Landa 14 -> 16, Kylo 15 -> 17, Queen of Hearts 16 -> 19, Bane 17 -> 18, Goeth 18 -> 20, Alien 19 -> 21, Cruella 20 -> 22, Maleficent 21 -> 23 all shift down only to make room for those two moves. Bane goes ahead of Queen of Hearts because the JoBlo tie-break has Queen of Hearts at 1%. (6) 20-25 tie band (12.19-12.23): Cruella and Maleficent beat Durden/Alonzo/Candie on the JoBlo tie-break and on Shane's Disney map. Jack Torrance (3 sources: UK poll #9, Plex 31%, Frontier top 5) takes #24 over three single-source Shane entries. Versus the current list: Vader 1 and Joker 2 unchanged. Hannibal 3 unchanged. Voldemort 4 -> 5. Gruber 5 -> 15 (only 3 general polls, missing from all US search and horror data). Freddy 6 -> 4 (Fandango #5, #1 in Morning Consult and Plex US polls). Thanos 7 -> 6. Myers 8 -> 7. Terminator 9 -> 11. Loki 10 -> out (Empire-reader artifact, 1 source, computed 29). Wicked Witch 11 -> 13. Landa 12 -> 16. Bates 13 -> 8 (5 sources). Kylo 14 -> 17. Pennywise 15 -> 10 (Fandango, YouGov GB 19%, Twitter state ties). Agent Smith 16 -> out (Fandango only). Chigurh 17 -> out (computed 27). Ratched 18 -> out (computed 26). Sauron 19 -> out (Fandango #15 only). Alien 20 -> 21. Scar 21 -> 15 (Shane Disney #1, Mental Floss 2025 Disney #1, gut check). Queen of Hearts 22 -> 19. Bane 23 -> 18. Cruella 24 -> 22. New entries: Chucky 9 (5 sources incl. Morning Consult 54%, Plex 39%), Jason 14, Amon Goeth 20 (UK poll #8 + Shane 2 states), Maleficent 23, Jack Torrance 24. Aliases from the current list are kept; new aliases are checked for collisions (no bare 'hans', 'it' or 'witch').",
+ "confidence": "medium for 1-4 (Vader/Joker/Hannibal at the top in every general source; Freddy strong in US horror polls), medium-low for 5-14, low for 15-24. There is still no representative US poll asking for favorite movie villain overall. The general sources are fan votes (Fandango US, Empire, TheJournal), a UK survey and search-data studies. Horror-only and Disney-only sources lift genre villains, and that is a judgment call. 15-24 are near-ties (11.4-12.2) mostly decided by state-count search studies. YouGov Ratings has no fictional-character category reachable (404), IMDb and Ranker were blocked (403/401), Rolling Stone readers' poll paywalled, Wikipedia pageviews rate-limited, so none are cited. Every spot has at least 1 people source; all top-10 items have 3+.",
+ "no_data_positions": []
 }

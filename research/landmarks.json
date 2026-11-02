@@ -1,0 +1,123 @@
+{
+ "topic": {
+  "name": "Famous Landmarks",
+  "note": "Around the world",
+  "cat": "places",
+  "from": 38
+ },
+ "sources": [
+  {
+   "name": "YouGov Ratings - Tourist Attractions, US (ratings update July 2026), fame = % of US adults who have heard of it. All 218 entries read via YouGov's public-data API behind the page. Man-made landmark entries by fame (popularity): White House 97% (60), Eiffel Tower 97% (77), Empire State Building 96% (73), Hollywood Sign 95% (59), Statue of Liberty 95% (78), Times Square 95% (63), Golden Gate Bridge 94% (68), Capitol Building 94% (60), Lincoln Memorial 94% (75), Great Wall of China 94% (68), Brooklyn Bridge 91%, Alcatraz 91%, Mount Rushmore 90% (69), Stonehenge 88% (67), One World Trade Center 88%, Taj Mahal 87% (62), Louvre 87%, Colosseum 86% (65), Gateway Arch 86%, Space Needle 86%, Notre Dame 85%, Sydney Opera House 82%, Burj Khalifa 81% (35), Machu Picchu 80% (57), Vatican Museums 78%, Christ the Redeemer 76%, Versailles 76%, Acropolis 72%, Forbidden City 59%, Sagrada Familia 47%. Pyramids of Giza, Big Ben and Leaning Tower of Pisa are NOT in YouGov's list (absent, not rated low). Rank among 30 landmark items used.",
+   "url": "https://yougov.com/en-us/ratings/tourist-attractions?sortBy=fame",
+   "method": "YouGov Ratings continuous US adult online panel; fame = % who have heard of it; data read from https://api-test.yougov.com/public-data/v5/us/search/entity/?group=c36a1d21-3eb7-11ea-a4de-190c484ab94a&sort_by=fame (all 218 rows)",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Facts Institute (Ahrefs) average monthly US Google searches for 150+ landmarks, top 10: Grand Canyon 429k, Statue of Liberty 353k, Eiffel Tower 321k, Niagara Falls 285k, Empire State Building 253k, Machu Picchu 232k, White House 211k, Colosseum 166k, Taj Mahal 157k, Burj Khalifa 154k. Natural sites dropped -> 8-item order.",
+   "url": "https://natixis.ezine.intercountry.com/?p=5004",
+   "method": "Ahrefs average monthly US search volume over prior 12 months, published Dec 2024; only top 10 published",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "AllClear landmark recognition survey (2,000 people, six continents, Oct 2024), % correctly identifying from photo: Statue of Liberty 98.73, Eiffel Tower 97.50, Taj Mahal 92.25, Colosseum 91.64, White House 90.40, Sydney Opera House 89.77, Big Ben 86.49, Leaning Tower of Pisa 85.24, Great Pyramid of Giza 84.88, Stonehenge 81.69, Mount Rushmore 79.11, Golden Gate Bridge 78.12, Machu Picchu 77.72, Empire State Building 76.41, Trevi Fountain 76.08, Grand Canyon 74.98, Christ the Redeemer 64.48, Uluru 51.63, Moai 50.50, Victoria Falls 49.72. Great Wall not in published top 20 (likely not among the 50 tested). Natural sites dropped -> 17-item order.",
+   "url": "https://www.allcleartravel.co.uk/blog/worlds-most-iconic-landmarks/",
+   "method": "Online image-identification quiz, multiple choice with 'I don't know', results averaged across continents; global, not US-only",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Generali / Europ Assistance: top landmarks Americans want to visit, in order: Grand Canyon, Eiffel Tower, Mount Rushmore, Pyramids, Yellowstone, Statue of Liberty, Great Wall of China, Niagara Falls, Machu Picchu, Taj Mahal, Yosemite. Natural sites dropped -> 7-item order.",
+   "url": "https://www.generalitravelinsurance.com/travel-resources/top-landmarks-americans-visit.html",
+   "method": "US traveler survey (Europ Assistance/Ipsos holiday barometer, c. 2019); order only, no percentages or sample size on page",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "English Wikipedia pageviews, calendar 2025 (user agents, all access): Taj Mahal 2.15M, Burj Khalifa 2.14M, Statue of Liberty 1.77M, Sagrada Familia 1.75M, Mount Rushmore 1.71M, Eiffel Tower 1.65M, Great Wall 1.62M, White House 1.62M, Machu Picchu 1.60M, Colosseum 1.57M, Great Pyramid of Giza 1.41M, Petra 1.40M, Hagia Sophia 1.30M, Stonehenge 1.28M, Angkor Wat 1.27M, St. Peter's Basilica 1.13M, Empire State Building 1.07M, One World Trade Center 1.02M, Pentagon 0.99M, Christ the Redeemer 0.97M, Notre-Dame 0.87M, Louvre 0.85M, Leaning Tower of Pisa 0.82M, Big Ben 0.80M, Golden Gate Bridge 0.78M, Parthenon 0.77M ... Times Square 0.44M, Hollywood Sign 0.42M, Lincoln Memorial 0.22M (52 articles).",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Eiffel_Tower/monthly/2025010100/2025123100",
+   "method": "Wikimedia REST pageviews API, one call per article, Jan-Dec 2025; global English-language interest, skews to curiosity (Burj, Sagrada, Petra)",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "British Airways poll of 2,000 UK adults, top 30 favourite landmarks: Eiffel Tower, Grand Canyon, Big Ben, Stonehenge, Houses of Parliament, Statue of Liberty, Pyramids of Giza, Great Wall, Tower of Pisa, Niagara Falls, Taj Mahal, Colosseum, Great Sphinx, Edinburgh Castle, Empire State Building, Sydney Opera House, Everest, Pompeii, Golden Gate Bridge, Uluru, Great Barrier Reef, Loch Ness, Venice canals, Acropolis, Louvre, Machu Picchu, Christ the Redeemer, Hollywood Sign, White House, Mount Rushmore. Natural/duplicate entries dropped -> 21-item order.",
+   "url": "https://thelondoneconomic.com/?p=11963",
+   "method": "Commissioned poll of 2,000 UK adults, March 2015; UK sample (skews to British sites)",
+   "year": 2015,
+   "kind": "people"
+  },
+  {
+   "name": "Motif Instagram hashtag counts (2019): #eiffeltower 5.85M, #lasvegasstrip 4.80M, #timessquare 3.95M, #burjkhalifa 3.50M, #grandcanyon 3.43M, #bigben 3.01M, #londoneye 2.98M, #louvre 2.90M, #goldengatebridge 2.65M, #empirestatebuilding 2.60M, #towerbridge 2.13M, #sagradafamilia 1.83M, #statueofliberty 1.82M, #colosseum 1.55M, #machupicchu 1.54M, #tajmahal 1.26M, #cntower 1.25M, #buckinghampalace 1.13M, #acropolis 1.11M, #arcdetriomphe 0.95M. Natural/strip dropped -> 18-item order.",
+   "url": "https://www.attractionsmanagement.com/attractions-news/Eiffel-Tower-tops-Instagram-charts-after-iconic-landmark-revealed-as-most-tagged-tourist-attraction-worldwide-/342921",
+   "method": "Total Instagram hashtag uses since 2010, analysis by Motif, Sept 2019; usage data, skews to visited city sights",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "Hotels.com survey of 10,000 travelers on five continents, favourite landmark: Eiffel Tower 16%, St Peter's Basilica 9%, Taj Mahal 8%, Golden Gate Bridge 7%, Empire State Building 7%, Statue of Liberty 7%, Sydney Opera House 7%, Sagrada Familia 7%, Acropolis 6%, Christ the Redeemer 4%.",
+   "url": "https://www.luxuo.com/lifestyle/travel/eiffel-tower-favorite-landmark.html",
+   "method": "Global traveler survey, Dec 2009; old, light weight",
+   "year": 2009,
+   "kind": "people"
+  },
+  {
+   "name": "Travel + Leisure readers' most popular landmarks (by readers who visited): Statue of Liberty, Empire State Building, Golden Gate Bridge, Eiffel Tower, Big Ben, Colosseum, Millennium Park, St. Peter's Basilica, Swiss Re Building, High Line.",
+   "url": "https://abc7ny.com/archive/8518144/",
+   "method": "Travel magazine reader survey, 2011 (audience vote of travel enthusiasts); tie-break only",
+   "year": 2011,
+   "kind": "critic"
+  },
+  {
+   "name": "Titan Travel Social Travel Index 2024: most tagged landmarks on Instagram+TikTok: Central Park 8.52M, Eiffel Tower 8.03M, Niagara Falls 4.12M (rest of table only as image).",
+   "url": "https://www.titantravel.co.uk/blogs/social-travel-index-2024",
+   "method": "Hashtag counts for Tripadvisor top sights, May 2024; only top 3 readable, so confirmation only",
+   "year": 2024,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Eiffel Tower|eiffel|eifel tower|eiffle tower|eiffel tower paris|tour eiffel|the eiffel tower",
+  "Statue of Liberty|the statue of liberty|lady liberty|statue of libery|statue liberty",
+  "Taj Mahal|taj|tajmahal|the taj mahal|taj mahel",
+  "Great Wall of China|great wall|the great wall|the great wall of china|great wall china",
+  "Colosseum|coliseum|the colosseum|roman colosseum|colosseo|colliseum|the coliseum",
+  "Pyramids of Giza|pyramids|the pyramids|great pyramid|great pyramid of giza|pyramid of giza|giza pyramids|egyptian pyramids|pyramids of egypt|giza|sphinx|great sphinx",
+  "Empire State Building|empire state|the empire state building|empire state bldg",
+  "Mount Rushmore|mt rushmore|mt. rushmore|rushmore|mount rushmore national memorial|mount rushmoore",
+  "Golden Gate Bridge|golden gate|the golden gate bridge|golden gate bridge san francisco",
+  "White House|the white house|whitehouse",
+  "Big Ben|bigben|elizabeth tower|houses of parliament|parliament|palace of westminster",
+  "Leaning Tower of Pisa|leaning tower|tower of pisa|pisa|the leaning tower of pisa|leaning tower of piza",
+  "Machu Picchu|machu pichu|macchu picchu|machupicchu|machu picchu peru|manchu picchu",
+  "Stonehenge|stone henge|stonhenge",
+  "Burj Khalifa|burj|burj kalifa|burj khalifa dubai",
+  "Louvre|the louvre|louvre museum|musee du louvre|louvre pyramid",
+  "Christ the Redeemer|christ the redeemer statue|cristo redentor|christ statue|jesus statue rio|christ the reedemer",
+  "Sydney Opera House|sydney opera|opera house|the sydney opera house",
+  "Times Square|time square|times sq|times square nyc",
+  "St. Peter's Basilica|st peter's basilica|st peters basilica|saint peter's basilica|st. peter's|vatican|vatican city|sistine chapel",
+  "Acropolis|parthenon|the parthenon|the acropolis|acropolis of athens",
+  "One World Trade Center|freedom tower|one wtc|1 world trade center|world trade center|wtc",
+  "Sagrada Familia|sagrada família|la sagrada familia|sagrada",
+  "Notre-Dame|notre dame|notre dame cathedral|notre-dame de paris|notre dame de paris|notre-dame cathedral"
+ ],
+ "gut_check": [
+  "Eiffel Tower",
+  "Statue of Liberty",
+  "Great Wall of China",
+  "Pyramids of Giza",
+  "Taj Mahal",
+  "Colosseum",
+  "Mount Rushmore",
+  "Big Ben",
+  "Golden Gate Bridge",
+  "Leaning Tower of Pisa",
+  "Stonehenge",
+  "Machu Picchu"
+ ],
+ "changes_vs_current": "Scope: man-made landmarks and monuments only. Natural wonders (Grand Canyon, Niagara Falls, Yellowstone, Everest, Uluru, Victoria Falls) are excluded because National Parks is its own topic and the board is 'landmarks'; they were dropped from every source before ranking. Mount Rushmore counts (carved monument). City districts/parks (Central Park, Las Vegas Strip) excluded; Times Square kept as a named landmark. Merges: Sphinx folded into Pyramids of Giza (alias), Houses of Parliament into Big Ben, Sistine Chapel/Vatican into St. Peter's Basilica, Parthenon into Acropolis.\nComputed order (avg position over 8 people sources: YouGov US fame, Facts Institute US searches, AllClear recognition, Generali US want-to-visit, Wikipedia 2025 pageviews, BA UK poll, Instagram hashtags, Hotels.com 2009; missing = list length + 5): 1 Eiffel Tower 2.0, 2 Statue of Liberty 4.38, 3 Taj Mahal 7.38, 4 Empire State Building 9.12, 5 Colosseum 10.75, 6 White House 11.12, 7 Golden Gate Bridge 12.0, 8 Machu Picchu 12.62, 9 Great Wall 12.62, 10 Mount Rushmore 12.88, 11 Stonehenge 13.0, 12 Burj Khalifa 13.88, 13 Big Ben 14.25, 14 Pyramids 14.25, 15 Louvre 15.5, 16 Sagrada Familia 15.62, 17 Christ the Redeemer 17.25, 18 Sydney Opera House 17.25, 19 Leaning Tower of Pisa 17.25, 20 St. Peter's 17.38, 21 Times Square 17.5, 22 Acropolis 18.0, 23 One World Trade Center 18.0, 24 Notre-Dame 19.12, then Hollywood Sign 19.25, Alcatraz 19.5, Brooklyn Bridge 19.5, US Capitol 19.62, Petra 19.75, Hagia Sophia 19.88.\nGut-check moves (gut 12 written before ranking): (1) Great Wall 9 -> 4: penalized only by absence from AllClear's published top 20 (apparently not among its 50 tested) and the short Facts top 10; every source that includes it puts it high (YouGov fame 94%, 10th of 30 and 2nd among non-US sites; Generali 5 of 7; BA 6; Wikipedia 7). (2) Pyramids 14 -> 6: not in YouGov's attraction list at all (absent, not rated low); Generali 3, BA 5, AllClear 9, Wikipedia 11. (3) Big Ben 13 -> 11 and Leaning Tower of Pisa 19 -> 12: also absent from YouGov's list; AllClear recognition puts them 7 and 8 (above Rushmore, Golden Gate, Machu Picchu), BA 2 and 7, Instagram has Big Ben 4. (4) Machu Picchu 8 -> 13 and Stonehenge 11 -> 14 stay just outside the top 12 although in the gut 12: YouGov US fame puts both below Empire State Building and White House (Stonehenge 88%, Machu Picchu 80% vs 96-97%), and AllClear places both below Big Ben and Pisa (10 and 13 vs 7 and 8). (5) Empire State Building (4 -> 7) and White House (6 -> 10) shift down only because gut-check items were inserted above; both stay top 10 on strong US data (YouGov fame 96/97%, US searches 5th/7th of 10). Golden Gate 7 -> 9 and Rushmore stays ~8 for the same reason; Golden Gate above White House per T+L tie-break and Instagram. (6) Burj Khalifa 12 -> 15: its high average comes from global Wikipedia (2nd) and Instagram; US data is weak (YouGov fame 81%, popularity 35%, last of 10 in US searches). (7) Sagrada Familia 16 -> 23: lifted by global Wikipedia (4th) and Hotels.com 2009 global travelers; YouGov US fame is only 47% (last of 30 landmarks), so Americans rarely name it. Louvre 16, Christ the Redeemer 17, Sydney Opera House 18, Times Square 19, St. Peter's 20, Acropolis 21, One WTC 22 follow the computed order. Notre-Dame 24 edges Hollywood Sign (19.25), Alcatraz, Brooklyn Bridge, Capitol by computed average; these US sites are left off, which is the main tail doubt.",
+ "confidence": "High for 1-2 (Eiffel Tower and Statue of Liberty lead every source). Medium-high for 3-12: membership is solid, internal order rests on mixed sources (global recognition, US fame, US search, a UK poll) plus gut-check moves for Great Wall, Pyramids, Big Ben and Pisa, which are missing from YouGov's attraction list rather than rated low. Medium-low for 13-24: tail mixes global-interest sites (Burj, Sagrada, Acropolis) with US sites; Hollywood Sign, Alcatraz, Brooklyn Bridge, US Capitol, Lincoln Memorial were close misses (computed 25-28). No US general-public 'name a landmark' poll was found; several sources are old (Hotels.com 2009, BA 2015, Instagram 2019) or non-US. Some fetches failed (TravelPulse/Kuoni state map, JetPunk quiz stats, Hilton wish-list survey) and are not cited.",
+ "no_data_positions": []
+}

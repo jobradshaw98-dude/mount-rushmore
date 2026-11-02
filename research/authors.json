@@ -1,0 +1,130 @@
+{
+ "topic": {
+  "name": "Authors",
+  "note": "All-time",
+  "cat": "people",
+  "from": 38
+ },
+ "sources": [
+  {
+   "name": "YouGov Ratings - The most popular all-time writers, US, Q3 2026 (fame/popularity). Sorted by fame: Dr. Seuss 96%/75%, Shakespeare 95%/71%, Stephen King 92%/61%, Mark Twain 91%/72%, J.K. Rowling 91%/53%, Charles Dickens 90%/68%, Edgar Allan Poe 90%/69%, Plato 86%, Freud 85%, Agatha Christie 84%/63%, F. Scott Fitzgerald 83%/54%, Emily Dickinson 83%/61%, Ernest Hemingway 83%/58%, Karl Marx 78%, Maya Angelou 77%/57%, Robert Frost 77%, Tom Clancy 77%/49%, H.G. Wells 77%, Oscar Wilde 76%, George Orwell 76%/56%; from the popularity sort: Tolkien 75%/54%, Jane Austen 74%/53%, Hans Christian Andersen 74%, Emerson 73%. Fame for others from the YouGov contemporary fiction writers list (Q3 2026: John Grisham 73%, James Patterson 73%, Danielle Steel 70%, R.L. Stine 68%, George R.R. Martin 66%, Dean Koontz 64%, Nora Roberts 63%, Suzanne Collins 60%, Nicholas Sparks 57%, Stephenie Meyer 55%) and YouGov writer pages (John Steinbeck 72%, Judy Blume 71%, Leo Tolstoy 66%, Roald Dahl 65%, Michael Crichton 63%, Louisa May Alcott 63%, Harper Lee 61%, Shel Silverstein 59%, Herman Melville 58%, Toni Morrison 58%, Ayn Rand 56%, Margaret Mitchell 55%, Dan Brown 52%). Merged rank by fame over 44 book authors (Plato, Freud, Marx, Stan Lee dropped as not book authors people would name here): Seuss 1, Shakespeare 2, King 3, Twain 4, Rowling 5, Dickens 6, Poe 7, Christie 8, Fitzgerald 9, Dickinson 10, Hemingway 11, Angelou 12, Frost 13, Clancy 14, ... Orwell 17, Tolkien 18, Austen 19, Grisham 22, Patterson 23, Steinbeck 24, Steel 26, Koontz 31, Roberts 32, Alcott 34, Lee 35, Mitchell 42 (Colleen Hoover, Sarah J. Maas, Diana Gabaldon, C.S. Lewis, J.D. Salinger pages could not be read = missing).",
+   "url": "https://yougov.com/en-us/ratings/all-time writers?sortBy=fame",
+   "method": "YouGov Ratings: continuous online US adult panel; fame = % who have heard of the writer, popularity = % positive; quarterly average Q3 2026. Contemporary list at https://yougov.com/en-us/ratings/contemporary-fiction-writer; per-writer pages such as https://yougov.com/en-us/topics/writer/Harper_Lee",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll America's favorite authors 2015: 1 Stephen King, 2 James Patterson, 3 J.K. Rowling (up from 9), 4= John Grisham, 4= Dean Koontz, 6 Nora Roberts/J.D. Robb, 8= J.R.R. Tolkien, 8= Mark Twain, 9 Nicholas Sparks (new), 10 Danielle Steel. Top 10 only (7th not reported).",
+   "url": "https://www.quirks.com/articles/the-kings-and-queens-of-horror-tales-from-america-s-favorite-genres",
+   "method": "Harris Poll online survey of 2,273 US adults, July 15-20 2015, open-ended favorite author; positions 4-10 from the AFP-Relaxnews report as summarized in search results (malaymail page itself returned 403), cross-read with Quirks write-up for 1-4.",
+   "year": 2015,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll America's favorite authors 2010: 1 Stephen King, 2 James Patterson, 3 John Grisham, 4 Nora Roberts, 5 Tom Clancy, 6 Dean Koontz, 7 Danielle Steel, 8 Dan Brown, 9 J.K. Rowling, 10 J.R.R. Tolkien.",
+   "url": "https://www.publishersweekly.com/pw/by-topic/industry-news/publishing-and-marketing/article/44757-harris-poll-finds-mysteries-thrillers-edge-out-romance-novels.html",
+   "method": "Harris Poll online survey of 2,775 US adults, August 2010, open-ended favorite author.",
+   "year": 2010,
+   "kind": "people"
+  },
+  {
+   "name": "WordsRated America's 100 favorite authors (2022): 1 J.K. Rowling, 2 Stephen King, 3 Jane Austen, 4 Colleen Hoover, 5 Sarah J. Maas, 6 Harper Lee, 7 Delia Owens, 8 Kristin Hannah, 9 J.R.R. Tolkien, 10 Taylor Jenkins Reid, 11 F. Scott Fitzgerald, 12 James Patterson, 15 John Steinbeck, 17 Diana Gabaldon, 24 Louisa May Alcott, 25 Nicholas Sparks; lower: Margaret Mitchell 28, Agatha Christie 31, George Orwell 32, John Grisham 36, Dean Koontz 44, Charles Dickens 47, Nora Roberts 58, Maya Angelou 78, Ernest Hemingway 87 (Shakespeare, Seuss, Twain, Poe absent). Top 25 used in the average.",
+   "url": "https://wordsrated.com/americas-favorite-authors/",
+   "method": "About 76,000 US applicants to a WordsRated job listing named their favorite book and its author; self-selected readers, skews younger/female and toward novels. Book list at https://wordsrated.com/americas-favorite-books-by-state/",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll America's favorite books 2014, mapped to authors: 1 Bible, 2 Gone with the Wind (Margaret Mitchell), 3 Harry Potter (Rowling), 4 Lord of the Rings (Tolkien), 5 To Kill a Mockingbird (Harper Lee), 6 Moby Dick (Melville), 7 Catcher in the Rye (Salinger), 8 Little Women (Alcott), 9 Grapes of Wrath (Steinbeck), 10 Great Gatsby (Fitzgerald).",
+   "url": "https://www.csmonitor.com/Books/chapter-and-verse/2014/0505/America-s-favorite-books-The-Bible-Gone-With-the-Wind-Harry-Potter",
+   "method": "Harris Interactive online survey of about 2,300 US adults, 'What's your favorite book of all time?' (also read at https://www.criminalelement.com/?p=10092).",
+   "year": 2014,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll America's favorite books 2008, mapped to authors: 1 Bible, 2 Gone with the Wind (Mitchell), 3 Lord of the Rings (Tolkien), 4 Harry Potter (Rowling), 5 The Stand (Stephen King), 6 Da Vinci Code (Dan Brown), 7 To Kill a Mockingbird (Harper Lee), 8 Angels and Demons (Brown), 9 Atlas Shrugged (Ayn Rand), 10 Catcher in the Rye (Salinger).",
+   "url": "https://reporter.lcms.org/2008/poll-says-bible-is-americas-favorite-book/",
+   "method": "Harris Interactive online poll of more than 2,500 US adults, favorite book, reported by RNS April 2008.",
+   "year": 2008,
+   "kind": "people"
+  },
+  {
+   "name": "Wikipedia list of best-selling fiction authors (global sales estimates), table order top 25: 1 Shakespeare (2-4bn), 2 Agatha Christie (2-4bn), 3 Barbara Cartland, 4 Danielle Steel (500-800M), 5 Harold Robbins, 6 Simenon, 7 J.K. Rowling (600M), 8 Eiichiro Oda, 9 Enid Blyton, 10 Jackie Collins, 11 Sidney Sheldon, 12 Rick Riordan, 13 Gilbert Patten, 14 Dr. Seuss (100-500M), 15 Toriyama, 16 Tolstoy, 17 Corin Tellado, 18 James Patterson (400M), 19 Dean Koontz, 20 Stephen King (300-400M), 21 Horatio Alger, 22 Nora Roberts, 23 R.L. Stine, 24 Pushkin, 25 Paulo Coelho.",
+   "url": "https://en.wikipedia.org/wiki/List_of_best-selling_fiction_authors",
+   "method": "Compiled publisher/press sales estimates (worldwide, all years); table order as published, top 25 used (missing = 30).",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Circana/NPD BookScan top-selling authors 2004-2021 (US print units): 1 James Patterson, 2 Dr. Seuss, 3 J.K. Rowling, 4 Jeff Kinney, 5 Nora Roberts. Also 2010-2019: Patterson 84M units, double Dr. Seuss.",
+   "url": "https://publishersweekly.com/pw/print/20220419/89042-25-years-of-bestselling-authors-and-books.html",
+   "method": "Publishers Weekly from BookScan point-of-sale print data; only top 5 published. Decade figure from https://publishersweekly.com/pw/print/20201116/84901-bookscan-patterson-was-decade-s-bestselling-author.html",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "PBS The Great American Read final vote (2018), titles mapped to authors, top 25: 1 To Kill a Mockingbird (Lee), 2 Outlander (Gabaldon), 3 Harry Potter (Rowling), 4 Pride and Prejudice (Austen), 5 Lord of the Rings (Tolkien), 6 Gone with the Wind (Mitchell), 7 Charlotte's Web (White), 8 Little Women (Alcott), 9 Narnia (C.S. Lewis), 10 Jane Eyre, 11 Anne of Green Gables, 12 Grapes of Wrath (Steinbeck), 13 A Tree Grows in Brooklyn, 14 Book Thief, 15 Great Gatsby (Fitzgerald), 16 The Help, 17 Tom Sawyer (Twain), 18 1984 (Orwell), 19 And Then There Were None (Christie), 20 Atlas Shrugged, ... 24 The Stand (King); lower: Great Expectations (Dickens) 29, Sun Also Rises (Hemingway) 65, Alex Cross (Patterson) 81.",
+   "url": "https://wgbh.org/great-american-read-results",
+   "method": "Public online/text vote (millions of votes) over a 100-novel shortlist nominated by a YouGov survey of 7,366 Americans; novels only, one title per author, so poets, playwrights and picture-book authors (Shakespeare, Poe, Seuss) were ineligible. Top 25 used (missing = 30).",
+   "year": 2018,
+   "kind": "people"
+  },
+  {
+   "name": "Libby (OverDrive) top 10 authors by digital checkouts 2025: 1 Jeff Kinney, 2 James Patterson, 3 Freida McFadden, 4 Sarah J. Maas, 5 Lincoln Peirce, 6 Rebecca Yarros, 7 Dav Pilkey, 8 Kristin Hannah, 9 David Baldacci, 10 Nora Roberts.",
+   "url": "https://www.libbylife.com/blog/the-most-borrowed-books-in-the-libby-app-in-2025",
+   "method": "Library ebook/audiobook checkouts through the Libby app, calendar 2025 (current-year usage, weak for an all-time topic).",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov 'most popular poet' poll (April 2017): have read Edgar Allan Poe 67%, William Shakespeare 64%, Emily Dickinson 45%, Maya Angelou 39% (list of 10; others not named in article). Used as second people source for Poe, not in the average (list incomplete).",
+   "url": "https://yougov.com/en-us/articles/18008-and-most-popular-poet",
+   "method": "YouGov online survey of over 5,000 US adults, which of ten authors have you read.",
+   "year": 2017,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Stephen King|king|steven king|stephen kings|steven king's",
+  "J.K. Rowling|jk rowling|j.k rowling|j. k. rowling|rowling|rowlings|jk rowlings|joanne rowling|j.k. rowlings",
+  "William Shakespeare|shakespeare|shakespear|shakespere|shakspeare|the bard",
+  "Dr. Seuss|dr seuss|seuss|dr. suess|dr suess|suess|doctor seuss|theodor geisel|ted geisel",
+  "Mark Twain|twain|samuel clemens|mark twian",
+  "J.R.R. Tolkien|jrr tolkien|j.r.r tolkien|j. r. r. tolkien|tolkien|tolkein|jrr tolkein",
+  "James Patterson|patterson|james paterson",
+  "Edgar Allan Poe|poe|edgar allen poe|edgar poe|edgar alan poe",
+  "Charles Dickens|dickens|charles dickins|dickins",
+  "Jane Austen|austen|jane austin|jane austen's",
+  "Harper Lee|lee|harper lee's",
+  "Ernest Hemingway|hemingway|hemmingway|ernest hemmingway|earnest hemingway",
+  "Agatha Christie|christie|agatha christy|agatha christi",
+  "F. Scott Fitzgerald|f scott fitzgerald|scott fitzgerald|fitzgerald|f. scott fitzgerrald",
+  "John Steinbeck|steinbeck|john steinbek|steinbek",
+  "Danielle Steel|steel|danielle steele|daniel steel",
+  "Margaret Mitchell|mitchell|margaret mitchel",
+  "Nora Roberts|roberts|jd robb|j.d. robb",
+  "Louisa May Alcott|alcott|louisa alcott|louisa may alcot",
+  "John Grisham|grisham|john grisam",
+  "Dean Koontz|koontz|dean kootz|dean koonts",
+  "Tom Clancy|clancy",
+  "George Orwell|orwell|eric blair",
+  "Diana Gabaldon|gabaldon|diana gabaldin"
+ ],
+ "gut_check": [
+  "William Shakespeare",
+  "Stephen King",
+  "J.K. Rowling",
+  "Mark Twain",
+  "Dr. Seuss",
+  "Ernest Hemingway",
+  "Edgar Allan Poe",
+  "Jane Austen",
+  "Charles Dickens",
+  "J.R.R. Tolkien",
+  "Harper Lee",
+  "James Patterson"
+ ],
+ "changes_vs_current": "New topic. Scope: authors of books (novelists, playwrights, poets, children's authors); philosophers/thinkers on the YouGov writer list (Plato, Freud, Marx) and comic writer Stan Lee left out. Computed order (average position over 10 people sources: YouGov fame merged rank over 44 authors, missing 49; Harris favorite authors 2015 and 2010 top 10, missing 15; WordsRated 2022 favorite authors top 25, missing 30; Harris favorite books 2014 and 2008 mapped to authors, missing 15; Wikipedia best-selling fiction authors top 25, missing 30; BookScan 2004-21 top 5, missing 10; Great American Read top 25, missing 30; Libby 2025 top 10, missing 15. Long lists were cut at 25 so that eligibility gaps in one list (no Shakespeare/Seuss/Poe in novel-only polls) do not swamp the average): 1 Rowling 5.3, 2 King 9.6, 3 Tolkien 11.2, 4 Patterson 12.0, 5 Harper Lee 13.9, 6 Austen 14.1, 7 Christie 14.4, 8 Fitzgerald 14.5, 9 Shakespeare 14.8, 10 Seuss 15.2, 11 Twain 15.9, 12 Steinbeck 16.0, 13 Steel 16.2, 14 Mitchell 16.7, 15 Roberts 16.9, 16 Alcott 17.4, 17 Grisham 17.4, 18 Koontz 17.5, 19 Clancy 17.9, 20 Orwell 18.0, 21 Dickens 18.1, 22 Poe 18.2, 23 Gabaldon 18.3, 24 Dickinson 18.5, 25 Hemingway 18.6, 26 Angelou 18.7, 27 Maas 18.8. Gut-check moves: (1) Stephen King 2 -> 1 and Rowling 1 -> 2: King is #1 in both general-public favorite-AUTHOR polls (Harris 2010 and 2015, where Rowling was 9 and 3), above Rowling on YouGov fame (92 vs 91) and well above on popularity (61 vs 53). Rowling's lead comes from favorite-BOOK polls where Harry Potter is one series vs King's spread-out catalog, and from self-selected WordsRated. (2) Shakespeare 9 -> 3, Dr. Seuss 10 -> 4, Mark Twain 11 -> 5: all three are in the gut check's top 5 and are the top 4 by YouGov fame with King/Rowling (Seuss 96, Shakespeare 95, Twain 91), Shakespeare is #1 in sales and Seuss #2 in BookScan; they rank low only because favorite-novel polls cannot include plays or picture books, and Twain is still Harris 2015 #8 and GAR 17. No naming/recall source puts them lower. (3) Poe 22 -> 8, Dickens 21 -> 9, Hemingway 25 -> 12: in the gut check; YouGov fame puts them 7, 6 and 11 (Poe and Dickens 90%, Hemingway 83%) and popularity 69%, 68%, 58%; YouGov 2017 has Poe as the most-read of ten authors (67%, ahead of Shakespeare 64%). The sources placing them lower are favorite-book lists (Dickens WordsRated 47/GAR 29, Hemingway WordsRated 87/GAR 65), which measure a favorite novel, not who people name; Poe is ineligible in those. Hemingway kept at 12 (last gut-check slot) because those favorite lists rate him weakest of the three. (4) Tolkien 3 -> 6 and Patterson 4 -> 7: moved down only by the lifts above; Tolkien is in the gut check and has 7 sources; Patterson has 7 sources (Harris 2/2, BookScan 1, Libby 2) but YouGov fame of only 73%. (5) Austen 6 -> 10 and Harper Lee 5 -> 11: both in the gut check and kept in the top 12; Lee's YouGov fame is just 61% (people know the book more than her name). (6) Christie 7 -> 13, Fitzgerald 8 -> 14, Steinbeck 15 ... Gabaldon 24 keep their computed relative order below the gut-check items. Emily Dickinson (computed 24) drops to first alternate because Hemingway moved into the 24. Diana Gabaldon stays at 24 on GAR #2 and WordsRated #17 (fan-driven; YouGov page not readable).",
+ "confidence": "High for the top 5 set (King, Rowling, Shakespeare, Seuss, Twain), medium for their internal order (King vs Rowling vs Shakespeare at #1 is close and depends on fame vs favorite measures). Medium for 6-14: Poe, Dickens and Hemingway are lifted on YouGov fame plus the gut check, against favorite-book polls. Medium-low for 15-24: commercial authors (Steel, Roberts, Grisham, Koontz, Clancy) rest on older Harris polls (2010/2015) and sales; Gabaldon is fan-vote driven. Caveats: Harris author polls only report top 10 and the 2015 positions 4-10 come from a news summary whose page returned 403; no recent general-public favorite-author poll found; Wikipedia pageviews/Google Trends rate-limited and not used; YouGov fame list beyond the top 20 was assembled from per-writer pages (Hoover, Maas, C.S. Lewis, Salinger pages not found).",
+ "no_data_positions": []
+}

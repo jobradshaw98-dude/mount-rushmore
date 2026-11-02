@@ -1,0 +1,136 @@
+{
+ "topic": {
+  "name": "Christmas Songs",
+  "cat": "music",
+  "from": 38
+ },
+ "sources": [
+  {
+   "name": "YouGov favorite Christmas song poll, US, Dec 2020 (shortlist built from 1,500-adult open write-in, then closed question n=1,200): Silent Night 13%, All I Want for Christmas Is You 13%, O Holy Night 12%, Jingle Bell Rock 12%, White Christmas 10%, Carol of the Bells 7%, The Christmas Song 7%, Mary Did You Know 7%, Little Drummer Boy 6%, Jingle Bells 3% (10 items)",
+   "url": "https://yougov.com/en-us/articles/33460-favorite-christmas-holiday-song-poll",
+   "method": "YouGov online panel, US adults weighted; open-ended write-in first, then top 10 write-ins tested closed-ended; competition ranking on %",
+   "year": 2020,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov 'America's favorite Christmas song', Dec 2019 (n=1,209, 749 with a favorite): Silent Night 10%, White Christmas 8%, All I Want for Christmas Is You 6%, Jingle Bells 6%, O Holy Night 6%, Little Drummer Boy 4%, Silver Bells 3%, Rudolph 3%, then 2% each Jingle Bell Rock, Mary Did You Know, Carol of the Bells, Baby It's Cold Outside, The Christmas Song, I'll Be Home for Christmas (14 items)",
+   "url": "https://yougov.com/en-us/articles/27016-americas-favorite-christmas-song",
+   "method": "YouGov online panel, US adults, Dec 10-11 2019, favorite song; ties share rank",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "Monmouth University Poll, Dec 2022 (n=805, phone, list not read). Carol/religious: Silent Night 12%, O Holy Night 6%, Carol of the Bells 3%, Little Drummer Boy/Joy to the World/Mary Did You Know/O Come All Ye Faithful 2%. Non-religious: Jingle Bells 4%, All I Want for Christmas Is You 4%, White Christmas 3%, The Christmas Song/Rudolph/Winter Wonderland/Last Christmas/Grandma Got Run Over 2%, then 1% each Jingle Bell Rock, Baby It's Cold Outside, We Wish You a Merry Christmas, Let It Snow, Silver Bells, Santa Claus Is Coming to Town, Frosty, Rockin' Around, I'll Be Home, Here Comes Santa Claus, Have Yourself, Feliz Navidad, Blue Christmas. Merged by % into one 37-item list (Silent Night 1, O Holy Night 2, Jingle Bells/AIWFC 3, Carol/White 5, 2%-songs 7, 1%-songs 16)",
+   "url": "https://www.monmouth.edu/polling-institute/wp-json/wp/v2/poll/40802253730",
+   "method": "Live-interviewer telephone poll of US adults, Dec 8-12 2022, open-ended favorite carol and favorite non-religious holiday song; read from the release tables",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Saint Leo University Polling Institute, Nov 2016 (n=1,001 US adults; multi-select favorite carols from 47 songs): Silent Night 50.4, White Christmas 48.0, Jingle Bells 44.4, O Come All Ye Faithful 43.0, Joy to the World 41.4, I'll Be Home 39.7, Have Yourself 38.9, Rudolph 38.0, Little Drummer Boy 37.3, We Wish You 35.6, Most Wonderful Time 35.1, Santa Claus Is Coming 34.9, Hark 34.7, First Noel 34.3, Silver Bells 33.8, It's Beginning 33.3, O Little Town 31.4, Let It Snow 31.1, Feliz Navidad 30.0, Rockin' 29.8, Frosty 29.7, Away in a Manger 29.7, Holly Jolly 28.5, We Three Kings 25.8, Baby It's Cold 25.1, God Rest Ye 24.8, Grandma 23.5, Here Comes Santa 23.4, Winter Wonderland 23.4, Home for the Holidays 23.0, Mommy Kissing Santa 21.9, AIWFC 20.6, Santa Baby 20.4, Carol of the Bells 18.2, The Christmas Song 18.0, O Tannenbaum 17.7, Sleigh Ride 15.7, Blue Christmas 15.3 (first 38 of 47 read)",
+   "url": "http://polls.saintleo.edu/wp-content/uploads/2016/12/Holiday-Songs-PDF-New.pdf",
+   "method": "Online panel survey Nov 27-30 2016 of US adults who celebrate Christmas; multiple responses; full table PDF linked from https://polls.saintleo.edu/favorite-christmas-tunes-ranked-by-saint-leo-university-poll-respondents",
+   "year": 2016,
+   "kind": "people"
+  },
+  {
+   "name": "ASCAP Top 25 Holiday Songs of 2023 (streams and plays, all versions): 1 It's Beginning to Look a Lot Like Christmas, 2 Holly Jolly, 3 Sleigh Ride, 4 Jingle Bell Rock, 5 Let It Snow, 6 Rudolph, 7 Rockin' Around, 8 AIWFC, 9 Santa Claus Is Comin', 10 Most Wonderful Time, 11 Have Yourself, 12 Winter Wonderland, 13 The Christmas Song, 14 Frosty, 15 Feliz Navidad, 16 White Christmas, 17 Jingle Bells (Sinatra arr.), 18 Deck the Halls (Nat King Cole arr.), 19 Santa Baby, 20 O Holy Night (Carey arr.), 21 Here Comes Santa Claus, 22 This Christmas, 23 Silver Bells, 24 Mean One Mr. Grinch, 25 Underneath the Tree",
+   "url": "https://chicagosymphony.org/inside-the-music/article/16099/ascap-wraps-up-the-top-holiday-songs-of-2023",
+   "method": "ASCAP performance data (streams and radio plays) for ASCAP-repertoire songs incl. covers; public-domain carols (Silent Night etc.) excluded by design",
+   "year": 2023,
+   "kind": "people"
+  },
+  {
+   "name": "Spotify all-time streams (RouteNote, Dec 2024): AIWFC 2.14B, Last Christmas 1.83B, Rockin' Around 1.27B, Santa Tell Me 1.26B, Jingle Bell Rock 1.19B, It's Beginning (Buble) 1.163B, Snowman (Sia) 1.162B, Most Wonderful Time 1.01B, Mistletoe 885M, Feliz Navidad 811M",
+   "url": "https://routenote.com/blog/top-10-most-streamed-christmas-songs-on-spotify/",
+   "method": "Cumulative Spotify stream counts of single recordings, global",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "CardsChat Spotify playlist analysis, US top 20 (Time Out, Dec 2020): 1 AIWFC, 2 Rockin' Around, 3 Most Wonderful Time, 4 Last Christmas, 5 Jingle Bell Rock, 6 It's Beginning, 7 White Christmas, 8 The Christmas Song, 9 Holly Jolly, 10 Let It Snow, 11 Santa Tell Me, 12= Happy Xmas / Blue Christmas, 14 Have Yourself, 15 Sleigh Ride, 16 Carol of the Bells, 17 Santa Baby, 18 Christmas (Baby Please Come Home), 19 Rudolph, 20 Silver Bells",
+   "url": "https://www.timeout.com/usa/news/here-are-the-20-most-popular-christmas-songs-across-the-nation-121020",
+   "method": "1,200 Spotify Christmas playlists plus Google Trends; marketing study",
+   "year": 2020,
+   "kind": "people"
+  },
+  {
+   "name": "Wildgoose US Google search volume, avg Nov/Dec, 65 songs (Dec 2022): 1 AIWFC 2,300,500, 2 Rudolph 2,011,950, 3 Feliz Navidad 1,966,265, 4 Jingle Bells 1,693,540, 5 Frosty 1,180,835, 6 Jingle Bell Rock 1,164,845, 7 Last Christmas 1,028,985, 8 12 Days of Christmas 959,570, 9 White Christmas 895,245, 10 Santa Claus Is Comin' 798,900, 11 Silent Night 731,535, 12 Carol of the Bells 699,955, 13 Winter Wonderland, 14 Let It Snow, 15 Santa Tell Me, 16 This Christmas, 17 O Holy Night, 18 Deck the Halls, 19 Joy to the World, 20 We Wish You (top 20 shown)",
+   "url": "https://msr.wearewildgoose.com/news/most-popular-christmas-songs-for-usa-states/",
+   "method": "Google search volume by song title, US, Nov-Dec average; title-level so covers carols",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Play USA US Google search volume Nov 2023-Nov 2024 (Daily Republic): AIWFC 155,648/mo, Silent Night 87,345, Jingle Bells 80,155, Last Christmas 76,123, Rockin' Around 54,791, Rudolph 45,946, Snowman 42,561, Jingle Bell Rock 40,740, Feliz Navidad 36,511, Have Yourself 30,680",
+   "url": "https://www.dailyrepublic.com/diversions/most-loved-christmas-songs-in-america/article_47aa7b48-adb0-11ef-a7c0-034ffbb13513.html",
+   "method": "Average monthly US Google searches, marketing study",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "P1 Media 'America's Top 100 Christmas Songs 2024' (listener appeal of 100 most-played 2023 radio recordings), collapsed to songs by best recording: Jingle Bell Rock 1, Holly Jolly 2, Most Wonderful Time 3, Rockin' 4, Santa Claus Is Coming 5, Feliz Navidad 6, The Christmas Song 7(#8), It's Beginning 8(#10), Carol of the Bells 9(#11), AIWFC 10(#12), Sleigh Ride, ... Jingle Bells 16(#20), Last Christmas 18(#23), Let It Snow 19, Rudolph 20, Deck the Halls 24(#41), Frosty 27(#44), White Christmas 34(#61); no hymns tested",
+   "url": "https://news.radio-online.com/articles/n45995/P1-Issues-Americas-Top-100-Christmas-Songs-2024",
+   "method": "Survey of US listeners likely to use all-Christmas radio rating the 100 Mediabase most-played recordings; secular radio repertoire only",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "AP-NORC poll Dec 2018 (open-ended favorite holiday song, reported items only): Silent Night 12%, Jingle Bells 8%, Baby It's Cold Outside 5%, AIWFC 3%. Corroboration only, not averaged (only 4 items reported)",
+   "url": "https://wjla.com/news/entertainment/poll-christmas-carols-favored-over-billboard-hits",
+   "method": "AP-NORC probability panel, US adults, open-ended",
+   "year": 2018,
+   "kind": "people"
+  },
+  {
+   "name": "Statista Consumer Insights 2025 US favorite Christmas songs: AIWFC first overall, then Feliz Navidad, then Have Yourself a Merry Little Christmas (generation splits only: AIWFC Gen Z 44%, Millennials 40%, Gen X 24%, Boomers 20%; Silent Night Gen X/Boomers 20%/25%). Corroboration only, not averaged",
+   "url": "https://www.statista.com/chart/35507/us-favorite-christmas-songs/",
+   "method": "Statista online consumer survey, US adults, top songs selected",
+   "year": 2025,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "All I Want for Christmas Is You|all i want for christmas|all i want for christmas is you|aiwfc|all i want for xmas|all i want for christmas is u",
+  "Jingle Bells|jingle bell|jinglebells|dashing through the snow",
+  "Silent Night|silent nite|stille nacht",
+  "White Christmas|white xmas|im dreaming of a white christmas|i'm dreaming of a white christmas",
+  "Rudolph the Red-Nosed Reindeer|rudolph|rudolph the red nosed reindeer|rudolf the red nosed reindeer|rudolph the reindeer|rudolf",
+  "Jingle Bell Rock|jinglebell rock|jingle bells rock",
+  "Feliz Navidad|feliz navidad prospero año|feliz navidad prospero ano|feliz navidad josé feliciano",
+  "Frosty the Snowman|frosty|frosty the snow man",
+  "Rockin' Around the Christmas Tree|rockin around the christmas tree|rocking around the christmas tree|rockin' around the christmas tree|rocking around the xmas tree|rockin around",
+  "Santa Claus Is Coming to Town|santa claus is comin to town|santa claus is comin' to town|santa claus is coming|santa's coming to town|you better watch out",
+  "Last Christmas|last xmas|last christmas i gave you my heart",
+  "Let It Snow! Let It Snow! Let It Snow!|let it snow|let it snow let it snow let it snow|let it snow let it snow",
+  "Carol of the Bells|carol of bells|carol of the bell",
+  "Winter Wonderland|walking in a winter wonderland|walkin in a winter wonderland",
+  "The Christmas Song|christmas song|chestnuts roasting on an open fire|chestnuts roasting|chestnuts",
+  "We Wish You a Merry Christmas|we wish you a merry xmas|we wish you a merry christmas and a happy new year",
+  "It's the Most Wonderful Time of the Year|most wonderful time of the year|its the most wonderful time of the year|most wonderful time",
+  "It's Beginning to Look a Lot Like Christmas|its beginning to look a lot like christmas|beginning to look a lot like christmas|looks a lot like christmas|look a lot like christmas",
+  "Have Yourself a Merry Little Christmas|have yourself a merry little christmas|merry little christmas",
+  "Deck the Halls|deck the hall|deck the halls with boughs of holly|fa la la la la",
+  "A Holly Jolly Christmas|holly jolly christmas|holly jolly|have a holly jolly christmas",
+  "O Holy Night|oh holy night|o holy nite",
+  "Joy to the World|joy to the world the lord is come",
+  "Santa Tell Me|santa tell me ariana grande"
+ ],
+ "gut_check": [
+  "All I Want for Christmas Is You",
+  "Jingle Bells",
+  "Silent Night",
+  "White Christmas",
+  "Rudolph the Red-Nosed Reindeer",
+  "Frosty the Snowman",
+  "Jingle Bell Rock",
+  "Rockin' Around the Christmas Tree",
+  "Santa Claus Is Coming to Town",
+  "Feliz Navidad",
+  "Last Christmas",
+  "Deck the Halls"
+ ],
+ "changes_vs_current": "New topic. Gut check (12 answers, written before any source was read): All I Want for Christmas Is You, Jingle Bells, Silent Night, White Christmas, Rudolph, Frosty, Jingle Bell Rock, Rockin' Around, Santa Claus Is Coming to Town, Feliz Navidad, Last Christmas, Deck the Halls. Labels are song titles (not recordings); all versions count. Computed order (average position over 10 people sources: YouGov 2020, YouGov 2019, Monmouth 2022, Saint Leo 2016, ASCAP 2023, Spotify streams, CardsChat Spotify playlists, Wildgoose search, Play USA search, P1 Media listener appeal; missing = list length + 5; AP-NORC 2018 and Statista 2025 report too few items to average and are used as corroboration): 1 All I Want for Christmas Is You 6.1, 2 Jingle Bells 9.9, 3 Rudolph 10.5, 4 Jingle Bell Rock 10.9, 5 White Christmas 11.0, 6 Feliz Navidad 13.7, 7 Santa Claus Is Coming to Town 14.1, 8 Let It Snow 14.6, 9 Carol of the Bells 15.1, 10 Last Christmas 15.8, 11 Rockin' Around 16.1, 12 Winter Wonderland 16.5, 13 Frosty 17.2, 14 We Wish You 17.9, 15 The Christmas Song 18.5, 16 Silent Night 19.2, 17 Most Wonderful Time 19.6, 18 It's Beginning 19.8, 19 Have Yourself 19.9, 20 Holly Jolly 21.2, 21 Santa Tell Me 23.3, 22 Sleigh Ride 24.2, 23 Deck the Halls 24.3, 24 This Christmas 25.2, 25 Joy to the World 25.5, 26 O Holy Night 25.7, 27 Here Comes Santa Claus 25.7, 30 Little Drummer Boy 29.1, 36 Silver Bells 30.1. Moves: (1) Silent Night 16 -> 3. It is #1 in every favorite poll (YouGov 2019 and 2020, Monmouth 2022, Saint Leo 2016, AP-NORC 2018) and #2 in Play USA search and #11 in Wildgoose search. Its low average comes only from sources that cannot contain it: ASCAP covers copyrighted songs only (Silent Night is public domain), P1 tests secular radio recordings only (105 penalty), and the streaming top-10/20 lists measure single recordings. Gut check #3. (2) Rudolph and Jingle Bell Rock swap with White Christmas: White Christmas 5 -> 4 because it is #2 in YouGov 2019 and Saint Leo, #5 in YouGov 2020 and Monmouth, ahead of Rudolph and Jingle Bell Rock in every favorite poll; Rudolph 3 -> 5 and Jingle Bell Rock 4 -> 6 lead it only on search, ASCAP and radio appeal. Small move inside the top 6. (3) Frosty 13 -> 8 (gut check): Wildgoose search #5 (1.18M), ASCAP #14, Saint Leo #21; no source puts it below Let It Snow, Carol of the Bells or Winter Wonderland on naming/search except P1 radio appeal (#27). (4) Rockin' Around 11 -> 9 (gut check): Spotify #3, CardsChat #2, P1 #4, Play USA #5, ASCAP #7. (5) Santa Claus Is Coming to Town 7 -> 10 and Last Christmas 10 -> 11, Let It Snow 8 -> 12, Carol of the Bells 9 -> 13: these shift down to make room for moves 1, 3, 4; relative order kept except Let It Snow/Carol, which follow the computed order after Santa Claus and Last Christmas (both in the gut check). (6) Deck the Halls 23 -> 20 only: it is in the gut check, but sources put it lower: Wildgoose search #18 (behind Carol of the Bells, Winter Wonderland, Let It Snow, O Holy Night), ASCAP #18, P1 #41 recording, and it is not named in any favorite poll (Monmouth, both YouGovs, Saint Leo top 38). So it is not lifted into the top 12. (7) O Holy Night 26 -> 22 and Joy to the World 25 -> 23, ahead of Santa Tell Me (21 -> 24): the two hymns rank high in the general-public favorite polls (O Holy Night #3 YouGov 2020, #3 YouGov 2019, #2 Monmouth; Joy to the World #5 Saint Leo, #7 Monmouth, #19 Wildgoose search) and are penalised by the same public-domain/secular-radio gaps as Silent Night; Santa Tell Me leads only on streaming and is unlikely to be a typical adult's spontaneous answer. Sleigh Ride (22) and This Christmas (24) drop out to make room; Sleigh Ride is #25 by the computed order once O Holy Night and Joy move up. Left out: The Twelve Days of Christmas (Wildgoose search #8, but in no other source read), Little Drummer Boy (favorite polls #6-9 but absent from streaming/search/ASCAP lists), Mary Did You Know, Silver Bells, Here Comes Santa Claus, Grandma Got Run Over by a Reindeer, Blue Christmas, Baby It's Cold Outside. No alias uses bare 'santa', 'christmas', 'jingle' or 'snow' to avoid collisions.",
+ "confidence": "High for 1-5 (AIWFC, Jingle Bells, Silent Night, White Christmas, Rudolph all have 6+ people sources and top-5 placements in polls and search). Medium for 6-12: the order among Jingle Bell Rock, Feliz Navidad, Frosty, Rockin', Santa Claus, Last Christmas, Let It Snow depends on whether search/streaming or favorite polls weigh more; these are favorite polls, not free-naming polls, so recall of upbeat secular songs is under-measured there. Medium-low for 13-24: tail mixes radio/streaming staples with hymns, judged by source type. Caveats: Billboard's all-time Holiday 100 page was paywalled (402) and not used; Saint Leo is from 2016; the Wildgoose and Play USA search studies are marketing studies; P1 and ASCAP measure recordings and copyrighted songs only.",
+ "no_data_positions": []
+}

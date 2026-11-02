@@ -1,0 +1,150 @@
+{
+ "topic": {
+  "name": "Hobbies",
+  "cat": "play",
+  "from": 38
+ },
+ "sources": [
+  {
+   "name": "YouGov Ratings - Activities, US, Q3 2026 (popularity = % who like it; fame). All 191 entries read. Hobby entries by popularity: Traveling 78%, Walking 78%, Baking 78%, Reading 76%, Board games 75%, Swimming 75%, Cooking 73%, Puzzles 73%, Photography 72%, Exercising 70%, Playing an instrument 68%, Gardening 67%, Writing 67%, Bowling 64%, Camping 64%, Painting 64%, DIY 64%, Drawing 61%, Fitness/Training/Sport 60%, Playing video games 59%, Yoga 56%, Collecting 55%, Wood carving 54%, Fishing 53% (fame 98%), Cycling 53%, Sewing 52%, Running 49%, Knitting 43%, Line dancing 42%, Golf 38%, Hunting 34%. Non-hobby entries (listening to music 88%, watching movies 86%, family/friends time 83%, watching TV 76%, eating out 76%) excluded. Hiking is not in the list; Walking mapped to Hiking. 31 ranked items.",
+   "url": "https://yougov.com/en-us/ratings/activities?sortBy=popularity",
+   "method": "YouGov Ratings: continuous online US adult panel, quarterly average Q3 2026; full list read via the public-data API behind the page (api-test.yougov.com/public-data/v5/us/search/entity, group 1af4ab6d-cb6c-11ea-8c61-fbfac8b333d9). Measures liking, not naming, so it is weighted equally but read with care.",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Self Financial survey of favorite hobby (single choice from Statista's US hobby list), Oct 2024: Reading 16%, Video gaming 13.7%, Cooking/baking 12.3%, DIY and arts & crafts 9.7%, Traveling 8.8%, Outdoor activities 6.2%, Pets 4.3%, Shopping 4.3%, Photography 3.8%, Tech 3%, Sports & fitness 2.9%, Gardening 2.8%, Board/card games 2.7%, Making music 2.0%, Cars 1.5%, Writing 1.1%. Outdoor activities mapped to Hiking and Camping; sports & fitness to Sports and Working Out (12 ranked positions).",
+   "url": "https://self.inc/info/spend-favorite-hobbies",
+   "method": "Online survey of ~1,059 US adults, October 2024, 'favorite hobby' single choice.",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Statista Consumer Insights hobbies (60,000+ US respondents) via Wealth of Geeks, Aug 2024: Cooking/baking 41%, Reading 37%, Pets 35%, Video games ~33%, Outdoor activities 30%+, Shopping ~30%, Traveling 29%, Socializing 26%, Board games ~26%, Arts/crafts/DIY ~25%. Pets, shopping, socializing excluded (7 ranked positions).",
+   "url": "https://natixis.ezine.intercountry.com/?p=4680",
+   "method": "Large online survey, multi-select 'hobbies and interests'; syndicated Wealth of Geeks article (stardem.com copy returned 429).",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Monmouth University Poll, Feb 8-12 2024 (vs Roper/Gallup 1974): Cooking 68%, Travel 61%, Gardening 47%, Crafts/making things 46%, Camping 32%, Swimming 32%, Photography 30%, Painting/sketching/drawing 29%, Bowling 23%, Sewing 19%, Hunting 19%, Golf 13%. Only these 12 asked (no reading, gaming, fishing).",
+   "url": "https://www.monmouth.edu/polling-institute/reports/monmouthpoll_us_032624/",
+   "method": "Probability phone + text-to-web survey, 902 US adults, MOE +/-4.1; 'is this a hobby of yours' for each listed activity. Context: https://www.monmouth.edu/magazine/the-way-we-play/",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll favorite leisure activities, Sept 2013 (open-ended, 2-3 favorites): Watching TV 42%, Reading 37%, Computer/Internet 19%, Family/friends 18%, Exercise 10%, Video/computer games 10%, Walking/running/jogging 8%, Gardening 7%, Music (incl. playing) 7%. Non-hobby items excluded (6 ranked positions).",
+   "url": "https://www.prnewswire.com/news-releases/we-work-before-we-play-235089051.html",
+   "method": "Harris Interactive online panel, 2,577 US adults, weighted; unaided naming question.",
+   "year": 2013,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll favorite leisure activities, Oct 2008 (open-ended): Reading 30%, TV 24%, Family/kids 17%, Exercise 8%, Computer activities 7%, Fishing 7%; top 10 order then Going to movies, Golf, Walking, Gardening; Travel #20. Ranked after excluding TV/family/computer/movies: Reading 1, Exercise 2, Fishing 3, Golf 4, Walking 5, Gardening 6, Travel ~16.",
+   "url": "https://www.nbcnews.com/news/amp/wbna30962201",
+   "method": "Harris Interactive telephone survey of ~1,000 US adults, unaided 'two or three favorite leisure-time activities'. Percentages cross-read at https://www.foodprocessing.com/home/blog/11335922/sorry-i-dont-have-time",
+   "year": 2008,
+   "kind": "people"
+  },
+  {
+   "name": "YPulse 'What is your biggest hobby?' open-end, 13-36-year-olds, April 2019: 1 Music/playing an instrument, 2 Sports, 3 Gaming, 4 Reading, 5 Cooking/baking, 6 Fitness, 7 Art, 8 TV/Netflix, 9 Crafting, 10 Dance, 11 Writing, 12 Sewing/knitting/crochet, 13 Travel, 14 Running, 15 Outdoor activity, 16 Movies, 17 Walking/hiking, 18 Photography. TV/movies/shopping/food excluded (16 ranked positions).",
+   "url": "https://www.ypulse.com/wp-content/uploads/2019/04/Most_of_Gen_Z_Millennials_Top_20_Hobbies_Are_Offline_04.23.2019.pdf",
+   "method": "YPulse monthly online survey, open-ended, ordered by number of mentions; young sample only.",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "YPulse 'What is your biggest hobby?' open-end, 1,000 13-34-year-olds, May 2017: 1 Reading, 2 Sports, 3 Video games, 4 Music, 5 Exercise/fitness, 6 Art/design (drawing, photography named as top), 7 Cooking, 8 Crafting/DIY, 9 TV, 10 Outdoors/nature, 11 Writing, 14 Travel, 15 Collecting, 17 Gardening, 19 Games/toys. Non-hobby items excluded (14 ranked positions).",
+   "url": "https://www.ypulse.com/wp-content/uploads/2017/05/MILLENNIALS__GEN_Z%E2%80%99S_20_BIGGEST_HOBBIES_5-8-17.pdf",
+   "method": "YPulse monthly online survey, open-ended, ordered by mentions; young sample only.",
+   "year": 2017,
+   "kind": "people"
+  },
+  {
+   "name": "aytm hobbies survey, June 2024: Games or video games 43%, Exercise and fitness 41%, Gardening and landscaping 40%, Other outdoor (hiking, camping) 39%, Arts and crafts 38%, Travel 33%.",
+   "url": "https://aytm.com/post/hobbies-survey",
+   "method": "Online panel, 1,000 US adults, multi-select hobby categories.",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "CivicScience hobbies, Aug 2025: Watching movies/TV 45%, Reading 38%, Outdoor activities 31%, Cooking or baking 31%.",
+   "url": "https://civicscience.com/how-americans-are-redefining-free-time-through-budget-friendly-hobbies/",
+   "method": "CivicScience online polling of US adults (sample not stated); only four items published.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Simmons National Consumer Survey 2018 (via American Communities Project): Listening to music 65%, Dining out 55%, Reading books 46%, Cooking for fun ~33%, Gardening 28%, Painting/sculpting/drawing 12%, Bird watching 10%.",
+   "url": "https://www.americancommunities.org/?p=4414",
+   "method": "Large US consumer panel, 'done in last 12 months' from 31 leisure choices; only some items published.",
+   "year": 2018,
+   "kind": "people"
+  },
+  {
+   "name": "Gallup favorite way to spend an evening, Dec 2015: Staying home 34%, TV 16%, Resting 13%, Reading 12%. Context only (confirms reading as the top named pastime; not used in the average).",
+   "url": "https://news.gallup.com/poll/188078/hits-new-low-favorite-spend-evening.aspx",
+   "method": "Gallup telephone poll, 824 US adults, open-ended.",
+   "year": 2015,
+   "kind": "people"
+  },
+  {
+   "name": "BLS American Time Use Survey 2025: of 5.2 leisure hours/day, TV 2.6h, games/computer for leisure 37 min, socializing 35 min. Context only for the TV decision (not used in the average).",
+   "url": "https://www.bls.gov/news.release/atus.nr0.htm",
+   "method": "BLS time diary survey, US civilians 15+.",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Solitaire Bliss 'granny hobbies' survey (802 US adults 18-40, Aug 2022): top four crafting, baking, drinking tea, gardening; then puzzling, cards, collecting, couponing, antiquing, sewing; crocheting 9%, bird watching 9%, knitting 8%, embroidery 7%, scrapbooking 6%. Tie-break only.",
+   "url": "https://www.solitairebliss.com/blog/most-popular-granny-hobbies",
+   "method": "Marketing survey restricted to a pre-chosen list of 18 'granny' hobbies, plus Google search interest by state.",
+   "year": 2022,
+   "kind": "critic"
+  }
+ ],
+ "list": [
+  "Reading|read|books|reading books|readin",
+  "Cooking|cook|culinary|grilling|bbq|barbecuing",
+  "Hiking|hike|walking|walks|nature walks|backpacking|trail walking",
+  "Working Out|exercise|exercising|gym|going to the gym|fitness|weightlifting|lifting weights|lifting|weight training|workout",
+  "Traveling|travel|travelling|vacationing|vacations|sightseeing|trips",
+  "Video Games|gaming|video gaming|videogames|playing video games|computer games|vidya",
+  "Baking|bake|cake decorating",
+  "Gardening|garden|yard work|growing plants|plants|landscaping|gardning",
+  "Camping|camp|glamping|rv camping",
+  "Fishing|fish|fly fishing|angling|bass fishing",
+  "Crafting|crafts|arts and crafts|craft|diy|scrapbooking|making things",
+  "Sports|playing sports|basketball|football|soccer|baseball|softball|volleyball|tennis|pickleball",
+  "Playing Music|music|playing an instrument|instrument|guitar|piano|playing guitar|playing piano|singing|making music",
+  "Photography|photos|taking pictures|taking photos|photo|photographer",
+  "Painting|paint|watercolor|watercolors|oil painting",
+  "Drawing|sketching|draw|doodling|sketch",
+  "Board Games|board gaming|card games|playing cards|cards|tabletop games|chess",
+  "Writing|creative writing|journaling|poetry|blogging",
+  "Swimming|swim",
+  "Bowling|bowl",
+  "Golf|golfing|playing golf",
+  "Puzzles|puzzle|jigsaw puzzles|jigsaws|crosswords|crossword puzzles|sudoku",
+  "Knitting & Sewing|knitting|sewing|crochet|crocheting|knit|sew|quilting|embroidery|cross stitch|needlework",
+  "Running|jogging|run|marathons|jog"
+ ],
+ "gut_check": [
+  "Reading",
+  "Video Games",
+  "Gardening",
+  "Cooking",
+  "Fishing",
+  "Traveling",
+  "Hiking",
+  "Sports",
+  "Painting",
+  "Photography",
+  "Baking",
+  "Playing Music"
+ ],
+ "changes_vs_current": "New topic. Scope: only things people do as a hobby. Watching TV/movies, listening to music, family/friends time, socializing, eating out, shopping, pets and internet use are left out, although they top the time-use and some poll lists (Harris 2013 TV 42%, CivicScience movies/TV 45%, ATUS TV 2.6h/day, YouGov listening to music 88%). They are passive pastimes or not hobbies, and the brief says to avoid 'watching TV' unless unavoidable. Excluded items were removed before each source's positions were counted. Merges: Cooking and Baking are separate items, and a merged poll category 'cooking/baking' gives both the same position. Painting and Drawing are separate, and Monmouth/Simmons/YPulse 'painting, sketching, drawing' or 'art' gives both the same position. Walking is merged into Hiking (alias 'walking'). Harris 2008/2013 name walking as a favorite, and YouGov has Walking, not Hiking. 'Outdoor activities' categories (Self/Statista, Statista CI, aytm, CivicScience, YPulse) go to Hiking and Camping, the examples aytm itself gives. Knitting and sewing are one item 'Knitting & Sewing', as YPulse 2019 groups them (sewing/knitting/crochet). Sports covers team and racket sports; Golf, Bowling, Swimming and Running stay separate because polls ask them separately. Computed order over 11 people sources (avg position, missing = source length + 5): 1 Reading 4.00, 2 Cooking 6.55, 3 Hiking 7.00, 4 Working Out 7.55, 5 Traveling 7.91, 6 Video Games 8.18, 7 Baking 8.36, 8 Gardening 8.64, 9 Camping 9.18, 10 Crafting 9.36, 11 Playing Music 10.18, 12 Photography 10.73, 13 Painting 11.00, 14 Sports 11.00, 15 Drawing 11.18, 16 Board Games 11.27, 17 Writing 12.27, 18 Swimming 12.82, 19 Bowling 13.91, 20 Fishing 13.91, 21 Golf 14.09, 22 Puzzles 14.09, 23 Sewing/Knitting 14.18, 24 Running 14.45; off the list: Collecting 14.73, Dancing 14.91, Yoga 15.27, Woodworking 15.45 (YouGov wood carving only), Hunting 15.55, Biking 15.64, Bird watching 16.18. Gut-check moves: (1) Fishing 20 -> 10. The only open-ended naming source that covers it, Harris 2008, ranks it 3rd among real hobbies (7%, tied with computer use, above golf, walking, gardening). The only lower source is YouGov liking (53%, rank 24, although fame is 98%). Most other sources never offered fishing as an option, so it was scored as missing there. That is why its average is low; no naming source puts it low. (2) Sports 14 -> 12: named #2 in both open-ended YPulse polls. YouGov liking (rank 19) is the only source that puts it lower. Kept at 12, below Crafting, because the all-ages Self survey puts sports & fitness (2.9%) well below arts & crafts. (3) Playing Music (13) and Photography (14) stay just below 12 after the two moves: Self, YouGov and Harris 2013 rank music below Gardening/Crafting, and Self and Monmouth rank photography below Camping and Crafting. (4) Painting stays 15. YouGov (16th), Monmouth (8th of 12, behind crafts/camping/photography) and Simmons (behind gardening) all place it below the items above it. Working Out (4) is not in the gut check but stays high: exercise is named in both Harris polls (#2 among real hobbies in 2008), both YPulse polls and aytm (41%). Camping (9) and Crafting (10-11) also stay by data. Video Games (gut #2) stays at 6 by data. Tail: Swimming, Bowling, Golf rest on Monmouth + YouGov (+ Harris 2008 for golf). Puzzles has one source (YouGov 73%) and is kept by the Solitaire Bliss tie-break (puzzling in its top 10). Running (Harris 2013, YPulse 2019, YouGov) takes 24 over Collecting (YouGov 55%, YPulse 2017 #15).",
+ "confidence": "High for Reading at #1: it is first or second in every naming source and in Gallup's trend. Medium-high for the 2-12 set (Cooking, Hiking, Working Out, Traveling, Video Games, Baking, Gardening, Camping, Fishing, Crafting, Sports). Each has 2+ people sources, but their order within the set is soft, because most polls use broad categories (cooking/baking, outdoor activities, arts & crafts) that had to be split across items. Medium-low for 13-24: they rest on fewer sources, mostly YouGov liking and Monmouth's fixed list of 12. Doubts: no current YouGov/Talker hobby-naming poll was found. Both YPulse sources are ages 13-36 and lift Sports and Music. The Harris naming polls are from 2008/2013. Hiking includes YouGov 'Walking', which flatters it. Knitting & Sewing is a merged item, and Collecting, Woodworking, Dancing and Hunting just missed the 24.",
+ "no_data_positions": []
+}
