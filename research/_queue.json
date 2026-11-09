@@ -2,14 +2,6 @@
  "_note": "Read and updated by the weekly topic job (aria-rushmore-topics). rerank: worst first; take the top 2 each run and remove them when shipped. suggestions_handled: suggestion-box keys already turned into a topic or declined, with why.",
  "rerank": [
   {
-   "id": "golf",
-   "why": "pre-method list (Oct 7): only 3 sources, none tagged people/critic, no gut check"
-  },
-  {
-   "id": "soccer",
-   "why": "pre-method list (Oct 7): only 3 sources, none tagged people/critic, no gut check"
-  },
-  {
    "id": "chips",
    "why": "pre-method list (Oct 7): only 3 sources, none tagged people/critic, no gut check"
   },
@@ -23,6 +15,10 @@
   },
   {
    "id": "candy",
+   "why": "pre-method list (Oct 7): sources not tagged people/critic, no gut check"
+  },
+  {
+   "id": "cereal",
    "why": "pre-method list (Oct 7): sources not tagged people/critic, no gut check"
   }
  ],
