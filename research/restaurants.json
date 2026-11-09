@@ -1,0 +1,81 @@
+{
+ "topic": {
+  "name": "Restaurant Chains",
+  "note": "Sit-down",
+  "cat": "brands",
+  "from": 45
+ },
+ "sources": [
+  {
+   "name": "YouGov Ratings via Stacker, 50 most popular chain restaurants (Q3 2025 positive-opinion %); sit-down chains in order: Olive Garden 67, IHOP 64, Cheesecake Factory 63, Texas Roadhouse 62, Chili's 61, Applebee's 59, Denny's 57, Outback 57, Red Lobster 56, Waffle House 54, LongHorn 54, Red Robin 53, TGI Friday's 52, Hard Rock Cafe 51, Cracker Barrel 50, Buffalo Wild Wings 50, Marie Callender's 47 (fast-food entries dropped)",
+   "url": "https://stacker.com/stories/3041/50-most-popular-chain-restaurants-america",
+   "method": "general-public popularity (% positive opinion), sit-down subset of 17",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov 2026 US restaurant brand rankings, casual dining 'would choose next' (16,600+ adults), as listed by FinanceBuzz Sept 2026 countdown: Olive Garden, Texas Roadhouse, Applebee's, Chili's, IHOP, Cheesecake Factory, Outback, Cracker Barrel, Buffalo Wild Wings, Red Lobster ('rounds out the top 10'); top 3 corroborated by FSR Apr 2026 (Olive Garden 30.7% consideration, then Texas Roadhouse, Applebee's) and Fox News Sept 2026 (65+: Olive Garden 33.8, Texas Roadhouse 28.2, Applebee's 24.7, Cracker Barrel 24.0, Outback 22.1; 18-29: Chili's 29.6, Olive Garden 28.7)",
+   "url": "https://financebuzz.com/news/top-casual-dining-restaurants",
+   "method": "consideration poll; order inferred from countdown article (reversed), top 3 confirmed by https://www.fsrmagazine.com/feature/olive-garden-tops-casual-dining-in-consideration-yougov-finds",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "FSR Magazine top 30 full-service chains (Technomic-based), est. 2024 US sales $bn, re-sorted by sales: Texas Roadhouse 5.607, Olive Garden 5.133, Chili's 4.571, Buffalo Wild Wings 4.370, Applebee's 4.250, IHOP 3.526, LongHorn 2.921, Outback 2.724, Cracker Barrel 2.719, Cheesecake Factory 2.661, Denny's 2.538, Red Lobster 1.961, Red Robin 1.508, Golden Corral 1.499, Waffle House 1.410, BJ's 1.357, First Watch 1.184, P.F. Chang's 0.980, Bob Evans 0.816, Cheddar's 0.809, Hooters 0.807, Carrabba's 0.766, Dave & Buster's 0.613, Bonefish 0.574, Perkins 0.527, Mellow Mushroom 0.466, Black Bear Diner 0.444, Ruby Tuesday 0.325, Huddle House 0.221 (Braum's dropped as counter-service). Technomic 2026 report: Texas Roadhouse #14, Chili's #16 overtook Olive Garden #17 in 2025 sales",
+   "url": "https://www.fsrmagazine.com/feature/top-30-full-service-restaurant-chains-in-the-u-s-by-size/",
+   "method": "systemwide sales",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "Wikipedia pageviews Oct 2025-Sep 2026 (en, user): Hooters 288.6k, Hard Rock Cafe 257.4k, Cracker Barrel 191.6k, Benihana 187.1k, Waffle House 181.9k, Texas Roadhouse 180.2k, Cheesecake Factory 177.1k, Olive Garden 174.6k, Denny's 172.0k, Chili's 150.0k, Red Lobster 147.8k, IHOP 144.4k, Bubba Gump 143.3k, TGI Fridays 137.2k, Applebee's 129.2k, Buffalo Wild Wings 123.0k, Ruth's Chris 113.6k, P.F. Chang's 106.1k, Outback 106.0k, Dave & Buster's 105.2k, Twin Peaks 101.3k, Rainforest Cafe 100.1k, Red Robin 71.7k, Golden Corral 66.7k, Buca di Beppo 65.4k, Friendly's 65.1k, Bob Evans 64.4k, Ruby Tuesday 60.7k, LongHorn 58.3k, BJ's 49.2k, Marie Callender's 44.2k, O'Charley's 40.2k, Perkins 34.1k, Yard House 32.3k, Cheddar's 31.9k, Carrabba's 29.5k, Maggiano's 23.8k, Logan's 23.2k, Black Bear Diner 20.6k, Bonefish 19.9k, Huddle House 19.5k, Joe's Crab Shack 17.3k",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Olive_Garden/monthly/2025100100/2026093000",
+   "method": "search/attention proxy",
+   "year": 2026,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Olive Garden",
+  "Texas Roadhouse|TX Roadhouse|Roadhouse",
+  "Chili's|Chili's Grill & Bar|Chilli's",
+  "Applebee's|Applebee|Applebee's Grill + Bar",
+  "IHOP|International House of Pancakes",
+  "Cheesecake Factory|The Cheesecake Factory|Cheesecake",
+  "Cracker Barrel|Cracker Barrel Old Country Store",
+  "Outback Steakhouse|Outback",
+  "Red Lobster",
+  "Denny's|Denny",
+  "Buffalo Wild Wings|BWW|B-Dubs|Wild Wings",
+  "Waffle House",
+  "Hooters",
+  "LongHorn Steakhouse|LongHorn",
+  "Red Robin|Red Robin Gourmet Burgers",
+  "TGI Fridays|TGIF|TGI Friday|Fridays|Thank God It's Friday",
+  "Hard Rock Cafe|Hard Rock",
+  "P.F. Chang's|PF Chang|Chang's",
+  "Golden Corral",
+  "Benihana",
+  "Dave & Buster's|Dave and Buster's|D&B",
+  "BJ's Restaurant & Brewhouse|BJ's|BJ's Brewhouse",
+  "Bob Evans",
+  "Bubba Gump Shrimp Co.|Bubba Gump|Bubba Gump Shrimp"
+ ],
+ "gut_check": [
+  "Olive Garden",
+  "Applebee's",
+  "Chili's",
+  "Texas Roadhouse",
+  "Outback Steakhouse",
+  "Red Lobster",
+  "Cheesecake Factory",
+  "IHOP",
+  "Denny's",
+  "Cracker Barrel",
+  "Buffalo Wild Wings",
+  "Waffle House"
+ ],
+ "changes_vs_current": "New topic. Scope: US sit-down/full-service chains only (casual, family and polished-casual dining incl. breakfast diners like IHOP/Denny's/Waffle House, buffets like Golden Corral, and eatertainment like Dave & Buster's); counter-service and fast casual excluded (Braum's dropped from the FSR list; First Watch kept eligible but missed the cut). Ranked by average position over four people sources (YouGov Q3 2025 popularity, YouGov 2026 casual-dining consideration, Technomic/FSR sales, Wikipedia pageviews), missing = list length + 5. All 12 gut-check answers landed in the computed top 12. Moves: Applebee's raised from computed #6 to #4 (gut check and YouGov 2026 consideration #3 and 65+ #3; it was dragged down only by Wikipedia views); TGI Fridays raised from #20 to #16 (household name with YouGov 52% popularity and 137k pageviews; it is missing from the sales list only because its US footprint shrank after the 2024 bankruptcy) and Hard Rock Cafe kept just behind it because its Wikipedia views are inflated by the Hard Rock hotel/casino brand. Hooters stays #13 despite topping Wikipedia (bankruptcy news) since it is low on sales and absent from both polls.",
+ "confidence": "High for #1-#12: the same twelve chains top every source, all with 3-4 people sources, and they match the gut check; exact order within #4-#11 is medium (IHOP, Cheesecake Factory, Cracker Barrel, Outback, Red Lobster and Denny's are separated by small margins and swap depending on source). Medium for #13-#17 (Hooters, LongHorn, Red Robin, TGI Fridays, Hard Rock Cafe): each has 2-3 sources but they disagree strongly (LongHorn big in sales, weak in fame; Hooters/Hard Rock the opposite). Low for #18-#24 (P.F. Chang's, Golden Corral, Benihana, Dave & Buster's, BJ's, Bob Evans, Bubba Gump), which rest on 1-2 sources; Benihana and Bubba Gump lean on Wikipedia alone. Near misses: Ruth's Chris, Cheddar's, Twin Peaks, Ruby Tuesday, Rainforest Cafe, Carrabba's, Buca di Beppo, Friendly's. The YouGov 2026 order is inferred from a countdown article (only the top 3 and #10 are explicit). No ACSI scores were readable beyond Texas Roadhouse #1 and LongHorn #2 in satisfaction.",
+ "no_data_positions": []
+}

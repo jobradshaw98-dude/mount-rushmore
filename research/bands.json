@@ -1,0 +1,41 @@
+{
+  "topic": {"name": "Rock Bands", "note": "All-time", "cat": "music", "from": 45},
+  "sources": [
+    {"name": "YouGov Ratings US, Q3 2026, popularity % (fame %), from category pages (classic rock, hard rock & metal, alternative/indie) plus individual topic pages: Beatles 73 (95), Queen 73 (91), Fleetwood Mac 69 (88), Rolling Stones 69 (94), Aerosmith 66 (91), Bon Jovi 66 (93), Beach Boys 66 (92), Led Zeppelin 65 (90), Journey 64 (85), Eagles 62 (84), Pink Floyd 62 (89), AC/DC 62 (90), Nirvana 62 (90), Guns N' Roses 61 (92), Van Halen 60 (84), Red Hot Chili Peppers 60 (91), The Doors 60 (83), CCR 60 (77), Chicago 60 (79), Green Day 58 (83), The Who 58 (84), Coldplay 57 (89), The Police 56, Foreigner 56, Metallica 55 (90), Def Leppard 55, Pearl Jam 55, KISS 54 (91), ZZ Top 54, REO Speedwagon 54, Lynyrd Skynyrd 53 (81), Linkin Park 53 (82), Foo Fighters 53, Black Sabbath 53, Imagine Dragons 53, Grateful Dead 52, U2 51, Nickelback 50", "url": "https://yougov.com/en-us/ratings/classic-rock-music-artists", "method": "Ranked bands by popularity %, ties broken by fame %; solo artists excluded", "year": 2026, "kind": "people"},
+    {"name": "Monmouth University Poll (US adults, 2018), greatest rock band of all time, open-ended: Beatles 23%, Rolling Stones 8%, AC/DC 4%, Led Zeppelin 4%, Eagles 3%, Aerosmith 2%, Queen 2%; at 1% or less: Beach Boys, Bon Jovi, Springsteen & E Street Band, CCR, Def Leppard, Elvis, Fleetwood Mac, Grateful Dead, Guns N' Roses, Jimi Hendrix Experience, Journey, Kiss, Lynyrd Skynyrd, Metallica, Pink Floyd, U2, The Who", "url": "https://www.monmouth.edu/magazine/rock-of-ages", "method": "Rank by %; the 17 bands at 1% or less were treated as tied at position 16 (the average of positions 8-24); missing = 29", "year": 2018, "kind": "people"},
+    {"name": "Gallup (US adults, March 1999), greatest rock and roll band or group of all time: Beatles 29%, Rolling Stones 9%, Led Zeppelin 3%, Eagles 2%, Aerosmith 2%, Beach Boys 2%; 1% each: Grateful Dead, U2, The Who, Pink Floyd, Fleetwood Mac, CCR, Bill Haley & Comets, AC/DC, Lynyrd Skynyrd, The Doors, Bee Gees, Metallica", "url": "https://news.gallup.com/poll/2230/Beatles-Seen-Greatest-RockandRoll-Band-All-Time.aspx", "method": "Rank by %; the 1% group treated as tied at position 12.5; missing = 23. Old poll, so it predates Queen's revival after the 2018 film", "year": 1999, "kind": "people"},
+    {"name": "RIAA certified album units (US, per Wikipedia list as of Nov 2025), bands only: Beatles 183M, Eagles 120M, Led Zeppelin 112.5M, AC/DC 84M, Pink Floyd 75M, Metallica 71M, Aerosmith 69.5M, Rolling Stones 66.5M, Fleetwood Mac 57.5M, Van Halen 56.5M, Journey 52.5M, U2 52M, Guns N' Roses 44.5M, Santana 43.5M, Queen (ranked #37, figure unclear), Bon Jovi 41M, Chicago 39M, Foreigner 38M, Def Leppard 35.5M, Dave Matthews Band 34.5M, Green Day 34M, The Doors 34M, Pearl Jam 31.5M, Boston 31M, Linkin Park 30.5M, CCR 30M, Lynyrd Skynyrd 28.5M, Nirvana 28M, RHCP 27.5M", "url": "https://en.wikipedia.org/wiki/List_of_best-selling_music_artists_in_the_United_States", "method": "Rank among bands by certified units", "year": 2025, "kind": "people"},
+    {"name": "Wikipedia pageviews (en, user, Oct 2025 to Sep 2026): Beatles 3.92M, Fleetwood Mac 2.82M, Led Zeppelin 2.27M, Linkin Park 2.19M, Pink Floyd 2.16M, RHCP 2.12M, Metallica 2.12M, AC/DC 2.07M, Rolling Stones 2.06M, Queen 1.95M, KISS 1.93M, Lynyrd Skynyrd 1.81M, Eagles 1.71M, Green Day 1.69M, Radiohead 1.53M, Nirvana 1.51M, Rush 1.50M, Guns N' Roses 1.42M, Beach Boys 1.39M, ZZ Top 1.37M, Journey 1.37M, Bon Jovi 1.15M, U2 1.11M, Van Halen 1.07M, The Who 1.06M, Aerosmith 0.86M, The Doors 0.81M", "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/The_Beatles/monthly/2025100100/2026093000", "method": "12-month sum per band article, ranked", "year": 2026, "kind": "people"},
+    {"name": "Spotify monthly listeners (kworb, global, Nov 2026): Coldplay 90.3M, Linkin Park 56.3M, Queen 52.4M, Imagine Dragons 52.2M, Fleetwood Mac 50.5M, Radiohead 46.5M, RHCP 44.3M, Green Day 42.5M, Guns N' Roses 39.7M, The Police 39.7M, Nirvana 38.5M, AC/DC 36.0M, Bon Jovi 35.2M, Beatles 34.8M, Metallica 33.6M, CCR 31.3M, Rolling Stones 29.1M, Eagles 28.9M, Aerosmith 28.7M, Pink Floyd 28.0M, Journey 25.8M, U2 24.2M, Led Zeppelin 20.4M, Lynyrd Skynyrd 19.9M, KISS 19.1M, Van Halen 11.9M, Beach Boys 11.5M, The Doors 11.2M", "url": "https://kworb.net/spotify/listeners.html", "method": "Ranked by monthly listeners; global and skewed young, so a weak US proxy", "year": 2026, "kind": "people"}
+  ],
+  "list": [
+    "The Beatles|Beatles|Fab Four",
+    "The Rolling Stones|Rolling Stones|Stones|The Stones",
+    "Queen",
+    "Led Zeppelin|Zeppelin|Led Zepplin|Zepplin|Led Zep",
+    "AC/DC",
+    "Eagles|The Eagles",
+    "Fleetwood Mac",
+    "Pink Floyd|Floyd",
+    "Aerosmith",
+    "Metallica",
+    "Nirvana",
+    "Guns N' Roses|Guns and Roses|GNR",
+    "Bon Jovi",
+    "Journey",
+    "Red Hot Chili Peppers|Chili Peppers|RHCP|Red Hot Chilli Peppers|Chilli Peppers|The Red Hot Chili Peppers",
+    "Linkin Park|Lincoln Park",
+    "Green Day",
+    "Creedence Clearwater Revival|CCR|Creedence",
+    "The Beach Boys|Beach Boys",
+    "Lynyrd Skynyrd|Skynyrd|Leonard Skynyrd|Lynard Skynard|Lynyrd Skynard",
+    "U2",
+    "Van Halen",
+    "KISS",
+    "The Doors|Doors"
+  ],
+  "gut_check": ["The Beatles", "Queen", "Led Zeppelin", "The Rolling Stones", "AC/DC", "Nirvana", "Pink Floyd", "Metallica", "Aerosmith", "Guns N' Roses", "Eagles", "Bon Jovi"],
+  "changes_vs_current": "New topic. Scope: groups only. Solo acts and bands named after a frontman (Springsteen & E Street, Tom Petty & the Heartbreakers, Bob Seger & Silver Bullet, Santana) are left out, and so are acts that are not mainly rock (Bee Gees, Simon & Garfunkel, Maroon 5). The raw average across 6 people sources ran Beatles, Stones, Zeppelin, Fleetwood Mac, AC/DC, Eagles, Queen, Pink Floyd, Aerosmith, Metallica, GNR, Bon Jovi, Journey, RHCP, Linkin Park, CCR, Green Day, Nirvana, Beach Boys, Skynyrd, U2, Van Halen, KISS, Coldplay. Gut-check moves: Queen went from #7 to #3. It is tied #1 in YouGov popularity and #3 on Spotify, and the raw average is held down only by the 1999 Gallup poll, which predates the band's 2018 revival. Nirvana went from #18 to #11. It is YouGov #11, Spotify #12 and Wikipedia #16, is missing from both old polls and sits low on RIAA because of its short career, and it is a top-6 gut answer. Fleetwood Mac drops from #4 to #7 to make room. Its data is strong (YouGov #3, Wikipedia #2), but people name it less often as a 'rock band'. Coldplay (#24 raw, 25.2) is left out in favour of The Doors (#26 raw, 26.3, five sources, including Gallup). Coldplay's score comes almost entirely from global Spotify, and Americans rarely name it as a rock band. Radiohead (#25 raw) is left out for the same reason.",
+  "confidence": "High for the top 5. The Beatles are #1 in every source, and the Stones, Zeppelin, Queen and AC/DC are top-10 in most. Medium-high for #6-13 (Eagles, Fleetwood Mac, Pink Floyd, Aerosmith, Metallica, Nirvana, GNR, Bon Jovi). These are clearly top-15 bands, but their order is close and depends on the source: Metallica is low in YouGov popularity and high in pageviews and sales. Medium for #14-20, where generations disagree: Linkin Park, Green Day and RHCP are strong on streaming and pageviews but missing from the polls, while CCR, the Beach Boys and Skynyrd lean on older audiences. Low-medium for #21-24. Near misses are The Who, Pearl Jam, Def Leppard, Foo Fighters, Black Sabbath, ZZ Top, Chicago, Foreigner, The Police, Grateful Dead and Coldplay. The polls are old (Gallup 1999, Monmouth 2018), and I could not open a current YouGov 'favorite band' poll. YouGov popularity data was read only from the top 20 of each category page and from individual topic pages.",
+  "no_data_positions": []
+}

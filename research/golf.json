@@ -1,76 +1,111 @@
 {
+ "from": 45,
  "sources": [
   {
-   "name": "ClutchPoints, 25 Greatest Golfers of All Time (Nate Duffett)",
+   "name": "YouGov Ratings, contemporary golfers, US adults, Q3 2026, top 20 by fame (fame/popularity): Tiger Woods 90/40, Phil Mickelson 63/36, Rory McIlroy 59/35, John Daly 54/31, Bubba Watson 52/29, Sergio Garcia 49/27, Scottie Scheffler 49/30, Jordan Spieth 47/29, Justin Thomas 46/28, Bryson DeChambeau 45/25, Lexi Thompson 44/28, Brooks Koepka 44/27, Shane Lowry 43/27, Tommy Fleetwood 43/27, Dustin Johnson 43/25, Bob MacIntyre 42/26, Hideki Matsuyama 42/28, Adam Scott 40/24, Cameron Smith 40/24, Brooke Henderson 40/25. Contemporary only: no Nicklaus/Palmer/Hogan/Player/Norman",
+   "url": "https://yougov.com/en-us/ratings/contemporary-golfers?sortBy=fame",
+   "method": "YouGov Ratings fame (share who have heard of) ranked; popularity read from same page",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Wikipedia pageviews, en.wikipedia user agent, Oct 2025-Sep 2026 total, 54 golfer articles ranked: Rory McIlroy 3,118,892; Tiger Woods 3,016,199; Scottie Scheffler 1,815,441; Nelly Korda 821,216; Jack Nicklaus 811,760; Bryson DeChambeau 809,195; John Daly 715,866; Phil Mickelson 637,409; Tommy Fleetwood 633,902; Jordan Spieth 627,363; Brooks Koepka 617,618; Arnold Palmer 495,388; Gary Player 449,920; Jon Rahm 413,429; Rickie Fowler 377,394; Nick Faldo 368,465; Payne Stewart 344,694; Paige Spiranac 344,363; Shane Lowry 344,029; Fuzzy Zoeller 343,982; Greg Norman 336,084; Collin Morikawa 333,456; Patrick Reed 331,690; Dustin Johnson 316,587; Xander Schauffele 306,049; Ludvig Aberg 288,529; Adam Scott 284,863; Seve Ballesteros 276,892; Vijay Singh 258,291; Justin Thomas 254,082; Lee Trevino 243,950; Bobby Jones 241,251; Fred Couples 238,201; Bubba Watson 229,897; Ben Hogan 229,649; Tom Watson 224,797; Sergio Garcia 196,282; Annika Sorenstam 178,058; Hideki Matsuyama 175,935; Michelle Wie West 174,899; Sam Snead 169,939; Ernie Els 157,757; Lydia Ko 136,770; Babe Didrikson Zaharias 121,872; Jim Furyk 114,696; Walter Hagen 100,367; Harry Vardon 95,821; Gene Sarazen 95,478; Chi Chi Rodriguez 92,828; Lexi Thompson 80,251; Byron Nelson 80,492; Davis Love III 64,265; Old Tom Morris 62,148; Nancy Lopez 60,301",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Tiger_Woods/monthly/2025100100/2026093000",
+   "method": "Wikimedia REST API, 12-month user pageviews per article, ranked",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Morning Consult National Tracking Poll #2109111, Sept 2021, 4,400 US adults, favorability of 33 active PGA Tour golfers; name recognition = 100 - 'never heard of': Tiger Woods 90 (fav 46), Phil Mickelson 62 (fav 40), Bubba Watson 46, Rory McIlroy 45, Jordan Spieth 40, Sergio Garcia 40, Rickie Fowler 36, Jason Day 35, Dustin Johnson 34, Justin Rose 33, Justin Thomas 32, Brooks Koepka 32, Hideki Matsuyama 32, Bryson DeChambeau 31, Matt Kuchar 31, Patrick Reed 31, Jon Rahm 28, Scottie Scheffler 27 (pre-breakout). Active players only",
+   "url": "https://assets.morningconsult.com/wp-uploads/2021/09/22144113/2109111_crosstabs_MC_SPORTS_PGA_TOUR_GOLFERS_Adults_STACKED_v1_CC.pdf",
+   "method": "crosstab PDF, Adults row, ranked by name recognition",
+   "year": 2021,
+   "kind": "people"
+  },
+  {
+   "name": "Harris Poll, Oct 5-12 2009, 2,293 US adults, greatest golfer of all time, order: 1 Tiger Woods, 2 Jack Nicklaus, 3 Arnold Palmer, 4 Phil Mickelson, 5 Bobby Jones (no percentages published)",
+   "url": "https://talkbusiness.net/2009/10/greatest-of-all-time/",
+   "method": "national poll, ranked order as reported",
+   "year": 2009,
+   "kind": "people"
+  },
+  {
+   "name": "Morning Consult, Apr 19-21 2019, 2,200 US adults, net favorability of 15 golfers: 1 Arnold Palmer (net +50), 2 Jack Nicklaus, 3 Phil Mickelson, 4 Tiger Woods (50 fav/24 unfav); the other 11 were in a chart I could not read",
+   "url": "https://intel.morningconsult.com/mc-content/articles/tiger-woods-bounces-back-with-american-public",
+   "method": "national poll, top-4 order from article text",
+   "year": 2019,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov, Aug 2014, US adults, greatest professional golfer: Jack Nicklaus 33%, Tiger Woods 30% (other names not given in the article)",
+   "url": "https://yougov.com/en-us/articles/10063-tiger-woods-vs-jack-nicklaus",
+   "method": "national poll",
+   "year": 2014,
+   "kind": "people"
+  },
+  {
+   "name": "ClutchPoints, 25 Greatest Golfers of All Time (single writer); from the Oct 7 research file, used only to break ties (e.g. Hogan, Jones, Player above Faldo/Annika)",
    "url": "https://clutchpoints.com/golf/25-greatest-golfers-all-time-ranked",
-   "method": "single-writer ranking, 25 items, includes women",
-   "year": 2023
+   "method": "editorial ranking, tie-break only",
+   "year": 2023,
+   "kind": "critic"
   },
   {
-   "name": "NESN, Greatest Golfers of All Time (NESN Staff), 9 items",
+   "name": "NESN, Greatest Golfers of All Time, 9 items; from the Oct 7 research file, tie-break only",
    "url": "https://nesn.com/golf/news/greatest-golfers-all-time-ranked/0e71ddef847f72fa1f33340a",
-   "method": "staff ranking, 9 items",
-   "year": 2025
+   "method": "staff ranking, tie-break only",
+   "year": 2025,
+   "kind": "critic"
   },
   {
-   "name": "Elegant Resorts, Top 10 Best Golfers of All Time (Mark Martin)",
+   "name": "Elegant Resorts, Top 10 Best Golfers of All Time; from the Oct 7 research file, tie-break only",
    "url": "https://stories.elegantresorts.co.uk/eleganttraveller/story/top-10-best-golfers-of-all-time-ranked",
-   "method": "travel-company golf specialists, 10 items",
-   "year": 2025
+   "method": "editorial ranking, tie-break only",
+   "year": 2025,
+   "kind": "critic"
   }
  ],
  "list": [
-  "Tiger Woods|tiger",
-  "Jack Nicklaus|nicklaus|golden bear",
-  "Bobby Jones",
-  "Ben Hogan",
-  "Arnold Palmer|arnie",
-  "Sam Snead",
+  "Tiger Woods|tiger|woods|eldrick woods|tiger wood",
+  "Jack Nicklaus|nicklaus|golden bear|the golden bear|jack nicholas|jack nicklus|jack nicklas",
+  "Phil Mickelson|mickelson|lefty|phil|phil mickleson",
+  "Arnold Palmer|palmer|arnie|arnie palmer|arnold plamer",
+  "Rory McIlroy|mcilroy|rory|rory mcelroy|rory mcilory",
+  "Scottie Scheffler|scheffler|scottie|scotty scheffler|scottie schefler",
+  "John Daly|daly|long john",
+  "Bryson DeChambeau|dechambeau|bryson|bryson dechambeau|bryson de chambeau",
+  "Jordan Spieth|spieth|jordan speith",
+  "Brooks Koepka|koepka|brooks",
+  "Bubba Watson|bubba",
+  "Rickie Fowler|fowler|rickie|ricky fowler",
+  "Gary Player|the black knight",
+  "Greg Norman|norman|the shark|shark",
+  "Sergio Garcia|sergio|garcia|sergio garcía",
+  "Dustin Johnson|dj|dustin",
+  "Justin Thomas|jt",
+  "Tommy Fleetwood|fleetwood",
+  "Jon Rahm|rahm",
+  "Nelly Korda|korda|nelly",
+  "Payne Stewart|stewart",
+  "Bobby Jones|bobby jones golfer",
+  "Ben Hogan|hogan|bantam ben",
+  "Nick Faldo|faldo|sir nick faldo"
+ ],
+ "gut_check": [
+  "Tiger Woods",
+  "Jack Nicklaus",
+  "Arnold Palmer",
+  "Phil Mickelson",
+  "Rory McIlroy",
+  "Scottie Scheffler",
+  "Bryson DeChambeau",
+  "John Daly",
+  "Greg Norman",
   "Gary Player",
-  "Tom Watson",
-  "Seve Ballesteros|seve",
-  "Phil Mickelson|phil|lefty",
-  "Walter Hagen",
-  "Gene Sarazen",
-  "Lee Trevino|trevino",
-  "Mickey Wright",
-  "Annika Sörenstam|annika",
-  "Byron Nelson",
-  "Kathy Whitworth|whitworth",
-  "Nick Faldo|faldo",
-  "Rory McIlroy|rory|mcilroy",
-  "Old Tom Morris|tom morris",
-  "Ernie Els|els",
-  "Vijay Singh|vijay",
-  "Nancy Lopez",
-  "Billy Casper"
+  "Jordan Spieth",
+  "Ben Hogan"
  ],
- "avg_rank": [
-  1.33,
-  1.67,
-  4,
-  4.33,
-  4.67,
-  7,
-  7,
-  8.33,
-  10,
-  11,
-  12,
-  13.33,
-  13.67,
-  14,
-  14.33,
-  14.67,
-  15.33,
-  15.67,
-  16,
-  16.33,
-  16.67,
-  17,
-  17.33,
-  17.67
- ],
- "changes_vs_current": "Top 8 are the same eight names as before, but order shifts: Jones up to 3rd, Hogan 4th, Palmer drops from 3rd to 5th. Dropped Scottie Scheffler, Harry Vardon, Greg Norman (25th, just missed) and Brooks Koepka (none appear in any source I read). Added Kathy Whitworth and Nancy Lopez, plus Old Tom Morris (ClutchPoints lumps Old and Young Tom into one slot, so that entry is ambiguous). Snead/Player tie at 7.0 broken by current-list order.",
- "confidence": "low. No poll or large fan vote was readable: Golf Digest's Harris Poll page returned 403, Ranker returned 401. All 3 sources are single-writer or company lists, and two of them are short (9 and 10 names), so ranks 12-24 rest on a single source (ClutchPoints) and are essentially ClutchPoints' order. Only the top ~8 are corroborated by all 3. Cross-checks that were fetched but not averaged: topendsports reader poll (unscientific, closed 2025) had Nicklaus narrowly ahead of Woods; LINKS Magazine (~2014, split into American men, international men and women, so it cannot be merged) also puts Nicklaus, Woods, Jones, Snead, Hogan on top. Women and early-era players are underrepresented, so consider a manual check before shipping."
+ "changes_vs_current": "Scope: all-time professional golfers, men and women; influencer Paige Spiranac (pageviews #18) left out as an online personality rather than a tour golfer people name as a golfer. Strict averaging (missing = list length + 5) runs over three contemporary/active-only sources (YouGov contemporary, MC 2021) and three legend polls (Harris 2009, MC 2019, YouGov 2014), so it gave Tiger 1.83, Mickelson 4.33, McIlroy 5.67, Spieth 8.17, Scheffler 9.0, DeChambeau 9.33, Nicklaus 9.67, Daly 10.0, Koepka 10.17, Bubba 11.33, Palmer 11.83; legends were penalized by surveys that never asked about them. Gut-check moves: Nicklaus up to 2 (Harris #2, YouGov 2014 #1, MC 2019 #2, pageviews #5); Palmer up to 4 (MC 2019 #1 net favorability, Harris #3, pageviews #12); Scheffler kept above Spieth because his only low rank comes from the 2021 MC poll before his breakout (pageviews #3, YouGov fame 49%); Daly placed 7 because YouGov fame (54%, #4) and pageviews (#7) both rank him high and his only penalty is not being polled in MC 2021. Gary Player (pageviews #13) and Greg Norman (pageviews #21) are in the gut check and sit at 13-14; no source puts them lower than that. Hogan (gut check) stays at 23 because his only people source (pageviews #35) puts him low; critics break the tie in his favor over Annika and Lexi. Against the current list (9 kept, 15 changed): Tiger stays 1 and Nicklaus 2; Mickelson 10->3, McIlroy 19->5, Palmer 5->4 and Player 7->13. Bobby Jones 3->22 (Harris 2009 #5 but pageviews #32), Hogan 4->23, Faldo 18->24. Added from people data: Scheffler, Daly, DeChambeau, Spieth, Koepka, Bubba Watson, Fowler, Norman, Sergio Garcia, Dustin Johnson, Justin Thomas, Fleetwood, Rahm, Nelly Korda (pageviews #4) and Payne Stewart (pageviews #17). Dropped because no people source puts them in the top 24 (pageviews rank in brackets): Sam Snead (41), Seve Ballesteros (28), Tom Watson (36), Walter Hagen, Gene Sarazen, Lee Trevino (31), Mickey Wright, Annika Sorenstam (38), Byron Nelson, Kathy Whitworth, Old Tom Morris, Ernie Els (42), Vijay Singh (29), Nancy Lopez, Billy Casper.",
+ "confidence": "Top 6 (Woods, Nicklaus, Mickelson, Palmer, McIlroy, Scheffler): high. At least 3 people sources each, and they agree with the gut check; the only open question is Nicklaus vs Mickelson for #2, where the legend polls are old (2009-2019). Ranks 7-12 (Daly, DeChambeau, Spieth, Koepka, Bubba, Fowler): medium. Each has YouGov fame or MC recognition plus pageviews, but they are close together, and fame figures of 45-54% make their order soft. Ranks 13-24: medium-low. Player, Norman, Stewart, Korda, Faldo and Hogan rest mostly on pageviews, and Bobby Jones on Harris 2009 plus pageviews. Pageviews carry news noise: Fuzzy Zoeller (344k), Shane Lowry and Paige Spiranac were near-misses with similar counts. Near-misses also include Annika Sorenstam, Lexi Thompson (YouGov fame 44%), Seve Ballesteros, Lee Trevino, Vijay Singh, Patrick Reed, Collin Morikawa and Xander Schauffele. Women are thin: only Korda made it, on pageviews alone. No Google Trends or TV-ratings data could be read, and Golf Digest/Harris golfer pages returned 403.",
+ "no_data_positions": []
 }

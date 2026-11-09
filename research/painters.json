@@ -1,0 +1,81 @@
+{
+ "topic": {
+  "name": "Painters",
+  "note": "All-time",
+  "cat": "people",
+  "from": 45
+ },
+ "sources": [
+  {
+   "name": "YouGov Ratings US 'most popular artists', popularity % among painters, plus individual YouGov topic pages for painters outside the top 20: da Vinci 78, Michelangelo 75, Van Gogh 69, Bob Ross 69, Picasso 66, Rembrandt 61, Rockwell 58, Monet 58, Dali 54, Warhol 46, Kahlo 46, Raphael 46, O'Keeffe 45, Matisse 42, Banksy 39, Renoir 38, Pollock 37, Kinkade 37, Degas 36, Manet 34, Hopper 34, Cezanne 33, Botticelli 33, Gauguin 33, El Greco 32, Rubens 32, Vermeer 30, Wyeth 30, Homer 30, Van Eyck 29, Toulouse-Lautrec 29, Remington 28, Cassatt 25, Rothko 25, Peter Max 25, Jasper Johns 23, Magritte 20 (non-painters Frank Lloyd Wright, Paul McCarthy, Coco Chanel, Ansel Adams, Yoko Ono, Donatello excluded; no YouGov page found for Basquiat, Haring, Hockney, Kusama, Klimt, Caravaggio, Goya, Munch, Bosch)",
+   "url": "https://yougov.com/en-us/ratings/artists",
+   "method": "YouGov Ratings popularity (% positive opinion), US adults, ranked among painters",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "YouGov Ratings US 'most famous artists', fame % (same panel and pages): Michelangelo 93, da Vinci 92, Bob Ross 89, Picasso 89, Van Gogh 89, Warhol 81, Rembrandt 79, Rockwell 78, Monet 76, Dali 76, Kahlo 71, Raphael 65, O'Keeffe 63, Pollock 63, Kinkade 62, Matisse 60, Banksy 59, Renoir 54, Manet 53, Gauguin 51, Degas 50, Cezanne 49, El Greco 49, Rubens 49, Botticelli 48, Vermeer 48, Hopper 47, Remington 47, Van Eyck 46, Toulouse-Lautrec 46, Homer 44, Wyeth 43, Peter Max 43, Rothko 37, Jasper Johns 37, Magritte 36, Cassatt 35",
+   "url": "https://yougov.com/en-us/ratings/artists?sortBy=fame",
+   "method": "YouGov Ratings fame (% who have heard of), US adults, ranked among painters",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "English Wikipedia pageviews Oct 2025-Sep 2026 (user agent): da Vinci 2.07M, Van Gogh 1.95M, Kahlo 1.92M, Picasso 1.75M, Banksy 1.67M, Warhol 1.66M, Bob Ross 1.51M, Basquiat 1.29M, Michelangelo 1.14M, Dali 1.10M, Hockney 0.99M, Kusama 0.88M, Monet 0.72M, Caravaggio 0.70M, Pollock 0.62M, Haring 0.62M, Klimt 0.62M, Rembrandt 0.59M, Raphael 0.57M, Rockwell 0.55M, O'Keeffe 0.54M, Goya 0.52M, Bosch 0.52M, Rivera 0.47M, Gauguin 0.45M, Munch 0.45M, Rothko 0.44M, Matisse 0.42M, Turner 0.42M, Toulouse-Lautrec 0.41M, Magritte 0.40M, Vermeer 0.37M ... Hopper 0.31M, Renoir 0.29M, Degas 0.26M, Kinkade 0.26M",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Leonardo_da_Vinci/monthly/2025100100/2026093000",
+   "method": "12-month pageview totals for 61 painter articles, ranked",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Rascasse 'Top painters in the United States' by estimated US audience (search-behavior signals), page 1, non-painters (John Wayne Gacy, Evel Knievel, James Mollison) removed: da Vinci 5M, Kahlo 4.7M, Van Gogh 4.5M, Michelangelo 3.4M, Warhol 2.5M, Picasso 2.1M, Raphael 2M (likely inflated by the Ninja Turtle), Haring 1.9M, Pollock 1.7M, Rockwell 1.5M, Monet 1.4M, Kinkade 1M, Murakami 1M, Hockney 1M, Rembrandt 990k, Schiele 929k, Klimt 793k, Bosch 717k, Francis Bacon 633k, Giger 575k, Matisse 568k, Munch 549k. Bob Ross, Dali, O'Keeffe, Banksy not on page 1 (Bob Ross likely classified as TV personality)",
+   "url": "https://rascasse.com/explore/us/top/subtype/painter",
+   "method": "US search-interest audience ranking, top 25",
+   "year": 2026,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Leonardo da Vinci|da Vinci|Leonardo|Leonardo DaVinci",
+  "Vincent van Gogh|Van Gogh|Vincent|Van Gough|Gogh",
+  "Michelangelo|Michaelangelo|Michelangelo Buonarroti|Buonarroti",
+  "Pablo Picasso|Picasso|Pablo",
+  "Bob Ross|Ross",
+  "Andy Warhol|Warhol",
+  "Frida Kahlo|Kahlo|Frida|Frieda Kahlo",
+  "Claude Monet|Monet",
+  "Rembrandt|Rembrandt van Rijn|Van Rijn",
+  "Salvador Dalí|Dali|Salvador Dali",
+  "Norman Rockwell|Rockwell",
+  "Raphael|Raffaello|Raphael Sanzio|Rafael",
+  "Jackson Pollock|Pollock|Pollack|Jackson Pollack",
+  "Banksy",
+  "Georgia O'Keeffe|O'Keeffe|O'Keefe|Georgia O'Keefe",
+  "Henri Matisse|Matisse",
+  "Thomas Kinkade|Kinkade|Kincaid|Thomas Kincaid",
+  "Paul Gauguin|Gauguin|Gaugin",
+  "Pierre-Auguste Renoir|Renoir|Auguste Renoir",
+  "Keith Haring|Haring",
+  "David Hockney|Hockney",
+  "Johannes Vermeer|Vermeer|Jan Vermeer",
+  "Edgar Degas|Degas",
+  "Edward Hopper|Hopper"
+ ],
+ "gut_check": [
+  "Leonardo da Vinci",
+  "Vincent van Gogh",
+  "Pablo Picasso",
+  "Michelangelo",
+  "Claude Monet",
+  "Bob Ross",
+  "Rembrandt",
+  "Salvador Dalí",
+  "Andy Warhol",
+  "Frida Kahlo",
+  "Norman Rockwell",
+  "Georgia O'Keeffe"
+ ],
+ "changes_vs_current": "New topic. Scope: people known for paintings. Michelangelo counts (Sistine Chapel). Bob Ross counts. Sculptor-only Donatello, architect Frank Lloyd Wright, photographer Ansel Adams, designer Coco Chanel, Yoko Ono and Paul McCarthy were left out even though they sit on YouGov's 'artists' list. Banksy counts (street painter). Raw average-rank order over the four people sources: da Vinci, Van Gogh, Michelangelo, Picasso, Warhol, Kahlo, Monet, Bob Ross, Rockwell, Rembrandt, Raphael, Pollock, Dali, Banksy, O'Keeffe, Matisse, Kinkade, Gauguin, Renoir, Haring, Hockney, Vermeer, then a four-way tie (Degas, Hopper, Cezanne, Rubens at 28.2, all with 3 sources), broken by YouGov popularity (Degas 36, Hopper 34). Gut-check moves: (1) Bob Ross moved from #8 to #5. He is #3-4 on both YouGov metrics (89% fame, 69% popularity) and #7 on Wikipedia. His only weak spot is being missing from Rascasse's painter list, which looks like a classification issue (he is probably filed as a TV personality), not low interest. (2) Salvador Dalí moved from #13 to #10. He is #9-10 on YouGov and #10 on Wikipedia, and missing from page 1 of Rascasse only. Raphael and Pollock each drop one place to make room. Raphael's Rascasse #7 is probably inflated by the Ninja Turtle. Georgia O'Keeffe (gut #12) stays at #15 because all three sources that list her put her at #13-21. Basquiat, Kusama, Caravaggio, Klimt, Goya and Rivera fell short (avg 29-34): each has a strong Wikipedia rank but no YouGov page was found.",
+ "confidence": "High for the top 4 (da Vinci, Van Gogh, Michelangelo, Picasso): every source puts them in its top 6. Medium-high for #5-12: they are well separated from the rest, but their order depends on the source. Warhol and Kahlo are much higher on search and Wikipedia than on YouGov popularity, while Rockwell and Rembrandt are the reverse. Medium for #13-19 (Pollock, Banksy, O'Keeffe, Matisse, Kinkade, Gauguin, Renoir). Low for #20-24: Haring and Hockney lean on Wikipedia and Rascasse only, and Vermeer, Degas and Hopper are nearly tied with Cezanne, Rubens and Manet. Near misses: Cezanne, Rubens, Manet, Toulouse-Lautrec, Klimt, Basquiat, Botticelli, Rothko, Kusama, Caravaggio, Bosch, Munch. Caveats: no US open-ended 'favorite painter' poll was found, so YouGov popularity and fame (one panel, two metrics) carry much of the weight. Rascasse is a noisy search-based list (it contains non-painters, and Raphael is confused with the Ninja Turtle).",
+ "no_data_positions": []
+}

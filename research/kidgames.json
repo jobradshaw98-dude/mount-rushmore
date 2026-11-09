@@ -1,0 +1,123 @@
+{
+ "topic": {
+  "name": "Childhood Games",
+  "note": "Playground and party games, no boards or screens",
+  "cat": "play",
+  "from": 45
+ },
+ "sources": [
+  {
+   "name": "Wikipedia pageviews (en, user agent, Oct 2025-Sep 2026, resolved to canonical article). In-scope totals: Hopscotch 102,808; Dodgeball 96,453; Tug of war 90,357; Hide-and-seek 88,282 (Sardines redirects here); Tag 86,273 (Freeze tag and Ghost in the graveyard redirect here); Telephone game 79,158; Duck, duck, goose 69,777; Simon Says 56,770; Red Rover 49,744; Four square 46,872; Limbo 46,819; Marco Polo 46,220; Kickball 45,135; Capture the flag 42,157; Apple bobbing 41,670; Skipping rope 39,187; Tetherball 35,555; Blind man's buff 32,091; Heads up, seven up 28,088; Musical chairs 27,622; Statues (Red light, green light redirects here) 26,887; Kick the can 26,086; The floor is lava 23,710; Hot potato 21,118; Leapfrog 18,691; Pin the tail on the donkey 13,487; Sack race 12,390; Keep away/Monkey in the middle 9,107; Mother may I? 7,454; Steal the bacon 4,739",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Hide-and-seek/monthly/2025100100/2026093000",
+   "method": "Annual pageviews as a fame proxy; redirected variants share their parent article's count",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Dictionary of American Regional English 2013-14 survey EE33a 'What informal outdoor games do children play now?' (US free recall, small sample): Tag 7; Hide and seek 6 (4+1+1 spellings); Hopscotch 3; Jump rope 2; Kickball 2; 1 each: Annie Annie Over, Dodgeball, Four Square, Ghost in the Graveyard, Kick the Can, Monkey in the Middle, Sardines, Steal the Bacon and others",
+   "url": "https://dare.wisc.edu/surveys/survey-results/2013-2014/childrens-games/ee33a/",
+   "method": "Open-ended US survey, mention counts",
+   "year": 2014,
+   "kind": "people"
+  },
+  {
+   "name": "DARE 2013-14 survey EE33b 'What informal outdoor games did children play in the past?': Tag 8; Hopscotch 4; Hide and seek 4 (3+1); Red Rover 4 (3+1); Annie Annie Over 3; Dodgeball 3; Kick the Can 3; Four Square 2; Jump Rope 2; Ghost in the Graveyard 2; 1 each: Freeze Tag, Kickball, Marbles, Seven Up, Simon Says/Mother May I, Steal the Bacon, Tetherball, Stickball",
+   "url": "https://dare.wisc.edu/surveys/survey-results/2013-2014/childrens-games/ee33b/",
+   "method": "Open-ended US survey, mention counts",
+   "year": 2014,
+   "kind": "people"
+  },
+  {
+   "name": "ABCmouse study of Google search interest 2004-2024 by state (via Dakota News Now): Tug of war top in 10 states, Hide-and-seek 9, Four square 6, Simon Says 3, Dodgeball (Iowa), Heads Up 7 Up (Nebraska); Freeze Tag the top tag variant in 17 states; Double Dutch top in New York and Tag in Connecticut (via Magic 98.3)",
+   "url": "https://www.dakotanewsnow.com/2024/08/31/simon-says-study-reveals-states-favorite-childhood-games/",
+   "method": "Google Trends search interest, count of states where each game ranks first",
+   "year": 2024,
+   "kind": "people"
+  },
+  {
+   "name": "GoatWars 'Greatest Childhood Games' head-to-head audience vote (2,763 votes total as of Oct 2, 2026), win rate: Hide and Seek 72.5%, Dodgeball 70.8%, Tag 55.6%, Red Light Green Light 51.7%, Freeze Tag 50.8%, Four Square 46.8%, Duck Duck Goose 42.8%, Capture the Flag 42.8%, The Floor is Lava 42.6%, Marco Polo 34.6%, Ghost in the Graveyard 34.0%, Kick the Can 31.5%",
+   "url": "https://goatwars.com/leaderboards/childhood-games",
+   "method": "Self-selected online audience vote",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Claritin-commissioned survey of 5,000 US parents of kids 5-13: hide-and-seek is the top activity parents fondly remember from childhood (60%) and kids' current favorite (43%); tag 42% and water balloon fights 42% for kids today (search-result coverage; full list not published)",
+   "url": "https://webbweekly.com/articles/2022/05/25/five-ways-families-can-make-the-most-of/",
+   "method": "Online survey of US parents; used as supporting evidence for the top two",
+   "year": 2022,
+   "kind": "people"
+  },
+  {
+   "name": "Talker Research for Celebree School (Aug 2026): 41% of US parents said hide-and-seek is the childhood activity they miss most, ahead of riding bikes and sleepovers (39%); sample size not stated",
+   "url": "https://www.celebree.com/new-survey-finds-parents-want-more-play-less-screen-time-for-their-children/",
+   "method": "US parent poll; supporting evidence for Hide and Seek",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "Capri-Sun-commissioned UK survey of 1,000 children 6-11 and parents, party games ever played: Hide and seek 73%, Pass the parcel 66%, Musical chairs 64%, then Musical statues, Simon Says, Duck Duck Goose, dancing competitions, Pin the tail on the donkey ... Limbo, Blind man's bluff, Wink murder 16%",
+   "url": "https://britbrief.co.uk/business/acquisitions/classic-party-games-kids-now-call-cringe-and-boring.html",
+   "method": "UK survey; used only as supporting evidence for party games (Musical Chairs, Simon Says, Duck Duck Goose)",
+   "year": 2026,
+   "kind": "people"
+  },
+  {
+   "name": "KOAA (Colorado Springs) reader poll 'favorite playground activity', 4 fixed options: Tetherball 38%, Four square 30%, Red rover 19%, Red light green light 13% (non-scientific, n not stated)",
+   "url": "https://www.koaa.com/news/news5-originals/koaa-survey-what-was-your-favorite-playground-activity",
+   "method": "Fixed-choice local reader poll; supporting evidence only, not averaged",
+   "year": 2025,
+   "kind": "people"
+  },
+  {
+   "name": "M&S Food survey of 2,000 UK adults, most fondly remembered playground games (search-result coverage): Hide and Seek 13%, British Bulldog 11%, What Time Is It Mr Wolf 10%, Tag/Tig 9%, Hopscotch 8%, Skipping 8%",
+   "url": "https://uk.news.yahoo.com/traditional-playground-games-still-reigning-095404283.html",
+   "method": "UK poll; supporting evidence only (UK-specific games excluded)",
+   "year": 2024,
+   "kind": "people"
+  }
+ ],
+ "list": [
+  "Hide and Seek|Hide and Go Seek|Hide & Seek|Hide n Seek|Hide Go Seek|Hide and Seek Game",
+  "Tag|It|Tig|Tag You're It|Chase|Tag Game",
+  "Dodgeball|Dodge|Dodgeballs|Dodge Ball Game",
+  "Duck Duck Goose|Duck Duck Gray Duck|Duck Duck Grey Duck|Duck Goose|Duck Duck",
+  "Red Rover|Red Rover Red Rover|Red Rover Come Over",
+  "Simon Says|Simon Said|Simon",
+  "Hopscotch|Hopskotch|Hop Scotch Game",
+  "Freeze Tag|Freeze|Frozen Tag|Freeze Tags",
+  "Kickball|Kick Ball Game|Soccer Baseball|Kickballs",
+  "Four Square|4 Square|Four Squares|4 Squares",
+  "Red Light Green Light|Red Light|Green Light Red Light|Stop and Go",
+  "Musical Chairs|Musical Chair",
+  "Capture the Flag|CTF|Capture Flag|Steal the Flag",
+  "Jump Rope|Skipping Rope|Jumping Rope|Double Dutch|Skipping|Jumprope Game",
+  "Kick the Can|Kick Can|Kick the Bucket Game",
+  "Tug of War|Tug o War|Tug-of-War Game|Rope Pull",
+  "Marco Polo|Marco",
+  "Heads Up Seven Up|Heads Up 7 Up|Seven Up|7 Up|Heads Down Thumbs Up|Heads Up",
+  "Tetherball|Tether|Tether Balls",
+  "Hot Potato|Hot Potatoes",
+  "Telephone|Broken Telephone|Chinese Whispers|Whisper Down the Lane|Operator|Telephone Game",
+  "Mother May I|Mother May I Please|Captain May I|Mommy May I",
+  "Ghost in the Graveyard|Ghosts in the Graveyard|Graveyard|Ghost in the Grave",
+  "Leapfrog|Leap Frogs|Leapfrogging"
+ ],
+ "gut_check": [
+  "Tag",
+  "Hide and Seek",
+  "Duck Duck Goose",
+  "Red Rover",
+  "Simon Says",
+  "Freeze Tag",
+  "Hopscotch",
+  "Musical Chairs",
+  "Red Light Green Light",
+  "Kickball",
+  "Dodgeball",
+  "Capture the Flag"
+ ],
+ "changes_vs_current": "New topic. Scope: physical playground, backyard, recess and party games needing at most a ball, rope or chairs; excluded board, card and video games, plus hand/word/parlor games (Rock Paper Scissors, Mafia, Charades, Twenty Questions, I Spy), nursery-rhyme circle games (Ring Around the Rosie, London Bridge), toys used solo (hula hoop, hacky sack, marbles, jacks, cat's cradle), proper sports (Wiffle ball) and UK-only games (British Bulldog, What's the Time Mr Wolf). Merges: Double Dutch into Jump Rope; Sardines left out (its Wikipedia title redirects to Hide-and-seek, and it has only 1 DARE mention). The averaged base (Wikipedia pageviews, DARE now, DARE past, ABCmouse search-by-state, GoatWars vote) ranked Hide and Seek 1, Tag 2, Dodgeball 3, Hopscotch 4, Four Square 5, Jump Rope 6, Kickball 7, Kick the Can 8, Red Rover 9, Simon Says 10, Ghost in the Graveyard 11, Steal the Bacon 12, Tug of War 13, Heads Up Seven Up 14, Tetherball 15, Duck Duck Goose 16, Capture the Flag 17, Freeze Tag 18, Marco Polo 19, Telephone 20, Red Light Green Light 21, Monkey in the Middle 22, Mother May I 23, Limbo 24 ... Musical Chairs 29. Hide and Seek is kept above Tag because the Claritin (60%) and Talker/Celebree (41%) parent polls and GoatWars all put it first. Gut-check moves: Duck Duck Goose 16->4 (pageviews #7, GoatWars #7, in the Capri-Sun top 6); Red Rover 9->5 (tied 2nd in DARE past recall, Red Rover is 3rd of 4 in KOAA); Simon Says 10->6 (pageviews #8, ABCmouse #4, Capri-Sun top 5); Freeze Tag 18->8 (top tag variant in 17 states in ABCmouse, GoatWars #5; it lacks its own Wikipedia article, which unfairly penalized it); Red Light Green Light 21->11 (GoatWars #4, in KOAA; its Wikipedia title redirects to Statues so pageviews undercount it); Musical Chairs 29->12 (64% of UK kids have played it per Capri-Sun, #3; pageviews #20); Capture the Flag 17->13 (GoatWars #7, pageviews #14). Steal the Bacon (1 DARE mention each, 4.7k pageviews) and Monkey in the Middle were dropped from the 24 to make room for gut-check party games; Ghost in the Graveyard kept at 23 (2 DARE mentions plus GoatWars #11) despite having no article of its own. Hot Potato (pageviews #24, 21k), Telephone (79k) and Leapfrog (18.7k) take tail spots on pageviews alone.",
+ "confidence": "Medium overall. High for the top two (Hide and Seek and Tag lead every source that lists them, including two national parent polls with large samples). Medium for 3-13: Dodgeball, Duck Duck Goose, Red Rover, Simon Says, Hopscotch, Freeze Tag, Kickball, Four Square, Red Light Green Light, Musical Chairs and Capture the Flag are all clearly famous, but no national US poll ranks them against each other, so the order rests on pageviews, the small DARE free-recall samples, a self-selected vote and the gut check. Low-medium for 14-24: Jump Rope, Kick the Can, Tug of War (search interest is likely inflated by adult/sport use), Marco Polo, Heads Up Seven Up, Tetherball, Hot Potato, Telephone, Mother May I, Ghost in the Graveyard and Leapfrog are close together, and the order among them is loose. Near-misses: Steal the Bacon, Monkey in the Middle (Keep Away), Sardines, The Floor Is Lava, Limbo, Pin the Tail on the Donkey, Bobbing for Apples, Blind Man's Bluff, Sack Race, Manhunt, Ringolevio, Annie Annie Over. No large US poll on favorite playground games was found (YouGov Ratings physical activities lists none of these), so a future YouGov or Talker poll could reshuffle the middle.",
+ "no_data_positions": []
+}

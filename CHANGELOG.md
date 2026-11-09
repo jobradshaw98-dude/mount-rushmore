@@ -2,6 +2,15 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-11-09: Painters, World Cities, Childhood Games, Rock Bands and Restaurant Chains; Golfers and Soccer Players re-ranked
+
+### Added
+- Five new topics: Painters (all-time), World Cities (to visit, outside the US), Childhood Games (playground and party games), Rock Bands (all-time) and Restaurant Chains (sit-down). They show up in bonus rounds from game #45 (Nov 11) and join the daily rotation when the next cycle starts.
+
+### Changed
+- From game #45, Golfers follows polls, YouGov fame and search data instead of three expert lists: Tiger Woods and Jack Nicklaus stay #1 and #2, Phil Mickelson rises from #10 to #3 and Rory McIlroy from #19 to #5. Scottie Scheffler (#6), John Daly, Bryson DeChambeau, Jordan Spieth and Brooks Koepka join the top 10. Bobby Jones drops from #3 to #22 and Ben Hogan from #4 to #23. Sam Snead, Seve Ballesteros, Tom Watson, Walter Hagen, Gene Sarazen, Lee Trevino and Annika Sörenstam are among those who leave.
+- From game #45, Soccer Players follows what Americans know: Messi stays #1, Cristiano Ronaldo rises from #4 to #2 and David Beckham joins at #3. Pelé moves to #4 and Maradona drops from #2 to #8. Mbappé, Neymar, Mia Hamm, Megan Rapinoe, Erling Haaland and Alex Morgan join the top 11, with Abby Wambach and Landon Donovan further down. Zidane drops from #6 to #22. Cruyff, Beckenbauer, Di Stéfano, Puskás and other older greats leave.
+
 ## 2026-11-02: Famous Landmarks, Authors, Hobbies, Christmas Songs and Airlines; Movie Villains and Dog Breeds re-ranked
 
 ### Added
