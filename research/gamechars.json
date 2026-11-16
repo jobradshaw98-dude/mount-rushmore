@@ -1,0 +1,122 @@
+{
+  "topic": {
+    "name": "Video Game Characters",
+    "cat": "play",
+    "from": 52
+  },
+  "sources": [
+    {
+      "name": "Casino.org 'most recognizable video game characters' picture-ID study of 593 US millennials (2021), read via TheGamer: Mario 92.3%, Pikachu 86.5%, Pac-Man 85.5%, Donkey Kong 79.3%, Kirby 65.7%; Sonic ~85% (Sonic Stadium headline, page itself blocked); Luigi and Lara Croft named without figures. Original casino.org URL now redirects to unrelated content.",
+      "url": "https://www.thegamer.com/millennials-video-game-characters-athletes-politicians-study/",
+      "method": "Recognition rate from a picture lineup. Used order Mario, Pikachu, Pac-Man, Sonic, Donkey Kong, Kirby (6-item list).",
+      "year": 2021,
+      "kind": "people"
+    },
+    {
+      "name": "GetCenturyLink Gen Z recognition survey, 1,800 Americans aged 16-24 (Nov 2021), read via iHeart and Megavisions: Pikachu 85%, Mario 84%, Sonic 83%, Luigi 82%, Kirby 80%. Search snippets of TechRaptor (403 for me) also give Princess Peach 79% and Lara Croft 66%; not counted in the average.",
+      "url": "https://www.iheart.com/content/2021-11-01-gen-z-has-more-knowledge-of-pikachu-than-rosa-parks",
+      "method": "Respondents matched portraits to names, decoys included. Used the 5 opened figures as a ranked list.",
+      "year": 2021,
+      "kind": "people"
+    },
+    {
+      "name": "CasinoBonusCA US Google search volume study, 5-year average monthly searches (AP via WSVN, Jan 2023): 1 Sonic 1,102,400; 2 Pac-Man; 3 Pikachu 635,300; 4 Kirby 432,000; 5 Kratos 209,010; 6 Yoshi 190,880; 7 Princess Peach 174,990; 8 Chun-Li 158,750; 9 Lara Croft 138,940; 10 Bowser 136,430; 11 Mario 136,200.",
+      "url": "https://wsvn.com/entertainment/the-most-popular-video-game-characters-in-america/",
+      "method": "US search interest. Used the 11-item order. Mario's low spot is likely a keyword artifact (the plain term 'Mario' splits across many queries), so this source is weighed with caution.",
+      "year": 2023,
+      "kind": "people"
+    },
+    {
+      "name": "Galaxsys 2026 Engagement Score of 25 playable characters (Men's Journal via AOL, Jan 29 2026; IBTimes figures: Mario ~19M monthly searches and 1.6M YouTube videos, Pikachu ~13M hashtags, Sonic 13M+ searches): 1 Mario, 2 Pikachu, 3 Sonic, 4 Pac-Man, 5 Kratos, 6 Jinx, 7 Arthur Morgan, 8 Kirby, 9 Lara Croft, 10 Donkey Kong.",
+      "url": "https://www.aol.com/lifestyle/top-10-most-popular-video-172551937.html",
+      "method": "Combined Google searches, Instagram/TikTok hashtags and YouTube videos and channels. Used the top-10 order. Only 25 characters were pre-selected (Luigi, Peach and Bowser were apparently not in the pool).",
+      "year": 2026,
+      "kind": "people"
+    },
+    {
+      "name": "Wikipedia pageviews, en.wikipedia user views Nov 2025-Oct 2026 (Wikimedia REST API, pulled myself): Pikachu 853k, Mario 599k, Pac-Man 573k (main article; the split character page has 60k), Kratos 365k, Chun-Li 342k, Lara Croft 324k, Sonic (character) 303k, Ryu 293k, Princess Peach 284k, Princess Daisy 277k, Bowser 275k, Scorpion 264k, Ash Ketchum 256k, Yoshi 250k, Fox McCloud 246k, Sub-Zero 238k, Dr. Eggman 218k, Arthur Morgan 216k, Steve 215k, Shadow 214k, Link 207k, Geralt 201k, Charizard 197k, Luigi (character) 197k, Mewtwo 182k, Kirby 178k, Solid Snake 170k, Master Chief 168k, Ms. Pac-Man 166k, Doomguy 166k, Donkey Kong (character) 161k, Samus 160k, Wario 159k, Jinx 159k, Knuckles 155k, Princess Zelda 123k.",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Mario/monthly/2025110100/2026103100",
+      "method": "12-month pageviews for character articles. Used the top-35 order. This global English audience runs heavy on fighting-game characters.",
+      "year": 2026,
+      "kind": "people"
+    },
+    {
+      "name": "BAFTA Players' Poll, most iconic video game character, 4,000+ players worldwide (Apr 2024), read via GoNintendo (bafta.org 403): 1 Lara Croft, 2 Mario, 3 Agent 47, 4 Sonic, 5 Sackboy, 6 Pac-Man, 7 Link, 8 Master Chief, 9 Kratos, 10 Shadowheart, 11 Arthur Morgan, 12 Pikachu, 13 Steve, 14 Solid Snake, 15 Crash Bandicoot, 16 Cloud Strife, 17 Astarion, 18 Kazuma Kiryu, 19 Ellie, 20 Nathan Drake.",
+      "url": "https://gonintendo.com/contents/33997-bafta-poll-reveals-the-most-iconic-game-characters-of-all-time",
+      "method": "Audience vote by gamers, mostly UK. Used the top-20 order, as a large audience vote rather than a general-public poll.",
+      "year": 2024,
+      "kind": "people"
+    },
+    {
+      "name": "Guinness World Records Gamer's Edition 2011 top 50 video game characters, 13,000+ online votes (NBC News): 1 Mario, 2 Link, 3 Master Chief, 4 Solid Snake, 5 Cloud Strife, 6 Pac-Man, 7 Lara Croft, 8 Gordon Freeman, 9 Kratos, 10 Sonic ... 18 Kirby, 20 Pikachu, 21 Yoshi, 23 Mega Man, 31 Zelda, 33 Donkey Kong, 44 Princess Peach, 47 Bowser.",
+      "url": "https://www.nbcnews.com/tech/tech-news/who-are-top-50-video-game-characters-all-time-flna125063",
+      "method": "Reader vote on the Gamer's Edition site, which skews to enthusiasts. Used the 50-item order.",
+      "year": 2011,
+      "kind": "people"
+    },
+    {
+      "name": "Guinness World Records 'Most recognizable videogame character': Pac-Man 94% vs Mario 93%, Davie-Brown Index poll of US consumers, May 2008.",
+      "url": "https://www.guinnessworldrecords.com/world-records/92257-most-recognizable-videogame-character",
+      "method": "The only true US general-public awareness figure found. Used as a 2-item list (Pac-Man, Mario).",
+      "year": 2008,
+      "kind": "people"
+    },
+    {
+      "name": "24/7 Wall St 'most recognizable video game characters' editorial ranking (Aug 2024): Mario, Pikachu, Sonic, Pac-Man, Lara Croft, Link, Master Chief, Donkey Kong, Mega Man, Ryu, Kirby, Scorpion, Crash, Solid Snake, Kratos, Samus, Bowser.",
+      "url": "https://247wallst.com/technology-3/2024/08/14/this-video-game-character-is-more-recognizable-than-most-us-presidents/",
+      "method": "Editorial list with an unclear method. Used only to break ties (Mega Man over Solid Snake, Link over Master Chief).",
+      "year": 2024,
+      "kind": "critic"
+    },
+    {
+      "name": "Stashbird fan index of 36 franchise protagonists (2021), read via invisioncommunity.co.uk: Mario 451, Sonic 394, Link 377, Donkey Kong 354, Master Chief/Crash/Sora 323, Cloud 314, Pac-Man 308, Kirby 306.",
+      "url": "https://invisioncommunity.co.uk/?p=278645",
+      "method": "Composite of sales, searches, hashtags, Reddit and a gamer vote, one character per franchise. Used only to break ties (Donkey Kong, Crash).",
+      "year": 2021,
+      "kind": "critic"
+    }
+  ],
+  "list": [
+    "Mario|Super Mario|Mario Mario",
+    "Pac-Man|Packman",
+    "Sonic the Hedgehog|Sonic",
+    "Pikachu|Pikachoo|Pickachu",
+    "Luigi|Luigee",
+    "Donkey Kong|DK",
+    "Lara Croft|Lara|Laura Croft",
+    "Link",
+    "Princess Peach|Peach|Princess Toadstool",
+    "Kirby",
+    "Bowser|King Koopa|Koopa",
+    "Master Chief|Master Cheif|John-117",
+    "Kratos",
+    "Yoshi",
+    "Princess Zelda|Zelda",
+    "Crash Bandicoot|Crash",
+    "Chun-Li",
+    "Minecraft Steve|Steve|Steve from Minecraft",
+    "Mega Man|Rockman",
+    "Solid Snake|Snake",
+    "Samus Aran|Samus",
+    "Ms. Pac-Man|Miss Pac-Man|Mrs. Pac-Man",
+    "Arthur Morgan",
+    "Cloud Strife|Cloud"
+  ],
+  "gut_check": [
+    "Mario",
+    "Pac-Man",
+    "Sonic the Hedgehog",
+    "Pikachu",
+    "Luigi",
+    "Donkey Kong",
+    "Link",
+    "Lara Croft",
+    "Princess Peach",
+    "Bowser",
+    "Master Chief",
+    "Kirby"
+  ],
+  "changes_vs_current": "Scope: playable or recurring characters from video games, as a typical American adult would name them. Game titles (Tetris, Frogger as a game), franchises, and characters known mainly from anime or film (Ash Ketchum) are out, and Freddy Fazbear is out because his Wikipedia title redirects to the game. Raw average-position order across the 8 people sources (missing = list length + 5): 1 Mario 2.75, 2 Pac-Man 4.38, 3 Sonic 4.88, 4 Pikachu 6.0, 5 Kratos 7.5, 6 Lara Croft 7.5, 7 Link 11.1, 8 Master Chief 12.3, 9 Kirby 12.4, 10 Solid Snake 13.0, 11 Yoshi 13.6, 12 Cloud Strife 15.0, 13 Crash 15.6, 14 Princess Peach 16.0, 15 Shadow 16.1, 16 Samus 16.3, 17 Gordon Freeman 16.5, 18 Ash Ketchum 16.8, 19 Arthur Morgan 16.9, 20 Nathan Drake 16.9, 21 Bowser 17.0, 22 Chun-Li 17.0, 23 Soap MacTavish 17.0, 24 Donkey Kong 17.1; Luigi falls outside the 24 (in only 2 lists). The raw order is distorted by the two enthusiast votes (Guinness 2011 and BAFTA) and by the Galaxsys pre-selected pool, which apparently left out Luigi, Peach and Bowser. Gut-check moves: Luigi moved up to #5 (82% Gen Z recognition, 4th of the 5 CenturyLink characters, just behind Sonic; 197k Wikipedia views; absent elsewhere only because he wasn't polled). Donkey Kong moved from #24 to #6 (79.3% millennial recognition, 4th in Casino.org; in Galaxsys top 10; 2008 Guinness names him alongside Pac-Man and Mario). Princess Peach moved from #14 to #9 (79% Gen Z recognition per snippet; 7th in US Google searches; 284k pageviews, ahead of Link). Bowser moved from #21 to #11 (10th in US Google searches, 275k pageviews). Master Chief stays near #12 (BAFTA 8, Guinness 3, 168k pageviews). Kirby moved from #9 to #10, below Peach (he is in 6 sources, but the gut check and recognition rates put him around 10). Moves down: Kratos moved from #5 to #13. His rank comes from searches and engagement, where God of War is big, plus enthusiast polls, but no recognition study included him and the general public is far less likely to name him than the Nintendo cast. Solid Snake (#10 raw), Cloud Strife (#12 raw) and Crash went down because they rest mainly on the Guinness 2011 and BAFTA gamer votes. Gordon Freeman, Soap MacTavish, Nathan Drake and Ash Ketchum were dropped as gamer-only picks or out of scope. Added from the tail: Princess Zelda (#15: Guinness 31, 123k pageviews; people often say 'Zelda'), Chun-Li (#17: US Google #8, 342k pageviews), Steve from Minecraft (#18: BAFTA 13, 215k pageviews), Mega Man (#19: Guinness 23, critic tie-break) and Ms. Pac-Man (#22: 166k pageviews, a classic arcade icon).",
+  "confidence": "High for #1-4 (Mario, Pac-Man, Sonic, Pikachu lead every recognition and popularity source, though their order shifts by source: Pac-Man edged out Mario in the 2008 US poll, Pikachu leads Gen Z and Wikipedia). Medium for #5-12: the Nintendo supporting cast (Luigi, DK, Peach, Bowser) rests on recognition studies, search and pageviews, because the enthusiast polls under-rate them. Medium-low for #13-24, where the order among Kratos, Yoshi, Zelda, Crash, Chun-Li, Steve, Mega Man, Snake, Samus, Ms. Pac-Man, Arthur Morgan and Cloud could plausibly reshuffle. Near misses: Shadow the Hedgehog, Ryu, Wario, Dr. Eggman, Tails, Knuckles, Toad, Sub-Zero, Scorpion, Spyro, Q*bert, Frogger, Agent 47, Gordon Freeman, Geralt, Jinx. Could not read: YouGov Ratings (there is no video game characters ratings page in the US; every URL I tried returned 404, and only a 'video-games' list exists), the original casino.org and CenturyLink releases (gone or redirected), TechRaptor, Sonic Stadium, bafta.org and Supercheats (all 403), the full Galaxsys 25-list (Men's Journal 403), and the Stashbird ranks 11-24. No recent Harris, Talker or Morning Consult poll on video game characters was found. Ranker was not used.",
+  "no_data_positions": []
+}

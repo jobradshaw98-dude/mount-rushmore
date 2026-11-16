@@ -1,0 +1,101 @@
+{
+  "topic": {
+    "name": "Birds",
+    "cat": "life",
+    "from": 52
+  },
+  "sources": [
+    {
+      "name": "Searching for Birds (Bremer / Google Trends, 5-yr US national avg search interest by All About Birds 'type'): Hawk 1 (270), Eagle 2 (245), Duck 3 (223), Owl 4 (213), Goose 5 (178), Pigeon 6 and Parrot 6 (144), Finch 8, Woodpecker 9, Swallow 9, Heron 11, Hummingbird 12 (92), Cardinal 13 (72), Jay 14 (67), Falcon 15, Sparrow 16, Dove 16, Crane 18 ... Crow 28, Vulture 30, Swan 32, Pelican 38, Raven 38 (55 types)",
+      "url": "https://searchingforbirds.visualcinnamon.com/data/bird_type_interest_US.csv",
+      "method": "Read the project's published CSV (linked from https://searchingforbirds.visualcinnamon.com/). Used the type order as one ranked list of generic kinds. Covers North American wild birds only, so non-native/exotic or domestic kinds (penguin, flamingo, peacock, ostrich, chicken, parakeet) and kinds folded into another type (robin is under Thrush; turkey under Game Bird; mockingbird/osprey under Other) were treated as not covered rather than missing.",
+      "year": 2025,
+      "kind": "people"
+    },
+    {
+      "name": "Searching for Birds (Google Trends, 5-yr US species interest): 1 Bald Eagle (97.5), 2 Northern Cardinal (75.7), 3 Blue Jay (55.6), 4 American Robin (52.5), 5 Mallard (46.5), 6 House Finch, 7 Red-tailed Hawk, 8 Great Horned Owl, 9 Sandhill Crane, 10 Great Blue Heron, 11 Mourning Dove, 12 Peregrine Falcon, 17 Osprey, 18 Pileated Woodpecker, 19 Canada Goose, 21 House Sparrow; Rock Pigeon 68, Northern Mockingbird 69, Wild Turkey 93, Ruby-throated Hummingbird 95. Text notes Bald Eagle tops 26 states, Cardinal 16; American Crow does not register because people search 'crow'",
+      "url": "https://searchingforbirds.visualcinnamon.com/",
+      "method": "Read page text and the published species CSVs (top_birds_google_trends.csv, general_bird_info.csv gt_rank). Mapped each species to its kind and took the first-appearing kind order (111 species) as a second list. Species-level splitting understates generic kinds (hummingbird, crow, pigeon), noted when moving them.",
+      "year": 2025,
+      "kind": "people"
+    },
+    {
+      "name": "Wikipedia pageviews, en.wikipedia user views Nov 2025-Oct 2026 (best article per kind): Dodo 919k, Chicken 902k, Penguin 809k, Shoebill 745k, Peregrine falcon 698k, Bald eagle 678k, Cassowary 599k, Osprey 585k, Peafowl 531k, Owl 515k, Hummingbird 494k, Kiwi 482k, Parrot 478k, Emu 453k, Duck 451k, Northern cardinal 435k, Blue jay 433k, Roadrunner 430k, House sparrow 430k, Magpie 420k, Columbidae (pigeon) 412k, Turkey (bird) 404k, Canada goose 392k, Albatross 388k, Flamingo 386k, Crow 384k, Common raven 381k, Ostrich 366k, Puffin 362k, Budgerigar 356k, Mourning dove 340k, Swan 295k, Woodpecker 283k, American robin 283k, Heron 278k",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Bald_eagle/monthly/2025110100/2026103100",
+      "method": "Pulled 12 months of views for ~110 bird articles via the Wikimedia REST API and ranked kinds by their highest-viewed article. Global English traffic, skewed toward exotic/meme birds (dodo, shoebill, cassowary, kiwi, emu), so single-source exotics were not allowed into the 24.",
+      "year": 2026,
+      "kind": "people"
+    },
+    {
+      "name": "YouGov Ratings animal popularity (UK panel, ~190,000 members, 0-10 popularity): Penguins 7, Owls 7, Ducks 6, Eagles 5, Barn Owls 5, Puffins 5, Hummingbirds 5, Swans 5, Chickens 4, Finches 4, Parrots 4, Peacock 4, Hawks 4, Kestrels 4, Canaries 3, Doves 3, Starlings 3, Flamingos 3, Geese 3, Magpies 2, Crows 2, Ostriches 2, Turkeys 1, Vultures 1, Pigeons 1, Gulls 1",
+      "url": "https://yougov.com/en-gb/articles/11632-animals",
+      "method": "Read the table; ranked bird kinds with tie-averaged positions (30 positions). UK sample (no US equivalent found), so used as a liking/fame signal mainly for kinds both countries know; American-only birds (cardinal, blue jay, American robin) treated as not covered.",
+      "year": 2015,
+      "kind": "people"
+    },
+    {
+      "name": "George et al. 2016, Biological Conservation 201:237-242, GfK nationally representative US online survey Feb 2014 (n=1,287), like/dislike 1-7 (lower = more liked): Eagle 1.94 (3rd of 26 animals), Robin 2.19 (5th), Swan 2.47 (9th), Crow 3.68, Vulture 3.86",
+      "url": "https://files.constantcontact.com/a1cb61f5201/65455888-a18a-40f2-8cee-53b5755533e0.pdf",
+      "method": "Read Table 1 from the PDF. Only five birds rated, so not averaged; used as US corroboration that eagle and robin are top-liked birds (supports moving robin up) and that crow/vulture are disliked.",
+      "year": 2014,
+      "kind": "people"
+    },
+    {
+      "name": "US state birds by number of states: Northern Cardinal 7, Western Meadowlark 6, Northern Mockingbird 5, American Robin 3, American Goldfinch 3, Eastern/Mountain Bluebird 2 each, Black-capped Chickadee 2",
+      "url": "https://www.10000birds.com/us-state-birds-by-popularity.htm",
+      "method": "Official legislative choices, not a fame measure; used only to break ties and as context (cardinal, robin).",
+      "year": 2025,
+      "kind": "critic"
+    },
+    {
+      "name": "Schuetz & Johnston 2019 PNAS, Google searches 2008-2017 for 621 US species: Wild Turkey most-searched name (over 10x Bald Eagle, confounded by holiday/whiskey), Bald Eagle 2nd; owls the most popular order",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6561159",
+      "method": "Read article text (no full ranked table). Used to justify keeping Turkey in the 24 and owls high.",
+      "year": 2019,
+      "kind": "critic"
+    }
+  ],
+  "list": [
+    "Bald Eagle|eagle|bald eagles|eagles|american eagle|golden eagle",
+    "Cardinal|cardinals|northern cardinal|red cardinal",
+    "Owl|owls|barn owl|great horned owl|snowy owl|hoot owl",
+    "Penguin|penguins|emperor penguin",
+    "Robin|robins|american robin|robin redbreast",
+    "Blue Jay|blue jays|jay|jays",
+    "Hummingbird|hummingbirds|hummer",
+    "Duck|ducks|mallard|mallards|wood duck",
+    "Hawk|hawks|red-tailed hawk",
+    "Flamingo|flamingos|flamingoes|pink flamingo",
+    "Parrot|parrots|parakeet|budgie|macaw|cockatoo",
+    "Pigeon|pigeons|rock pigeon|rock dove",
+    "Peacock|peacocks|peafowl|peahen",
+    "Chicken|chickens|hen|rooster",
+    "Crow|crows|american crow",
+    "Falcon|falcons|peregrine falcon|peregrine",
+    "Osprey|ospreys|fish hawk|sea hawk",
+    "Goose|geese|canada goose|canadian goose",
+    "Turkey|turkeys|wild turkey",
+    "Sparrow|sparrows|house sparrow",
+    "Woodpecker|woodpeckers|pileated woodpecker|woody woodpecker",
+    "Dove|doves|mourning dove|morning dove",
+    "Finch|finches|goldfinch|house finch",
+    "Heron|herons|great blue heron|blue heron"
+  ],
+  "gut_check": [
+    "Bald Eagle",
+    "Cardinal",
+    "Robin",
+    "Blue Jay",
+    "Owl",
+    "Hummingbird",
+    "Penguin",
+    "Flamingo",
+    "Crow",
+    "Pigeon",
+    "Hawk",
+    "Parrot"
+  ],
+  "changes_vs_current": "New topic. Scope: generic kinds count as one item (owl, parrot, duck, hawk); species fold into their kind (mallard -> Duck, peregrine -> Falcon, golden eagle -> Bald Eagle as 'eagle'; parakeet/macaw/cockatoo -> Parrot). Domestic birds (chicken, turkey) and exotic birds are eligible; extinct dodo eligible but only Wikipedia backs it. Method: averaged positions over 4 people lists (Google Trends types, Google Trends species, Wikipedia pageviews, YouGov UK ratings), missing = list length + 5 only where the kind is inside that source's universe (North American wild birds for the Google data; UK ratings for kinds on its list). Raw average order (items with 2+ sources): Penguin, Bald Eagle, Owl, Chicken, Duck, Peacock, Cardinal, Osprey, Falcon, Blue Jay, Hawk, Goose, Hummingbird, Sparrow, Puffin, Parrot, Dove, Woodpecker, Finch, Heron, Albatross, Robin, Pigeon, Flamingo, Parakeet, Starling, Crane, Swallow, Ostrich, Turkey, Swan, Vulture, Magpie, Crow. Single-source Wikipedia exotics (Dodo, Shoebill, Cassowary, Kiwi, Emu) excluded from the board (no second source; gut check rejects them). Gut-check moves: Bald Eagle to #1 (top of both Google lists and the US GfK survey; raw #2 only because penguin has no Google coverage). Cardinal up to #2 (Google species #2, top bird in 16 states, 7 state birds). Robin raw #22 -> #5 (Google species #4; GfK US survey 2nd-most-liked bird after eagle; its Google type is buried under 'Thrush' and the UK poll has no American robin). Hummingbird raw #13 -> #7 (Google type #12, UK 5/10, Wikipedia #11; Google species list splits it across species). Flamingo raw #24 -> #10 (Wikipedia #25, UK 3/10; not covered by the North American Google data, which is why it trailed). Parrot raw #16 -> #11. Pigeon raw #23 -> #12 (Google type #6; low UK liking reflects dislike, not unfamiliarity). Crow raw #34 -> #15 only (Google type ranks it 29 and UK ratings 24.5, so it stays below #12; the species list misses it because people search 'crow'). Non-gut items pushed down by those moves: Chicken (#14), Peacock (#13), Osprey (#17, Wikipedia-inflated), Falcon (#16, peregrine 'fastest animal' traffic). Turkey brought in at #19 over Puffin (Puffin's rank rests on a UK poll; Turkey is the most-searched US bird name per PNAS 2019).",
+  "confidence": "Top 6 (Bald Eagle, Cardinal, Owl, Penguin, Robin, Blue Jay): medium-high, but no US favorite-bird poll exists (searched YouGov, Harris, Talker, OnePoll; none found), so the order rests on search and pageview data plus a UK liking poll. 7-12: medium (Hummingbird, Duck, Hawk, Flamingo, Parrot, Pigeon all plausible; exotic kinds rely on only Wikipedia + UK YouGov). 13-24: low-medium; order sensitive to method. Near misses: Ostrich, Swan, Puffin, Seagull, Pelican, Vulture, Raven, Parakeet (folded into Parrot), Toucan, Crane, Mockingbird, Bluebird, Roadrunner. Blocked/unread: allaboutbirds.org (403), birdcount.org GBBC results (403), JetPunk stats (403); Ranker not used. Google Trends data is via the Searching for Birds project's CSVs, not queried directly.",
+  "no_data_positions": []
+}

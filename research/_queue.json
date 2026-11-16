@@ -2,14 +2,6 @@
  "_note": "Read and updated by the weekly topic job (aria-rushmore-topics). rerank: worst first; take the top 2 each run and remove them when shipped. suggestions_handled: suggestion-box keys already turned into a topic or declined, with why.",
  "rerank": [
   {
-   "id": "chips",
-   "why": "pre-method list (Oct 7): only 3 sources, none tagged people/critic, no gut check"
-  },
-  {
-   "id": "disney",
-   "why": "pre-method list (Oct 7): sources not tagged people/critic, 1 no-data spot, no gut check"
-  },
-  {
    "id": "fastfood",
    "why": "pre-method list (Oct 7): sources not tagged people/critic, no gut check"
   },
@@ -20,6 +12,14 @@
   {
    "id": "cereal",
    "why": "pre-method list (Oct 7): sources not tagged people/critic, no gut check"
+  },
+  {
+   "id": "condiments",
+   "why": "pre-method list (Oct 7): sources not tagged people/critic, no source ranks more than 10, positions 11-24 not data-backed, no gut check"
+  },
+  {
+   "id": "pizza",
+   "why": "pre-method list (Oct 7): sources not tagged people/critic, only the top ~13 evidence-based (ranks 14-24 unverified), no gut check"
   }
  ],
  "suggestions_handled": {

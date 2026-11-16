@@ -1,0 +1,102 @@
+{
+  "topic": {
+    "name": "US States",
+    "note": "Favorites",
+    "cat": "places",
+    "from": 52
+  },
+  "sources": [
+    {
+      "name": "YouGov Favorability of U.S. States, June 25-30 2025 (n=2,073; each respondent rated a random 25). Ranked by % very favorable: Hawaii 36, Florida 28, Texas 27, California 26, Alaska 23, New York 22, Tennessee 21, Colorado 21, North Carolina 19, Montana 19, South Carolina 19, Maine 19, Vermont 19, Massachusetts 19, Washington 19 ... (total favorable: Hawaii 68, NC 62, Alaska 61, Tennessee 60, Colorado 59)",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/Favorability_of_U_S__States_poll_results_uErXVAf.pdf",
+      "method": "Full 50-state topline PDF read. Ranked all 50 by 'very favorable' share (closest proxy for naming a favorite; ties broken by total favorable). Net favorability not used because it penalizes polarizing big states (CA, NY, FL) that many people still name as favorites.",
+      "year": 2025,
+      "kind": "people"
+    },
+    {
+      "name": "Harris Poll Dec 2015: state you would most like to live in other than your own. 1 Florida, 2 California, 3 Hawaii, 4 Colorado, 5 New York, 6 Texas, 7 North Carolina, 8 Arizona, 9 Oregon, 10 Tennessee, 11 Alaska, 12 South Carolina, 13 Georgia, 14 Washington, 15 Pennsylvania",
+      "url": "https://prnewswire.com/news-releases/the-beach-beckons-florida-california-hawaii-top-states-where-americans-want-to-live-300193502.html",
+      "method": "Online poll of ~2,200 US adults; top 15 used as ranked list (missing = 20).",
+      "year": 2015,
+      "kind": "people"
+    },
+    {
+      "name": "Harris Poll Aug 2013 (n=2,286): state most want to live in. 1 California, 2 Hawaii, 3 Florida, 4 Texas, 5 Colorado, 6 New York, 7 Arizona, 8 North Carolina, 9 Oregon, 10 Washington, 11 Virginia, 12= Pennsylvania/South Carolina/Tennessee, 15 Alaska",
+      "url": "https://prnewswire.com/news-releases/california-stands-out-as-the-state-where-americans-most---and-least---want-to-live-222544361.html",
+      "method": "Top 15 used as ranked list (missing = 20).",
+      "year": 2013,
+      "kind": "people"
+    },
+    {
+      "name": "YouGov July 2022 (n=1,000): favorite state among those visited. Florida 9%, California 8%, Hawaii 7%, New York 5%, Texas 5%",
+      "url": "https://yougov.com/en-us/articles/43843-which-states-have-americans-visited-yougov-poll",
+      "method": "Direct 'favorite state' question; only top 5 published (missing = 10).",
+      "year": 2022,
+      "kind": "people"
+    },
+    {
+      "name": "YouGov March 2021 head-to-head (n=1,211): % of matchups won. Hawaii 69, Colorado 65, Virginia 64, Nevada 61, North Carolina 61, Florida 61, Arizona 60, New York 59, Georgia 58, Texas 58",
+      "url": "https://yougov.com/en-us/articles/35218-us-states-ranked-best-worst-according-americans",
+      "method": "Pairwise 'which is better' choice; top 10 readable in text (full chart was an image; missing = 15).",
+      "year": 2021,
+      "kind": "people"
+    },
+    {
+      "name": "Livability/Ipsos June 2016 (n=2,010): states people most want to visit. Hawaii 30%; only Hawaii, Alaska, California, Colorado, New York (plus Puerto Rico) above 10%",
+      "url": "https://livability.com/topics/business/how-many-states-has-the-average-american-visited",
+      "method": "Hawaii = 1, the other four tied at 3.5 (order not published); missing = 10.",
+      "year": 2016,
+      "kind": "people"
+    },
+    {
+      "name": "Wikipedia pageviews Nov 2025-Oct 2026 (user, all access): Hawaii 2.79M, California 2.62M, Texas 1.88M, Alaska 1.77M, New York (state) 1.46M, Florida 1.44M, Minnesota 1.40M, Pennsylvania 1.38M, Massachusetts 1.27M, New Jersey 1.22M, Washington 1.14M ... Colorado 0.95M, Tennessee 0.93M",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Hawaii/monthly/2025110100/2026103100",
+      "method": "12-month totals for all 50 state articles (Rhode Island failed on rate limit, placed last). Interest/fame signal, noisy (news-driven spikes e.g. Minnesota, New Jersey).",
+      "year": 2026,
+      "kind": "people"
+    }
+  ],
+  "list": [
+    "Hawaii|HI|Hawai|Hawii|Aloha State",
+    "Florida|FL|Fla|Flordia|Florda|Sunshine State",
+    "California|CA|Cali|Calif|Califonia|Golden State",
+    "New York|NY|New York State|NYS|Empire State",
+    "Texas|TX|Tex|Lone Star State",
+    "Colorado|CO|Colo|Colorodo|Centennial State",
+    "Alaska|AK|Alaksa|Last Frontier",
+    "North Carolina|NC|N Carolina|Tar Heel State",
+    "Arizona|AZ|Ariz|Arizonia|Grand Canyon State",
+    "Washington|WA|Washington State|Wash|Evergreen State",
+    "Tennessee|TN|Tenn|Tennesee|Tenessee|Volunteer State",
+    "Virginia|VA|Old Dominion",
+    "Georgia|GA|Peach State",
+    "Massachusetts|MA|Mass|Massachusets|Massachussetts|Bay State",
+    "Minnesota|MN|Minn|Minnesotta|Land of 10000 Lakes",
+    "Oregon|OR|Ore|Oregan",
+    "South Carolina|SC|S Carolina|Palmetto State",
+    "Montana|MT|Mont|Big Sky Country",
+    "Maine|ME|Main",
+    "Pennsylvania|PA|Penn|Penna|Pennsylvannia|Pensylvania|Keystone State",
+    "Wyoming|WY|Wyo",
+    "Michigan|MI|Mich",
+    "New Mexico|NM|N Mexico",
+    "Ohio|OH|Buckeye State"
+  ],
+  "gut_check": [
+    "California",
+    "Florida",
+    "Hawaii",
+    "New York",
+    "Texas",
+    "Colorado",
+    "Alaska",
+    "Washington",
+    "Tennessee",
+    "North Carolina",
+    "Oregon",
+    "Montana"
+  ],
+  "changes_vs_current": "New topic; all 50 states were candidates (DC excluded as not a state). Ranked by average position across 7 people sources (missing = list length + 5). Raw average order: 1 Hawaii 1.71, 2 Florida 4.0, 3 California 4.21, 4 New York 5.5, 5 Texas 5.86, 6 Colorado 7.5, 7 Alaska 9.07, 8 North Carolina 9.14, 9 Arizona 12.0, 10 Washington 12.14, 11 Tennessee 12.29, 12 Virginia 12.43, 13 Georgia 13.86, 14 Massachusetts 14.0, 15 Minnesota 14.29, 16 Oregon 14.71, 17 South Carolina 15.86, 18 Montana 16.0, 19 Maine 16.0, 20 Pennsylvania 16.14, 21 Wyoming 16.14, 22 Michigan 16.29, 23 New Mexico 17.86, 24 Ohio 18.0. Final list = raw order, no moves. Gut check: 10 of my 12 landed in the top 12. Oregon (raw 16) was kept: Harris 2013/2015 have it 9th, but YouGov 2025 very-favorable puts it 17th and pageviews 33rd. Montana (raw 18) was kept: YouGov 2025 has it 10th very-favorable (3rd net), but neither Harris top-15 lists it and pageviews put it 27th. Both are in the 24, so no move was needed. Arizona and Virginia came in ahead of my gut. Arizona is backed by Harris (7th/8th) and YouGov 2021 (7th). Virginia is backed by YouGov 2021 (3rd) and Harris 2013 (11th).",
+  "confidence": "High for 1-8 (Hawaii, Florida, California, New York, Texas, Colorado, Alaska, North Carolina): every source agrees on this group, and each has 5-7 sources. The order inside it is medium, because Hawaii vs Florida vs California at #1 depends on the measure: Hawaii leads favorability and want-to-visit, while Florida/California lead the 'favorite visited' and 'want to live' questions. Medium for 9-17. Low for 18-24: averages are within about 2 points, and Ohio, New Mexico and Michigan rest mostly on pageviews. Near misses: Vermont 18.29, Illinois 18.29, Louisiana 18.57, Connecticut 18.86, Nevada 19.0 (YouGov 2021 4th; Las Vegas appeal), New Jersey 19.0, Utah, Idaho. Caveats: Harris and PPP data are old (2011-2015); I could not find a recent Harris state ranking. The full YouGov 2021 chart was an image, so only its top 10 was read. Rhode Island pageviews were not retrieved (rate limit). PPP 2011-12 net favorability (Hawaii 1st, California last) was read but not used: it is old and net-based. Ranker was not used.",
+  "no_data_positions": []
+}
