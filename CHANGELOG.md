@@ -2,6 +2,15 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-11-16: US States, Birds, Scientists, Video Game Characters and Apps; Chips & Salty Snacks and Disney Animated Movies re-ranked
+
+### Added
+- Five new topics: US States (favorites), Birds, Scientists (all-time), Video Game Characters and Apps (on your phone). They show up in bonus rounds from game #52 (Nov 18) and join the daily rotation when the next cycle starts.
+
+### Changed
+- From game #52, Chips & Salty Snacks has data behind every spot: Doritos and Lay's stay #1 and #2, and Cheetos rises to #3. Fritos rises from #9 to #5, Tostitos from #11 to #7 and Pretzels from #18 to #12, while Ruffles drops from #5 to #8. Flavors now count as their brand: "Cool Ranch" scores as Doritos and "Flamin' Hot" as Cheetos. Ritz, Utz, Pork Rinds, Corn Nuts, Zapp's and Pirate's Booty join. Salt and Vinegar, Sour Cream & Onion and BBQ chips leave as flavors, and Veggie Straws leaves for lack of data.
+- From game #52, Disney Animated Movies gives newer films their due: The Lion King stays #1 and Frozen rises from #5 to #2. Tangled jumps from #24 to #6 and The Little Mermaid from #21 to #7. Zootopia (#11), Lilo & Stitch (#12), The Princess and the Frog, Big Hero 6, Wreck-It Ralph, Encanto and The Emperor's New Groove join. The Jungle Book drops from #8 to #19 and Tarzan from #10 to #21. Fantasia, Dumbo, Sleeping Beauty, Pinocchio, Alice in Wonderland, Peter Pan and Robin Hood leave.
+
 ## 2026-11-09: Painters, World Cities, Childhood Games, Rock Bands and Restaurant Chains; Golfers and Soccer Players re-ranked
 
 ### Added

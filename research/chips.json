@@ -1,76 +1,97 @@
 {
- "sources": [
-  {
-   "name": "YouGov positive opinion scores, 50 most popular food and snack brands, Q4 2022 (Stacker; chip/snack brands extracted in rank order)",
-   "url": "https://abc17news.com/stacker-lifestyle/2023/03/17/50-most-popular-food-and-snack-brands/",
-   "method": "poll, % positive opinion (Lay's 80, Doritos 77, Ruffles 76, Pringles 76, Cheetos 75, Fritos 73, Orville Redenbacher 72, Goldfish 71, Tostitos 71)",
-   "year": 2022
-  },
-  {
-   "name": "Snipp Interactive favorite snack brands: YouGov popularity + Instagram hashtags (via AOL), top 10 snack brands; 4 chip brands used",
-   "url": "https://www.aol.com/americas-favorite-snack-brands-did-130000485.html",
-   "method": "YouGov popularity ratings + Instagram hashtag counts (Doritos 4th, Pringles 8th, Lay's 9th, Cheetos 10th among all snacks)",
-   "year": 2024
-  },
-  {
-   "name": "SmarterRanking Best Snack Brands 2026 (via Muddy River News)",
-   "url": "https://muddyrivernews.com/opinion/daily-dirt-americas-favorite-snack-that-would-be-doritos/20260813084056/",
-   "method": "editorial weighted score (taste 35%, value 20%, variety 20%, availability 10%, reviews 15%), 8 brands",
-   "year": 2026
-  }
- ],
- "list": [
-  "Doritos Nacho Cheese|doritos|nacho cheese doritos",
-  "Lay's Classic|lays",
-  "Pringles",
-  "Cheetos",
-  "Ruffles",
-  "Goldfish",
-  "Cheez-It|cheezits",
-  "Takis",
-  "Fritos",
-  "Popcorn",
-  "Tostitos",
-  "Cool Ranch Doritos|cool ranch",
-  "Flamin' Hot Cheetos|hot cheetos",
-  "Kettle Chips|kettle",
-  "Salt and Vinegar Chips|salt and vinegar",
-  "Sun Chips|sunchips",
-  "Funyuns",
-  "Pretzels",
-  "Chex Mix",
-  "Cape Cod Chips|cape cod",
-  "Sour Cream & Onion Chips|sour cream and onion",
-  "BBQ Chips|barbecue chips",
-  "Veggie Straws",
-  "Bugles"
- ],
- "avg_rank": [
-  1.33,
-  2,
-  3.33,
-  5,
-  6.33,
-  8.33,
-  8.67,
-  9.33,
-  9.33,
-  9.67,
-  10.33,
-  12,
-  12,
-  12,
-  12,
-  12,
-  12,
-  12,
-  12,
-  12,
-  12,
-  12,
-  12,
-  12
- ],
- "changes_vs_current": "Sources rank brands, not flavors, so the top 11 are brand-level: Doritos Nacho Cheese #1, Lay's #2, Pringles #3, Cheetos #4 (Flamin' Hot Cheetos as a flavor line and Cool Ranch have no flavor-level data, so they are carried at 12-13 although they likely belong higher), Ruffles up, Goldfish/Cheez-It/Takis/Fritos/Popcorn/Tostitos all mid. Positions 12-24 are no-data carryovers in current order (avg 12.0 = 'no data' value). Circana 2025 potato chip sales (Frito-Lay $6.5B, Kellanov $1.5B, Cape Cod $460M, Utz $441M, Kettle $337M; https://www.snackandbakery.com/articles/114108-state-of-the-industry-2025-chips-are-down-and-up) read but company-level, not used in the math.",
- "confidence": "low - only 3 sources, one editorial and one with only 4 relevant chip brands; no flavor-level poll or sales list found (Ranker's 100 Best Chips page blocked, HTTP 401; Statista brand purchase survey n=439 paywalled; Circana brand-level data not public). Brand order Doritos/Lay's/Pringles/Cheetos is solid across all three; everything below ~#11 is unverified."
+  "from": 52,
+  "sources": [
+    {
+      "name": "YouGov Ratings, most popular food & snack brands, US, Q3 2026 (top-20 page) plus individual YouGov brand pages for brands below the top 20. Popularity (% positive): Lay's 79, Ritz 76, Cheetos 74, Doritos 74, Goldfish 74, Fritos 73, Pringles 72, Ruffles 72, Cheez-It 70, Tostitos 69, Chex Mix 67, SunChips 62, Smartfood 51, Cape Cod 50, Utz 48 (fame 73-99%). Takis, Funyuns, Bugles, Orville Redenbacher pages returned 404.",
+      "url": "https://yougov.com/en-us/ratings/food-snack-brands",
+      "method": "Continuous YouGov panel ratings (share of US adults with a positive opinion). Salty-snack brands extracted and ranked by popularity; ties share the average rank. 15 items, missing = 20. Planters (nuts) left out of scope.",
+      "year": 2026,
+      "kind": "people"
+    },
+    {
+      "name": "YouGov Q1 2025 chip brands top 10, as tabulated by The Coconut Mama (May 21, 2025): Pringles 78% like / 97% heard, Frito-Lay 77, Doritos 76, Cheetos 74, Fritos 74, Lay's 73, Tostitos 72, Ruffles 70, Lay's Kettle Cooked 63, Kettle Brand 62",
+      "url": "https://thecoconutmama.com/sorry-americas-favorite-chips-arent-doritos-or-lays-according-to-fresh-data-see-the-top-10/",
+      "method": "YouGov chip-brand category ratings (secondary write-up). Frito-Lay (parent company) dropped; Cheetos and Fritos tied at 3.5; the two kettle entries merged into Kettle Chips at 8. 8 items, missing = 13. Same panel as the source above but a different wave and a chip-only category.",
+      "year": 2025,
+      "kind": "people"
+    },
+    {
+      "name": "Wikipedia pageviews (en, user agents), Nov 2025 to Oct 2026: Popcorn 300,944; Pringles 279,869; Lay's 266,672; Pretzel 253,048; Doritos 242,403; Cheetos 207,109; Takis 117,920; Utz Brands 113,918; Cheez-It 104,913; Pork rind 101,105; Goldfish (cracker) 91,960; Ritz Crackers 86,574; Fritos 67,235; Ruffles (potato chips) 50,595; Corn nut 48,672; Kettle Foods 47,818; Funyuns 41,311; Bugles 38,965; Tostitos 35,483; Sun Chips 35,030; Pirate's Booty 33,116; Chex Mix 30,492; Cape Cod Potato Chips 29,373; Wise Foods 27,350; Gardetto's 26,557; Herr's 25,966; Zapp's 25,013; Combos 21,131; Flamin' Hot Cheetos 20,734; Orville Redenbacher's 18,972; Wheat Thins 14,289; Smartfood 14,259; Popchips 11,229",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Doritos/monthly/2025110100/2026103100",
+      "method": "12-month pageview totals from the Wikimedia REST API (one call per article; URL shown for Doritos). Ranked within the candidate pool; generic or out-of-scope pages left out (Peanut, Nachos, Trail mix, Cracker Jack, Potato chip, Tortilla chips). 33 items, missing = 38. Utz is inflated because its article covers the listed company.",
+      "year": 2026,
+      "kind": "people"
+    },
+    {
+      "name": "Piper Sandler Taking Stock With Teens, spring 2023 (n=5,690 US teens): favorite snack brands Goldfish 12%, Cheez-It 10%, then Lay's, Doritos, Takis 4%. Spring 2025 (n=6,400+): Lay's 13%, Goldfish 9%, Doritos 8% (same order for the overlapping brands)",
+      "url": "https://thetakeout.com/gen-z-teenagers-favorite-snack-food-cheez-its-goldfish-1850302914",
+      "method": "Unaided favorite-snack-brand question in a large semi-annual teen survey (teens, not adults, so it is the weakest fit). Used the 2023 top 5 because it is the longest published list. 5 items, missing = 10. 2025 numbers read at https://foodinstitute.com/focus/survey-unveils-teens-brand-choices-in-2025-from-crunchy-snacks-to-impactful-influencers/",
+      "year": 2025,
+      "kind": "people"
+    },
+    {
+      "name": "Mashed YouTube community poll, go-to chip (44,000+ votes): potato chips 43%, Doritos 32%, Cheetos 16%, other 10% (write-ins named Fritos, Bugles, tortilla chips, Sun Chips)",
+      "url": "https://mashed.com/349917/people-think-these-classic-chips-are-even-better-than-doritos",
+      "method": "Large audience vote (worldwide, 2021). The generic 'potato chips' answer was not mapped to any brand; Doritos 1, Cheetos 2, write-ins tied at 4. 5 items, missing = 10.",
+      "year": 2021,
+      "kind": "people"
+    },
+    {
+      "name": "HubScore favorite snack by state, top 20 trending snacks (Deseret News, Feb 29, 2024): states won: Doritos 15 (text says 12), Cheetos 8, Chex Mix 3, Fritos 3, Lay's 2; Goldfish, Pringles and Tostitos in the top 5 in several states without winning one (Rice Krispies Treats and Cheerios won others; not salty snacks)",
+      "url": "https://www.deseret.com/2024/02/29/every-state-favorite-snack-study/",
+      "method": "State-level preference/trend data. Ranked by states won (salty snacks only), with the top-5-only brands tied at 7. 8 items, missing = 13.",
+      "year": 2024,
+      "kind": "people"
+    },
+    {
+      "name": "Shane Co. 'Most Popular Chips and Dip in Every State' (July 2022), Google Trends over 5 years for 17 chip brands: Pringles 1st nationally (leads >25% of states), Tostitos 2nd (8 states), Lay's 3rd; single-state leaders were Takis (TX), Ruffles (MS), Cheetos (CA), Doritos (AR), Zapp's (LA), Old Dutch (MN), Miss Vickie's (FL)",
+      "url": "https://theloupe.wpengine.com/articles-and-news/the-most-popular-chips-and-dip-trends/",
+      "method": "Search interest. Top 3 in their stated order; the single-state leaders tied at 7. 10 items, missing = 15.",
+      "year": 2022,
+      "kind": "people"
+    }
+  ],
+  "list": [
+    "Doritos|dorito|cool ranch|cool ranch doritos|nacho cheese doritos|nacho cheese",
+    "Lay's|lay|lays potato chips|lays classic|lays chips",
+    "Cheetos|cheeto|flamin hot cheetos|hot cheetos|flaming hot cheetos|hot cheeto|flamin hot",
+    "Pringles|pringle",
+    "Fritos|frito|fritos corn chips",
+    "Goldfish|goldfish crackers|goldfish cracker",
+    "Tostitos|tostito|tostitos scoops",
+    "Ruffles|ruffle|ruffles chips",
+    "Cheez-It|cheez-its|cheese its|cheese it",
+    "Takis|taki|takis fuego",
+    "Popcorn|smartfood|orville redenbacher|pop secret|microwave popcorn",
+    "Pretzels|pretzel|snyder's|rold gold|dot's pretzels",
+    "Ritz|ritz crackers|ritz cracker",
+    "Chex Mix|chex",
+    "Sun Chips|sun chip",
+    "Kettle Chips|kettle|kettle brand|kettle cooked|lay's kettle cooked|kettle chip",
+    "Utz|utz chips",
+    "Pork Rinds|pork rind|chicharrones|cracklins",
+    "Bugles|bugle",
+    "Cape Cod|cape cod chips|cape cod potato chips",
+    "Funyuns|funyun|funions",
+    "Corn Nuts|corn nut",
+    "Zapp's|zapps chips",
+    "Pirate's Booty|pirate booty"
+  ],
+  "gut_check": [
+    "Doritos",
+    "Lay's",
+    "Pringles",
+    "Cheetos",
+    "Ruffles",
+    "Fritos",
+    "Takis",
+    "Tostitos",
+    "Cheez-It",
+    "Goldfish",
+    "Popcorn",
+    "Pretzels"
+  ],
+  "changes_vs_current": "SCOPE. Brands are the main items, because that is what people say and what every source measures. Flavor lines go in as aliases of their brand, not as separate items: Cool Ranch and Nacho Cheese go into Doritos, and Flamin' Hot/Hot Cheetos go into Cheetos. No source measures them apart from the brand (Wikipedia: Flamin' Hot Cheetos 20.7k views vs Cheetos 207k; Cool Ranch has no article). Separate items would let one answer hit two spots and confuse players. The kinds people name without a brand are kept: Popcorn, Pretzels, Pork Rinds, Kettle Chips. Brands that are really one of those kinds go in as aliases so there are no near-duplicates: Smartfood, Orville Redenbacher and Pop Secret go into Popcorn; Snyder's, Rold Gold and Dot's go into Pretzels; Kettle Brand and Lay's Kettle Cooked go into Kettle Chips. Category words ('potato chips', 'tortilla chips') are not items. Flavor-only answers are left out too: Salt & Vinegar, Sour Cream & Onion and BBQ appeared only in Utz's 2026 flavor survey (Original 18.7, SC&O 18.5, BBQ 17.8, S&V 13.3), which ranks flavors, not snacks. Nuts (Planters) and sweet popcorn (Cracker Jack) are out. Veggie Straws had no measurable data (no Wikipedia article, no YouGov page found), so it was dropped. RAW AVERAGE ORDER (7 people sources, missing = list length + 5): 1 Doritos 3.43 (7 sources), 2 Lay's 4.29, 3 Cheetos 4.93, 4 Pringles 5.50, 5 Fritos 7.86, 6 Goldfish 8.71, 7 Tostitos 9.14, 8 Ruffles 9.79, 9 Cheez-It 10.14, 10 Takis 10.71 (3 sources), 11 Ritz 10.71 (2), 12 Popcorn 11.71, 13 Utz 12.00, 14 Chex Mix 12.07, 15 Pretzels 12.14, 16 Sun Chips 12.43, 17 Pork Rinds 13.00, 18 Kettle 13.14, 19 Bugles 13.29, 20 Corn Nuts 13.71, 21 Cape Cod 14.00, 22 Funyuns 14.00, 23 Zapp's 14.29, 24 Pirate's Booty 14.57; near misses Wise 15.0, Smartfood 15.14 (now a Popcorn alias), Gardetto's 15.14, Herr's 15.29, Combos 15.57. GUT-CHECK MOVES. All 12 gut-check items are in the raw top 15. Pretzels (raw 15) moves up to 12. It is the #4 Wikipedia page of the whole pool (253k), it is a $2.8B Circana category growing 5.5% (52 weeks to May 18, 2025, Snack & Bakery), and no source puts it lower: brand surveys simply don't ask about it. Ritz (raw 11) drops to 13 and Popcorn moves from 12 to 11 as a result. Ritz is a cracker that a player is less likely to give for 'chips & salty snacks', though YouGov rates it highly (76%). Utz (raw 13) drops to 17. Its Wikipedia rank is inflated by a company/stock article, and its YouGov popularity is only 48% with 73% fame, which makes it a regional brand. Chex Mix, Sun Chips and Kettle Chips each move up one spot as a result. Ruffles (gut 5, data 8) and Takis (gut 7, data 10) stay where the data puts them, inside the top 12. MOVES VS CURRENT LIST (Oct 7). 'Doritos Nacho Cheese' becomes 'Doritos' and stays #1. Cool Ranch Doritos (was 12) is folded into it as an alias. 'Lay's Classic' becomes 'Lay's' and stays #2. Cheetos moves up 4 to 3 and absorbs Flamin' Hot Cheetos (was 13). Pringles moves down 3 to 4: it leads both YouGov chip waves on positive opinion and search interest, but loses to Doritos/Lay's/Cheetos in favorite-pick and state-favorite data. Fritos moves up 9 to 5, backed by 5 sources (YouGov 73%, 3 HubScore states, Mashed write-ins). Goldfish stays 6. Tostitos moves up 11 to 7 (YouGov 69-72%, Shane Co #2). Ruffles moves down 5 to 8. Cheez-It moves down 7 to 9. Takis moves down 8 to 10 (Wikipedia 118k, Piper teens 4%, Texas search leader). Popcorn moves down 10 to 11. Pretzels moves up 18 to 12. Ritz is new at 13. Chex Mix moves up 19 to 14 (YouGov 67%, 3 HubScore states). Sun Chips moves up 16 to 15. Kettle Chips moves up 14 to 16. Utz is new at 17. Pork Rinds are new at 18. Bugles moves up 5 to 19. Cape Cod stays 20. Funyuns moves down 17 to 21 (Wikipedia 41k only; no YouGov page found). Corn Nuts are new at 22. Zapp's is new at 23 (Wikipedia 25k plus Louisiana search leader). Pirate's Booty is new at 24. Dropped: Cool Ranch Doritos and Flamin' Hot Cheetos (now aliases), Salt and Vinegar, Sour Cream & Onion and BBQ Chips (flavors, not snacks), and Veggie Straws (no data). Positions 12-24 were no-data carryovers. Each now has at least one source that was actually read.",
+  "confidence": "Top 4 (Doritos, Lay's, Cheetos, Pringles): high. Every source has them near the top, though their exact order changes from source to source. Positions 5-10 (Fritos, Goldfish, Tostitos, Ruffles, Cheez-It, Takis): medium. Each has 3-5 sources, but they spread widely (Goldfish and Cheez-It lead with teens and sit mid-pack in YouGov; Takis has no YouGov page). Positions 11-16 (Popcorn, Pretzels, Ritz, Chex Mix, Sun Chips, Kettle Chips): medium-low. Popcorn and Pretzels rest on Wikipedia plus Circana category sales and the gut check. Positions 17-24: low. Most rest on one or two sources, mainly Wikipedia pageviews, and the order among them is close to noise. Near misses: Wise, Gardetto's, Herr's, Combos, Wheat Thins, Cheez Doodles, Veggie Straws, Doritos/Cheetos flavor lines (aliased). Could not read: the full YouGov list past the top 20 (the 'load more' API call was not allowed, so individual brand pages were used, and the Takis, Funyuns, Bugles and Orville Redenbacher pages 404'd), Statista chip-purchase charts (403), Circana brand-level sales (only company/segment totals are public), Google Trends directly (used published Trends-based studies instead), and Ranker (not attempted; blocked for bots). No current adult unaided 'favorite chip' poll with a full brand list was found. The closest were Utz/Censuswide 2026 (flavors and kinds only; potato chips 35.6% as the one salty snack) and Kellanova's 2025 road-trip survey (Cheez-It and Pringles named on top, no numbers). The two YouGov sources share a panel, so the method is somewhat correlated.",
+  "no_data_positions": []
 }

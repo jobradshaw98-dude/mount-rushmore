@@ -1,0 +1,95 @@
+{
+  "topic": {
+    "name": "Apps",
+    "note": "On your phone",
+    "cat": "brands",
+    "from": 52
+  },
+  "sources": [
+    {
+      "name": "Pew Research Center social media fact sheet: share of US adults who ever use each platform (2026 survey, Jan 30-Jun 18 2026): YouTube 84%, Facebook 70%, Instagram 51%, TikTok 37%, WhatsApp 33%, LinkedIn 31%, Snapchat 26%, Reddit 25%, X 18%, Nextdoor 18%; Pinterest 36% (latest 2024 figure), Threads 8% (2025)",
+      "url": "https://www.pewresearch.org/internet/fact-sheet/social-media/",
+      "method": "Probability-panel survey of US adults; platforms ranked by % who use (12-item list). Social platforms only, so non-social apps get the missing penalty here.",
+      "year": 2026,
+      "kind": "people"
+    },
+    {
+      "name": "Similarweb US top 40 apps by monthly active users, Aug 2023 (iOS+Android): YouTube 243M, Amazon Shopping 237M, Gmail 197M, Google 174M, TikTok 160M, Instagram 153M, Facebook 145M, Temu 133M, Messenger 129M, Google Drive 119M, Cash App 118M, Google Maps 112M, ... Snapchat 97M (15), X 81M (18), Discord (19), Reddit (20), WhatsApp 63M (21), Netflix 63M (22), Spotify 53M (24), Uber 32M (40)",
+      "url": "https://www.similarweb.com/blog/insights/america-top-apps/",
+      "method": "Panel-estimated US MAU across all app categories; ranked by position in the top 40. The only all-category reach list I could open; it is from 2023.",
+      "year": 2023,
+      "kind": "people"
+    },
+    {
+      "name": "Apple App Store most-downloaded free iPhone apps of 2025 in the US (top 20): ChatGPT, Threads, Google, TikTok, WhatsApp, Instagram, YouTube, Google Maps, Gmail, Google Gemini, Facebook, CapCut, Temu, T-Life, Telegram, Lemon8, Spotify, Google Chrome, Snapchat, rednote",
+      "url": "https://daringfireball.net/2026/01/app_store_2025_top_iphone_apps_in_the_us",
+      "method": "Apple's official 2025 US chart (top 10 cross-checked against 9to5Mac); ranked by position. Downloads favor new apps (ChatGPT, Threads) over long-installed ones.",
+      "year": 2025,
+      "kind": "people"
+    },
+    {
+      "name": "Similarweb most used Android apps in the US by daily active users, Aug 2025: Facebook 59.4M, Messenger 41.6M, Instagram 32.4M, Amazon Shopping 25.5M, TikTok 24.2M, WhatsApp 17.6M, Snapchat 14.1M, Cash App 13.5M, Discord 12.5M, Spotify 9.6M, Reddit 8.0M, Walmart 8.0M, X 7.5M, Telegram 7.4M, ... ChatGPT 5.3M (17), Netflix 4.7M (18), Temu (20), Roblox (24)",
+      "url": "https://www.similarweb.com/blog/research/apps/top-android-apps/",
+      "method": "Panel-estimated US Android DAU, 50 apps. Excludes preinstalled Google apps (YouTube, Gmail, Google, Maps, Chrome, Photos, Drive), so those were treated as not applicable rather than missing.",
+      "year": 2025,
+      "kind": "people"
+    },
+    {
+      "name": "Morning Consult, most enjoyable social media platform (2,204 US adults, May 17-18 2025): YouTube 34%, Facebook 23%, then TikTok narrowly ahead of Instagram",
+      "url": "https://intel.morningconsult.com/mc-content/analysis/americans-favorite-social-media-platforms-youtube-2025",
+      "method": "General-public favorite poll; only the top 4 were readable, used as a 4-item ranked list.",
+      "year": 2025,
+      "kind": "people"
+    },
+    {
+      "name": "Wikipedia pageviews, en.wikipedia user views Nov 2025-Oct 2026: ChatGPT 30.9M, Google Chrome 23.2M, YouTube 16.8M, Instagram 13.1M, Facebook 7.1M, Roblox 5.7M, WhatsApp 4.9M, TikTok 4.0M, Gmail 3.3M, Netflix 2.9M, Telegram 2.7M, Google Search 2.6M, Amazon (company) 2.4M, Snapchat 2.0M, Reddit 2.0M, Twitter 1.8M, Google Maps 1.75M, Spotify 1.33M, Walmart 1.24M, Pinterest 1.19M, Uber 0.61M",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/YouTube/monthly/2025110100/2026103100",
+      "method": "12-month views for about 50 candidate articles, ranked. A noisy fame signal (global English readers, navigational traffic, and company articles for Amazon/Uber/Walmart). Temu, Apple Music and Nextdoor hit rate limits and were left out.",
+      "year": 2026,
+      "kind": "people"
+    }
+  ],
+  "list": [
+    "YouTube|YT|Youtube app",
+    "Facebook|FB",
+    "Instagram|Insta|IG|Gram",
+    "TikTok|Tiktock|Tic Toc",
+    "Amazon|Amazon Shopping|Amazon Prime|Amazon App",
+    "WhatsApp|WhatsApp Messenger|Whatsap",
+    "Snapchat|Snap",
+    "Gmail|Google Mail",
+    "Google Maps|Maps|Gmaps",
+    "Netflix",
+    "Google|Google Search|Google App",
+    "ChatGPT|Chat GPT|OpenAI",
+    "Spotify",
+    "X|Twitter|X (Twitter)",
+    "Messenger|Facebook Messenger|FB Messenger",
+    "Reddit",
+    "Pinterest",
+    "Uber|Uber App",
+    "Walmart|Walmart App",
+    "Discord",
+    "Google Chrome|Chrome",
+    "Cash App",
+    "Temu",
+    "Roblox"
+  ],
+  "gut_check": [
+    "YouTube",
+    "Facebook",
+    "Instagram",
+    "TikTok",
+    "Amazon",
+    "Netflix",
+    "Snapchat",
+    "Spotify",
+    "Google Maps",
+    "Uber",
+    "WhatsApp",
+    "X/Twitter"
+  ],
+  "changes_vs_current": "New topic. SCOPE: smartphone apps of any category. Google's own apps (Google search app, Gmail, Google Maps, Chrome) are in because every reach and download source has them high (Similarweb 2023 MAU #3/#4/#12/#16; Apple 2025 downloads #3/#9/#8/#18). Apple's stock apps (Messages/iMessage, Camera, Safari, Photos, Weather) are out: none of the usage or download sources measure them, and the only data I saw (YouGov apps/websites ratings: iMessage 81% fame, 58% popularity) comes from a list that leaves out most major apps, so it can't be compared. Google Photos and Google Drive also left out (background utilities; Drive has only 1 source). RAW AVERAGE ORDER (6 people sources, missing = list length + 5): 1 YouTube, 2 Instagram, 3 Facebook, 4 TikTok, 5 WhatsApp, 6 Google, 7 Gmail, 8 Amazon, 9 Snapchat, 10 Google Chrome, 11 Google Maps, 12 Reddit, 13 ChatGPT, 14 X, 15 Messenger, 16 Pinterest, 17 Spotify, 18 Walmart, 19 Google Photos, 20 Discord, 21 Netflix, 22 Cash App, 23 Telegram, 24 Roblox, 25 Temu, 26 Threads, then Google Drive, Shein, Venmo, CapCut, LinkedIn; Uber was outside the top 40. GUT-CHECK MOVES: Facebook 3->2 (ahead of Instagram in Pew, Morning Consult and Android DAU; the raw gap was 0.4). Amazon 8->5 (#2 MAU in 2023 and #4 Android DAU 2025; its raw score is dragged down only by the social-only Pew and Morning Consult lists). Netflix 21->10: in every all-category source it sits around Spotify/Reddit (MAU #22, Android DAU #18, pageviews #10), and the social-only lists penalize it for being out of scope; it is the top US streaming service and a gut top-6 answer. Spotify 17->13 for the same social-list reason (Apple #17, Android DAU #10). Uber in at 18: a gut answer that the data really does put lower (MAU #40 in 2023, missing from the 2025 Android DAU top 50), so it moved only into the tail, not into the top 12. Google search app 6->11 and Chrome 10->21: high reach because they are preinstalled defaults, but people listing 'apps on my phone' name them less readily. X stays at 14 and Snapchat at 7; WhatsApp 5->6. Google Photos (raw 19) and Telegram (raw 23) were dropped to make room for Uber and Netflix: Photos is a background utility, and Telegram's US numbers are niche next to Temu (in 3 sources, raw 25, very well known in the US). Roblox kept at 24 on its 3 sources.",
+  "confidence": "High for 1-4 (YouTube, Facebook, Instagram, TikTok are top in every source). Medium-high for 5-12 (Amazon, WhatsApp, Snapchat, Gmail, Google Maps, Netflix, Google, ChatGPT): all have 3+ sources, but their order depends on how much weight goes to reach versus downloads. WhatsApp may be too high for 'what Americans name', and Netflix's spot leans on the gut check. Medium-low for 13-24: the order is loose, and Uber, Chrome and Roblox are judgment calls. Near misses: Telegram, Threads, Google Photos, Venmo, CapCut, LinkedIn, Shein, Hulu, Prime Video, Disney+, DoorDash, Waze, Apple Music. Could not read: YouGov Ratings social/apps rankings (table did not load; the apps-websites list loaded but leaves out major apps), Statista/Comscore app reach (403), Sensor Tower overall US MAU (paywalled). Rejected the Udonis/AppMagic 'US' list because it includes clearly non-US apps (QQ, Weibo, PhonePe, Meesho) and its numbers look implausible. A 2019 'apps we can't live without' poll (Facebook 21%, Instagram 11%, Gmail 8%, YouTube 8%) was not counted: it is old and the pollster isn't named. The best broad MAU source is from 2023.",
+  "no_data_positions": []
+}

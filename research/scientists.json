@@ -1,0 +1,95 @@
+{
+  "topic": {
+    "name": "Scientists",
+    "note": "All-time",
+    "cat": "people",
+    "from": 52
+  },
+  "sources": [
+    {
+      "name": "YouGov 'Famous Scientists' poll, 1,000 US adult citizens, Aug 23-27 2023 (PDF toplines). Awareness = 100 - 'don't know' on favorability: Einstein 91, Edison 89 (out of scope), Newton 85, Darwin 81, Hawking 78, Tesla 72, Curie 68, Goodall 67, Tyson 59, Oppenheimer 58, Sagan 56, Watson 35, Bohr 31, Feynman 27, Kaku 24. Total favorable: Einstein 86, Newton 79, Edison 77, Tesla 66, Hawking 65, Curie 63, Darwin 62, Goodall 59",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/Famous_Scientists_poll_results.pdf",
+      "method": "US probability-weighted online panel; ranked the 14 in-scope names by awareness (ties broken by favorable). Edison was dropped because the game already has Inventors. YouGov testing Tesla in a 'famous scientists' poll is part of why Tesla is in scope.",
+      "year": 2023,
+      "kind": "people"
+    },
+    {
+      "name": "YouGov Ratings topic pages (US fame = % who have heard of them; popularity = % positive), read Nov 2026: Einstein 97/82, Benjamin Franklin 97/74 (out of scope), Newton 93/74, Leonardo da Vinci 92/78 (out of scope), Aristotle 91/63 (out of scope), Edison 91/65 (out of scope), Darwin 90/60, Bill Nye 87/60, Anthony Fauci 87/48, Tesla 82/57, Curie 80/61, Goodall 80/57, Tyson 76/48, Archimedes 71/45, Sagan 65/42, Oppenheimer 60/31, Dawkins 48/25, Kaku 45/30. No US topic page could be found for Hawking, Galileo, Copernicus, Pasteur, Feynman, Turing and others.",
+      "url": "https://yougov.com/en-us/topics/historical_figure/Albert_Einstein",
+      "method": "Quarterly US tracking of fame and popularity. Ranked the 14 in-scope names that have a page by fame, ties broken by popularity. The ratings list pages render on the client, so I read each person's topic page instead (/en-us/topics/historical_figure/<Name>).",
+      "year": 2026,
+      "kind": "people"
+    },
+    {
+      "name": "English Wikipedia pageviews, Nov 2025-Oct 2026 (user agent): Einstein 4.48M, Hawking 3.13M, Oppenheimer 2.75M, Newton 2.38M, Tesla 2.36M, Franklin 2.11M (out of scope), Turing 2.15M, Curie 2.09M, Fauci 1.41M, Feynman 1.29M, Edison 1.25M (out of scope), Lovelace 1.22M, Goodall 1.20M, Tyson 1.15M, Darwin 1.12M, Brian Cox 1.08M, Galileo 1.03M, Sagan 0.99M, Katherine Johnson 0.86M, Dawkins 0.72M, Watson 0.71M, Copernicus 0.65M, Archimedes 0.64M, Carver 0.58M, Nye 0.58M, Bohr 0.52M, Pasteur 0.47M, Salk 0.29M",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Albert_Einstein/monthly/2025110100/2026103100",
+      "method": "12-month totals from the Wikimedia REST API for about 60 candidates; ranked the top 40 in-scope names. The data is global, not US-only, and it is inflated by news (Goodall's and Watson's deaths in late 2025, the Oppenheimer film afterglow, Turing and Lovelace in computing). It counts British figures such as Brian Cox well above their US fame.",
+      "year": 2026,
+      "kind": "people"
+    },
+    {
+      "name": "USA Today Snapshot / L'Oreal survey of 1,000 adults, 'name a famous scientist' (open-ended): Einstein 47%, Marie Curie 6%, Louis Pasteur 4%, Edison 4% (out of scope), could not name anyone 23%",
+      "url": "https://virology.ws/2009/06/30/many-adults-cannot-name-a-scientist/",
+      "method": "Open-ended recall, which is the closest match to how the game is played, but the survey is old and its methods were not published. Ranked Einstein 1, Curie 2, Pasteur 3.",
+      "year": 2009,
+      "kind": "people"
+    },
+    {
+      "name": "MSNBC online audience vote, science & technology 'who made us what we are today', 16,895 votes (as tabulated by NCSE): Einstein 36%, Edison 18% (out of scope), Newton 14%, Galileo 6%, Darwin 5%, Pasteur 3%, Copernicus 3%, Salk 2%, Watson & Crick 2%, Hippocrates 2%",
+      "url": "https://ncse.ngo/ranking-darwin",
+      "method": "Large US audience vote, about 1999-2000. Edison was dropped and the rest ranked 1-9.",
+      "year": 2000,
+      "kind": "people"
+    },
+    {
+      "name": "Research!America / Zogby Analytics poll of US adults, Jan 2026, 'Can you name a living scientist?' 25% yes. Among those who named someone: Neil deGrasse Tyson 24%, Anthony Fauci 13%, Bill Nye 11%, Jennifer Doudna 6%, Jane Goodall 3%, Stephen Hawking 2%, Brian Cox 2%, Tim Berners-Lee 2%, Elon Musk 2%, Roger Penrose 2%",
+      "url": "https://www.researchamerica.org/wp-content/uploads/2025/12/January-2026-RELEASE-Deck.pdf",
+      "method": "Open-ended US recall, limited to living scientists. It was left out of the average because the living-only limit would push every historical figure down. It was used only to order the living figures and communicators (Tyson ahead of Nye, Fauci's tail spot) and to confirm that Tyson and Nye are in scope.",
+      "year": 2026,
+      "kind": "people"
+    }
+  ],
+  "list": [
+    "Albert Einstein|Einstein|Einstien|Albert Einstien|Albert Einstine",
+    "Isaac Newton|Newton|Sir Isaac Newton|Issac Newton|Isaac Newtown",
+    "Charles Darwin|Darwin|Charles Darwen",
+    "Marie Curie|Curie|Madame Curie|Marie Currie|Marie Sklodowska Curie|Marie Skłodowska-Curie|Currie",
+    "Stephen Hawking|Hawking|Steven Hawking|Stephen Hawkings|Hawkings",
+    "Galileo Galilei|Galileo|Galilei|Galileo Galilee",
+    "Nikola Tesla|Tesla|Nicola Tesla|Nikolai Tesla",
+    "Neil deGrasse Tyson|Tyson|Neil Tyson|deGrasse Tyson|Neil Degrass Tyson|Neil Degrasse",
+    "Bill Nye|Nye|Bill Nye the Science Guy|The Science Guy|Bill Nye Science Guy",
+    "J. Robert Oppenheimer|Oppenheimer|Robert Oppenheimer|Oppenhiemer|Oppenhimer",
+    "Carl Sagan|Sagan|Karl Sagan",
+    "Jane Goodall|Goodall|Jane Goodal|Jane Goodale",
+    "Louis Pasteur|Pasteur|Louis Pastuer|Louie Pasteur",
+    "Nicolaus Copernicus|Copernicus|Nicholas Copernicus|Nicolas Copernicus|Copernicous",
+    "Richard Feynman|Feynman|Feynmann|Richard Feynmann",
+    "Anthony Fauci|Fauci|Dr Fauci|Tony Fauci|Dr Anthony Fauci",
+    "Archimedes|Archimedes of Syracuse|Archemedes",
+    "Alan Turing|Turing|Alan Touring",
+    "James Watson|Watson|Jim Watson|James D Watson",
+    "Katherine Johnson|Katherine G Johnson|Katherine Coleman Johnson|Katharine Johnson",
+    "Ada Lovelace|Lovelace|Ada King|Ada Byron",
+    "Jonas Salk|Salk|Dr Jonas Salk",
+    "Richard Dawkins|Dawkins",
+    "Niels Bohr|Bohr|Neils Bohr|Niels Bohrs"
+  ],
+  "gut_check": [
+    "Albert Einstein",
+    "Isaac Newton",
+    "Marie Curie",
+    "Charles Darwin",
+    "Galileo Galilei",
+    "Stephen Hawking",
+    "Nikola Tesla",
+    "Bill Nye",
+    "Neil deGrasse Tyson",
+    "Carl Sagan",
+    "Nicolaus Copernicus",
+    "Louis Pasteur"
+  ],
+  "changes_vs_current": "New topic. SCOPE: Thomas Edison was excluded (he belongs to Inventors), along with Alexander Graham Bell and Tim Berners-Lee. Benjamin Franklin was EXCLUDED: YouGov fame is 97%, but that is fame as a Founding Father. No scientist-specific poll includes him (YouGov's 2023 Famous Scientists poll left him out), so the data does not show Americans naming him as a scientist. Nikola Tesla was INCLUDED: YouGov tested him in its 'Famous Scientists' poll (72% aware, 66% favorable), he is #5 in Wikipedia pageviews among the in-scope names, and he is described as a physicist and engineer. Leonardo da Vinci (YouGov files him as an artist) and Aristotle (a philosopher) were excluded even though their fame is high. Science communicators were included because the data supports them: Tyson (YouGov fame 76%, the most-named living scientist at 24%), Nye (YouGov fame 87%, 11%) and Sagan (fame 56-65%). Sally Ride (astronaut) and Brian Cox (low US fame) were left out. RAW AVERAGE ORDER (5 sources averaged, missing = list length + 5): Einstein 1.0, Newton 3.6, Darwin 6.2, Curie 7.2, Tesla 7.6, Oppenheimer 9.2, Hawking 9.4, Goodall 9.6, Tyson 10.2, Fauci 10.8, Sagan 11.8, Feynman 12.6, Galileo 12.8, Turing 13.2, Watson 13.4, Lovelace 14.0, Nye 14.2, Dawkins 14.4, Archimedes 14.8, Copernicus 14.8, Cox 14.8, Pasteur 15.0, K. Johnson 15.4, Ride 15.8, Bohr 16.0. GUT-CHECK MOVES: (1) Hawking moved 7 -> 5. He is penalized only because YouGov Ratings has no US page for him; he is #4 in awareness in YouGov 2023 (78%) and #2 in pageviews. (2) Galileo moved 13 -> 6. He is unmeasured by both YouGov sources rather than measured low; the MSNBC vote puts him #3 after Edison is removed, and he is a staple of school science. (3) Bill Nye moved 17 -> 9. YouGov fame is 87% (#4 in scope) and he is #3 among living scientists Americans name; only global pageviews put him low, and that measure undercounts a US-only TV figure. Tyson stays ahead of him because Research!America has 24% vs 11% and pageviews favor Tyson. (4) Pasteur moved 22 -> 13. He is #3 in the only open-ended 'name a scientist' survey and #5 in the MSNBC vote; only pageviews put him at 29. (5) Copernicus moved 20 -> 14, from MSNBC #6 and pageviews 22. He is kept below #12 because the only modern data (pageviews) puts him lower. (6) Curie and Darwin were kept in data order (Darwin 3, Curie 4), even though the gut put Curie 3. OTHER JUDGMENT MOVES: Goodall 8 -> 12 and Oppenheimer 6 -> 10, because their pageviews are inflated by news (Goodall's death in Oct 2025, the 2023 film); their YouGov 2023 awareness is 67% and 58%. Sagan stays just behind Oppenheimer, as in the data. Fauci 10 -> 16: he has high fame (87%) as a public-health official, but it is doubtful a player would offer him as an all-time scientist, so he is in the tail. Feynman 12 -> 15 (only 27% aware in YouGov). Turing (18) and Lovelace (21) rest mostly on global pageviews. Katherine Johnson (Hidden Figures) is at 20, Salk 22 (MSNBC #7 and the polio vaccine), and Dawkins (fame 48%) and Bohr (31% aware) fill 23-24.",
+  "confidence": "Positions 1-4: high (Einstein is #1 in every source; Newton and Darwin are consistent). 5-9: medium (Hawking, Galileo, Tesla, Tyson and Nye are all clearly top-10 names, but their order rests on partial coverage, since YouGov Ratings has no page for Hawking or Galileo). 10-16: medium-low (Oppenheimer, Sagan, Goodall, Pasteur, Copernicus and Feynman are close together and the order is sensitive to the news-driven pageviews). 17-24: low, mostly one or two sources. NEAR MISSES: George Washington Carver (0.58M pageviews; possibly on Inventors), Rosalind Franklin, Gregor Mendel, Johannes Kepler, Michio Kaku (24-45% fame), Brian Cox, Sally Ride, Michael Faraday, Alexander Fleming, Hippocrates, Pythagoras. COULD NOT READ: the YouGov Ratings 'scientists' and 'historical figures' ranked lists (rendered on the client; only the top 20 are server-rendered, so per-person topic pages were used instead); Statista's living-scientist chart (403); Google Trends (not accessed). No recent US open-ended 'greatest scientist' poll exists. The UK Royal Society 2005 Newton-vs-Einstein poll is head-to-head only and was not used.",
+  "no_data_positions": []
+}
