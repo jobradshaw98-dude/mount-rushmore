@@ -1,0 +1,83 @@
+{
+ "sources": [
+  {
+   "name": "YouGov Ratings popularity (% positive opinion), top-50 dining brands, Q3 2025 data (Stacker via AOL). Casual dining and dessert-only shops filtered out. Absent chains fall back to the 2024 YouGov list (Eat This, aug 2024), with the missing penalty applied to the 2025 half",
+   "url": "https://www.aol.com/50-most-popular-chain-restaurants-183000081.html",
+   "method": "national YouGov panel, positive-opinion score",
+   "year": 2025
+  },
+  {
+   "name": "YouGov Best Bites 2026, fast-food brands most considered (top 10: McDonald's 39.6, Chick-fil-A 35.5, Wendy's 33.2, Burger King 31.6, Taco Bell 31.2, Subway 29.3, KFC 25.0, Domino's 24.3, Dairy Queen 22.0, Arby's 21.9)",
+   "url": "https://dailyvoice.com/md/kensington/best-burgers-fries-chicken-pizza-tacos-ranked-in-fast-food-survey/",
+   "method": "YouGov QSR CategoryView, 40,000+ US consumers, 'would consider buying'",
+   "year": 2026
+  },
+  {
+   "name": "QSR 50 2026, full table read directly (curl) from QSR Magazine, 2025 US systemwide sales",
+   "url": "https://www.qsrmagazine.com/story/qsr-50-2026-top-50-fast-food-chains-ranked-by-sales/",
+   "method": "sales data",
+   "year": 2026
+  },
+  {
+   "name": "Context only, not in the math: YouGov Q2 2026 dining-brand popularity top 20 (McDonald's not in it); ACSI 2026 satisfaction (Jersey Mike's 84, Chick-fil-A 83)",
+   "url": "https://yougov.com/en-us/ratings/dining-brands",
+   "method": "context",
+   "year": 2026
+  }
+ ],
+ "list": [
+  "McDonald's|mcdonalds|mickey ds",
+  "Wendy's",
+  "Chick-fil-A|chickfila|cfa",
+  "Taco Bell",
+  "Domino's|dominos",
+  "Burger King|bk",
+  "Dunkin'|dunkin|dunkin donuts",
+  "Subway",
+  "Dairy Queen|dq",
+  "KFC|kentucky fried chicken",
+  "Pizza Hut",
+  "Chipotle",
+  "Panera Bread|panera",
+  "Panda Express|panda",
+  "Popeyes",
+  "Starbucks|sbux",
+  "Arby's|arbys",
+  "Sonic",
+  "Little Caesars|little caesar's",
+  "Jersey Mike's",
+  "Papa John's|papa johns",
+  "Five Guys",
+  "Raising Cane's|canes",
+  "Wingstop"
+ ],
+ "avg_rank": [
+  3.33,
+  3.67,
+  4.17,
+  4.67,
+  7.33,
+  7.83,
+  8.17,
+  8.67,
+  9.33,
+  12,
+  13,
+  13.17,
+  13.17,
+  15.67,
+  15.67,
+  16.33,
+  16.5,
+  16.83,
+  17.17,
+  18.33,
+  19.17,
+  20.5,
+  21.33,
+  21.5
+ ],
+ "no_data_positions": [],
+ "changes_vs_current": "McDonald's #3 to #1 and Wendy's/Chick-fil-A/Taco Bell fill the top 4; In-N-Out, Whataburger, Shake Shack, Culver's, Jack in the Box, Del Taco, Carl's Jr. fall out (next in line: Whataburger 21.8, Culver's 22.0, Jimmy John's 23.0, In-N-Out 23.7); added Domino's, Dunkin', Pizza Hut, Panera, Starbucks, Little Caesars, Papa John's.",
+ "confidence": "medium. Three independent US measures (popularity poll, consideration poll, sales) agree on the top 4. Weaknesses: only 3 sources; consideration list is top 10 only; national samples structurally penalize regional chains (In-N-Out, Whataburger, Culver's sit just below the cut, 21.8 to 23.7 vs the 24th spot at 21.5); Baskin-Robbins, Cinnabon, Krispy Kreme etc. were excluded as dessert-only; Starbucks and Dunkin' kept as QSR 50 counts them."
+}

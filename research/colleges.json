@@ -1,0 +1,46 @@
+{
+  "topic": {
+    "name": "Colleges",
+    "note": "US colleges and universities",
+    "cat": "places",
+    "from": 60
+  },
+  "sources": [
+    {"name": "YouGov Ratings, US universities by fame, Q3 2026 (top 20 shown; Oxford and Cambridge dropped and re-ranked): Yale 94%, Harvard 93%, Stanford 92%, Princeton 90%, Duke 87%, Columbia 86%, Johns Hopkins 86%, UC Berkeley 85%, Cornell 85%, Michigan 84%, UCLA 82%, UChicago 80%, NYU 80%, UCSD 79%, Northwestern 79%, UW 78%, Penn 78%, MIT 78% (the full name is less recognized than 'MIT'). The popularity view had Stanford first at 63%.", "url": "https://yougov.com/en-us/ratings/universities?sortBy=fame", "method": "Ongoing panel survey: share of US adults who have heard of each school", "year": 2026, "kind": "people"},
+    {"name": "Princeton Review College Hopes & Worries 2026, students' dream colleges (open-ended): Harvard, MIT, Stanford, Princeton, NYU, Yale, Columbia, Penn, UT Austin, Michigan", "url": "https://www.princetonreview.com/press/college-hopes-worries-press-release-2026", "method": "Open-ended online survey of college applicants, Jan-Feb 2026", "year": 2026, "kind": "people"},
+    {"name": "Princeton Review College Hopes & Worries 2026, parents' dream colleges: MIT, Princeton, Stanford, Harvard, Yale, Columbia, Michigan, Duke, NYU, Brown", "url": "https://www.princetonreview.com/press/college-hopes-worries-press-release-2026", "method": "Open-ended online survey of applicants' parents", "year": 2026, "kind": "people"},
+    {"name": "Gallup, 'best college or university in the US' (open-ended, 2 mentions): Harvard 24%, Stanford 11%, Yale 11%, MIT 6%, Berkeley 4%, Notre Dame 4%, Princeton 4%, Michigan 3%, Duke 3%, UCLA 3%, UT 2%, Texas A&M 2%, Ohio State 2%, UNC 2%, Penn State 2%, Penn 2%, ... USC 1%, Columbia 1%, NYU 1%", "url": "https://news.gallup.com/poll/9109/harvard-number-one-university-eyes-public.aspx", "method": "National adult phone poll, open-ended", "year": 2003, "kind": "people"},
+    {"name": "Wikipedia pageviews, en, user agents, Nov 2025-Oct 2026, about 57 candidate schools: Harvard 1.47M, Brown 995k, Stanford 959k, Columbia 843k, Cornell 793k, Yale 779k, MIT 728k, Penn 708k, Princeton 654k, Dartmouth 588k, Berkeley 575k, Northwestern 566k, Notre Dame 526k, Texas A&M 525k, Duke 519k, USC 511k, NYU 508k, West Point 493k, Michigan 488k, BYU 470k, UCLA 446k, Georgetown 402k, UT Austin 382k, JHU 368k, Penn State 320k, Ohio State 305k, Alabama 205k", "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Harvard_University/monthly/20251101/20261031", "method": "Wikimedia REST API, 12-month sums (noisy fame signal)", "year": 2026, "kind": "people"},
+    {"name": "SBRnet / Samford Center for Sports Analytics (via Fox Sports), most college football fans: Ohio State 6.15M, Michigan 4.45M, Penn State 4.02M, Duke 3.70M, Florida State 3.44M, Alabama 3.44M, Georgia 3.10M, UCLA 2.98M, Notre Dame 2.65M, Wisconsin 2.64M", "url": "https://amp.foxsports.com/stories/college-football/ohio-state-michigan-ranked-most-popular-college-football-teams-per-study", "method": "Survey of people who watched or attended college football, naming their favorite team", "year": 2023, "kind": "people"}
+  ],
+  "gut_check": ["Harvard", "Yale", "Stanford", "MIT", "Princeton", "UCLA", "Notre Dame", "Michigan", "Ohio State", "USC", "Alabama", "Duke"],
+  "list": [
+    "Harvard University|Harvard|Harvard College",
+    "Stanford University|Stanford",
+    "Yale University|Yale",
+    "Princeton University|Princeton",
+    "MIT|Massachusetts Institute of Technology|M.I.T.",
+    "University of Michigan|Michigan|U of M|UMich|Michigan Wolverines",
+    "Duke University|Duke",
+    "UC Berkeley|Berkeley|Cal|University of California Berkeley|University of California, Berkeley|Cal Berkeley",
+    "Columbia University|Columbia",
+    "UCLA|University of California Los Angeles|University of California, Los Angeles",
+    "University of Notre Dame|Notre Dame",
+    "Ohio State University|Ohio State|The Ohio State University|OSU",
+    "Cornell University|Cornell",
+    "University of Pennsylvania|Penn|UPenn|U Penn",
+    "New York University|NYU",
+    "Brown University|Brown",
+    "USC|University of Southern California|Southern Cal",
+    "Penn State University|Penn State|Pennsylvania State University|PSU",
+    "University of Texas at Austin|UT Austin|Texas|University of Texas",
+    "Texas A&M University|Texas A&M|A&M|TAMU",
+    "University of Alabama|Alabama|Bama",
+    "Northwestern University|Northwestern",
+    "Georgetown University|Georgetown",
+    "Johns Hopkins University|Johns Hopkins|John Hopkins|JHU|Hopkins"
+  ],
+  "changes_vs_current": "New topic. Ranked by average position over 6 people sources (missing = list length + 5). Raw order: Harvard 4.0, Stanford 4.8, Yale 6.0, Princeton 6.8, MIT 7.8, Michigan 9.3, Duke 9.3, Berkeley 11.5, Columbia 11.7, Cornell 13.0, Penn 13.2, UCLA 13.3, Notre Dame 13.5, Brown 13.8, NYU 15.7, Texas A&M 15.7, UT Austin 16.5, Ohio State 17.3, Penn State 17.3, BYU 18.2, Northwestern 18.7, USC 18.7, Purdue 19.3, Georgetown 19.5, then Dartmouth, JHU, UChicago, UNC. Gut-check moves: UCLA 12 to 10 (gut top-6, in 4 sources, #8 fan base, most applications of any US school); Notre Dame 13 to 11 (6th in Gallup open-ended, big football profile); Ohio State 18 to 12 (largest college football fan base, 13th in Gallup; only pageviews put it low); USC 22 to 17 (gut top-10, 16th in pageviews; held at 17 because Gallup had 1% and it is missing from YouGov top 20 and both dream-school lists); Alabama (outside raw top 30) inserted at 21 (6th in fan base, gut pick; held low as it is missing from YouGov and Gallup and low in pageviews). BYU (raw 20) and Purdue (raw 23) dropped for Alabama and Johns Hopkins (raw 26, YouGov fame 86%). Penn and Penn State are separate items; OSU is used only on Ohio State; bare 'UT' left out (Tennessee/Utah).",
+  "confidence": "High for the top 7 (Harvard, Stanford, Yale, Princeton, MIT, Michigan, Duke). Medium for 8-17: Ivy vs big public order depends on whether a source measures prestige or sports fandom. Low-medium for 18-24. Near misses: BYU, Purdue, Dartmouth, UChicago, UNC, Florida State, Georgia, West Point, Caltech, Vanderbilt, UVA, LSU, Florida. Caveats: Gallup is from 2003; YouGov shows only its top 20 and uses full names (undercounts MIT, maybe UCLA/USC); the fan-base source counts sports fans only; pageviews are news-inflated (Brown); the two Princeton Review lists come from one applicant-heavy survey.",
+  "no_data_positions": []
+}
