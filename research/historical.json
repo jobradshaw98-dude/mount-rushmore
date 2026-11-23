@@ -1,0 +1,48 @@
+{
+  "topic": {
+    "name": "Historical Figures",
+    "note": "All-time, anyone in history",
+    "cat": "people",
+    "from": 59
+  },
+  "sources": [
+    {"name": "ABC News Millennium Poll, open-ended 'one or two greatest historical figures of the last 1,000 years' (first mentions): Lincoln 12, Washington 12, MLK 4, JFK 3, Hitler 3, FDR 3, Gandhi 2, Jefferson 2, Jesus 2, Columbus 2, Mother Teresa 2, Churchill 2, Napoleon 2, then 1% each for da Vinci, Caesar, Edison, Franklin, Einstein, John Paul II, Reagan, Newton, Armstrong; also exploration: Columbus 21%", "url": "https://abcnews.com/images/pdf/801a1Millennium.pdf", "method": "Open-ended national telephone poll, N=506 US adults, Aug 1999 (TNS Intersearch); tie-averaged ranks", "year": 1999, "kind": "people"},
+    {"name": "ABC News Millennium Poll, open-ended 'greatest historical figure of the century': JFK 11, FDR 8, MLK 7, Churchill 5, Mother Teresa 5, Gandhi 4, Einstein 4, Lincoln 3, Clinton/Hitler/Reagan/T. Roosevelt 2 each, then 1% for Diana, Armstrong, Mandela, Eisenhower, Nixon, Washington, Billy Graham, Truman, Carter, Bush, John Paul II", "url": "https://abcnews.com/images/pdf/801a1Millennium.pdf", "method": "Same poll, separate open-ended question; applied only to 20th-century figures", "year": 1999, "kind": "people"},
+    {"name": "YouGov Ratings, historical figures (US), by popularity, Q3 2026, top 20 (popularity/fame): Einstein 82/97, MLK 82/98, Lincoln 77/96, Anne Frank 77/95, Rosa Parks 76/94, JFK 75/98, Ben Franklin 74/97, Jesus 74/97, Newton 74/93, Washington 72/98, A.G. Bell 70/90, T. Roosevelt 69/95, Eleanor Roosevelt 68/91, FDR 67/94, Jefferson 66/96, Edison 65/91, Aristotle 63/91, Eisenhower 63/94, Gandhi 62/90, John Adams 62/94", "url": "https://yougov.com/en-us/ratings/historical-figures", "method": "Ongoing YouGov US panel ratings, quarterly; ordered by % positive, so disliked figures are absent", "year": 2026, "kind": "people"},
+    {"name": "Gallup/CNN/USA Today, % 'admire most' among people of the century: Mother Teresa 49, MLK 34, JFK 32, Einstein 31, Helen Keller 30, FDR 26, Billy Graham 26, John Paul II 25, Eleanor Roosevelt 22, Churchill 20, Eisenhower 18, Jackie Kennedy 18, Gandhi 18, Mandela 17, Reagan 17, Henry Ford 15, Clinton 10, Thatcher 9", "url": "https://mail.pollingreport.com/20th.htm", "method": "Prompted list of 18, N=511 US adults, Dec 1999; applied only to 20th-century figures", "year": 1999, "kind": "people"},
+    {"name": "English Wikipedia pageviews, calendar 2025, over ~95 historical candidates (living politicians, athletes and entertainers removed): Cleopatra 18.8M, Hitler 8.2M, Elizabeth II 7.4M, JFK 6.6M, Queen Victoria 6.4M, FDR 5.3M, Reagan 4.9M, Napoleon 4.7M, Lincoln 4.67M, Einstein 4.58M, Henry VIII 4.58M, Stalin 4.33M, John Paul II 4.33M, Jesus 4.25M, Washington 4.25M, Churchill 4.08M, T. Roosevelt 4.07M, MLK 3.95M, Marie Antoinette 3.76M, Gandhi 3.68M, Shakespeare 3.66M, Genghis Khan 3.65M, Diana 3.64M, Alexander the Great 3.63M ... Caesar 3.07M (#30), Columbus 2.79M (#33), Jefferson 2.70M (#36), Ben Franklin 2.26M", "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Abraham_Lincoln/monthly/2025010100/2025123100", "method": "Wikimedia REST API, one call per article (same query per figure); noisy global fame signal, top 40 used", "year": 2025, "kind": "people"},
+    {"name": "YouGov 'greatest American of the last 250 years': Lincoln 18%, Washington 13%, MLK 12%, Obama 10%, Trump 8%", "url": "https://yougov.com/en-us/articles/55089-freedom-is-the-value-americans-say-best-represents-the-us", "method": "YouGov US online poll, 2026, choice from 18 contenders; supports the top-3 order only", "year": 2026, "kind": "people"},
+    {"name": "YouGov open-ended 'invite any famous person to dinner': Jesus Christ 18% (top pick), Obama 16%; Ben Franklin and Reagan frequent picks", "url": "https://yougov.com/en-us/articles/3706-polarizing-attitudes-famous-dinner-guests", "method": "YouGov US open-ended poll, 2012; supports Jesus and Franklin moves", "year": 2012, "kind": "people"},
+    {"name": "YouGov Napoleon survey, heard of: Hitler 98%, da Vinci 98%, Caesar 98%, Alexander the Great 98%, Napoleon 95%, Darwin 94%, Stalin 92%, Marx 89%, Genghis Khan 89%", "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/Napoleon_Bonaparte_poll_results.pdf", "method": "YouGov US poll, N=1000, 2023; awareness only, support for Caesar and Napoleon", "year": 2023, "kind": "people"}
+  ],
+  "gut_check": ["Abraham Lincoln", "George Washington", "Martin Luther King Jr.", "Jesus", "Albert Einstein", "Adolf Hitler", "Mahatma Gandhi", "Napoleon", "Benjamin Franklin", "Thomas Jefferson", "Julius Caesar", "Christopher Columbus"],
+  "list": [
+    "Abraham Lincoln|Lincoln|Abe Lincoln|Honest Abe",
+    "George Washington|Washington",
+    "Martin Luther King Jr.|MLK|Martin Luther King|MLK Jr|Dr. King",
+    "Jesus|Jesus Christ|Christ|Jesus of Nazareth",
+    "Albert Einstein|Einstein",
+    "John F. Kennedy|JFK|John Kennedy|Kennedy",
+    "Franklin D. Roosevelt|FDR|Franklin Roosevelt",
+    "Adolf Hitler|Hitler",
+    "Mahatma Gandhi|Gandhi|Mohandas Gandhi|Ghandi",
+    "Napoleon|Napoleon Bonaparte|Bonaparte",
+    "Winston Churchill|Churchill",
+    "Benjamin Franklin|Ben Franklin|Franklin",
+    "Thomas Jefferson|Jefferson",
+    "Christopher Columbus|Columbus",
+    "Ronald Reagan|Reagan",
+    "Mother Teresa|Mother Theresa|Saint Teresa",
+    "Julius Caesar|Caesar|Julius Ceasar",
+    "Pope John Paul II|John Paul II|Pope John Paul",
+    "Cleopatra|Cleopatra VII",
+    "Theodore Roosevelt|Teddy Roosevelt|Teddy|TR",
+    "Isaac Newton|Newton|Sir Isaac Newton",
+    "Dwight D. Eisenhower|Eisenhower|Ike|Dwight Eisenhower",
+    "Queen Elizabeth II|Elizabeth II|Queen Elizabeth",
+    "Joseph Stalin|Stalin"
+  ],
+  "changes_vs_current": "New topic. Five ranked people sources averaged (ABC 1000-year open-ended, ABC century open-ended, YouGov Ratings, Gallup century 'admire most', Wikipedia pageviews); the two 20th-century-only sources were applied only to 20th-century figures. Raw order: JFK 3.8, Lincoln 4.5, MLK 5.6, FDR 6.7, Einstein 7.9, Washington 8.8, Jesus 10.7, Churchill 13.1, Hitler 13.1, Gandhi 13.7, Napoleon 14.3, Reagan 15.0, John Paul II 16.4, Mother Teresa 17.1, Cleopatra 17.7, T. Roosevelt 17.9, Newton 18.7, Queen Victoria 19.0, Jefferson 20.3, Eisenhower 20.5, Henry VIII 21.0, Elizabeth II 21.2, Columbus 22.7, Stalin 23.0, Diana 23.2, Franklin 23.3, Marie Antoinette 23.7, Caesar 24.3. Moves: Lincoln, Washington, MLK above JFK (the all-era open-ended question and YouGov 2026 'greatest American' both put them 1-3; JFK's lead comes from century-only questions; JFK to 6, FDR to 7); Jesus 7 to 4 (top open-ended dinner pick, YouGov Ratings #8, named even in a 1000-year question outside his era); Benjamin Franklin 26 to 12 (YouGov Ratings #7, fame 97%; raw score hurt because century sources can't include him); Jefferson 19 to 13 (YouGov #15, ABC 2%); Columbus 23 to 14 (ABC 2%, 21% greatest explorer); Julius Caesar 28 to 17 (ABC 1% despite era, 98% awareness, pageviews #30). Queen Victoria and Henry VIII dropped (only English Wikipedia pageviews, British-leaning; no US poll names them), freeing spots for Eisenhower, Elizabeth II and Stalin. Bare 'Roosevelt' is on neither Roosevelt (ambiguous).",
+  "confidence": "Medium. Top 5 (Lincoln, Washington, MLK, Jesus, Einstein) strong. Positions 6-14 solid as a set, order soft. The main open-ended US polls are from 1999 and lean toward 20th-century Americans and presidents (overlaps the US Presidents topic, but reflects what people say). YouGov Ratings sorts by popularity, so Hitler and Stalin get no credit there. Cleopatra's 2025 pageviews look inflated. Spots 22-24 weak. Near misses: Rosa Parks, Shakespeare, Anne Frank, Leonardo da Vinci, Alexander the Great, Nelson Mandela, Princess Diana, Queen Victoria, Henry VIII, Genghis Khan, Thomas Edison, Eleanor Roosevelt, Helen Keller.",
+  "no_data_positions": []
+}

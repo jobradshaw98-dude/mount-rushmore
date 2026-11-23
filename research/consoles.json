@@ -1,0 +1,48 @@
+{
+  "topic": {
+    "name": "Video Game Consoles",
+    "note": "All-time, home and handheld",
+    "cat": "play",
+    "from": 59
+  },
+  "sources": [
+    {"name": "Wikipedia, List of best-selling game consoles (worldwide units): PS2 160M, Switch 157.2M, DS 154.0M, Game Boy/GBC 118.7M, PS4 117.2M, PS1 102.5M, Wii 101.6M, PS5 >100M, PS3 87.4M, X360 84M, GBA 81.5M, PSP 80M, 3DS 75.9M, NES 61.9M, Xbox One 58M, SNES 49.1M, Series X/S 35M, N64 32.9M, Genesis 30.75M, Atari 2600 30M, Switch 2 26.35M, Xbox 24M, GameCube 21.7M, Vita 16M, Wii U 13.6M, Saturn 9.3M, Dreamcast 9.1M", "url": "https://en.wikipedia.org/wiki/List_of_best-selling_game_consoles", "method": "lifetime hardware sales, worldwide (ranked 1-35)", "year": 2026, "kind": "people"},
+    {"name": "Wikipedia pageviews, en user traffic Nov 2025-Oct 2026: PS5 1.59M, Switch 2 1.32M, Switch 1.16M, PS2 876k, PS4 862k, PS3 758k, PS1 657k, X360 652k, Series X/S 638k, DS 637k, NES 629k, Wii 617k, PSP 607k, Xbox One 571k, GameCube 521k, Game Boy 518k, SNES 507k, N64 503k, GBA 480k, Genesis 476k, Dreamcast 459k, Xbox 424k, Wii U 406k, Saturn 387k, Steam Deck 384k, Atari 2600 307k, GBC 296k", "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/PlayStation_2/monthly/2025110100/2026103100", "method": "12-month pageview totals via Wikimedia REST API, same query per console (fame signal)", "year": 2026, "kind": "people"},
+    {"name": "Ranker crowd vote 'Best Game Systems of All Time' (via AOL/Men's Journal): 1 SNES, 2 PS2, 3 N64, 4 Switch, 5 NES, 6 PS4, 7 Game Boy, 8 PS1, 9 GameCube, 10 Xbox 360", "url": "https://www.aol.com/lifestyle/super-nintendo-named-best-console-133000241.html", "method": "large open audience vote, top 10", "year": 2025, "kind": "people"},
+    {"name": "PixlParade poll of best console ever (via GAMINGbible): 1 PS2 (17%+), 2 Switch (~14%), 3 SNES (~12%), 4 X360, 5 PS4, 6 N64, 7 GameCube, 8 PS3, 9 PS1, 10 Wii", "url": "https://gamingbible.com/news/platform/playstation/playstation-2-voted-best-game-console-all-time-943026-20240118", "method": "open audience poll, top 10", "year": 2024, "kind": "people"},
+    {"name": "Solitaired survey of 1,008 US adults, classic consoles used in the past: N64 64%, PS2 46%, NES Classic 40%, Xbox/Game Boy/GameCube ~40% each (gut check only; classic consoles only)", "url": "https://solitaired.com/favorite-video-and-computer-games", "method": "US online survey, multi-select", "year": 2022, "kind": "people"},
+    {"name": "YouGov Omnibus (UK), most played extensively: Wii 23%, PS2 19%, PS1 16%; head-to-heads by generation (gut check and tie-breaks only, not US)", "url": "https://yougov.com/en-gb/articles/22385-yougov-crowns-winners-console-wars", "method": "nationally representative poll (UK)", "year": 2019, "kind": "people"},
+    {"name": "Statista Consumer Insights via Push Square, US consoles played regularly: PS5 46%, Switch 33%, PS4 27% (current consoles only, context)", "url": "https://www.pushsquare.com/news/2026/08/ps5-is-the-usas-most-popular-console-and-its-not-particularly-close", "method": "US consumer survey, about 3,200 console players", "year": 2026, "kind": "people"},
+    {"name": "SVG reader poll, favorite Nintendo console: Wii 45%, Switch 23%, N64 15%, GameCube 9%, SNES 8%", "url": "https://svg.com/293885/45-of-people-picked-this-as-their-favorite-nintendo-console-ever", "method": "reader poll, Nintendo consoles only", "year": 2020, "kind": "critic"}
+  ],
+  "gut_check": ["PlayStation 2", "Nintendo Switch", "Wii", "NES", "PlayStation (original)", "Super Nintendo", "Nintendo 64", "Xbox 360", "PlayStation 4", "PlayStation 5", "Game Boy", "Atari 2600"],
+  "list": [
+    "PlayStation 2|PS2|Playstation Two|Sony PlayStation 2",
+    "Nintendo Switch|Switch|Switch 1|Switch OLED|Switch Lite|Nintendo Switch Lite",
+    "Wii|Nintendo Wii",
+    "PlayStation 4|PS4|PlayStation Four|PS4 Pro",
+    "PlayStation|PS1|PSX|PSone|PS One|PlayStation 1|Original PlayStation|Sony PlayStation",
+    "Xbox 360|360|X360",
+    "Super Nintendo|SNES|Super NES|Super Nintendo Entertainment System|Super Famicom",
+    "NES|Nintendo Entertainment System|Original Nintendo|Famicom",
+    "Nintendo 64|N64",
+    "PlayStation 5|PS5|PlayStation Five|PS5 Pro",
+    "Game Boy|Gameboy|Original Game Boy|Game Boy Color|GBC|Game Boy Pocket",
+    "PlayStation 3|PS3|PlayStation Three",
+    "Nintendo DS|DS|NDS|DS Lite|DSi",
+    "GameCube|Nintendo GameCube|Game Cube|GCN",
+    "Nintendo Switch 2|Switch 2|NS2",
+    "Atari 2600|Atari|Atari VCS|2600",
+    "Xbox One|XB1|Xbox One X|Xbox One S|Xbone",
+    "Xbox Series X|Series X|Xbox Series S|Series S|Xbox Series X/S|XSX",
+    "PSP|PlayStation Portable|Sony PSP",
+    "Game Boy Advance|GBA|Gameboy Advance|Game Boy Advance SP|GBA SP",
+    "Sega Genesis|Genesis|Mega Drive|Sega Mega Drive",
+    "Xbox|Original Xbox|Microsoft Xbox|Xbox Classic",
+    "Nintendo 3DS|3DS|2DS|New 3DS|3DS XL",
+    "Wii U|WiiU|Nintendo Wii U"
+  ],
+  "changes_vs_current": "New topic. Averaged four people sources: worldwide sales (35 entries, missing 40), pageviews (~33 entries, missing 38), Ranker top 10 and PixlParade top 10 (missing 15). Raw order: PS2 2.0, Switch 2.75, PS4 5.25, PS1 7.5, X360 8.0, SNES 9.25, PS3 9.5, PS5 9.75, Game Boy 10.5, DS 10.75, Wii 11.0, N64 11.25, NES 11.25, Switch 2 13.25, GameCube 13.5, PSP 13.75, Series X 14.0, Xbox One 14.75, GBA 15.0, 3DS ~16.75, Genesis 17.25, Xbox 18.5, Atari 2600 19.0, Wii U 19.75, Vita ~20, Dreamcast 20.75, Saturn 21.25. Gut-check moves: Wii 11 to 3 (gut top-3, #1 most played in YouGov UK, 45% favorite Nintendo console, ~101M sold; only the enthusiast votes leave it out); NES 13 to 8 and N64 12 to 9 (gut picks; Ranker #5 and #3; N64 the most-used classic console in the US Solitaired survey); PS3 7 to 12 and DS 10 to 13 to make room (not gut picks; each rests mostly on one strong signal); Atari 2600 23 to 16 (gut pick; sales #20 and pageviews #26 keep it outside the top 12). Bare 'Nintendo' and 'Sega' are not aliases (brand names). Game Boy Color is an alias of Game Boy, matching the combined sales line.",
+  "confidence": "Medium. PS2 and Switch at 1-2 are solid. Positions 3-13 are a tight cluster whose order is partly judgment; no representative US all-time favorite-console poll was found, and the two votes are enthusiast audiences (the top 10 is still backed by sales and pageviews). US-only sales were not available as a full list (Circana: DS #1, Switch #2, PS2 #3 in the US), which could justify a higher DS. Pageviews favor current hardware. Near misses: Dreamcast, PS Vita, Sega Saturn, Steam Deck, Master System, Atari Jaguar.",
+  "no_data_positions": []
+}

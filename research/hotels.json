@@ -1,0 +1,47 @@
+{
+  "topic": {
+    "name": "Hotel Chains",
+    "note": "Where you'd stay",
+    "cat": "brands",
+    "from": 59
+  },
+  "sources": [
+    {"name": "YouGov Ratings, US hotel brands by fame (% heard of). Top 20: Hampton Inn 96, Holiday Inn 95, Marriott 95, Hilton 94, Disney Parks 94, Holiday Inn Express 93, Comfort Inn 93, Motel 6 91, Trump Hotels 91, Courtyard 90, Days Inn 88, Quality Inn 88, Best Western 87, Hyatt 85, Super 8 85, Embassy Suites 84, Hyatt Regency 84, Ritz-Carlton 83, Wyndham 83, Comfort Suites 82. From brand pages: Hilton Garden Inn 82, DoubleTree 81, Red Roof Inn 81, Four Seasons 79, Ramada 79, JW Marriott 77, Econo Lodge 76, Sheraton 75, Westin 75, Radisson 73, Residence Inn 73, Fairfield Inn 70 (Disney and Trump left out)", "url": "https://yougov.com/en-us/ratings/hotel-brands?sortBy=fame", "method": "Ongoing national US panel, share who have heard of each brand; individual YouGov brand pages for the tail", "year": 2026, "kind": "people"},
+    {"name": "YouGov Ratings, US hotel brands by popularity (% positive): Marriott 67, Holiday Inn Express 63, Holiday Inn 61, Hilton 59, Hampton Inn 57, Courtyard 57, Hyatt 56, Hilton Garden Inn 56, Hyatt Regency 53, Four Seasons 52, Best Western 52, DoubleTree 51, Ritz-Carlton 51, JW Marriott 49, Embassy Suites 49, Comfort Suites 49, Wyndham 48, Days Inn 47, Quality Inn 47; brand pages: Comfort Inn 45, Sheraton 45, Westin 43, Ramada 43, Residence Inn 42, Radisson 41, Red Roof 40, Fairfield 37, Super 8 34, Econo Lodge 34, Motel 6 33", "url": "https://yougov.com/en-us/ratings/hotel-brands", "method": "Ongoing national US panel, positive-opinion share", "year": 2026, "kind": "people"},
+    {"name": "YouGov BrandIndex US Hotel Rankings 2026, consideration among likely bookers: Marriott 45.3, Hilton 44.9, Courtyard 37.8, Holiday Inn 36.7, Holiday Inn Express 36.2, then Hampton Inn, Hilton Garden Inn, DoubleTree, Sheraton, Hyatt", "url": "https://yougov.com/en-us/articles/55288-us-hotel-rankings-report-2026", "method": "BrandIndex daily tracking, purchase consideration", "year": 2026, "kind": "people"},
+    {"name": "Stacker analysis of YouGov popularity, Q1 2022, top 25: Holiday Inn 63, Marriott 60, Holiday Inn Express 58, Hilton 58, Disney 57, Courtyard 56, Hampton 54, Sheraton 53, Hyatt Regency 52, Best Western 51, Wyndham 50, Hyatt 50, Comfort Inn 49, Embassy Suites 48, Ritz-Carlton 48, Days Inn 47, Quality Inn 46, Comfort Suites 45, La Quinta 45, Hilton Garden Inn 45, Four Seasons 45, Ramada 43, Radisson 43, JW Marriott 42, Grand Hyatt 42", "url": "https://stacker.com/stories/business-economy/most-popular-hotel-chains-america", "method": "YouGov positive-opinion share, older wave", "year": 2022, "kind": "people"},
+    {"name": "English Wikipedia pageviews, Nov 2025-Oct 2026 (user): Marriott Intl 394k, Hyatt 295k, Four Seasons 232k, Hilton Worldwide 208k, Ritz-Carlton 192k, Howard Johnson's 147k, Wyndham 139k, Holiday Inn 112k, Sheraton 92k, Radisson 80k, Waldorf Astoria 78k, Ramada 62k, Best Western 60k, St. Regis 58k, Motel 6 56k, Westin 55k, Omni 49k, W Hotels 42k, Hampton 41k, DoubleTree 38k, Days Inn 35k, Travelodge 31k, Courtyard 28k, Red Roof 21k, HGI 20k, Embassy Suites 20k, Fairfield 20k, Econo Lodge 17k, Residence Inn 15k, Quality Inn 12k (Super 8, Comfort Inn, La Quinta not measured)", "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Holiday_Inn/monthly/2025110100/2026103100", "method": "Wikimedia REST pageviews, noisy fame signal", "year": 2026, "kind": "people"},
+    {"name": "YouGov 2018 favorability, all Americans top 5: Holiday Inn 64, Marriott 64, Disney 62, Hilton 59, Holiday Inn Express 58 (support only, not averaged)", "url": "https://yougov.com/en-us/articles/20796-holiday-inn-and-marriott-are-americas-favorite-hot", "method": "YouGov BrandIndex favorability", "year": 2018, "kind": "people"},
+    {"name": "24/7 Wall St, YouGov baby-boomer popularity: Marriott 74, Holiday Inn 68, Courtyard 67, Hilton 63, Hampton 62, Sheraton 60, Best Western 60, Hyatt Regency 59, HIE 59, Embassy 58, Wyndham 58 (subgroup, corroboration only)", "url": "https://247wallst.com/casinos-hotels/2024/03/22/most-popular-hotel-brands-according-to-baby-boomers-ranked/", "method": "YouGov subgroup popularity", "year": 2024, "kind": "people"}
+  ],
+  "gut_check": ["Marriott", "Hilton", "Holiday Inn", "Hampton Inn", "Best Western", "Motel 6", "Hyatt", "Days Inn", "Super 8", "Comfort Inn", "Ritz-Carlton", "Four Seasons"],
+  "list": [
+    "Marriott|Marriott Hotels|JW Marriott|Marriott International|Marriot",
+    "Holiday Inn|Holiday Inn Express|Holiday Inn Express & Suites|Holiday Inn Express and Suites|Holiday Inn Club Vacations",
+    "Hilton|Hilton Hotels|Hilton Hotels & Resorts|Hilton Worldwide",
+    "Hampton Inn|Hampton|Hampton Inn & Suites|Hampton Inn and Suites|Hampton by Hilton",
+    "Hyatt|Hyatt Regency|Grand Hyatt|Park Hyatt|Hyatt Place|Hyatt House",
+    "Courtyard|Courtyard by Marriott|Courtyard Marriott",
+    "Best Western|Best Western Plus|Best Western Premier",
+    "Motel 6|Motel Six",
+    "Comfort Inn|Comfort Suites|Comfort Inn & Suites|Comfort Inn and Suites|Comfort",
+    "Days Inn|Days Inn by Wyndham|Days Inns",
+    "Ritz-Carlton|The Ritz-Carlton|Ritz Carlton|Ritz",
+    "Super 8|Super 8 Motel|Super 8 Motels|Super Eight|Super 8 by Wyndham",
+    "Wyndham|Wyndham Hotels|Wyndham Hotels & Resorts|Wyndham Grand|Wyndham Garden",
+    "Four Seasons|Four Seasons Hotels|4 Seasons",
+    "Sheraton|Sheraton Hotels",
+    "Hilton Garden Inn|HGI",
+    "Embassy Suites|Embassy Suites by Hilton|Embassy",
+    "DoubleTree|Double Tree|DoubleTree by Hilton",
+    "Ramada|Ramada Inn|Ramada by Wyndham",
+    "Quality Inn|Quality Inn & Suites|Quality Inn and Suites",
+    "Radisson|Radisson Blu|Radisson Hotels",
+    "Westin|The Westin|Westin Hotels",
+    "Red Roof Inn|Red Roof|Red Roof Plus",
+    "La Quinta|La Quinta Inn|La Quinta Inns & Suites|La Quinta Inn & Suites|LaQuinta"
+  ],
+  "changes_vs_current": "New topic. Merged before ranking: Holiday Inn Express into Holiday Inn; Hyatt Regency, Grand Hyatt, Park Hyatt into Hyatt; JW Marriott into Marriott; Comfort Suites into Comfort Inn; Hampton Inn & Suites into Hampton Inn. Courtyard, Hilton Garden Inn, Embassy Suites and DoubleTree stay separate. Disney Parks, Trump Hotels and Airbnb excluded (not hotel chains people name as places to stay). Raw average across 5 sources (YouGov fame, YouGov popularity 2026, YouGov consideration 2026, Stacker/YouGov 2022, Wikipedia pageviews): Marriott 1.6, Hilton 3.2, Holiday Inn 3.4, Hampton Inn 6.8, Hyatt 7.0, Courtyard 8.4, Comfort Inn 10.5, Best Western 10.8, Ritz-Carlton 11.2, Wyndham 11.8, Four Seasons 12.2, Sheraton 12.4, Hilton Garden Inn 14.0, Days Inn 14.2, Embassy Suites 15.2, DoubleTree 15.6, Ramada 16.6, Quality Inn 16.8, Motel 6 17.0, Radisson 17.6, Super 8 18.5, Westin 19.0, Red Roof Inn 20.4, Howard Johnson 21.2, Waldorf Astoria 22.2, ... La Quinta 22.8. Moves: Holiday Inn 3 to 2 (leads Hilton in YouGov fame, popularity, the 2022 list and the 2018 poll; gut pick); Motel 6 19 to 8 (fame 91%, 6th; average dragged down by low liking, which measures opinion not recall); Days Inn 14 to 10 (fame 88%; gut pick); Super 8 21 to 12 (fame 85%; gut pick; pageviews unmeasured); Best Western 8 to 7 and Comfort Inn 7 to 9 (small swap per gut); La Quinta onto the board at 24 (15th in 2022 YouGov popularity) in place of Howard Johnson, which rests only on restaurant-inflated pageviews.",
+  "confidence": "High for the top 5 (Marriott, Holiday Inn, Hilton, Hampton Inn, Hyatt). Medium for 6-14: moves favor recall (fame) over liking. Low for 15-24, a cluster of brands at 73-84% fame. Sources are dominated by YouGov; no non-YouGov favorites poll with full brand coverage could be opened. Near misses: Howard Johnson, Waldorf Astoria, Econo Lodge, Residence Inn, Fairfield Inn, St. Regis, Omni, Travelodge, Extended Stay America. If Holiday Inn Express were its own answer it would land around #5-6.",
+  "no_data_positions": []
+}

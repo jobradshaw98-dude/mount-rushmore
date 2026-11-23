@@ -1,0 +1,88 @@
+{
+ "sources": [
+  {
+   "name": "YouGov Ratings most popular candies (positive opinion %): M&Ms 85, Reese's 83, Kisses 82, Kit Kat 79, Snickers 78, York 68, Ghirardelli 67, Skittles 64, Baby Ruth 63, Twizzlers 61",
+   "url": "https://yougov.com/en-us/articles/21828-most-popular-candies-halloween",
+   "method": "YouGov Ratings poll, US adults (sample size not stated)",
+   "year": 2018
+  },
+  {
+   "name": "CandyStore.com national top 10 Halloween candy (M&M's overtake Reese's for the first time), via WATE",
+   "url": "https://digital-release.wate.com/?p=2361265",
+   "method": "sales data (17 years of sales per pound, pre-Halloween months)",
+   "year": 2025
+  },
+  {
+   "name": "Instacart + Harris Poll Halloween candy, top 5 by weight sold (Peanut M&M's, M&M's, Reese's, Hershey's Milk Chocolate, Twizzlers), via Fox News",
+   "url": "https://www.foxnews.com/lifestyle/the-most-popular-halloween-candy-us-state.amp",
+   "method": "sales data plus Harris poll of ~2,000",
+   "year": 2021
+  },
+  {
+   "name": "RetailMeNot survey, Halloween candy (Reese's 52%, M&M's 51%, Kit Kat, Snickers, Hershey Bars, Twix, Skittles 27%, Candy Corn 26%), via CBS58",
+   "url": "https://cbs58.com/news/survey-finds-reeses-tops-m-ms-in-most-popular-halloween-candy-ranking",
+   "method": "survey (sample size not stated)",
+   "year": 2020
+  },
+  {
+   "name": "Statista/YouGov candy brand approval (only top 2 visible: M&M's, Gummi Bears; the rest is paywalled)",
+   "url": "https://www.statista.com/statistics/1353049/most-popular-candy-brands-in-the-us",
+   "method": "poll of 1,508 US respondents",
+   "year": 2025
+  }
+ ],
+ "list": [
+  "M&M's|mms",
+  "Reese's Peanut Butter Cups|reeses|reeses cups|peanut butter cups",
+  "Skittles",
+  "Kit Kat|kitkat",
+  "Hershey's Bar|hersheys|hershey bar|hershey's milk chocolate|hershey's miniatures",
+  "Hershey's Kisses|kisses|hersheys kisses",
+  "Snickers",
+  "Candy Corn",
+  "Sour Patch Kids|sour patch",
+  "Twizzlers",
+  "Starburst",
+  "Hot Tamales",
+  "Peanut M&M's|peanut mms",
+  "York Peppermint Pattie|york|peppermint patty",
+  "Ghirardelli|ghirardelli chocolate",
+  "Twix",
+  "Baby Ruth",
+  "Gummy Bears|gummies|gummi bears",
+  "Butterfinger",
+  "3 Musketeers|three musketeers",
+  "Swedish Fish",
+  "Nerds",
+  "Milky Way",
+  "Reese's Pieces"
+ ],
+ "avg_rank": [
+  1.4,
+  3,
+  7.2,
+  7.8,
+  8,
+  8.2,
+  8.2,
+  9.4,
+  9.6,
+  10,
+  10,
+  10.2,
+  10.2,
+  10.2,
+  10.4,
+  10.6,
+  10.8,
+  11,
+  11,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "changes_vs_current": "M&M's #1 and Reese's #2 (Snickers falls from #2 to #7, Kit Kat 3 to 4, Twix 4 to 16). Skittles rises to #3. Added: Hershey's Kisses, Candy Corn, Hot Tamales, York Peppermint Pattie, Ghirardelli, Baby Ruth (candy corn is the most-disliked candy in YouGov, but it sells, so it ranks on sales). Hershey's Mini Bars merged into Hershey's Bar. Dropped from the current list: Airheads, Jolly Ranchers, Almond Joy, Nerds Gummy Clusters, Junior Mints, Whoppers. Ranks 20-24 are current-list filler with no source.",
+ "confidence": "medium. Five sources, but 3 of 5 are Halloween-specific and sales-based, which may under-rank Snickers, Twix and Kit Kat (Snickers is the most-recognized bar at 94% awareness per Statista, but awareness is not popularity). All are top-5 to top-10 lists, so ranks 10-19 are tightly bunched (10.0-11.0) and nearly interchangeable. The Ranker candy lists (62.6K voters, 177 items) exist but returned 401, so they are not cited."
+}

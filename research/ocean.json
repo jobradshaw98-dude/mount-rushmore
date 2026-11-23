@@ -1,0 +1,46 @@
+{
+  "topic": {
+    "name": "Ocean Animals",
+    "note": "Sea creatures",
+    "cat": "life",
+    "from": 59
+  },
+  "sources": [
+    {"name": "Harris Interactive for Alliance of Marine Mammal Parks & Aquariums, favorite aquarium animal, US adults: Dolphins 40% (women 46%, men 34%), Sharks 13% in 2nd place. Only the top two were readable.", "url": "https://law-journals-books.vlex.com/vid/americans-love-affair-with-dolphins-55628467", "method": "national online poll, pick a favorite from a fixed list", "year": 2004, "kind": "people"},
+    {"name": "Tellwut US panel poll 'Aquarium Visit', favorite exhibit (n about 1,900): Sharks 16%, Sea Turtles 9%, Ornamental fish 8%, Stingrays/mantas 8%, Sea Horses 8%, Beluga whales 8%, Octopuses 4%, Eels 2%, Piranha 1%; top write-ins Dolphins, Penguins, Jellyfish", "url": "https://www.tellwut.com/surveys/lifestyle/living/94982-aquarium-visit.html", "method": "online panel poll, fixed options plus write-ins", "year": 2016, "kind": "people"},
+    {"name": "Big Island Now reader poll, favorite ocean creature (n=660): Sea turtle 36%, Humpback whale 18%, Spinner dolphin 17%, Manta ray 12%, Hawaiian monk seal 10%, Octopus 9%, Tropical fish 8%, Shark 4%, Eel 1%, Stingray 0%", "url": "https://bigislandnow.com/?p=343411", "method": "local online reader vote (Hawaii)", "year": 2023, "kind": "people"},
+    {"name": "YouGov UK animal popularity (0-10 scale), sea animals only: Dolphins 7, Penguins 7, Whales 6, Seals 5, Sea otter 5, Seahorses 5, Sea lions 4, Walrus 3, Sharks 3, Coral 3, Narwhals 2, Octopuses 2, Lobsters 2, Crabs 1, Jellyfish 1, Pufferfish 1, Sea urchin 1, Shrimps 1, Eels 0", "url": "https://yougov.com/en-gb/articles/11632-animals", "method": "YouGov popularity ratings (British sample)", "year": 2015, "kind": "people"},
+    {"name": "English Wikipedia pageviews, Nov 2024-Oct 2025 (user agent; highest article per answer): Orca 1.61M, Penguin 1.05M, Blue whale 941k, Great white shark 933k, Anglerfish 867k, Octopus 817k, Narwhal 776k, Jellyfish 772k, Dolphin 643k, Manatee 597k, Pinniped 544k, Giant squid 541k, Beluga 490k, Walrus 474k, Sea urchin 433k, Crab 425k, Seahorse 423k, Lobster 404k, Stingray 397k, Eel 380k, Coral 379k, Starfish 369k, Sea otter 364k, Sea lion 362k, Shrimp 329k, Manta ray 323k, Clownfish 304k, Sea turtle 283k", "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/Shark/monthly/2024110100/2025103100", "method": "fame signal from Wikimedia REST API", "year": 2025, "kind": "people"},
+    {"name": "Google Books Ngram, en-US 2010-2019 average, case-insensitive, singular+plural (per million): whale 9.1, shark 7.3, shrimp 6.1, crab 6.1, coral 5.5, seals 5.4, oyster 4.9, dolphin 4.5, lobster 3.8, tuna 3.5, eel 2.0, squid 1.7, octopus 1.6, penguins 1.1, orca/killer whale 1.0, sea turtle 1.0, jellyfish 0.9, sea lion 0.66, starfish/sea star 0.65, sea urchin 0.64, manatee 0.57, walrus 0.54, sea otter 0.42, stingray 0.35, manta 0.31, seahorse 0.25, narwhal 0.11, clownfish 0.04 (food words inflated)", "url": "https://books.google.com/ngrams/json?content=shark,dolphin,whale&year_start=2010&year_end=2019&corpus=en-US-2019&case_insensitive=true", "method": "word-frequency fame signal (American English books)", "year": 2019, "kind": "people"}
+  ],
+  "gut_check": ["Shark", "Dolphin", "Whale", "Octopus", "Sea Turtle", "Jellyfish", "Starfish", "Seal", "Crab", "Orca", "Stingray", "Clownfish"],
+  "list": [
+    "Shark|sharks|great white|great white shark|hammerhead|hammerhead shark|tiger shark|whale shark|bull shark",
+    "Dolphin|dolphins|bottlenose dolphin|bottlenose",
+    "Whale|whales|blue whale|humpback|humpback whale|sperm whale|gray whale|beluga|beluga whale",
+    "Octopus|octopuses|octopi",
+    "Sea Turtle|sea turtles|turtle|turtles|green sea turtle|leatherback",
+    "Jellyfish|jelly fish|jellies",
+    "Seal|seals|harbor seal|monk seal|elephant seal",
+    "Orca|orcas|killer whale|killer whales|shamu",
+    "Crab|crabs|king crab|hermit crab|blue crab",
+    "Stingray|stingrays|sting ray",
+    "Starfish|sea star|star fish|sea stars",
+    "Seahorse|seahorses|sea horse",
+    "Lobster|lobsters",
+    "Squid|squids|giant squid",
+    "Eel|eels|moray eel|moray",
+    "Sea Lion|sea lions",
+    "Clownfish|clown fish|nemo",
+    "Penguin|penguins",
+    "Walrus|walruses",
+    "Manatee|manatees|sea cow",
+    "Sea Otter|sea otters|otter",
+    "Narwhal|narwhals",
+    "Shrimp|prawn|prawns",
+    "Manta Ray|manta|manta rays"
+  ],
+  "changes_vs_current": "New topic. Raw order by average position across 6 people sources (missing = list length + 5): Shark 4.3, Whale 5.5, Dolphin 5.6, Penguin 8.6, Octopus 8.7, Seal 8.7, Jellyfish 12.8, Crab 12.9, Coral 13.0, Eel 13.3, Seahorse 13.3, Lobster 13.5, Orca 13.5, Walrus 14.7, Sea Turtle 15.0, Squid 15.0, Shrimp 15.1, Narwhal 15.5, Sea Lion 15.7, Tuna 15.7, Sea Urchin 15.8, Stingray 15.8, Sea Otter 16.2, Manatee 16.3, Beluga 16.5, Manta Ray 16.8, Oyster 16.8, Anglerfish 17.7, Starfish 18.5, Clownfish about 24. Gut-check moves: Dolphin above Whale (#1 in both favorite polls and YouGov; Whale leads only on word frequency); Sea Turtle 15 to 5 (#1-2 in both visitor/reader polls; compound name depresses fame signals); Orca 13 to 8 (most pageviews of any sea animal, named apart from 'whale'); Stingray 22 to 10 (Tellwut #3, gut); Starfish 29 to 11 (no poll offered it; fame split across 'starfish'/'sea star'); Clownfish ~24 to 17 ('Nemo' recall; Tellwut 'ornamental fish' 8%). Demotions: Penguin 4 to 18 (a bird many won't count; rank came from Wikipedia and YouGov UK); Coral off (rarely named as a creature; Ngram from 'coral reef' and the colour); Tuna and Oyster off (food-word inflation). Beluga is an alias of Whale; 'otter' sits on Sea Otter.",
+  "confidence": "Medium-low on exact order, medium on who is in the 24. Shark, Dolphin, Whale solid; Octopus, Sea Turtle, Jellyfish, Seal, Orca well supported for the top 8. No US national multi-species poll exists: Harris 2004 gave only its top two, Tellwut and Big Island Now are fixed-option, partly self-selected (Big Island is Hawaii-local), and the fame signals are noisy. Positions 9-24 lean on gut check plus fame data. Near misses: Beluga (alias on Whale), Sea Urchin, Coral, Tuna, Anglerfish, Pufferfish, Swordfish, Barracuda, Sea Anemone.",
+  "no_data_positions": []
+}

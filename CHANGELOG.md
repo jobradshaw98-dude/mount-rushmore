@@ -2,6 +2,15 @@
 
 Notable changes to Mount Rushmore Daily.
 
+## 2026-11-23: Historical Figures, Colleges, Hotel Chains, Ocean Animals and Video Game Consoles; Fast Food Chains and Candy re-ranked
+
+### Added
+- Five new topics: Historical Figures (all-time), Hotel Chains, Ocean Animals (sea creatures) and Video Game Consoles (home and handheld) show up in bonus rounds from game #59 (Nov 25), and Colleges (US colleges and universities) from game #60 (Nov 26). All five join the daily rotation when the next cycle starts.
+
+### Changed
+- From game #59, Fast Food Chains has data behind every spot: McDonald's stays #1, Chick-fil-A rises to #2, Taco Bell to #3 and Burger King from #6 to #4, while Wendy's drops from #2 to #5. Starbucks jumps from #16 to #7 and Domino's drops from #5 to #11. Panera falls from #13 to #21. In-N-Out comes back at #19; Wingstop leaves.
+- From game #59, Candy follows favorite-candy polls as well as Halloween sales: Reese's moves to #1 and M&M's to #2, and Snickers rises from #7 to #3. Twix jumps from #16 to #6, Milky Way from #23 to #9 and Butterfinger from #19 to #10. Skittles drops from #3 to #7 and Twizzlers from #10 to #24. Peanut M&M's now score as M&M's. Dove, Crunch, Almond Joy, Tootsie Pop and Jolly Rancher join; Hot Tamales, York Peppermint Pattie, Ghirardelli and Swedish Fish leave.
+
 ## 2026-11-16: US States, Birds, Scientists, Video Game Characters and Apps; Chips & Salty Snacks and Disney Animated Movies re-ranked
 
 ### Added
